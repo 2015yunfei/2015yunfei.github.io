@@ -15,7 +15,7 @@
         header {
             background-color: #333;
             color: #fff;
-            padding: 30px;
+            padding: 2%;
             text-align: center;
         }
 
@@ -37,9 +37,15 @@
         }
 
         section {
-            padding-left: 90px;
-            padding-right: 90px;
+            flex: 1; /* 让两个section平分容器的宽度 */
+            padding-left: 10%;
+            padding-right: 10%;
             padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 1200px; /* 设置内容的最大宽度 */
+            margin: 0 auto; /* 水平居中 */
         }
 
         footer {
@@ -53,13 +59,19 @@
 
         /* CSS样式，控制头像位置 */
         .avatar {
-            width: 100px; /* 设置头像的宽度 */
-            height: 100px; /* 设置头像的高度 */
-            position: absolute; /* 绝对定位 */
-            top: 20px; /* 与顶部的距离 */
-            left: 20px; /* 与左侧的距离 */
+            width: 130px; /* 设置头像的宽度 */
+            height: 130px; /* 设置头像的高度 */
+            /*position: absolute; !* 绝对定位 *!*/
+            /*top: 20px; !* 与顶部的距离 *!*/
+            /*left: 80px; !* 与左侧的距离 *!*/
             border-radius: 50%; /* 圆形头像 */
         }
+
+        /* Flexbox布局 */
+        .container {
+            display: flex; /* 使用Flex布局 */
+        }
+
     </style>
 </head>
 <body>
@@ -75,14 +87,34 @@
     <a href="#english">英语成绩</a>
     <a href="#contact">联系我</a>
 </nav>
-<!-- HTML中的头像 -->
-<img class="avatar" src="123.jpg" alt="个人头像">
+
+
+<!--<div class="container">-->
+<!--    <section id="about">-->
+<!--        <h2>关于我</h2>-->
+<!--        <p>-->
+<!--            华中科技大学2021级本科生，就读于网络空间安全学院信息安全专业。<br></br>我是一个喜爱编程和设计的人，喜欢探索新技术，构建有趣的项目。-->
+<!--        </p>-->
+<!--    </section>-->
+<!--    <section style="margin-left: 0px;">-->
+<!--        &lt;!&ndash; HTML中的头像 &ndash;&gt;-->
+<!--        <img style="margin-left: 0px;" class="avatar" src="123.jpg" alt="个人头像">-->
+<!--    </section>-->
+<!--</div>-->
+
+
+<section>
+    <!-- HTML中的头像 -->
+    <img class="avatar" src="123.jpg" alt="个人头像">
+</section>
 <section id="about">
     <h2>关于我</h2>
     <p>
         华中科技大学2021级本科生，就读于网络空间安全学院信息安全专业。<br></br>我是一个喜爱编程和设计的人，喜欢探索新技术，构建有趣的项目。
     </p>
 </section>
+
+
 <section id="competition">
     <h2>竞赛经历</h2>
     <ul>
@@ -95,16 +127,17 @@
 <section id="experience">
     <h2>实习经历</h2>
     <p>2024 年 1 月至 2 月：中科院自动化所<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;跟随中科院<a
-            href="https://people.ucas.edu.cn/~lvyanfeng">吕彦峰</a>老师参与计算机视觉和数字图像处理方面的研究，发表会议论文：Image
+            href="https://people.ucas.edu.cn/~lvyanfeng" target="_blank">吕彦峰</a>老师参与计算机视觉和数字图像处理方面的研究，发表会议论文：Image
         Enhancement Optimization of ResNet Convolutional Neural Network for Palmprint Recognition。</p>
 </section>
 <section id="projects">
     <h2>个人项目</h2>
     <ul>
         <li>利用多种图像增强技术优化ResNet卷积神经网络用于掌纹识别：<a
-                href="https://github.com/2015yunfei/Palmprint-recognition">Palmprint-recognition</a></li>
+                href="https://github.com/2015yunfei/Palmprint-recognition" target="_blank">Palmprint-recognition</a>
+        </li>
         <li>操作系统课设：<a href=" ">马上完成！</a></li>
-        <li>一些python脚本：<a href="https://github.com/2015yunfei/python_script">python_script</a></li>
+        <li>一些python脚本：<a href="https://github.com/2015yunfei/python_script" target="_blank">python_script</a></li>
     </ul>
 </section>
 <section id="skills">
@@ -119,8 +152,8 @@
 </section>
 <section id="english">
     <h2>英语成绩</h2>
-    <p>雅思ILETS成绩：7.0</p>
-    <ul>
+    <p style="margin-bottom: 1px;">雅思ILETS成绩：7.0<br></p>
+    <ul style="margin-top: 1px;">
         <li>Listening：7.0</li>
         <li>Speaking：6.5</li>
         <li>Reading：8.5</li>
@@ -128,6 +161,7 @@
     </ul>
     <p>英语六级成绩：522</p>
     <p>英语四级成绩：593</p>
+    <p>GRE成绩：正在猛学！</p>
 </section>
 <section id="contact">
     <h2>联系我</h2>
