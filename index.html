@@ -11,107 +11,135 @@
             padding: 0;
             background-color: #f3f3f3;
         }
+
         header {
             background-color: #333;
             color: #fff;
-            padding: 20px;
+            padding: 30px;
             text-align: center;
         }
+
         h1 {
             margin: 0;
         }
+
         nav {
             background-color: #444;
             color: #fff;
             padding: 10px;
             text-align: center;
         }
+
         nav a {
             color: #fff;
             text-decoration: none;
             margin: 0 10px;
         }
+
         section {
-            padding: 20px;
+            padding-left: 90px;
+            padding-right: 90px;
+            padding-top: 20px;
         }
+
         footer {
             background-color: #333;
             color: #fff;
             text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
+            padding: 10px 10px 10px;
+            position: relative; /* 设置为相对定位 */
             width: 100%;
+        }
+
+        /* CSS样式，控制头像位置 */
+        .avatar {
+            width: 100px; /* 设置头像的宽度 */
+            height: 100px; /* 设置头像的高度 */
+            position: absolute; /* 绝对定位 */
+            top: 20px; /* 与顶部的距离 */
+            left: 20px; /* 与左侧的距离 */
+            border-radius: 50%; /* 圆形头像 */
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>欢迎来到我的个人主页</h1>
-    </header>
-    <nav>
-        <a href="#about">关于我</a>
-        <a href="#competition">竞赛经历</a>
-        <a href="#experience">实习经历</a>
-        <a href="#skills">掌握的技能</a>
-        <a href="#projects">个人项目</a>
-        <a href="#english">英语成绩</a>
-        <a href="#contact">联系我</a>
-    </nav>
-    <section id="about">
-        <h2>关于我</h2>
-        <p>华中科技大学2021级本科生，就读于网络空间安全学院信息安全专业。我是一个喜爱编程和设计的人，喜欢探索新技术，构建有趣的项目。</p>
-    </section>
-    <section id="competition">
-        <h2>竞赛经历</h2>
-        <ul>
-            <li>第十四届蓝桥杯程序设计竞赛 C/C++ A 组省赛一等奖</li>
-            <li>第十四届蓝桥杯程序设计竞赛 C/C++ A 组国赛三等奖</li>
-            <li>CCF CSP 认证 280 分 排名：5%</li>
-            <li>加权成绩专业排名前 25%</li>
-        </ul>
-    </section>
-    <section id="experience">
-        <h2>实习经历</h2>
-        <p>2024 年 1 月至 2 月：中科院自动化所<br>参与计算机视觉和数字图像处理方面的研究，发表会议论文：Image Enhancement Optimization of ResNet Convolutional Neural Network for Palmprint Recognition。</p>
-    </section>
-    <section id="skills">
-        <h2>掌握的技能</h2>
-        <ul>
-            <li>了解C++语言、Python语言</li>
-            <li>对竞赛算法有所涉猎</li>
-            <li>掌握数据结构、计算机网络、操作系统和计算机组成原理方面的基本知识。</li>
-        </ul>
-    </section>
-    <section id="projects">
-        <h2>个人项目</h2>
-        <ul>
-            <li>利用多种图像增强技术优化ResNet卷积神经网络用于掌纹识别：<a href="https://github.com/2015yunfei/Palmprint-recognition">Palmprint-recognition</a></li>
-            <li>一些python脚本：<a href="https://github.com/2015yunfei/python_script">python_script</a></li>
-        </ul>
-    </section>
-    <section id="english">
-        <h2>英语成绩</h2>
-        <p>雅思ILETS成绩：7.0</p>
-        <ul>
-            <li>Listening：7.0</li>
-            <li>Speaking：6.5</li>
-            <li>Reading：8.5</li>
-            <li>Writing：6.5</li>
-        </ul>
-        <p>英语六级成绩：522</p>
-        <p>英语四级成绩：593</p>
-    </section>
-    <section id="contact">
-        <h2>联系我</h2>
-        <p>您可以通过以下方式联系到我：</p>
-        <ul>
-            <li>Email: <a href="mailto:yunfei2016@foxmail.com">yunfei2016@foxmail.com</a></li>
-            <li>Email: <a href="mailto:u202112032@hust.edu.cn">u202112032@hust.edu.cn</a></li>
-        </ul>
-    </section>
-    <footer>
-        <p>&copy; 2024 我的个人主页</p>
-    </footer>
+<header>
+    <h1>欢迎来到屈云飞的个人主页</h1>
+</header>
+<nav>
+    <a href="#about">关于我</a>
+    <a href="#competition">竞赛经历</a>
+    <a href="#experience">实习经历</a>
+    <a href="#skills">掌握的技能</a>
+    <a href="#projects">个人项目</a>
+    <a href="#english">英语成绩</a>
+    <a href="#contact">联系我</a>
+</nav>
+<!-- HTML中的头像 -->
+<img class="avatar" src="123.jpg" alt="个人头像">
+<section id="about">
+    <h2>关于我</h2>
+    <p>
+        华中科技大学2021级本科生，就读于网络空间安全学院信息安全专业。<br></br>我是一个喜爱编程和设计的人，喜欢探索新技术，构建有趣的项目。
+    </p>
+</section>
+<section id="competition">
+    <h2>竞赛经历</h2>
+    <ul>
+        <li>第十四届蓝桥杯程序设计竞赛 C/C++ A 组省赛一等奖</li>
+        <li>第十四届蓝桥杯程序设计竞赛 C/C++ A 组国赛三等奖</li>
+        <li>CCF CSP 认证 280 分 排名：5%</li>
+        <li>加权成绩专业排名前 25%</li>
+    </ul>
+</section>
+<section id="experience">
+    <h2>实习经历</h2>
+    <p>2024 年 1 月至 2 月：中科院自动化所<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;跟随中科院<a
+            href="https://people.ucas.edu.cn/~lvyanfeng">吕彦峰</a>老师参与计算机视觉和数字图像处理方面的研究，发表会议论文：Image
+        Enhancement Optimization of ResNet Convolutional Neural Network for Palmprint Recognition。</p>
+</section>
+<section id="projects">
+    <h2>个人项目</h2>
+    <ul>
+        <li>利用多种图像增强技术优化ResNet卷积神经网络用于掌纹识别：<a
+                href="https://github.com/2015yunfei/Palmprint-recognition">Palmprint-recognition</a></li>
+        <li>操作系统课设：<a href=" ">马上完成！</a></li>
+        <li>一些python脚本：<a href="https://github.com/2015yunfei/python_script">python_script</a></li>
+    </ul>
+</section>
+<section id="skills">
+    <h2>掌握的技能</h2>
+    <ul>
+        <li>了解C++语言、Python语言。</li>
+        <li>了解竞赛算法有所涉猎。</li>
+        <li>了解基本的图像处理算法。</li>
+        <li>熟悉常用的数字图像处理Python库，包括OpenCV、PIL和NumPy。。</li>
+        <li>掌握数据结构、计算机网络、操作系统和计算机组成原理方面的基本知识。</li>
+    </ul>
+</section>
+<section id="english">
+    <h2>英语成绩</h2>
+    <p>雅思ILETS成绩：7.0</p>
+    <ul>
+        <li>Listening：7.0</li>
+        <li>Speaking：6.5</li>
+        <li>Reading：8.5</li>
+        <li>Writing：6.5</li>
+    </ul>
+    <p>英语六级成绩：522</p>
+    <p>英语四级成绩：593</p>
+</section>
+<section id="contact">
+    <h2>联系我</h2>
+    <p>您可以通过以下方式联系到我：</p>
+    <ul>
+        <li>Email: <a href="mailto:yunfei2016@foxmail.com">yunfei2016@foxmail.com</a></li>
+        <li>Email: <a href="mailto:u202112032@hust.edu.cn">u202112032@hust.edu.cn</a></li>
+    </ul>
+</section>
+<footer>
+    <p>&copy; 2024 2015yunfei的个人主页</p>
+</footer>
 </body>
 </html>
+
