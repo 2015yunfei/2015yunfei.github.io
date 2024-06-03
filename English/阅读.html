@@ -1,0 +1,808 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>阅读</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><ol start='' ><li><p><span>文章：文章重点和常考点</span></p></li><li><p><span>做题：题型分类和选项套路</span></p></li><li><p><span>逻辑：逻辑单题套路</span></p></li><li><p><span>学科：学科背景和做题知识</span></p></li></ol><p>&nbsp;</p><h1 id='第一节课'><span>第一节课</span></h1><p>&nbsp;</p><p><span>GRE阅读长什么样子？</span></p><p><span>什么是主旨？</span></p><p><span>什么是文章视角？</span></p><p><span>什么是论证结构？</span></p><p><span>阅读常考的逻辑有哪些？</span></p><p>&nbsp;</p><h2 id='gre阅读长什么样子'><span>GRE阅读长什么样子</span></h2><p>&nbsp;</p><h3 id='阅读所需要的技能'><span>阅读所需要的技能</span></h3><p>&nbsp;</p><ul><li><p><span>定位</span></p></li><li><p><span>同义改写</span></p><ul><li><p><span>取同</span></p></li><li><p><span>取反</span></p></li></ul></li></ul><p>&nbsp;</p><blockquote><p><span>西施真的很美，东施恰恰相反。</span></p><p><span>东施什么样子？</span></p></blockquote><p>&nbsp;</p><h3 id='标准化考试'><span>标准化考试</span></h3><p>&nbsp;</p><h4 id='能力考试和知识考试'><span>能力考试和知识考试</span></h4><p>&nbsp;</p><p><span>GRE考试是能力考试，所有需要的内容都会在考试中给出。（常识例外）</span></p><p>&nbsp;</p><p><span>GRE常见的常识：供需关系</span></p><p>&nbsp;</p><h4 id='正确答案和最佳答案'><span>正确答案和最佳答案</span></h4><p>&nbsp;</p><p><span>GRE考试不是选最佳答案，而是选择唯一正确的答案。</span></p><p>&nbsp;</p><p><span>只有正确错误之分，没有好或者更好之分。</span></p><p>&nbsp;</p><p><span>ps：一定是排除法，而不是比较法。</span></p><p>&nbsp;</p><h4 id='套路固定'><span>套路固定</span></h4><p>&nbsp;</p><ol start='' ><li><p><span>文章固定</span></p></li><li><p><span>题型固定/问法固定</span></p></li><li><p><span>选项设置固定</span></p></li></ol><p>&nbsp;</p><h3 id='文章题材'><span>文章题材</span></h3><p>&nbsp;</p><ol start='' ><li><p><span>日常10%</span></p></li><li><p><span>人文20%</span></p></li><li><p><span>科学50%</span></p></li><li><p><span>社科20%</span></p></li></ol><p>&nbsp;</p><h3 id='题型分类'><span>题型分类</span></h3><p>&nbsp;</p><h4 id='单选'><span>单选</span></h4><p>&nbsp;</p><p><span>五选一</span></p><p>&nbsp;</p><h4 id='不定项选择'><span>不定项选择</span></h4><p>&nbsp;</p><p><span>三选一</span></p><p>&nbsp;</p><h4 id='句子选择'><span>句子选择</span></h4><p>&nbsp;</p><p><span>无选项，在原文中选出一个句子</span></p><p>&nbsp;</p><h3 id='文章类型'><span>文章类型</span></h3><p>&nbsp;</p><p><span>文章类型是根据文章后面题目的数量确定的。</span></p><p>&nbsp;</p><p><img src="阅读/image-20240225181546220.png" referrerpolicy="no-referrer" alt="image-20240225181546220"></p><p>&nbsp;</p><h3 id='出题顺序'><span>出题顺序</span></h3><p>&nbsp;</p><p><img src="阅读/image-20240225181335857.png" referrerpolicy="no-referrer" alt="image-20240225181335857"></p><p>&nbsp;</p><p><span>在ETS看来阅读分为：长阅读和短阅读两个类型。</span></p><p>&nbsp;</p><h3 id='总结'><span>总结</span></h3><p>&nbsp;</p><ol start='' ><li><p><span>13个阅读题：shorter和longer对半开</span></p></li><li><p><span>每个题的分值一样，不论其难度如何；不定项选择全对才有分</span></p></li><li><p><span>S1：7个填空（8min）5个阅读（10min）=18min</span></p></li><li><p><span>S2：7个填空（7min）8个阅读（16min）=23min</span></p></li><li><p><span>短阅读是阅读之母</span></p></li></ol><p>&nbsp;</p><h2 id='什么是主旨'><span>什么是主旨</span></h2><p>&nbsp;</p><h3 id='main-idea-or-topic'><span>main idea or topic</span></h3><p>&nbsp;</p><p><img src="阅读/image-20240225182727613.png" alt="image-20240225182727613" style="zoom:33%;" /></p><p>&nbsp;</p><p><span>main idea = attitude + topic</span></p><p>&nbsp;</p><p><span>attitude：positive/negative/neutral</span></p><p><span>topic：原词或者上位词</span></p><p>&nbsp;</p><p><img src="阅读/image-20240225183315267.png" alt="image-20240225183315267" style="zoom:50%;" /></p><p>&nbsp;</p><h3 id='主旨哪里找'><span>主旨哪里找</span></h3><p>&nbsp;</p><p><span>汉堡包结构：</span></p><p>&nbsp;</p><p><img src="阅读/image-20240225183559038.png" alt="image-20240225183559038" style="zoom:25%;" /></p><p>&nbsp;</p><ol start='' ><li><p><span>第一句/第二句/最后一句——立论文</span></p></li><li><p><span>However之后——驳论文</span></p></li></ol><p>&nbsp;</p><ol start='' ><li><p><span>Nature&#39;s Way, a chain of stores selling health food and other health-related products, is opening its next franchise in the town of Plainsville. </span></p></li><li><p><strong><span>The store should prove to be very successful</span></strong><span>: Nature&#39;s Way franchises tend to be most profitable in areas where residents lead healthy lives, and clearly Plainsville is such an area. </span></p></li><li><p><span>Plainsville merchants report that sales of running shoes and exercise clothing are at all-time highs. </span></p></li><li><p><span>The local health club has more members than ever, and the weight training and aerobics classes are always full. </span></p></li><li><p><span>Finally, Plainsville&#39;s schoolchildren represent a new generation of potential customers: these schoolchildren are required to participate in a fitness-for-life program, which emphasizes the benefits of regular exercise at an early age.</span></p></li></ol><p>&nbsp;</p><ol start='' ><li><p><span>Twenty years ago, Dr. Field, a noted anthropologist, visited the island of Tertia and concluded from his observations that children in Tertia were reared by an entire village rather than by their own biological parents. </span></p></li><li><p><span>However, my recent interviews with children living in the group of islands that includes Tertia show that these children spend much more time talking about their biological parents than about other adults in the village. </span></p></li><li><p><strong><span>This research of mine proves that Dr. Field&#39;s conclusion about Tertian village culture is invalid and thus that the observation-centered approach to studying cultures is invalid as well.</span></strong><span> </span></p></li><li><p><span>The interview-centered method that my team of graduate students is currently using in Tertia will establish a much more accurate understanding of child-rearing traditions there and in other island cultures.</span></p></li></ol><p>&nbsp;</p><h2 id='什么是文章视角'><span>什么是文章视角 </span></h2><p>&nbsp;</p><h3 id='视角'><span>视角</span></h3><p>&nbsp;</p><p><span>视角：谁在说话</span></p><ul><li><p><span>非作者视角：人名、理论、研究、被动态</span></p></li><li><p><span>作者视角：没有上述内容</span></p></li></ul><p>&nbsp;</p><h3 id='视角和视角的关系'><span>视角和视角的关系</span></h3><p>&nbsp;</p><p><span>视角和视角之间的关系：</span></p><ul><li><p><span>positive：赞同</span></p></li><li><p><span>neutral：可以视作一种补充关系</span></p></li><li><p><span>negative：反驳</span></p></li></ul><p>&nbsp;</p><h3 id='视角的考法'><span>视角的考法</span></h3><p>&nbsp;</p><p><img src="阅读/image-20240225185131931.png" referrerpolicy="no-referrer" alt="image-20240225185131931"></p><p>&nbsp;</p><p><span>An Irish newspaper editorial encouraging women to participate in the non-importation movement launched in Ireland in 1779 appears consistent with a perception that the political use of the consumer boycott originated in North America and spread eastwards across the Atlantic to Ireland. This is a view that most historians have concurred with. For example, T.H. Breen argued that the consumer boycott was a brilliantly original American invention. </span><strong><span>Breen did acknowledge that a few isolated boycotts may have taken place in other countries.</span></strong><span> However, Mary ODowd argues that from the late seventeenth century, Irish political discourse advocated for the nonconsumption of imported goods and support for home manufactures by women in ways that were strikingly similar to those used later in North America.</span></p><ol start='' ><li><p><span>The passage is primarily concerned with </span></p></li></ol><ul><li><p><span>A. resolving a dispute</span></p></li><li><p><span>B. advocating a course of action</span></p></li><li><p><span>C. tracing the evolution of a practice </span></p></li><li><p><span>D. citing competing views of an issue √</span></p></li><li><p><span>E. chronicling a series of events</span></p></li></ul><p>&nbsp;</p><h2 id='什么是论证结构'><span>什么是论证结构</span></h2><p>&nbsp;</p><p><span>视角：谁在说话</span></p><p><span>论证结构：TA如何说话</span></p><p>&nbsp;</p><h3 id='区分事实和观点'><span>区分事实和观点</span></h3><p>&nbsp;</p><p><span>Fact 客观事实 和 视角无关</span></p><p><span>Opinion 某个人的主观观点 从属于某个视角</span></p><p>&nbsp;</p><blockquote><p><span>今天三十八度</span></p><p><span>我热得受不了了</span></p></blockquote><p>&nbsp;</p><h3 id='从观点到论证'><span>从观点到论证</span></h3><p>&nbsp;</p><p><img src="阅读/image-20240225191128534.png" alt="image-20240225191128534" style="zoom:33%;" /></p><p>&nbsp;</p><p><span>人类的推理模式：</span></p><ol start='' ><li><p><span>演绎推理</span></p></li><li><p><span>归纳推理</span></p></li></ol><p>&nbsp;</p><p><strong><span>GRE只考演绎推理</span></strong></p><p>&nbsp;</p><p><span>最经典结构：</span></p><ol start='' ><li><p><span>Claim</span></p></li><li><p><span>Reason</span></p></li><li><p><span>Evidence</span></p></li></ol><p>&nbsp;</p><p><span>背景信息：fact 不在 argument 里面</span></p><p><span>论点：opinion 是 argument 里面的 claim</span></p><p><span>论点+论据：argument = claim + reason + evidance</span></p><p>&nbsp;</p><p><img src="阅读/image-20240225191835928.png" alt="image-20240225191835928" style="zoom:33%;" /></p><p>&nbsp;</p><p><img src="阅读/image-20240225191859788.png" alt="image-20240225191859788" style="zoom:33%;" /></p><p>&nbsp;</p><h3 id='论证结构的考法'><span>论证结构的考法</span></h3><p>&nbsp;</p><p><img src="阅读/image-20240225192727082.png" referrerpolicy="no-referrer" alt="image-20240225192727082"></p><p>&nbsp;</p><p><span>One reason researchers have long believed that Mars never enjoyed an extensive period of warm and wet climate is that much of the surface not covered by wind-borne dust appear to be composed of unweathered material. </span><strong><span>If water flowed for an entended period, researchers reasoned, it should have altered and weathered the volcanic minerals, creating clays or other oxidized, hydrated phases (minerals that incorporate water molecules in their crystal structure).</span></strong></p><p>&nbsp;</p><p><span>It turns out, though, that the scientists were not looking closely enough. New high-resolution mapping data and close-up surface studies have revealed clays and other hydrated minerals in many regions. The clay deposits are scattered all over, in ancient volcanic surfaces and heavily cratered highland regions, some of which have apparently been exposed by erosion only recently.</span></p><p>&nbsp;</p><p><span>Consider each of the choices separately and select all that apply.</span></p><p><span>It can be inferred from the passage that the author would agree with which of the following statements regarding the reasoning discussed in the highlighted sentence?</span></p><ul><li><p><span>A. It provides the basis for an explanation of why water on Mars has been difficult to find until recently.</span></p></li><li><p><span>B. It correctly identifies a consequence of water flowing on the Martian surface. √</span></p></li><li><p><span>C. It depends on a false assumption about how water and volcanic materials interact on Mars.</span></p></li></ul><p>&nbsp;</p><p><span>An Irish newspaper editorial encouraging women to participate in the non-importation movement launched in Ireland in 1779 appears consistent with a perception that the political use of the consumer boycott originated in North America and spread eastwards across the Atlantic to Ireland. This is a view that most historians have concurred with. For example, T.H. Breen argued that the consumer boycott was a brilliantly original American invention. </span><strong><span>Breen did acknowledge that a few isolated boycotts may have taken place in other countries.</span></strong><span> However, Mary ODowd argues that from the late seventeenth century, Irish political discourse advocated for the nonconsumption of imported goods and support for home manufactures by women in ways that were strikingly similar to those used later in North America.</span></p><p>&nbsp;</p><p><span>In the context of the passage, the highlighted sentence serves to </span></p><ul><li><p><span>A. qualify a point made in the preceding sentence √</span></p></li><li><p><span>B. correct an erroneous assumption</span></p></li><li><p><span>C. provide evidence in support of a perception cited in the opening sentence </span></p></li><li><p><span>D. provide a rationale for the view expressed in the following sentence</span></p></li><li><p><span>E. establish the popularity of a point of view</span></p></li></ul><p>&nbsp;</p><h2 id='阅读常考的逻辑有哪些'><span>阅读常考的逻辑有哪些</span></h2><p>&nbsp;</p><h3 id='常见逻辑'><span>常见逻辑</span></h3><p>&nbsp;</p><ol start='' ><li><p><span>并列</span></p></li><li><p><span>递进</span></p></li><li><p><span>条件/假设</span></p></li><li><p><span>因果</span></p></li><li><p><span>转折</span></p></li><li><p><span>让步</span></p><ol start='' ><li><p><span>承认自己有问题</span></p></li><li><p><span>承认别人有道理</span></p></li><li><p><span>让步后面要跟什么（转折）</span></p></li></ol></li></ol><p>&nbsp;</p><p><span>GRE最喜欢的四个逻辑：</span></p><ul><li><p><span>并列 A and B——原文是大并列结构，考不定项选择</span></p></li><li><p><span>因果 A but </span><strong><span>B</span></strong></p></li><li><p><span>转折 Even if </span><strong><span>A</span></strong><span>， B</span></p></li><li><p><span>让步 Because A，</span><strong><span>→</span></strong><span> B</span></p></li></ul><p>&nbsp;</p><h1 id='第二节课'><span>第二节课</span></h1><p>&nbsp;</p><h2 id='答案从哪里找'><span>答案从哪里找</span></h2><p>&nbsp;</p><h3 id='先看文章还是先看题'><span>先看文章还是先看题</span></h3><p>&nbsp;</p><p><span>标准化考试：</span></p><ol start='' ><li><p><span>所有答案都是在文中</span></p></li><li><p><span>有且仅有一个答案</span></p></li><li><p><span>文章和题目的道路非常固定</span></p></li></ol><p>&nbsp;</p><p><span>所需要的技能：</span></p><ol start='' ><li><p><span>定位</span></p></li><li><p><span>同义改写</span></p></li></ol><p>&nbsp;</p><p><span>推荐：</span><strong><span>先看文章，再看题目</span></strong></p><blockquote><p><span>OG指出：保证有不少题目在不看完文章的情况下做不出来</span></p></blockquote><p>&nbsp;</p><h3 id='定位方法'><span>定位方法</span></h3><p>&nbsp;</p><ol start='' ><li><p><span>上策：读文章的时候预测考点</span></p></li><li><p><span>中策：题干中的关键词（名词的可能性最大，一般是上位词、年代、人名、地名）</span></p></li><li><p><span>下策：逐行逐句读？——短阅读-扫视、长阅读-放弃</span></p></li></ol><p>&nbsp;</p><p><span>对于上策：</span></p><p><span>关注主旨：</span><strong><span>main idea=topic+attitude</span></strong></p><p><span>关注细节：</span></p><p><span>爱考逻辑：</span></p><ul><li><p><span>取同、解释说明——并列、因果</span></p></li><li><p><span>取反、让步转折——让步、转折</span></p></li></ul><p>&nbsp;</p><h2 id='选项特征'><span>选项特征</span></h2><p>&nbsp;</p><p><span>涉及到同义改写的问题。</span></p><p>&nbsp;</p><p><img src="阅读/image-20240304191245271.png" referrerpolicy="no-referrer" alt="image-20240304191245271"></p><p><span>这个表格在填空和阅读中都适用</span></p><p>&nbsp;</p><p><span>进行进一步的完善之后是这样的：</span></p><p><img src="阅读/image-20240304191515865.png" referrerpolicy="no-referrer" alt="image-20240304191515865"></p><p>&nbsp;</p><p><span>偷换概念的三大套路：</span></p><ol start='' ><li><p><strong><span>过度改写</span></strong><span>——上海—（一个城市、中国）</span></p><ol start='' ><li><p><span>范围扩大、程度加强：all、always、every、each、most、around the world</span></p></li><li><p><span>范围缩小、程度减轻：only、never、any、least、nowhere</span></p></li></ol></li><li><p><span>混淆：原文中无关的内容出现在一个选项中</span></p><ol start='' ><li><p><span>混淆因果：把没有关系的东西强加一个因果，或者把因果搞反了，或者是把A→B→C写成A→C→B</span></p></li><li><p><span>混淆修饰语和被修饰语</span></p></li><li><p><span>混淆比较：A好，B好→A比B好</span></p></li></ol></li><li><p><span>完全相反</span></p></li></ol><p>&nbsp;</p><p><img src="阅读/image-20240304200557915.png" referrerpolicy="no-referrer" alt="image-20240304200557915"></p><p>&nbsp;</p><h2 id='常见题型和解题技巧'><span>常见题型和解题技巧</span></h2><p>&nbsp;</p><h3 id='分类'><span>分类</span></h3><p>&nbsp;</p><p><span>阅读所有题型的分类——按照内容分类：</span></p><p><img src="阅读/image-20240304201015039.png" referrerpolicy="no-referrer" alt="image-20240304201015039"></p><p>&nbsp;</p><h3 id='主旨题做法'><span>主旨题做法</span></h3><p>&nbsp;</p><ol start='' ><li><p><span>标志：central claim、main idea、main purpose、primarily concerned with</span></p></li><li><p><span>正确选项：attitude+topic</span></p></li><li><p><span>常见干扰选项</span></p><ol start='' ><li><p><span>非作者观点（视角：区分文中XX的观点和本文作者的观点）</span></p></li><li><p><span>局部信息：只是detail而不是中心思想</span></p></li></ol></li></ol><p>&nbsp;</p><p><span>常见干扰选项：</span></p><p><strong><span>非作者观点</span></strong></p><p><img src="阅读/image-20240304201711515.png" referrerpolicy="no-referrer" alt="image-20240304201711515"></p><p>&nbsp;</p><p><strong><span>非中心思想</span></strong></p><p><img src="阅读/image-20240304201731687.png" referrerpolicy="no-referrer" alt="image-20240304201731687"></p><p>&nbsp;</p><h3 id='细节题推断题做法'><span>细节题、推断题做法</span></h3><p>&nbsp;</p><ol start='' ><li><p><span>标志：</span></p><ol start='' ><li><p><span>直接问文中的某个信息、东西（定位词可能是名词）</span></p></li><li><p><span>indicate、suggest、imply、infer</span></p></li></ol></li><li><p><span>正确选项：</span></p><ol start='' ><li><p><span>定位+同义改写</span></p></li></ol></li><li><p><span>常见干扰选项</span></p><ol start='' ><li><p><span>过、混、反</span></p></li><li><p><span>脑补必错——答案一定是原文中有的东西，不要脑补！！！——可能涉及到的推断只有三个</span></p></li></ol></li></ol><p>&nbsp;</p><p><span>推断的三种情况：</span></p><ol start='' ><li><p><span>对比</span></p></li><li><p><span>虚拟语气</span></p></li><li><p><span>三段论（取同两次）</span></p></li></ol><p>&nbsp;</p><p><span>取同：</span></p><ul><li><p><span>简单题：和细节题一样、取同一次</span></p></li><li><p><span>难题：综合两处或者以上信息，取同多次</span></p></li></ul><p>&nbsp;</p><blockquote><p><span>原文：所有鸟都是卵生的。企鹅是鸟。</span></p><p><span>题目：企鹅是卵生的吗？ （回答：是）</span></p><p><span>大前提：所有鸟都是卵生的。</span></p><p><span>小前提：企鹅是鸟。</span></p></blockquote><p>&nbsp;</p><h3 id='目的题功能题做法'><span>目的题、功能题做法</span></h3><p>&nbsp;</p><p><span>正确选项：attitude+topic</span></p><p><span>attitude：支持、中立、反对</span></p><p><span>topic：自己是什么，服务于什么</span></p><ol start='' ><li><p><span>fact：补充说明解释</span></p></li><li><p><span>claim=view=point=conclusion：作者赞同还是反对的</span></p></li><li><p><span>reason：支持</span></p></li><li><p><span>evidence：支持</span></p></li></ol><p>&nbsp;</p><p><span>定位问题：</span></p><p><span>看前后文，90%的情况是看前文。</span></p><p>&nbsp;</p><p><span>干扰选项：</span></p><p><span>信息本身不等于信息的目的（答非所问）</span></p><p><span>信息本身哪个干扰选项往往和原文有细微差别。</span></p><p>&nbsp;</p><h3 id='词汇题'><span>词汇题</span></h3><p>&nbsp;</p><p><span>更像是填空的单空题：</span></p><p><span>把这个词挖掉，在下面几个词中选择一个填进去。</span></p><p>&nbsp;</p><h2 id='中长阅读怎么做'><span>中/长阅读怎么做</span></h2><p><span>中/长阅读和短阅读所需的能力都是一样的。</span></p><p>&nbsp;</p><p><span>不要放弃单一信息就可以做出来的题</span></p><p><span>不要放弃定位词明显的题</span></p><p><span>可以放弃需要读懂全文，综合全文信息才可以作对的题</span></p><p>&nbsp;</p><p><span>理解出题的套路：化被动为主动，理解这个题目为什么这样出</span></p><p><span>养成订正的习惯：不靠语感而是讲究证据</span></p><p>&nbsp;</p><h1 id='第三节课'><span>第三节课</span></h1><h2 id='逻辑单题的本质'><span>逻辑单题的本质</span></h2><p>&nbsp;</p><p><img src="阅读/image-20240407203657858.png" alt="image-20240407203657858" style="zoom:33%;" /></p><p><img src="阅读/image-20240407203728474.png" alt="image-20240407203728474" style="zoom:33%;" /></p><p><img src="阅读/image-20240407204124342.png" referrerpolicy="no-referrer" alt="image-20240407204124342"></p><p>&nbsp;</p><ol start='' ><li><p><span>考的是语文（逻辑放在语文里教）</span></p></li><li><p><span>如果有比较多的题翻译成中文还是不知道怎么做，建议放弃逻辑单题</span></p></li></ol><p>&nbsp;</p><h2 id='boldface'><span>Boldface</span></h2><p>&nbsp;</p><ul><li><p><span>短阅读中的功能题</span></p></li><li><p><span>用短阅读中的技巧</span></p><ul><li><p><span>区分Perspective</span></p></li><li><p><span>区分Fact/Claim/Reason/Evidence</span></p></li></ul></li><li><p><span>需要看全文（某个视角下的观点和作者的观点是不是一致）</span></p></li></ul><p>&nbsp;</p><p>&nbsp;</p><h2 id='结论'><span>结论</span></h2><p>&nbsp;</p><p><span>类似于短阅读中的推断类型的题目</span></p><p>&nbsp;</p><h2 id='削弱加强评价'><span>削弱、加强、评价</span></h2><p>&nbsp;</p><p><img src="阅读/image-20240407210451348.png" referrerpolicy="no-referrer" alt="image-20240407210451348"></p><p>&nbsp;</p><p><strong><span>削弱</span></strong></p><p><img src="阅读/image-20240407210615473.png" referrerpolicy="no-referrer" alt="image-20240407210615473"></p><p><img src="阅读/image-20240407210756239.png" referrerpolicy="no-referrer" alt="image-20240407210756239"></p><p><img src="阅读/image-20240407211336127.png" referrerpolicy="no-referrer" alt="image-20240407211336127"></p><p>&nbsp;</p><p><strong><span>加强</span></strong></p><p><img src="阅读/image-20240407211841547.png" referrerpolicy="no-referrer" alt="image-20240407211841547"></p><p><img src="阅读/image-20240407213916527.png" referrerpolicy="no-referrer" alt="image-20240407213916527"></p><p>&nbsp;</p><p><strong><span>评价</span></strong></p><ol start='' ><li><p><span>加强削弱的综合版本</span></p></li><li><p><span>成立则加强，不成立则削弱，或反之</span></p></li><li><p><span>选项一定是：X|Y|→</span></p></li></ol><p>&nbsp;</p><h2 id='补充解释'><span>补充、解释</span></h2><p>&nbsp;</p><p><img src="阅读/image-20240408090522061.png" referrerpolicy="no-referrer" alt="image-20240408090522061"></p><p><img src="阅读/image-20240408090531807.png" referrerpolicy="no-referrer" alt="image-20240408090531807"></p><p>&nbsp;</p><p><img src="阅读/image-20240408091644574.png" referrerpolicy="no-referrer" alt="image-20240408091644574"></p><p><img src="阅读/image-20240408091629174.png" referrerpolicy="no-referrer" alt="image-20240408091629174"></p><p>&nbsp;</p><h2 id='假设'><span>假设</span></h2><p>&nbsp;</p><p><span>充分条件：</span></p><ul><li><p><span>A是B的充分条件</span></p></li><li><p><span>有A一定有B，有B不一定有A</span></p></li></ul><p><span>必要条件：</span></p><ul><li><p><span>A是B的必要条件</span></p></li><li><p><span>A不一定有B，有B一定有A</span></p></li></ul><p><span>既不充分也不必要条件</span></p><ul><li><p><span>如果A是B的既不充分也不必要条件</span></p></li><li><p><span>有A不一定有B，有B不一定有A</span></p></li></ul><p><span>充分必要条件</span></p><ul><li><p><span>A是B的充要条件</span></p></li><li><p><span>有A一定有B，有B一定有A</span></p></li></ul><p>&nbsp;</p><p><span>Assumption：必要条件</span></p><p><span>正确选项：取反后，原文不成立</span></p><p><span>干扰选项：加强(加强不是假设)</span></p><p>&nbsp;</p><p><img src="阅读/image-20240408093544156.png" referrerpolicy="no-referrer" alt="image-20240408093544156"></p><p><img src="阅读/image-20240408093442584.png" referrerpolicy="no-referrer" alt="image-20240408093442584"></p><p><img src="阅读/image-20240408093450594.png" referrerpolicy="no-referrer" alt="image-20240408093450594"></p><p>&nbsp;</p><h2 id='总结-2'><span>总结</span></h2><p><img src="阅读/image-20240408093827022.png" referrerpolicy="no-referrer" alt="image-20240408093827022"></p><p>&nbsp;</p><h1 id='第四节课'><span>第四节课</span></h1><p>&nbsp;</p><p><span>学科背景和做题知识</span></p><p>&nbsp;</p><h2 id='生物学常考内容例文'><span>生物学常考内容+例文</span></h2><p>&nbsp;</p><p><span>first-hand</span></p><p>&nbsp;</p><p><span>second-hand</span></p><p><span>倒推法——family tree</span></p><p><span>模拟法——lab，island/land    性成熟期非常短</span></p><p>&nbsp;</p><p><span>进化论</span></p><p><img src="阅读/image-20240409194807264.png" referrerpolicy="no-referrer" alt="image-20240409194807264"></p><p>&nbsp;</p><h2 id='地质环境常考内容例文'><span>地质/环境常考内容+例文</span></h2><p>&nbsp;</p><p><span>自然力</span></p><p><img src="阅读/image-20240409200041982.png" referrerpolicy="no-referrer" alt="image-20240409200041982"></p><p>&nbsp;</p><p><span>人为力</span></p><p>&nbsp;</p><h2 id='天文常考内容例文'><span>天文常考内容+例文</span></h2><p>&nbsp;</p><p><span>太阳系</span></p><p>&nbsp;</p><p><img src="阅读/image-20240409201625553.png" referrerpolicy="no-referrer" alt="image-20240409201625553"></p><p>&nbsp;</p><p><span>天体类型</span></p><p>&nbsp;</p><p><img src="阅读/image-20240409201716057.png" referrerpolicy="no-referrer" alt="image-20240409201716057"></p><p>&nbsp;</p><p><span>天体运动</span></p><p>&nbsp;</p><p>&nbsp;</p><h2 id='经济心理常考内容例文'><span>经济/心理常考内容+例文</span></h2><p>&nbsp;</p><p>&nbsp;</p><h2 id='历史政治常考内容例文'><span>历史/政治常考内容+例文</span></h2><p>&nbsp;</p><p><img src="阅读/image-20240409203419576.png" referrerpolicy="no-referrer" alt="image-20240409203419576"></p><p>&nbsp;</p><p><img src="阅读/image-20240409203813320.png" referrerpolicy="no-referrer" alt="image-20240409203813320"></p><p>&nbsp;</p><h2 id='艺术文化常考内容例文'><span>艺术/文化常考内容+例文</span></h2><p><img src="阅读/image-20240409205756271.png" referrerpolicy="no-referrer" alt="image-20240409205756271"></p><p>&nbsp;</p><h1 id='单词整理'><span>单词整理</span></h1><h2 id='生物'><span>生物</span></h2><h3 id='动物'><span>动物</span></h3><h4 id='动物类型'><span>动物类型</span></h4><ol start='' ><li><p><span>Invertebrate: 没有脊椎的动物，例如昆虫、蠕虫等。</span></p></li><li><p><span>Vertebrate: 有脊椎的动物，包括鱼类、两栖类、爬行类、鸟类、哺乳类和灵长类等。</span></p></li><li><p><span>Amphibian: 两栖动物，如青蛙和蝾螈。</span></p></li><li><p><span>Reptile: 爬行动物，例如蜥蜴、蛇和乌龟。</span></p></li><li><p><span>Herbivore: 食草动物，主要以植物为食的动物，例如牛、羊和兔子。</span></p></li><li><p><span>Carnivore: 食肉动物，以其他动物为食的动物，例如狮子、老虎和狼。</span></p></li><li><p><span>Mammal: 哺乳动物，拥有乳汁喂养幼崽的动物，例如狗、猫、人类和老鼠。</span></p></li><li><p><span>Primate: 灵长类动物，包括猴子、猩猩和大猩猩等。</span></p></li></ol><h4 id='动物行为'><span>动物行为</span></h4><p><span>吃：A prey on B=feed on;prey=victim;predator;forage</span></p><ul><li><p><span>Predator: 捕食者</span></p></li><li><p><span>Forage: 觅食</span></p></li></ul><p><span>生：mate, reproduce, raise, spawn, lay, incubate, clutch</span></p><ul><li><p><span>Mate: 交配</span></p></li><li><p><span>Reproduce: 繁殖</span></p></li><li><p><span>Raise: 养育</span></p></li><li><p><span>Spawn: 产卵</span></p></li><li><p><span>Lay: 下蛋</span></p></li><li><p><span>Incubate: 孵化</span></p></li><li><p><span>Clutch: 一窝（通常指鸟类的）</span></p></li></ul><p><span>动：hibernate, migrate, camouflage, mimic</span></p><ul><li><p><span>Hibernate: 冬眠</span></p></li><li><p><span>Migrate: 迁徙</span></p></li><li><p><span>Camouflage: 伪装</span></p></li><li><p><span>Mimic: 模仿</span></p></li></ul><h4 id='常见动物'><span>常见动物</span></h4><ol start='' ><li><p><span>Moose - 麋鹿</span></p></li><li><p><span>Guppy - 小鱼</span></p></li><li><p><span>Otter - 水獭</span></p></li><li><p><span>Beaver - 海狸</span></p></li><li><p><span>Gorilla - 大猩猩</span></p></li><li><p><span>Chimpanzee - 黑猩猩</span></p></li><li><p><span>Antelope - 羚羊</span></p></li><li><p><span>Alligator - 短吻鳄（鳄鱼）</span></p></li><li><p><span>Caterpillar - 毛毛虫</span></p></li><li><p><span>Moth - 蛾子</span></p></li></ol><h3 id='植物'><span>植物</span></h3><h4 id='植物行为'><span>植物行为</span></h4><ol start='' ><li><p><span>Photosynthesis - 光合作用</span></p></li><li><p><span>Symbiosis - 共生</span></p></li><li><p><span>Defoliate - 脱叶</span></p></li><li><p><span>Blossom - 开花</span></p></li><li><p><span>Germinate - 发芽</span></p></li><li><p><span>Yield - 产量/收获</span></p></li></ol><h4 id='常见植物'><span>常见植物</span></h4><ul><li><p><span>Oak 橡树</span></p></li><li><p><span>maple 枫树 </span></p></li><li><p><span>algae 藻类 </span></p></li><li><p><span>moss=lichen 地衣 </span></p></li><li><p><span>crop 庄稼 </span></p></li><li><p><span>maize 玉米 </span></p></li><li><p><span>cactus 仙人掌</span></p></li></ul><h3 id='微生物'><span>微生物</span></h3><h4 id='四大致病微生物'><span>四大致病微生物</span></h4><p><span>Microorganism, microbe 微生物，微小生物</span></p><p><span>Virus, bacteria, fungi, parasite 病毒，细菌，真菌，寄生虫 </span></p><p><span>Germ (the germ of an idea) 细菌（一个想法的萌芽）</span></p><h4 id='抗微生物'><span>抗微生物</span></h4><p><span>antibiotic 抗生素，抗菌素</span></p><p><span>vaccine 疫苗；（计算机）杀毒软件</span></p><h4 id='生理'><span>生理</span></h4><p><span>hormone 激素，荷尔蒙；人造激素；性激素</span></p><p><span>immune 免疫的；不受影响的；免除的，豁免的</span></p><p><span>enzyme 酶</span></p><h3 id='生态'><span>生态</span></h3><p><span>biodiversity 生物多样性（维持着生态环境平衡的大量各种生物的共存）</span></p><p><span>food chain 食物链：生态系统中生物按照捕食顺序排列的一种组织形式，每个生物都以比它更低层次的生物为食物来源。</span></p><p><span>endangered species 濒危物种：濒临灭绝的生物种类，需要特殊保护以维持其生存。</span></p><p><span>preservation 保护，维护；保留，维持；（食物的）保存，保藏</span></p><h2 id='地质地理'><span>地质地理</span></h2><h3 id='地球构造'><span>地球构造</span></h3><h4 id='内部构造'><span>内部构造</span></h4><p><span>core 地核，天体的核心</span></p><p><span>mantle 地幔</span></p><p><span>crust 地壳</span></p><p><span>layer 通常翻译为“层”。这个词用来描述地球或其他天体结构中的一层，比如地壳、地幔和地核这样的不同层次。</span></p><h4 id='表面构造'><span>表面构造</span></h4><p><span>plain （大）平原</span></p><p><span>plateau 高原</span></p><p><span>valley 山谷；流域；溪谷</span></p><p><span>basin 盆地，海盆；内港，内湾</span></p><p><span>canyon （两边为峭壁、谷底通常有溪流的）峡谷</span></p><p><span>channel 河床；海峡</span></p><p><span>peninsula 半岛</span></p><p><span>island 岛屿</span></p><h4 id='火山'><span>火山</span></h4><p><span>volcano 火山</span></p><p><span>eruption 火山喷发；（战争、怒气等的）爆发</span></p><p><span>magma [地质]岩浆</span></p><p><span>lava （火山）熔岩，岩浆；火山岩</span></p><p><span>volcanic 火山的，火山引发的；（感情或情绪）猛烈的，易突然发作的</span></p><p><span>ash 灰；灰烬，废墟；骨灰，遗骸</span></p><p><span>crater （撞击或爆炸形成的）坑，弹坑；火山口；穴，洞</span></p><p><span>vent 火山口</span></p><p><span>hot spots 火山地貌：地球上上地幔的一个地方，热的岩浆从下地幔上涌，穿过地壳，通常在构造板块的内部形成火山地貌。</span></p><p><span>hot plume 热焰：指高温下产生的火焰或烟雾。</span></p><h4 id='地震'><span>地震</span></h4><p><span>seismic wave 地震波：指地震或地下爆炸引起的几种形式的振动波，它们通过地球传播。</span></p><p><span>epicenter 震中；中心</span></p><p><span>magnitude 震级；规模，大小</span></p><p><span>intensity 强烈，剧烈；（光、声音等的）强度</span></p><p><span>fault 断层</span></p><h3 id='地理知识'><span>地理知识</span></h3><h4 id='七大洲'><span>七大洲</span></h4><p><span>以下是七大洲的英文和中文对照：</span></p><ol start='' ><li><p><span>Asia - 亚洲</span></p></li><li><p><span>Europe - 欧洲</span></p></li><li><p><span>Africa - 非洲</span></p></li><li><p><span>North America - 北美洲</span></p></li><li><p><span>South America - 南美洲</span></p></li><li><p><span>Antarctica - 南极洲</span></p></li><li><p><span>Australia - 大洋洲</span></p></li></ol><h4 id='四大洋'><span>四大洋</span></h4><ol start='' ><li><p><span>Pacific Ocean - 太平洋</span></p></li><li><p><span>Atlantic Ocean - 大西洋</span></p></li><li><p><span>Indian Ocean - 印度洋</span></p></li><li><p><span>Arctic Ocean - 北冰洋</span></p></li></ol><h4 id='术语'><span>术语</span></h4><p><span>equator 赤道</span></p><p><span>longitude 经度，经线</span></p><p><span>latitude 纬度；纬度地区</span></p><p><span>elevation 高度，海拔</span></p><p><span>altitude 海拔高度；高地；（天体在地平线上的）地平纬度</span></p><h3 id='污染和环保'><span>污染和环保</span></h3><h4 id='污染'><span>污染</span></h4><p><span>global warming</span></p><p><span>fossil oil=petroleum 石油，原油</span></p><p><span>coal 煤；煤炭工业</span></p><p><span>carbon dioxide 二氧化碳</span></p><h4 id='资源'><span>资源</span></h4><p><span>drain</span></p><p><span>alternative sources 替代资源：指在能源、食品、材料等领域中，用于替代传统资源的可持续发展的替代品或方法。</span></p><p><span>sustainability 持续性，能维持性</span></p><p><span>desertification （土壤）荒漠化；沙漠化</span></p><p><span>deforest 砍伐树林</span></p><p><span>acid rain酸雨</span></p><p><span>soot煤烟，烟灰</span></p><p><span>sewage污水，污物</span></p><p><span>purification净化；提纯；涤罪</span></p><h2 id='天文'><span>天文</span></h2><h3 id='太阳系'><span>太阳系</span></h3><ol start='' ><li><p><span>Mercury - 水星</span></p></li><li><p><span>Venus - 金星</span></p></li><li><p><span>Earth - 地球</span></p></li><li><p><span>Mars - 火星</span></p></li><li><p><span>Jupiter - 木星</span></p></li><li><p><span>Saturn - 土星</span></p></li><li><p><span>Uranus - 天王星</span></p></li><li><p><span>Neptune - 海王星</span></p></li></ol><p><span>请注意，根据国际天文学联合会（IAU）在2006年的定义，冥王星（Pluto）不再被视为太阳系的主要行星，而是被归类为“矮行星”（dwarf planet）。因此，上述列表仅包括传统意义上的八大行星。</span></p><p><span>行星的种类</span></p><p><span>terrestrial planet（iron，rock，atmosphere）地球型行星：太阳系内的四颗内行星之一，包括水星、金星、地球和火星。与外行星相比，这些行星的特点是密度较高，表面较为坚硬，且主要由岩石和金属构成。</span></p><p><span>gas giant（土星，木星：氢气氦气）</span></p><p><span>ice giant（海王星，天王星）</span></p><p><span>太阳：</span></p><p><span>fusion融合，结合；核聚变</span></p><p><span>sunspots太阳黑子；雀斑</span></p><p><span>solar flare太阳耀斑：太阳表面的一个小区域突然暴发出能量的短暂爆发，也称为耀斑。</span></p><p><span>solar wind太阳风：从太阳表面不断喷发出来并穿过星际空间的等离子体。</span></p><h3 id='天体类型'><span>天体类型</span></h3><p><span>star；恒星</span></p><p><span>planet：行星</span></p><p><span>moon=satellite：卫星</span></p><p><span>dwarf矮星</span></p><blockquote><p><strong><span>dwarf</span></strong></p><ul><li><p><em><span>n.</span></em><span>（神话中有魔法的）小矮人；侏儒，矮子；矮星</span></p></li><li><p><em><span>v.</span></em><span>使显得矮小，使相形见绌</span></p></li><li><p><em><span>adj.</span></em><span>矮小的，矮种的</span></p></li></ul></blockquote><p><span>asteroid小行星</span></p><p><span>supernova[天] 超新星</span></p><p><span>cluster星团</span></p><p><span>comet彗星</span></p><p><span>meteor流星；大气现象</span></p><h3 id='天体运动'><span>天体运动</span></h3><p><span>twinkle闪烁，闪耀</span></p><p><span>illuminate照射，照亮</span></p><p><span>rotate旋转</span></p><p><span>revolve旋转</span></p><p><span>impact冲击，撞击</span></p><h2 id='社科'><span>社科</span></h2><h3 id='经济发展和萧条'><span>经济发展和萧条</span></h3><p><span>boom and bust</span></p><p><span>曾经繁荣而后衰落的经济周期，通常指市场或整个经济出现高价格，随后出现价格崩溃、生产下降和生产者破产的情况；繁荣后随之而来的是经济衰退</span></p><p><span>内部原因：</span></p><p><span>supply and demand</span></p><p><span>供求关系：指可供人们购买的商品和服务的数量与人们想要购买的商品和服务的数量之间的比较。</span></p><p><span>price 价格</span></p><p><span>外部原因：</span></p><p><span>政治</span></p><p><span>科技</span></p><p><span>人力</span></p><p><span>生态</span></p><p><span>→市场自己调节还是政府干预</span></p><h3 id='经济问题'><span>经济问题</span></h3><p><span>inflation通货膨胀，通胀率</span></p><p><span>deflation通货紧缩</span></p><p><span>business cycle经济周期：经济活动的周期，通常包括衰退、复苏、增长和衰退等阶段。</span></p><p><span>economic cycle经济周期：经济活动在一定时间内的波动和循环。</span></p><h3 id='经济理性人'><span>经济理性人</span></h3><p><span>economic man</span></p><p><span>经济人：一个理论上的人物，他在经济学中被认为是一个完全理性的个体，总是追求最大化自己的利益。</span></p><p><span>行为经济学 behavioral economics</span></p><p><span>行为经济学：一门研究人们在经济决策中的行为和心理因素的学科。</span></p><h3 id='先天后天'><span>先天后天</span></h3><p><span>natural 天然的，非人为的</span></p><p><span>innate 先天的，固有的；（信仰）根深蒂固的</span></p><p><span>inherent 内在的，固有的</span></p><p><span>inborn 天生的</span></p><p><span>instinctive 本能的，直觉的；天生的</span></p><p><span>gene 基因，遗传因子</span></p><p>&nbsp;</p><p><span>acquired[医]后天的；已获得的；已成习惯的</span></p><p><span>learned后天的，习得的</span></p><p><span>trained培训；训练过的，受过培训的</span></p><p><span>experience经历，往事</span></p><p><span>environment自然环境，生态环境</span></p><h3 id='强化惩罚'><span>强化惩罚</span></h3><p><span>positive reinforcement（给糖）</span></p><p><span>negative reinforcement（不电击）</span></p><p><span>positive punishment（电击）</span></p><p><span>negative punishment（不给糖）</span></p><p>&nbsp;</p><h2 id='历史'><span>历史</span></h2><h3 id='世界史'><span>世界史</span></h3><p><span>stone age</span></p><p><span>石器时代：指人类历史上最早的一个时期，以使用石器为特征。与中石器时代、新石器时代、旧石器时代相对比。</span></p><p><span>原始、过时的阶段：指某个人类机构或领域被认为是原始、过时或过时的阶段。</span></p><p><span>原始、过时的、不先进的：指思想或技术在当前被接受的标准下被认为是原始、过时或不先进的。</span></p><ul><li><p><span>paleolithic 旧石器时代的（多人种）</span></p></li><li><p><span>neolithic [古] 新石器时代的；早先的（homo sapiens）</span></p></li></ul><p><span>ancient greek 古希腊</span></p><p><span>rome 罗马（意大利首都）</span></p><p><span>Christianity 基督教；基督教徒的品性</span></p><p><span>Catholicism 天主教；天主教义</span></p><p><span>middle age 中世纪</span></p><p><span>renaissance 文艺复兴（时期）（the Renaissance）；文艺复兴文化，文艺复兴风格（Renaissance）</span></p><p><span>nation-state 单一民族国家</span></p><p><span>colonize 在……开拓殖民地，移民于殖民地；将（场所，产业）据为己用；移植于，大批繁殖于；&lt;美&gt;从他地非法把选民移入</span></p><p><span>industrialization 工业化</span></p><p>&nbsp;</p><h3 id='体制建设'><span>体制建设</span></h3><p><span>founding document 创始文件：指一个国家或组织的最初的宪法或法律文件，规定了其社会制度、政府机构、公民权利和义务等基本内容。</span></p><p><span>constituttion 宪法，章程</span></p><p><span>amendment（the bill of right） 修正，修订之处；美国宪法修正案（Amendment）；（对文件或计划的）修改</span></p><p><span>confederation 联盟，同盟；加拿大联邦</span></p><p><span>federation 联邦政府，联邦；联合会；结成联邦（或联盟）</span></p><blockquote><p><span>&quot;Confederation&quot; 和 &quot;Federation&quot; 这两个词在中文中通常都被翻译为“联邦”，但它们在政治结构上有所区别。</span></p><ol start='' ><li><p><strong><span>Confederation（联盟）</span></strong><span>：</span></p><ul><li><p><span>联盟是一个由若干个独立国家为了某个共同目的而组成的松散联盟。</span></p></li><li><p><span>成员国保留有很大的主权和独立性，联盟的中央政府权力有限。</span></p></li><li><p><span>联盟的决定通常需要所有成员国的一致同意才能执行。</span></p></li><li><p><span>如果成员国选择退出，联盟不会对其实施强制措施。</span></p></li><li><p><span>例如，历史上的瑞士同盟（Swiss Confederation）和当前的阿拉伯联盟（Arab League）。</span></p></li></ul></li><li><p><strong><span>Federation（联邦）</span></strong><span>：</span></p><ul><li><p><span>联邦是一个由若干个州、省、地区或其他政治实体组成的统一国家，这些实体在一定程度上分享主权。</span></p></li><li><p><span>联邦政府和成员政府之间有明确的权力分配，通常联邦政府拥有外交、国防等国家级权力。</span></p></li><li><p><span>联邦的成立通常需要一个宪法，用以规定中央政府和成员政府之间的权力分配和关系。</span></p></li><li><p><span>成员实体（如州或省）没有权力单方面退出联邦。</span></p></li><li><p><span>例如，美国、德国和印度都是联邦制国家。</span>
+<span>总的来说，&quot;Confederation&quot; 强调的是成员的独立性和联盟的松散性，而 &quot;Federation&quot; 则强调中央政府和成员政府之间的权力共享和更紧密的统一性。</span></p></li></ul></li></ol></blockquote><p><span>congress 国会，议会；代表大会；美国国会（Congress）</span></p><p><span>house of representative 众议院：一个国家立法机构的组成部分，通常由各选区选出的代表组成，负责制定和修改法律。</span></p><p><span>senate 参议院；大学理事会，大学评议会；（古罗马的）元老院</span></p><p><span>two-party system 两党制度</span></p><p><span>bipartisanship 两党合作；两党制</span></p><p><span>democrat （美国）民主党党员；民主主义者</span></p><p><span>republicans 共和党，共和党员（republican 的复数形式）</span></p><p><span>separation of powers 权力分立：一种政治制度，将政府的权力分为立法、行政和司法三个部分，以保持政府权力的平衡和相互制衡。</span></p><ul><li><p><span>executive 有执行权的</span></p></li><li><p><span>legislation 制订法律</span></p></li><li><p><span>judicial 法庭的，司法的</span></p></li></ul><p><span>check and balance 制衡：通过独立组织的相互监督和限制来防止滥用权力。</span></p><h3 id='代议制民主'><span>代议制民主</span></h3><p><span>suffrage 选举权；投票；参政权；代祷；赞成票</span></p><p><span>representative 代议制的；代表，代理人；代表他人者</span></p><p><span>vote 投票选举，投票表决；投票评选</span></p><p><span>black suffrage：1870  15th amendment 黑人选举权</span></p><p>&nbsp;</p><h3 id='人权'><span>人权</span></h3><p><span>投票权是最重要的人权</span></p><p><span>白人、男人、有钱人</span></p><p><span>女权：</span></p><p><span>the first wave（1848-1920，财产权和投票权）</span></p><p><span>the second wave（1960s，工作权）</span></p><p>&nbsp;</p><h2 id='艺术'><span>艺术</span></h2><h3 id='现实非现实'><span>现实非现实</span></h3><p><span>现实：</span></p><p><span>naturalism</span></p><p><span>realism</span></p><p><span>imitation</span></p><p><span>超现实：</span></p><p><span>impressionism</span></p><p><span>dadasim</span></p><p><span>symbolic</span></p><p><span>surrealism</span></p><p><span>contemporary art</span></p><p><span>avant-garde</span></p><h3 id='宗教人性'><span>宗教人性</span></h3><p><span>the renaissance</span></p><p><span>middle age</span></p><p>&nbsp;</p><h3 id='理性感性'><span>理性感性</span></h3><p><span>emotional</span></p><p><span>emotive</span></p><p><span>sentimental</span></p><p>&nbsp;</p><p><span>rational</span></p><p><span>reason</span></p><p><span>moderate</span></p><p><span>temperate</span></p><h3 id='考古'><span>考古</span></h3><p><span>测算物品年代、传播路径</span></p><p><span>考察物品和文明的关系</span></p><p><span>考察物品真伪、渊源</span></p><p><span>autograph</span></p><p><span>original</span></p><p><span>replica</span></p><p>&nbsp;</p><p>&nbsp;</p></div></div>
+</body>
+<!-- <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script> -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--侧栏目录生成代码-->
+<script>
+    //标题序号计数器
+    var hCount = [0, 0, 0, 0, 0, 0];
+
+    //设置计数器
+    function setHCount(number) {
+        //当前计数器加一
+        hCount[number - 1]++;
+        for (var i = number, length = hCount.length; i < length; i++) {
+            //子目录计数器全部置零
+            hCount[i] = 0;
+        }
+    }
+
+    //重命名目录名称
+    function setHTagValue(item, number) {
+        //获取标题名
+        var text = $(item).get(0).innerHTML;
+        //初始化空字符串
+        var before = "";
+        //生成序号
+        for (var i = 0, length = hCount.length; i < number; i++) {
+            if (i < number - 1)
+                before += hCount[i] + ".";
+            else
+                before += hCount[i] + " ";
+        }
+        //在标题前面加上序号
+        $(item).get(0).innerHTML = before + text;
+    }
+
+    function renameHTag(item) {
+        var tag = $(item).get(0).localName;
+        if (tag === "h1") {
+            setHCount(1);
+            //console\.log("捕获到标签:%s", tag);
+            setHTagValue(item, 1);
+        }
+        if (tag === "h2") {
+            setHCount(2);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 2);
+        }
+        if (tag === "h3") {
+            setHCount(3);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 3);
+        }
+        if (tag === "h4") {
+            setHCount(4);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 4);
+        }
+        if (tag === "h5") {
+            setHCount(5);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 5);
+        }
+        if (tag === "h6") {
+            setHCount(6);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 6)
+        }
+    }
+
+    $(document).ready(function () {
+        $("h1,h2,h3,h4,h5,h6").each(function (i, item) {
+            //给<H>类标签编号
+            renameHTag(item);
+            //获取标签的名字,h1,还是h2
+            var tag = $(item).get(0).localName;
+            //为该标签设置id属性
+            $(item).attr("id", "wow" + i);
+            //添加一个页内超链接,并设置class选择器
+            //      $("#category").append('<a class="new'+tag+'" href="#wow'+i+'">'+$(this).text()+'</a></br>');
+            $("#category").append('<a class="new' + tag + '" href="#wow' + i + '">' + $(item).text() + '</a></br>');
+            //为每一个标题超链接的class属性设置左边距
+            $(".newh1").css("margin-left", 0);
+            $(".newh2").css("margin-left", 20);
+            $(".newh3").css("margin-left", 40);
+            $(".newh4").css("margin-left", 60);
+            $(".newh5").css("margin-left", 80);
+            $(".newh6").css("margin-left", 100);
+        });
+        //设置class选择器为.book-body的html内容
+        $(".book-body").html($(".book-body").nextAll())
+    });
+</script>
+<style type="text/css">
+    @media (max-width: 1600px) {
+        .book-body {
+            /* padding-left: 200px; */
+            padding-right: 0px;
+        }
+    }
+
+    @media (max-width: 1400px) {
+        .book-body {
+            /* padding-left: 200px; */
+            padding-right: 0px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .book-body {
+            /* padding-left: 300px; */
+            padding-left: 0px;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .book-body {
+            padding-left: 0px;
+        }
+    }
+
+    @media (min-width: 600px) {
+        #category {
+            /* 绝对定位 */
+            position: fixed;
+            /* left: 20px; */
+            /* 目录显示的位置 */
+            left: 0px;
+            top: 0;
+            /* 目录栏的高度,这里设置为60%主要是为了不挡住返回顶部和折叠按钮 */
+            height: 79%;
+            /* 开启垂直滚动条 */
+            overflow-y: scroll;
+            /* 开启水平滚动条 */
+            overflow-x: scroll;
+        }
+    }
+
+    @media (-webkit-max-device-pixel-ratio: 1) {
+        ::-webkit-scrollbar-track-piece {
+            background-color: #FFF
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #c2c2c2;
+            background-clip: padding-box;
+            min-height: 28px
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #A0A0A0
+        }
+    }
+</style>
+<script>
+    // id="category" οnclick="showOrCloseCategory()"
+    function showOrCloseCategory() {
+        var id = document.getElementById("category");
+        var book_body = document.getElementById("book_body");
+        //如果展开了
+        if (id.style.display == 'block') {
+            //console.log("开始展开");
+            id.style.display = 'none';
+            id.style.width = "0%";
+            book_body.style.width = "100%";
+            book_body.style.paddingleft = 0;
+        }
+        //如果被折叠了
+        else if (id.style.display == 'none') {
+            //console.log("开始折叠");
+            id.style.display = 'block';
+            book_body.style.width = "90%";
+            id.style.width = "20%"
+        }
+    }
+</script>
+<!--返回顶部-->
+<a href="javascript:scroll(0,0)" style="position:fixed;float:right;left:40px;top:80%">返回顶部</a>
+<button onclick="showOrCloseCategory()" style="position:fixed;float:right;left:40px;top:85%">折叠/展开</button>
+<!--文章主体部分-->
+<div class="book-body" id="book_body" style="width:90%;display:block"></div>
+<!--目录栏，设置占用宽度为20%可以根据实际情况设置-->
+<div class="book-summary" id="category" style="width:20%;display:block"></div>
+
+
+</html>

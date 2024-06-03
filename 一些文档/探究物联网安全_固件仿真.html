@@ -1,0 +1,955 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG2"] path[data-c], mjx-container[jax="SVG2"] use[data-c] {
+  stroke-width: 3;
+}
+
+g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+
+.MathJax g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+							stroke-width: 0;
+						}
+</style><title>探究物联网安全_固件仿真</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p><span>文章题目：What Your Firmware Tells You Is Not How You Should Emulate It: A Specification-Guided Approach for Firmware Emulation</span></p><p>&nbsp;</p><p><span>文章链接：</span><a href='https://arxiv.org/abs/2208.07833' target='_blank' class='url'>https://arxiv.org/abs/2208.07833</a></p><p>&nbsp;</p><p><span>检测工具类别（标号：29）</span></p><p><span>请回答问题：</span></p><ol start='' ><li><p><span>论文目标检测的安全问题是什么以及安全假设(Thread Model理解翻译)？</span></p></li><li><p><span>论文提出的工具或者方法相比于之前的工具关键优势是什么？(多个指标对比类别需要列表翻译)(需要引用相应的参考文献)</span></p></li><li><p><span>工具设计的主要技术难点以及主要方法概述 (插入架构图的请截图或重画)</span></p></li><li><p><span>工具实验对比结果有哪些项？每项实验设计的目的是什么？测试用例来自哪里？每项实验如果是对比其他工具的实验说明最好和最差是哪一个测试用例？原因是什么？如果是自身工具指标测试，说明指标中表现最好和最差是哪一测试用例？原因是什么？</span></p></li><li><p><span>你自己认为该工具存在什么问题?</span></p></li><li><p><span>论文阅读心得</span></p></li></ol><p>&nbsp;</p><h1 id='安全问题及安全假设'><span>安全问题及安全假设</span></h1><p><span>论文目标检测的安全问题是什么以及安全假设(Thread Model理解翻译)？</span></p><p>&nbsp;</p><p><span>文章主要集中在介绍一种基于外设规格指导的固件仿真方法，这种方法使用自然语言处理（NLP）技术从芯片手册中提取条件-动作（C-A）规则，以动态地合成外设模型，从而提高固件仿真的准确性和保真度。</span></p><p><span>由于固件代码和物理外设之间的高耦合性，物联网设备通常在现实世界中作为一个整体进行测试。但是，涉及实际外设可能会使固件和设备的可扩展（例如，扩展到数千家供应商和数百万个外围设备）安全分析变得更加困难。为了便于进行大规模动态固件分析，必须进行不依赖任何硬件的全系统仿真。</span></p><p><span>而固件仿真面临的一个主要问题就是该如何对未知外设的行为进行建模，特别是当固件读取外设寄存器时如何生成合适的响应？</span></p><p><span>许多现有的动态安全分析方法都可以在不涉及实际硬件的情况下实现在 PC 上重新托管固件。这些研究采用的理念都是仿真器应生成满足固件期望的响应，以便它不会崩溃或挂起。从这个意义上说，这种方法就是试图从固件本身学习知识。这种方法被称为固件引导解决方案。例如，在仿真器中执行目标固件时，通过观察外设访问模式来自动构建外设模型；使用符号执行来探索固件以找到令人满意的响应值。这些固件引导的解决方案仅仅在近似模拟固件，因此当输入空间变大时，会遇到低保真度问题。</span></p><p><span>同时，固件引导解决方案会面临另外一个严重问题——固件有时包含不完整信息甚至具有误导性的信息。这些不良信息最终会导致生成的外设模型不正确。更一般地说，现有方法仅从固件中学习粗粒度的静态外设模型。</span></p><p><span>不完整和误导性的信息会导致严重的低保真度问题，从而影响基于仿真器构建的固件分析工具的有效性、效率和适用性。</span></p><ul><li><p><span>有效性： 复杂外设的驱动程序代码无法正确仿真。这将把大量真实世界的固件排除在动态分析之外。例如，现有工作都无法模糊具有以太网功能的固件。</span></p></li><li><p><span>效率： 即使目标固件可以仿真，其执行轨迹也可能与真实硬件上的执行轨迹有很大偏差。这会带来不可忽略的假阳性（即在不可行的路径上发现不存在的错误）和假阴性（即由于代码覆盖率缺失而无法发现真正的错误）。此外，无法准确提供中断会导致仿真进度缓慢。</span></p></li><li><p><span>适用性： 低保真仿真也限制了可采用的动态分析类型，这导致了固件仿真的所有相关工作都仅限于模糊测试，因为模糊测试可以接受不准确的仿真(Feng et al., </span><a href='https://ar5iv.labs.arxiv.org/html/2208.07833?_immersive_translate_auto_translate=1#bib.bib13'><span>2020</span></a><span>； Cao et al., </span><a href='https://ar5iv.labs.arxiv.org/html/2208.07833?_immersive_translate_auto_translate=1#bib.bib2'><span>2020</span></a><span>； Zhou et al., </span><a href='https://ar5iv.labs.arxiv.org/html/2208.07833?_immersive_translate_auto_translate=1#bib.bib60'><span>2021</span></a><span>； Johnson et al., </span><a href='https://ar5iv.labs.arxiv.org/html/2208.07833?_immersive_translate_auto_translate=1#bib.bib22'><span>2021</span></a><span>； Scharnowski et al., </span><a href='https://ar5iv.labs.arxiv.org/html/2208.07833?_immersive_translate_auto_translate=1#bib.bib41'><span>2022</span></a><span>)。</span></p></li></ul><p>&nbsp;</p><h1 id='工具的关键优势'><span>工具的关键优势</span></h1><p><span>论文提出的工具或者方法相比于之前的工具关键优势是什么？(多个指标对比类别需要列表翻译)(需要引用相应的参考文献)</span></p><p>&nbsp;</p><p><span>上述固件仿真中存在的问题及其解决方案的局限性催生了本文对于采取不同仿真方法的高保真仿真器的研究。本文提出了一种与现有的固件仿真解决方案不同的，基于规范引导的仿真方法SEmu。</span></p><p><span>SEmu的工作流程通常包括以下几个步骤：</span></p><ol start='' ><li><p><span>从手册中提取规则：SEmu使用NLP技术解析芯片参考手册中的文本，自动提取描述外设行为的C-A规则。主要过程包含以下内容：</span></p><ol start='' ><li><p><span>C-A规则提取</span></p></li><li><p><span>通过命名实体收集相关句子</span></p></li><li><p><span>识别共引用</span></p></li><li><p><span>识别条件和操作</span></p></li><li><p><span>C-A 规则表示</span></p></li></ol></li><li><p><span>动态合成外设模型：在固件执行期间，SEmu根据提取的规则动态地构建每个外设的行为模型。</span></p></li><li><p><span>运行时执行规则：SEmu在运行时适当地执行和链接这些C-A规则，以模拟固件与硬件外设的交互。</span></p></li><li><p><span>规则诊断与修正：SEmu还包括一个机制来诊断和修正提取的规则，以确保仿真的准确性。</span></p></li><li><p><span>提高仿真保真度：通过这种方法，SEmu能够实现比传统固件引导的仿真方法更高的仿真保真度。</span></p></li><li><p><span>支持安全分析：SEmu的高保真度仿真为固件的安全分析，如模糊测试和合规性检查，提供了坚实的基础。</span></p></li></ol><p><span>SEmu作为一种仿真方法，其创新之处在于它依赖于芯片的技术规格来指导仿真，而不是依赖于固件本身可能不完整或误导的信息。这使得SEmu在固件分析和测试中具有更高的准确性和效率，如下图所示。</span></p><p><img src="大作业/image-20240428210641553.png" referrerpolicy="no-referrer" alt="image-20240428210641553"></p><p><span>现有的固件仿真解决方案以目标固件推断的知识为指导，而新的以 C-A 规则指导仿真器SEmu，使仿真更加精确。SEmu可以仿真更复杂的固件，更高效地运行动态分析，并应用于更精确的分析任务（例如，文章中提到的基于规范的合规性检查）。</span></p><p>&nbsp;</p><h1 id='技术难点及主要方法'><span>技术难点及主要方法</span></h1><p><span>工具设计的主要技术难点以及主要方法概述 (插入架构图的请截图或重画)</span></p><p>&nbsp;</p><h2 id='提取条件-动作-c-a-规则'><span>提取条件-动作 C-A 规则</span></h2><p><span>微控制器芯片供应商通常会为每个芯片发布基于文本的参考手册，其中使用自然语言（尤其是英语）来描述外设行为。与用于描述状态图的格式化语言或表格相比，芯片手册中使用的语言更加随意。例如，芯片手册中存在许多类似于 “如果寄存器 reg_A 的值等于 X，那么寄存器 reg_B 将被赋值 Y ”的句子。</span></p><p><span>一方面，这些临时句子等同于描述与状态图相同的外设行为。事实上，开发人员通常会阅读和理解手册，然后构建状态机来实现驱动程序或仿真器后端。另一方面，将这些临时句子自动合成状态图是不可能的。</span></p><p><span>但是，芯片手册中的单个句子可以很容易地被现代自然语言处理（NLP）引擎理解，并被形式化为一些简单的条件-动作（C-A）规则。这使得可以在不显式维护状态机的情况下，仅仅通过执行这些C-A规则来模拟外围设备。</span></p><p><span>基于上述观察结果，作者提出了利用外设规范，特别是芯片参考手册来模拟外设行为的固件仿真方法。这将从根本上解决与前面提到的现有固件引导仿真解决方案相关的问题（即固件中包含的不完整和误导性信息）。</span></p><p><span>那么该如何得到条件-动作（C-A）规则呢？虽然参考手册（主要是 PDF 格式）是非结构化数据，但其格式和文本都有可观察到的特征。因此，NLP 技术可用于理解自然表达的句子，并从芯片手册中提取条件-动作逻辑。更具体地说，NLP 技术可以通过识别名词和动词短语来识别相关的注册表和字段，通过句子结构和连接词找出条件和动作之间的因果关系，并根据词对之间的关系推断句子的语义。</span></p><p><span>已经有很多研究者在这方面做出了极具帮助的贡献：</span></p><ul><li><p><span>词性（POS）标记技术 (Manning et al., </span><a href='https://ar5iv.labs.arxiv.org/html/2208.07833?_immersive_translate_auto_translate=1#bib.bib29'><span>2014</span></a><span>)</span></p></li><li><p><span>选区分析来提炼因果关系 (Zhu et al., </span><a href='https://ar5iv.labs.arxiv.org/html/2208.07833?_immersive_translate_auto_translate=1#bib.bib61'><span>2013</span></a><span>)</span></p></li><li><p><span>类型依赖分析 (Chen and Manning, </span><a href='https://ar5iv.labs.arxiv.org/html/2208.07833?_immersive_translate_auto_translate=1#bib.bib3'><span>2014</span></a><span>)</span></p></li></ul><p><span>芯片手册包含数千个句子，其中许多与任何有意义的 C-A 规则无关，应该过滤掉。为了收集相关句子，作者利用命名实体。首先确定一组重要的命名实体。基于它们，直接匹配句子中的出现次数以收集相关句子。在识别所有的共同引用之后 NLP 引擎为在线模型合成模块输出 C-A 规则的正式表示。整个过程依赖于</span><em><span>Stanford Constituency Parser</span></em><span> (Zhu et al., </span><a href='https://ar5iv.labs.arxiv.org/html/2208.07833?_immersive_translate_auto_translate=1#bib.bib61'><span>2013</span></a><span>) 和</span><em><span>Stanford Dependency Parser</span></em><span> (Chen and Manning, </span><a href='https://ar5iv.labs.arxiv.org/html/2208.07833?_immersive_translate_auto_translate=1#bib.bib3'><span>2014</span></a><span>)。</span></p><p><img src="大作业/image-20240428210349298.png" alt="image-20240428210349298" style="zoom: 67%;" /></p><p><span>上表列出了摘自 K64F 系列芯片原始参考手册（NXP，2014b）的三句话以及从中提取的 C-A 规则。突出显示了这些句子中的主要主语/宾语。在的 NLP 引擎中，它们是指定条件或操作的命名实体。在底部，显示了通过阅读手册手动构建的状态图，这是开发人员以传统方式实现外设驱动程序的重要步骤。</span></p><p><span>C-A 规则 1 指出，如果满足条件“#D[R] ¿= RWFIFO[RXWATER]”（UT1），则将调用操作“S1[RDRF] ：= 1”（US1）。请注意此 C-A 规则如何对应于 UART 状态图的边 UT1 和节点 US1。该操作将值 1 分配给寄存器字段 S1[RDRF]，这反过来又使 C-A 规则 2 的条件为 true （US1）。由于相应的操作 （NT1） 而生成 UART 中断。它使 UART 中断挂起 （NS1）。请注意，此操作具有跨外设效应，会影响 Arm 的内置中断管理外设 NVIC 的状态机。C-A 规则 3 与接收数据有关。</span></p><p><span>可以看出，通过简单地检查、执行和链接每个 C-A 规则，可以获得由手动构建的状态图控制的状态转换的相同结果。</span></p><p>&nbsp;</p><h2 id='诊断错误缺失的c-a规则'><span>诊断错误/缺失的C-A规则</span></h2><p><span>由于手册的文档记录不多以及 NLP 引擎本身的局限性，偶尔会出现缺失或错误的 C-A 规则，从而导致外设建模不准确。可以通过 𝜇</span><em><span>Emu</span></em><span> (Zhou et al., </span><a href='https://ar5iv.labs.arxiv.org/html/2208.07833?_immersive_translate_auto_translate=1#bib.bib60'><span>2021</span></a><span>) 中提出的无效引导仿真来快速诊断根本原因。如果 C-A 规则缺失或错误，则仿真很可能会进入无效状态。如果发生这种情况，则使用符号执行来快速识别哪个外设读取操作导致错误，并相应地修复 C-A 规则。然而，在找到根本原因方面，需要付出大量的人力努力。</span></p><p><span>这种基于NLP的方法和无效引导仿真是相辅相成的。如果存在缺失/错误的 C-A 规则，无效引导仿真可以帮助快速找到它。但是仅有 𝜇Emu 这样的无效引导仿真无法解决“固件中包含的不完整和误导性信息”问题。具体来说，符号执行非常擅长推理仿真失败的根本原因。失败的仿真通常会导致无效的执行状态（例如，停顿或崩溃），符号执行可以帮助作者快速定位外设读数的不正确响应。</span></p><p><span>对于目标外设，首先准备一个固件样本和一个有效的测试用例，该测试用例可以正确执行固件。这可以在真实设备上进行验证。然后，在 SEmu 上运行此示例，并收集合成的外围模型生成的具体响应。这些具体响应被输入到符号执行引擎，并用于指导符号执行选择分支，类似于 S2E (Cyberhaven, </span><a href='https://ar5iv.labs.arxiv.org/html/2208.07833?_immersive_translate_auto_translate=1#bib.bib9'><span>2022</span></a><span>) 中实现的 concolic 模式。如果检测到无效状态，一定是由于错误的 C-A 规则造成的，因为作者专门选择了不触发任何无效状态的固件示例和测试用例。由于遇到无效状态，因此外围模型先前的响应之一一定是错误的。取最后一个条件语句中的另一个分支，并求解相应的符号变量。这个符号变量指示错误建模的寄存器的地址。然后进一步将模型生成的错误值与符号执行引擎求解的错误值进行比较，以识别不正确的位。最后，以相反的顺序列出了与此字段相关的所有已执行的 C-A 规则，让人工参与进来确认错误的规则。诊断是一个迭代过程。 在每一轮中，它都会修复一个 C-A 规则，直到可以正确模拟使用的固件。</span></p><p><span>在获得足够多的 C-A 规则后，仿真器在运行时为固件执行过程中访问的每个外设动态合成一个模型。具体来说，每个外设模型都代表相应的硬件提供适当的响应。与此同时，仿真器按正确的顺序选择性地执行某些相关的 C-A 规则，从而保持外设的状态。根据经验研究，执行这些规则会隐式地维护相应的状态机。在处理下一个固件请求时，所保持的状态将反过来帮助模型选择正确的 C-A 规则子集。</span></p><p>&nbsp;</p><h1 id='实验结果对比'><span>实验结果对比</span></h1><p><span>工具实验对比结果有哪些项？每项实验设计的目的是什么？测试用例来自哪里？每项实验如果是对比其他工具的实验说明最好和最差是哪一个测试用例？原因是什么？如果是自身工具指标测试，说明指标中表现最好和最差是哪一测试用例？原因是什么？</span></p><p>&nbsp;</p><h2 id='第一项实验对比'><span>第一项实验对比</span></h2><p><span>使用了原始的条件-动作（C-A）规则来构建外设模型，并对66个单元测试样本进行测试。这些测试样本来自于P</span><sup><span>2</span></sup><span>IM论文 (Feng et al., </span><a href='https://ar5iv.labs.arxiv.org/html/2208.07833?_immersive_translate_auto_translate=1#bib.bib13'><span>2020</span></a><span>) 中发布的，它们运行在三种不同的芯片上，覆盖了各种外设和操作系统库。在这些测试案例中，P</span><sup><span>2</span></sup><span>IM和𝜇Emu分别达到了83%和95%的通过率。</span></p><p><span>但是在固件启动期间，仿真器SEmu无法正确运行这些单元测试的时钟配置。具体来说，STM32F103 上的 RCC、K64 上的 MCG 和 SAM3X 上的 PMC 的原始 C-A 规则无法为这些外围设备构建可用的模型。由于这些外设提供的时钟源属于不可绕过的启动槽，因此根据原始 C-A 规则建立的模型无法通过所有单元测试。</span></p><p><span>不过，就单个外设而言，原始 C-A 规则无需增强即可正确用于大多数其他外设。修改时钟相关规则后，SEmu 达到了 96.97% 的通过率。只有两个 F103 I2C 单元测试无法通过。这主要是由于NLP技术的局限性以及不可避免的模棱两可甚至错误的硬件描述。</span></p><p>&nbsp;</p><h2 id='第二项实验对比'><span>第二项实验对比</span></h2><p><span>作者虽然无法从根本上解决NLP技术的局限性以及手册中的语言描述问题，但是可以通过他们开发的一种利用符号执行辅助诊断的工具，快速找出哪个规则不正确，然后手动增强规则。</span></p><p><span>通过增强的规则，特别是与时钟相关的规则，重新运行了 P</span><sup><span>2</span></sup><span>IM 的 66 个单元测试样本。SEmu 的通过率达到 100%。此外，作者还收集了 17 个新样本，这些样本代表了真实世界的应用或具有多个外设和多种工作模式（如 DMA）的更复杂的演示程序。例如，PinLock 固件在智能锁上运行，智能锁通过 UART 接口读取 PIN 码，对其进行哈希处理以与已知哈希进行比较，并在 PIN 正确时发送信号以解锁数字锁。</span></p><p>&nbsp;</p><h2 id='第三项实验对比'><span>第三项实验对比</span></h2><p><span>为了评估SEmu使用的C-A（条件-动作）规则与芯片手册中的描述的一致性或忠实度，进行了另外一个对比试验。</span></p><p><span>为了评估C-A规则的忠实度，需要一个基准或“真实情况”。理论上，这可以通过手动检查外设相关的所有句子来构建，但这样做既繁琐又可能受到个人理解的影响。为了避免可能的偏见，作者选择了使用QEMU开发者已经实现的可用外设模型作为“真实情况”的来源。QEMU是一个开源的处理器模拟器，它包含了用C语言编写的外设模型。这些模型实现了模拟固件所需的基本外设逻辑，避免了原始手册中大量无关句子的干扰。</span></p><p><span>作者手动检查了QEMU的C语言源代码，并将其逻辑翻译成与SEmu使用的相同格式的C-A规则。文中提到了一个具体的例子，即STM32F405 UART后端仿真器的代码片段。如果C语言的语句可以转换为C-A规则，作者会在该行代码旁边注释上相应的规则。</span></p><p><span>最后，作者将SEmu生成的C-A规则与从QEMU派生的“真实情况”进行比较，两个规则集之间存在大量重叠。这些重叠部分代表了最重要的外设逻辑。另一方面，QEMU 中有很多缺失的规则。主要原因是QEMU无法实现许多非标准的外设功能。</span></p><p>&nbsp;</p><h2 id='第四项实验对比'><span>第四项实验对比</span></h2><p><span>使用来自 P</span><sup><span>2</span></sup><span>IM 的单元测试样本来评估仿真保真度，并将 SEmu 与 𝜇Emu 和 P</span><sup><span>2</span></sup><span>IM 上的保真度进行比较，因为这些样本大多得到所有相关工作的支持。</span></p><p><span>为了定量测量仿真保真度，作者提出了一个新指标来指示执行跟踪之间的相似性。具体而言，作者使用真实设备上的执行轨迹作为参考。对于跟踪的每个部分，作者使用编辑距离来测量相似性。</span></p><p><span>作者使用编辑距离的方法来测量相似性。具体来说，整个跟踪呈现为一系列地址，这些地址对应于每个基本块的开头。与真实设备的跟踪相比，删除操作意味着仿真器错误地获取了额外的基本块；插入操作意味着仿真器错过了基本的块执行；替换操作意味着仿真器执行不同的基本块。需要的操作越少，两条迹线的相似度就越高。</span></p><p><span>整个跟踪呈现为一系列地址，这些地址对应于每个基本块的开头。与真实设备的跟踪相比:</span></p><ul><li><p><span>删除操作意味着仿真器错误地获取了额外的基本块</span></p></li><li><p><span>插入操作意味着仿真器错过了基本的块执行</span></p></li><li><p><span>替换操作意味着仿真器执行不同的基本块</span></p></li></ul><p><span>需要的操作越少，两条迹线的相似度就越高。</span></p><p><span>在原始的编辑距离算法中，删除、插入和替换的权重相同。然而，在作者的例子中，删除或插入重复的序列被认为不那么重要。事实上，与重复以前的跟踪相比，缺少一些代码执行或执行一些错误的代码通常对固件分析的影响更严重。例如，固件通常在轮询模式下运行，该模式等待状态寄存器的某个值。无论是运行 100 个循环还是 1,000 个循环都不会有效影响固件分析。因此，作者将重复删除或插入操作的权重分配给 1，而将其他操作分配给 2。</span></p><p><span>仿真器和真实设备之间的迹线距离由下式计算：</span></p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n133" cid="n133" mdtype="math_block" data-math-tag-before="0" data-math-tag-after="0" data-math-labels="[]"><div class="md-rawblock-container md-math-container" tabindex="-1"><mjx-container class="MathJax" jax="SVG" display="true" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="32.146ex" height="2.195ex" role="img" focusable="false" viewBox="0 -683 14208.5 970.2" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.65ex;"><defs><path id="MJX-1-TEX-I-1D437" d="M287 628Q287 635 230 637Q207 637 200 638T193 647Q193 655 197 667T204 682Q206 683 403 683Q570 682 590 682T630 676Q702 659 752 597T803 431Q803 275 696 151T444 3L430 1L236 0H125H72Q48 0 41 2T33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM703 469Q703 507 692 537T666 584T629 613T590 629T555 636Q553 636 541 636T512 636T479 637H436Q392 637 386 627Q384 623 313 339T242 52Q242 48 253 48T330 47Q335 47 349 47T373 46Q499 46 581 128Q617 164 640 212T683 339T703 469Z"></path><path id="MJX-1-TEX-I-1D438" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path><path id="MJX-1-TEX-I-1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-1-TEX-I-1D462" d="M21 287Q21 295 30 318T55 370T99 420T158 442Q204 442 227 417T250 358Q250 340 216 246T182 105Q182 62 196 45T238 27T291 44T328 78L339 95Q341 99 377 247Q407 367 413 387T427 416Q444 431 463 431Q480 431 488 421T496 402L420 84Q419 79 419 68Q419 43 426 35T447 26Q469 29 482 57T512 145Q514 153 532 153Q551 153 551 144Q550 139 549 130T540 98T523 55T498 17T462 -8Q454 -10 438 -10Q372 -10 347 46Q345 45 336 36T318 21T296 6T267 -6T233 -11Q189 -11 155 7Q103 38 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-1-TEX-I-1D459" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path><path id="MJX-1-TEX-I-1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path><path id="MJX-1-TEX-I-1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path><path id="MJX-1-TEX-I-1D45C" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path><path id="MJX-1-TEX-I-1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-1-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-1-TEX-I-1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path id="MJX-1-TEX-I-1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-1-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path id="MJX-1-TEX-I-1D45E" d="M33 157Q33 258 109 349T280 441Q340 441 372 389Q373 390 377 395T388 406T404 418Q438 442 450 442Q454 442 457 439T460 434Q460 425 391 149Q320 -135 320 -139Q320 -147 365 -148H390Q396 -156 396 -157T393 -175Q389 -188 383 -194H370Q339 -192 262 -192Q234 -192 211 -192T174 -192T157 -193Q143 -193 143 -185Q143 -182 145 -170Q149 -154 152 -151T172 -148Q220 -148 230 -141Q238 -136 258 -53T279 32Q279 33 272 29Q224 -10 172 -10Q117 -10 75 30T33 157ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><use data-c="1D437" xlink:href="#MJX-1-TEX-I-1D437"></use></g><g data-mml-node="TeXAtom" transform="translate(861,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D438" xlink:href="#MJX-1-TEX-I-1D438"></use></g><g data-mml-node="mi" transform="translate(764,0)"><use data-c="1D45A" xlink:href="#MJX-1-TEX-I-1D45A"></use></g><g data-mml-node="mi" transform="translate(1642,0)"><use data-c="1D462" xlink:href="#MJX-1-TEX-I-1D462"></use></g><g data-mml-node="mi" transform="translate(2214,0)"><use data-c="1D459" xlink:href="#MJX-1-TEX-I-1D459"></use></g><g data-mml-node="mi" transform="translate(2512,0)"><use data-c="1D44E" xlink:href="#MJX-1-TEX-I-1D44E"></use></g><g data-mml-node="mi" transform="translate(3041,0)"><use data-c="1D461" xlink:href="#MJX-1-TEX-I-1D461"></use></g><g data-mml-node="mi" transform="translate(3402,0)"><use data-c="1D45C" xlink:href="#MJX-1-TEX-I-1D45C"></use></g><g data-mml-node="mi" transform="translate(3887,0)"><use data-c="1D45F" xlink:href="#MJX-1-TEX-I-1D45F"></use></g></g></g><g data-mml-node="mo" transform="translate(4256.2,0)"><use data-c="3D" xlink:href="#MJX-1-TEX-N-3D"></use></g><g data-mml-node="msub" transform="translate(5312,0)"><g data-mml-node="mi"><use data-c="1D437" xlink:href="#MJX-1-TEX-I-1D437"></use></g><g data-mml-node="TeXAtom" transform="translate(861,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D456" xlink:href="#MJX-1-TEX-I-1D456"></use></g><g data-mml-node="mi" transform="translate(345,0)"><use data-c="1D45B" xlink:href="#MJX-1-TEX-I-1D45B"></use></g><g data-mml-node="mi" transform="translate(945,0)"><use data-c="1D456" xlink:href="#MJX-1-TEX-I-1D456"></use></g><g data-mml-node="mi" transform="translate(1290,0)"><use data-c="1D461" xlink:href="#MJX-1-TEX-I-1D461"></use></g></g></g><g data-mml-node="mo" transform="translate(7612.6,0)"><use data-c="2B" xlink:href="#MJX-1-TEX-N-2B"></use></g><g data-mml-node="msub" transform="translate(8612.9,0)"><g data-mml-node="mi"><use data-c="1D437" xlink:href="#MJX-1-TEX-I-1D437"></use></g><g data-mml-node="TeXAtom" transform="translate(861,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D45A" xlink:href="#MJX-1-TEX-I-1D45A"></use></g><g data-mml-node="mi" transform="translate(878,0)"><use data-c="1D44E" xlink:href="#MJX-1-TEX-I-1D44E"></use></g><g data-mml-node="mi" transform="translate(1407,0)"><use data-c="1D456" xlink:href="#MJX-1-TEX-I-1D456"></use></g><g data-mml-node="mi" transform="translate(1752,0)"><use data-c="1D45B" xlink:href="#MJX-1-TEX-I-1D45B"></use></g></g></g><g data-mml-node="mo" transform="translate(11409.2,0)"><use data-c="2B" xlink:href="#MJX-1-TEX-N-2B"></use></g><g data-mml-node="msub" transform="translate(12409.4,0)"><g data-mml-node="mi"><use data-c="1D437" xlink:href="#MJX-1-TEX-I-1D437"></use></g><g data-mml-node="TeXAtom" transform="translate(861,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D456" xlink:href="#MJX-1-TEX-I-1D456"></use></g><g data-mml-node="mi" transform="translate(345,0)"><use data-c="1D45F" xlink:href="#MJX-1-TEX-I-1D45F"></use></g><g data-mml-node="mi" transform="translate(796,0)"><use data-c="1D45E" xlink:href="#MJX-1-TEX-I-1D45E"></use></g></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><msub><mi>𝐷</mi><mrow data-mjx-texclass="ORD"><mi>𝐸</mi><mi>𝑚</mi><mi>𝑢</mi><mi>𝑙</mi><mi>𝑎</mi><mi>𝑡</mi><mi>𝑜</mi><mi>𝑟</mi></mrow></msub><mo>=</mo><msub><mi>𝐷</mi><mrow data-mjx-texclass="ORD"><mi>i</mi><mi>n</mi><mi>i</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>𝐷</mi><mrow data-mjx-texclass="ORD"><mi>𝑚</mi><mi>𝑎</mi><mi>𝑖</mi><mi>𝑛</mi></mrow></msub><mo>+</mo><msub><mi>𝐷</mi><mrow data-mjx-texclass="ORD"><mi>𝑖</mi><mi>𝑟</mi><mi>𝑞</mi></mrow></msub></math></mjx-assistive-mml></mjx-container></div></div><p><span>𝐷</span><sub><span>𝑖𝑛𝑖𝑡</span></sub><span> 、 𝐷</span><sub><span>𝑚𝑎𝑖𝑛</span></sub><span> 和 𝐷</span><sub><span>𝑖𝑟𝑞</span></sub><span> 是前面提到的三个部分的迹线的修改编辑距离。</span></p><p><span>最后，作者将测量的距离归一化为一个介于 0 到 1 之间的数字来表示保真度分数，其中 1 是最相似的（即短距离）。</span></p><p><span>模拟器的保真度分数可以通过以下公式计算：</span></p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n137" cid="n137" mdtype="math_block" data-math-tag-before="0" data-math-tag-after="0" data-math-labels="[]"><div class="md-rawblock-container md-math-container" tabindex="-1"><mjx-container class="MathJax" jax="SVG" display="true" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="21.915ex" height="5.276ex" role="img" focusable="false" viewBox="0 -1359 9686.5 2332.2" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -2.202ex;"><defs><path id="MJX-2-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-2-TEX-N-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path id="MJX-2-TEX-I-1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-2-TEX-I-1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path id="MJX-2-TEX-I-1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-2-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path id="MJX-2-TEX-I-1D437" d="M287 628Q287 635 230 637Q207 637 200 638T193 647Q193 655 197 667T204 682Q206 683 403 683Q570 682 590 682T630 676Q702 659 752 597T803 431Q803 275 696 151T444 3L430 1L236 0H125H72Q48 0 41 2T33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM703 469Q703 507 692 537T666 584T629 613T590 629T555 636Q553 636 541 636T512 636T479 637H436Q392 637 386 627Q384 623 313 339T242 52Q242 48 253 48T330 47Q335 47 349 47T373 46Q499 46 581 128Q617 164 640 212T683 339T703 469Z"></path><path id="MJX-2-TEX-I-1D438" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path><path id="MJX-2-TEX-I-1D462" d="M21 287Q21 295 30 318T55 370T99 420T158 442Q204 442 227 417T250 358Q250 340 216 246T182 105Q182 62 196 45T238 27T291 44T328 78L339 95Q341 99 377 247Q407 367 413 387T427 416Q444 431 463 431Q480 431 488 421T496 402L420 84Q419 79 419 68Q419 43 426 35T447 26Q469 29 482 57T512 145Q514 153 532 153Q551 153 551 144Q550 139 549 130T540 98T523 55T498 17T462 -8Q454 -10 438 -10Q372 -10 347 46Q345 45 336 36T318 21T296 6T267 -6T233 -11Q189 -11 155 7Q103 38 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-2-TEX-I-1D459" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path><path id="MJX-2-TEX-I-1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path><path id="MJX-2-TEX-I-1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path><path id="MJX-2-TEX-I-1D45C" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path><path id="MJX-2-TEX-I-1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-2-TEX-I-1D444" d="M399 -80Q399 -47 400 -30T402 -11V-7L387 -11Q341 -22 303 -22Q208 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435Q740 255 592 107Q529 47 461 16L444 8V3Q444 2 449 -24T470 -66T516 -82Q551 -82 583 -60T625 -3Q631 11 638 11Q647 11 649 2Q649 -6 639 -34T611 -100T557 -165T481 -194Q399 -194 399 -87V-80ZM636 468Q636 523 621 564T580 625T530 655T477 665Q429 665 379 640Q277 591 215 464T153 216Q153 110 207 59Q231 38 236 38V46Q236 86 269 120T347 155Q372 155 390 144T417 114T429 82T435 55L448 64Q512 108 557 185T619 334T636 468ZM314 18Q362 18 404 39L403 49Q399 104 366 115Q354 117 347 117Q344 117 341 117T337 118Q317 118 296 98T274 52Q274 18 314 18Z"></path><path id="MJX-2-TEX-I-1D440" d="M289 629Q289 635 232 637Q208 637 201 638T194 648Q194 649 196 659Q197 662 198 666T199 671T201 676T203 679T207 681T212 683T220 683T232 684Q238 684 262 684T307 683Q386 683 398 683T414 678Q415 674 451 396L487 117L510 154Q534 190 574 254T662 394Q837 673 839 675Q840 676 842 678T846 681L852 683H948Q965 683 988 683T1017 684Q1051 684 1051 673Q1051 668 1048 656T1045 643Q1041 637 1008 637Q968 636 957 634T939 623Q936 618 867 340T797 59Q797 55 798 54T805 50T822 48T855 46H886Q892 37 892 35Q892 19 885 5Q880 0 869 0Q864 0 828 1T736 2Q675 2 644 2T609 1Q592 1 592 11Q592 13 594 25Q598 41 602 43T625 46Q652 46 685 49Q699 52 704 61Q706 65 742 207T813 490T848 631L654 322Q458 10 453 5Q451 4 449 3Q444 0 433 0Q418 0 415 7Q413 11 374 317L335 624L267 354Q200 88 200 79Q206 46 272 46H282Q288 41 289 37T286 19Q282 3 278 1Q274 0 267 0Q265 0 255 0T221 1T157 2Q127 2 95 1T58 0Q43 0 39 2T35 11Q35 13 38 25T43 40Q45 46 65 46Q135 46 154 86Q158 92 223 354T289 629Z"></path><path id="MJX-2-TEX-I-1D448" d="M107 637Q73 637 71 641Q70 643 70 649Q70 673 81 682Q83 683 98 683Q139 681 234 681Q268 681 297 681T342 682T362 682Q378 682 378 672Q378 670 376 658Q371 641 366 638H364Q362 638 359 638T352 638T343 637T334 637Q295 636 284 634T266 623Q265 621 238 518T184 302T154 169Q152 155 152 140Q152 86 183 55T269 24Q336 24 403 69T501 205L552 406Q599 598 599 606Q599 633 535 637Q511 637 511 648Q511 650 513 660Q517 676 519 679T529 683Q532 683 561 682T645 680Q696 680 723 681T752 682Q767 682 767 672Q767 650 759 642Q756 637 737 637Q666 633 648 597Q646 592 598 404Q557 235 548 205Q515 105 433 42T263 -22Q171 -22 116 34T60 167V183Q60 201 115 421Q164 622 164 628Q164 635 107 637Z"></path><path id="MJX-2-TEX-N-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path><path id="MJX-2-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><use data-c="31" xlink:href="#MJX-2-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(722.2,0)"><use data-c="2212" xlink:href="#MJX-2-TEX-N-2212"></use></g><g data-mml-node="mi" transform="translate(1722.4,0)"><use data-c="1D45A" xlink:href="#MJX-2-TEX-I-1D45A"></use></g><g data-mml-node="mi" transform="translate(2600.4,0)"><use data-c="1D456" xlink:href="#MJX-2-TEX-I-1D456"></use></g><g data-mml-node="mi" transform="translate(2945.4,0)"><use data-c="1D45B" xlink:href="#MJX-2-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(3545.4,0)"><use data-c="28" xlink:href="#MJX-2-TEX-N-28"></use></g><g data-mml-node="mfrac" transform="translate(3934.4,0)"><g data-mml-node="msub" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D437" xlink:href="#MJX-2-TEX-I-1D437"></use></g><g data-mml-node="TeXAtom" transform="translate(861,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D438" xlink:href="#MJX-2-TEX-I-1D438"></use></g><g data-mml-node="mi" transform="translate(764,0)"><use data-c="1D45A" xlink:href="#MJX-2-TEX-I-1D45A"></use></g><g data-mml-node="mi" transform="translate(1642,0)"><use data-c="1D462" xlink:href="#MJX-2-TEX-I-1D462"></use></g><g data-mml-node="mi" transform="translate(2214,0)"><use data-c="1D459" xlink:href="#MJX-2-TEX-I-1D459"></use></g><g data-mml-node="mi" transform="translate(2512,0)"><use data-c="1D44E" xlink:href="#MJX-2-TEX-I-1D44E"></use></g><g data-mml-node="mi" transform="translate(3041,0)"><use data-c="1D461" xlink:href="#MJX-2-TEX-I-1D461"></use></g><g data-mml-node="mi" transform="translate(3402,0)"><use data-c="1D45C" xlink:href="#MJX-2-TEX-I-1D45C"></use></g><g data-mml-node="mi" transform="translate(3887,0)"><use data-c="1D45F" xlink:href="#MJX-2-TEX-I-1D45F"></use></g></g></g><g data-mml-node="msub" transform="translate(561.2,-686)"><g data-mml-node="mi"><use data-c="1D437" xlink:href="#MJX-2-TEX-I-1D437"></use></g><g data-mml-node="TeXAtom" transform="translate(861,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D444" xlink:href="#MJX-2-TEX-I-1D444"></use></g><g data-mml-node="mi" transform="translate(791,0)"><use data-c="1D438" xlink:href="#MJX-2-TEX-I-1D438"></use></g><g data-mml-node="mi" transform="translate(1555,0)"><use data-c="1D440" xlink:href="#MJX-2-TEX-I-1D440"></use></g><g data-mml-node="mi" transform="translate(2606,0)"><use data-c="1D448" xlink:href="#MJX-2-TEX-I-1D448"></use></g></g></g><rect width="4178.4" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(8352.9,0)"><use data-c="2C" xlink:href="#MJX-2-TEX-N-2C"></use></g><g data-mml-node="mn" transform="translate(8797.5,0)"><use data-c="31" xlink:href="#MJX-2-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(9297.5,0)"><use data-c="29" xlink:href="#MJX-2-TEX-N-29"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>1</mn><mo>−</mo><mi>m</mi><mi>i</mi><mi>n</mi><mo stretchy="false">(</mo><mfrac><msub><mi>𝐷</mi><mrow data-mjx-texclass="ORD"><mi>𝐸</mi><mi>𝑚</mi><mi>𝑢</mi><mi>𝑙</mi><mi>𝑎</mi><mi>𝑡</mi><mi>𝑜</mi><mi>𝑟</mi></mrow></msub><msub><mi>𝐷</mi><mrow data-mjx-texclass="ORD"><mi>Q</mi><mi>E</mi><mi>M</mi><mi>U</mi></mrow></msub></mfrac><mo>,</mo><mn>1</mn><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></div></div><p><span>其中 𝐷</span><sub><span>𝑄𝐸𝑀𝑈</span></sub><span> 是在未修改的 QEMU 上测量的编辑距离。</span></p><p><span>此处表示最坏情况的仿真结果， 𝐷</span><sub><span>𝑄𝐸𝑀𝑈</span></sub><span> 因为未提供外设仿真。可以看出，如果 𝐷</span><sub><span>𝐸𝑚𝑢𝑙𝑎𝑡𝑜𝑟</span></sub><span> 足够低，保真度分数将为 1。如果 𝐷</span><sub><span>𝐸𝑚𝑢𝑙𝑎𝑡𝑜𝑟</span></sub><span> 等于或大于 𝐷</span><sub><span>𝑄𝐸𝑀𝑈</span></sub><span> ，则保真度分数将为 0。否则，保真度分数的范围为 0 到 1。</span></p><p><span>在 I2C、UART、GPIO 和 Timer 单元测试样本中跟踪的三个部分的保真度分数细分如下图所示：</span></p><p><img src="大作业/image-20240502194736762.png" alt="image-20240502194736762" style="zoom:50%;" /></p><p><span>在作者给出的保真度指标下，SEmu 是唯一在测试样本中获得满分的指标。</span></p><p>&nbsp;</p><h2 id='第五项实验对比'><span>第五项实验对比</span></h2><p><span>第五个对比试验是评估 SEmu 的模糊测试。测试的固件包括 P</span><sup><span>2</span></sup><span>IM  (Feng, </span><a href='https://ar5iv.labs.arxiv.org/html/2208.07833?_immersive_translate_auto_translate=1#bib.bib12'><span>2021</span></a><span>) 中使用的 10 个样本和 Pretender (Gustafson and Schloegel, </span><a href='https://ar5iv.labs.arxiv.org/html/2208.07833?_immersive_translate_auto_translate=1#bib.bib18'><span>2021</span></a><span>) 中使用的 2 个复杂样本。作者还添加了 4 个新示例，这些示例使用 LwIP over Ethernet 作为网络层协议，通过 TCP 和 UDP 执行网络通信。它们是基于STM32F429芯片的演示代码开发的。</span></p><p><span>作者集成了修改后的 AFL 作为模糊测试引擎。由于模糊测试的随机性，作者对每个测试样本进行了 5 次 24 小时模糊测试的试验，以使实验符合社区指南 (Klees et al., </span><a href='https://ar5iv.labs.arxiv.org/html/2208.07833?_immersive_translate_auto_translate=1#bib.bib25'><span>2018</span></a><span>) 。作者使用与每个测试目标（P</span><sup><span>2</span></sup><span>IM、 𝜇Emu、SEmu）相同的初始种子的随机值。在适用的情况下，作者使用了与已发布的工具一起发布的默认配置。</span></p><p><span>模糊测试的结果如下图所示：</span></p><p><img src="大作业/image-20240502195101980.png" referrerpolicy="no-referrer" alt="image-20240502195101980"></p><p><span>作者观察到，在Soldering_Iron和四个TCP/UDP样本中，与P</span><sup><span>2</span></sup><span>IM和 𝜇Emu相比，代码覆盖率有了明显的提高。原因是 P</span><sup><span>2</span></sup><span>IM 和 𝜇Emu 都不支持 DMA，因此也不支持以太网。虽然 𝜇Emu 能够完成以太网样本的初始化，但它未能涵盖依赖 DMA 进行数据传输的主要固件逻辑。对于可以测试的固件，SEmu 的代码覆盖率平均分别比 P</span><sup><span>2</span></sup><span>IM 和 𝜇Emu 高出 5.1% 和 6.7%。</span></p><p><span>覆盖率的提高似乎微不足道。然而，作者注意到 SEmu 实现了更好的路径保真度，因此没有探索很多错误处理函数。例如，一些外设（如 I2C）使用两个分离的中断来处理正常和错误信号。错误中断仅在硬件故障时发生。但是，P</span><sup><span>2</span></sup><span>IM 和 𝜇Emu 仍然会定期触发这些错误中断，这不应该在不发生物理故障的情况下发生。此外，SEmu 只对实际的 I/O 接口进行模糊处理，而对现有工作也进行模糊处理的状态/控制寄存器。由于这些原因，SEmu 在某些固件（例如 Steering_Control）上实现的代码覆盖率较低。作者认为这是更高仿真保真度的一个很好的指标。</span></p><p><span>在上图中，作者在 #Crashes/#Hangs 列中列出了 AFL 报告的崩溃和挂起次数。为了验证结果，对于每个报告的崩溃/挂起，作者将触发器测试用例重播到相应的模拟器，并收集执行跟踪。如果两个执行跟踪相同，则将其视为重复。如果作者在重播期间没有观察到崩溃/挂起报告，作者会将其视为误报。作者在标题为 Unique 的列中列出唯一的崩溃/挂起，并在标题为 Crashes/Hangs 的列中列出错误的崩溃/挂起 #False 数。</span></p><p><span>SEmu 成功地重现了之前工作中提到的所有错误，但没有报告任何错误的崩溃或挂起。事实上，在现有工作中提出的许多崩溃报告都是重复的或误报的。原因有两方面。首先，现有工作会随机提供中断，这会导致遭受相同崩溃的两个执行的边缘覆盖范围发生重大变化。因此，AFL会错误地将它们识别为两个不同的崩溃。其次，如前所述，由于P</span><sup><span>2</span></sup><span>IM和𝜇Emu的仿真不准确，许多不可行的路径正在探索中，导致大量误报的发生。</span></p><p>&nbsp;</p><h2 id='第六个实验对比'><span>第六个实验对比</span></h2><p><span>合规性检查测试是为了评估SEmu在执行基于规格的合规性检查时的能力。这种检查的目的是验证固件中的外设驱动实现是否符合芯片手册中规定的逻辑。</span></p><p><span>作者实现了两个动态合规性检查规则：</span></p><ul><li><p><span>R1：固件在访问某些寄存器之前，应该先检查另一个寄存器的状态。这适用于许多I/O操作。</span></p></li><li><p><span>R2：为了启用中断，固件不仅需要在本地外设控制器中激活中断配置，还需要在全局中断管理器（通常是NVIC）中启用相应的中断源。</span></p></li></ul><p><span>在使用相同固件样本进行测试的过程中，在 SAM3X HAL 驱动程序代码中观察到几个 R1 冲突。我们后来证实，根本原因是外设访问的竞争条件。例如，SAM3X MCU的UART驱动代码在数据传输前检查TXRDY字段。但是，它还允许在 TXRDY 验证和数据传输之间发生 UART 中断，在此期间，中断处理程序进行独立的数据传输。当中断返回时，之前的 TXRDY 验证将失效，并且以下数据传输将失败。我们在 STMF103 MCU 上的 SPI 单元测试示例中发现了类似的问题。</span></p><p><span>这个测试不是在不同的仿真工具或方法之间进行比较，而是将SEmu作为工具，将其分析结果与芯片手册中的“地面真实”（ground-truth）进行比较，以评估SEmu在执行合规性检查任务时的准确性和有效性。</span></p><p>&nbsp;</p><h1 id='工具存在的问题'><span>工具存在的问题</span></h1><p><span>你自己认为该工具存在什么问题?</span></p><p>&nbsp;</p><p><span>本人对MCU仿真乃至整个MCU领域都不是太熟悉，斗胆列出自己对于文章中SEmu可能会面临的问题的猜想：</span></p><p><span>自然语言处理（NLP）技术可能在处理复杂的技术手册内容时遇到难题，尤其是当文档中存在模糊不清或含糊的表述时。</span></p><p><span>芯片制造商可能会更新他们的产品规格，SEmu需要能够适应这些变化，以确保仿真的准确性。</span></p><p><span>尽管SEmu自动化了许多过程，但在某些情况下，如C-A规则的诊断和修正，可能仍然需要人工干预，这可能会增加用户的负担。以及自动诊断C-A规则错误的过程可能需要进一步的验证，以确保不会引入新的问题。</span></p><p><span>SEmu测试用例是不是相对比较少？仅仅在已经公布的测试集和自己加入的测试集中取得了不错的成绩。但是这种优异表现是否具有普遍性？是不是绝大多数固件仿真都可以在 SEmu 的方式下取得更好的成绩？</span></p><p>&nbsp;</p><h1 id='论文阅读心得'><span>论文阅读心得</span></h1><p><span>论文阅读心得</span></p><p>&nbsp;</p><p><span>这篇论文展示了固件仿真与自然语言处理（NLP）技术结合的潜力。通过将NLP应用于技术手册的解析，SEmu能够自动化地从芯片手册中提取关键信息，这让我意识到跨学科知识的重要性。</span></p><p><span>SEmu提出了一种新颖的方法来解决固件仿真中的挑战，即通过规格引导而非固件引导来实现仿真。这种创新的思维方式启发我在面对问题时，要勇于跳出传统思维模式，寻找新的解决方案。</span></p><p><span>论文详细介绍了SEmu的工作原理，包括如何从芯片手册中提取条件-动作（C-A）规则，以及如何动态合成外设模型。这让我认识到在技术研究中，对细节的深入理解和精确操作的重要性。同时，论文中提到的SEmu工具在提高固件仿真保真度、减少误报、以及执行合规性检查方面的潜力，让我看到了理论研究向实用工具转化的价值。</span></p><p><span>通过阅读论文中的评估部分，我学习到了如何系统地测试和验证一个工具的有效性，包括如何设计实验、收集数据和进行比较分析。同时，我也学习到了如何利用文字表达清楚自己的想法、创新点、验证思路和其他技术细节。</span></p><p>&nbsp;</p><h1 id='通读'><span>通读</span></h1><h2 id='abstract'><span>Abstract</span></h2><p><span>由于缺乏外设模型，仿真微控制器的固件具有挑战性。</span></p><p><span>现有工作通过分析目标固件来了解如何响应外设读取操作。这是有问题的，因为固件有时不包含足够的线索来支持仿真，甚至包含误导性信息（例如，有问题的固件）。</span></p><p><span>我们提出了一种从外设规范构建外设模型的新方法。</span></p><p><span>使用NLP，我们将人类语言中的外围行为（记录在芯片手册中）转换为一组结构化的条件-动作规则。通过在运行时检查、执行和链接它们，我们可以为每个固件执行动态合成一个外设模型。</span></p><p><span>提取的条件操作规则可能不完整，甚至错误。因此，我们建议结合符号执行来快速查明根本原因。这有助于我们手动纠正有问题的规则。</span></p><p><span>我们已经实现了我们的想法，适用于横跨三个不同芯片供应商的五个流行的MCU板。使用一种新的基于编辑距离的算法来计算迹线差异，我们对大型固件语料库的评估证实，与最先进的解决方案相比，我们的原型实现了更高的保真度。</span></p><p><span>得益于准确的仿真，我们的仿真器有效地避免了在现有模糊测试工作中观察到的误报。</span></p><p><span>我们还设计了一种新的动态分析方法，用于根据规范执行驱动程序代码合规性检查。</span></p><p><span>我们发现了一些不合规之处，后来我们确认这是由竞争条件引起的错误。</span></p><h2 id='introduction'><span>Introduction</span></h2><p><span>微控制器单元 （MCU） 是资源受限的小型 SoC（片上系统），可驱动许多安全和安全关键应用领域，例如智能家居、移动机器人和医疗保健。随着物联网 （IoT） 技术的出现，基于 MCU 的物联网设备的安全分析（例如，错误发现、污点分析、策略违规检测）变得越来越重要。</span></p><p><span>由于固件代码和物理外设之间的紧密耦合，物联网设备通常在现实世界中作为一个整体进行测试。</span></p><p><span>但是，涉及实际外设可能会使固件和设备的可扩展（例如，扩展到数千家供应商和数百万个外围设备）安全分析变得更加困难。</span></p><p><span>通过在 PC 上重新托管固件，许多现有的动态安全分析方法都可以在不涉及实际硬件的情况下实现。</span></p><p>&nbsp;</p><h3 id='problem'><span>problem</span></h3><p><span>固件仿真的一个主要挑战是对未知外设的行为进行建模。</span></p><p><span>特别是，当固件读取外设寄存器时，我们如何生成适当的响应？</span></p><p><span>现有工作采用的一个常见理念是，仿真器应生成满足固件期望的响应，以便它不会崩溃或挂起。从这个意义上说，他们试图从固件本身学习知识（关于未知外围设备）。我们称此工作线为固件引导解决方案。</span></p><p><span>例如，在仿真器中执行目标固件时，通过观察外设访问模式来自动构建外设模型；使用符号执行来探索固件以找到令人满意的响应值。</span></p><p><span>但是，固件有时包含不完整甚至误导性的信息。</span></p><p><span>对于正式的，以中断的时间为例。现有的仿真器不知道应该在特定时间传递哪个中断。更一般地说，现有方法仅从固件中学习粗粒度的静态外设模型。</span></p><p><span>我们将通过具体示例简要说明缺失的信息（未包含在固件中）和负面影响（参见第 3.1 节）。</span></p><ul><li><p><span>固件本身包含内存错误，则现有的仿真器 𝜇Emu 会尽量避免执行包含它的代码，这是错误的仿真</span></p></li><li><p><span>P</span><sup><span>2</span></sup><span>IM报告了由于误导性的访问模式而导致的许多寄存器错误分类，最终导致不正确的外设模型</span></p></li></ul><p>&nbsp;</p><p><span>不完整和误导性的信息会导致严重的低保真度问题，从而影响基于仿真器构建的固件分析工具的有效性、效率和适用性。</span></p><ul><li><p><span>有效性：无法正确模拟复杂外设的驱动代码。这将在动态分析中排除大量真实世界的固件。例如，现有的任何工作都无法模糊固件与以太网功能。</span></p></li><li><p><span>效率：即使可以模拟目标固件，执行轨迹也可能与真实硬件上的执行轨迹有很大差异。这引入了不可忽略的误报（即，在不可行路径上找到不存在的错误）和漏报（即，由于缺少代码覆盖而无法找到真正的错误）。此外，如果不能准确地提供中断，仿真进度会变慢</span></p></li><li><p><span>适用性：低保真仿真也限制了可以采用的动态分析类型。事实上，我们观察到固件仿真的所有相关工作都仅限于模糊测试，因为模糊测试可以自然容忍不准确的仿真——无论如何，人类都必须手动确认错误。高保真仿真器可以推进除模糊测试之外的新安全分析应用程序。</span></p></li></ul><p>&nbsp;</p><blockquote><p><span>在论文的引言部分提到的“低保真仿真”（low fidelity emulation）是指在模拟微控制器固件执行过程中，仿真器无法精确地复现固件与硬件外设之间的真实交互。这种情况通常发生在以下几个方面：</span></p><ol start='' ><li><p><strong><span>行为模拟不足</span></strong><span>：仿真器可能无法准确模拟外设的所有行为，包括响应时间、状态转换和错误处理等。</span></p></li><li><p><strong><span>信息不完整或误导</span></strong><span>：固件本身可能不包含足够的信息来支持完整的仿真，或者可能包含错误的信息，导致仿真器生成不准确的外设响应。</span></p></li><li><p><strong><span>状态机缺失</span></strong><span>：现有的仿真方法可能无法构建一个完整的状态机来模拟外设的所有可能状态和状态转换，导致仿真器在处理复杂的外设交互时出现偏差。</span></p></li><li><p><strong><span>性能问题</span></strong><span>：低保真仿真可能会导致固件分析工具在执行时效率低下，例如，由于无法准确触发中断，仿真器可能需要更长的时间来模拟固件的执行。</span></p></li><li><p><strong><span>分析限制</span></strong><span>：低保真仿真限制了可以采用的动态分析类型。例如，模糊测试（fuzz testing）可能需要较高的仿真保真度来有效地发现固件中的潜在错误。</span></p></li><li><p><strong><span>错误处理</span></strong><span>：在低保真仿真中，仿真器可能无法正确处理固件中的异常流程，如错误恢复或非正常退出。</span></p></li><li><p><strong><span>代码覆盖率</span></strong><span>：由于仿真的不准确，可能无法达到真实的硬件上执行时的代码覆盖率，这意味着某些代码路径可能未被测试到，从而遗漏了可能存在的安全漏洞。</span></p></li></ol><p><span>在论文中，作者指出低保真仿真对于固件分析工具的有效性、效率和适用性都有负面影响。为了解决这些问题，作者提出了一种新的规格引导的仿真方法，该方法通过使用自然语言处理技术从芯片手册中提取条件-动作规则，以提高仿真的准确性和保真度。</span></p></blockquote><p>&nbsp;</p><h3 id='a-new-direction-in-automated-firmware-emulation'><span>A New Direction in Automated Firmware Emulation</span></h3><p><span>现有的固件仿真解决方案是以从目标固件中推断出的知识为指导，与之不同的是，我们提出了以规范为指导的仿真。规范以一种原则性的方式指导仿真器，使仿真更加精确。因此，这种方法可以仿真更复杂的固件，更高效地运行动态分析，并应用于更精确的分析任务（例如，我们原型中基于规范的合规性检查）。</span></p><p>&nbsp;</p><h3 id='main-observations'><span>Main Observations</span></h3><p><span>要指定外设电路的行为，状态图和状态表是事实上的标准（Sing，2021 年）。事实上，我们经常看到使用有限状态机来实现固件中的外设驱动程序和仿真器中的外设后端。遗憾的是，除了在内部设计阶段，基于状态图的外设规范并没有被广泛采用，而这种规范可以直接用形式化方法进行解释（Fasano 等人，2021 年）。</span></p><p><span>相反，微控制器芯片供应商通常会为每个芯片发布基于文本的参考手册，其中使用自然语言（尤其是英语）来描述外设行为。与用于描述状态图的格式化语言或表格相比，芯片手册中使用的语言更加随意。例如，我们发现许多类似于 “如果寄存器 reg_A 的值等于 X，那么寄存器 reg_B 将被赋值 Y ”的句子。一方面，这些</span><strong><span>临时句子等同于描述与状态图相同的外设行为</span></strong><span>。事实上，开发人员通常会阅读和理解手册，然后</span><strong><span>构建状态机来实现驱动程序或仿真器后端</span></strong><span>。另一方面，将这些临时句子自动合成状态图是非常困难的，甚至是不可能的。</span></p><p>&nbsp;</p><blockquote><p><span>这段话讨论了在微控制器单元（MCU）的设计和仿真中，如何通过使用自然语言描述的参考手册来规范外设的行为，以及这种描述方式与形式化的状态图之间的差异和挑战。</span></p></blockquote><p>&nbsp;</p><p><span>这项工作的目标不是自动构建状态机以在仿真器中实现外设后端的雄心勃勃的目标。</span></p><p><span>但是，我们有以下观察结果，可以帮助我们更准确地使用规范对外设进行建模。</span></p><ul><li><p><span>芯片手册中的单个句子可以很容易地被现代自然语言处理（NLP）引擎理解，并被形式化为一些简单的条件-动作（C-A）规则</span></p></li><li><p><span>在不显式维护状态机的情况下，战略性地执行这些C-A规则也可以模拟外围设备。</span></p></li></ul><p>&nbsp;</p><h3 id='proposed-solution'><span>Proposed Solution</span></h3><p><span>基于上述观察结果，我们建议利用外设规范，特别是芯片参考手册来模拟外设行为。</span></p><p><span>生成的模型以独立于模拟固件的特定硬件为目标。</span></p><p><span>这将从根本上解决与前面提到的现有固件引导仿真解决方案相关的问题（即固件中包含的不完整和误导性信息）。</span></p><p>&nbsp;</p><blockquote><p><span>这段话强调了通过直接利用芯片参考手册中的规格信息来创建外设模型的方法，这种方法可以提高固件仿真的准确性，并解决由于固件中的不准确信息导致的潜在问题。这对于开发高质量的仿真器和进行深入的固件安全分析非常有价值。</span></p></blockquote><p>&nbsp;</p><blockquote><p><span>这段话的中文翻译是：</span></p><p><span>基于上述观察，我们提出利用外设规格，特别是芯片参考手册来模拟外设行为。生成的模型针对特定的硬件，与被仿真的固件无关。这将从根本上解决之前提到的现有固件引导仿真解决方案所面临的问题（即固件中包含的不完整和误导性信息）。</span></p><p><span>详细解释如下：</span></p><ol start='' ><li><p><strong><span>外设规格的重要性</span></strong><span>：在微控制器的设计和开发中，外设（如UART、SPI、I2C等）是芯片与外部世界交互的关键接口。外设的行为通常由芯片制造商提供的规格或参考手册定义，这些手册详细描述了外设的工作原理和操作方式。</span></p></li><li><p><strong><span>利用参考手册建模</span></strong><span>：作者提出使用这些参考手册中的规格信息来创建外设的行为模型。这意味着，不是依赖于固件中的代码来推断外设的行为，而是直接从权威的技术文档中提取必要的信息。</span></p></li><li><p><strong><span>独立于固件的硬件模型</span></strong><span>：通过使用参考手册，生成的外设模型与固件的具体实现细节无关。这是因为模型基于硬件的规格，而不是固件对硬件的特定使用方式。</span></p></li><li><p><strong><span>解决现有仿真问题</span></strong><span>：传统的固件引导仿真方法可能会受到固件中不完整或错误信息的影响，导致仿真结果不准确。而基于规格的建模方法可以避免这些问题，因为它不依赖于固件中的信息，而是依赖于硬件的官方规格。</span></p></li><li><p><strong><span>提高仿真的准确性</span></strong><span>：通过这种方式，仿真器可以更准确地模拟外设的行为，因为它们是基于芯片制造商提供的准确和权威的技术文档构建的。</span></p></li><li><p><strong><span>对安全分析的意义</span></strong><span>：准确的外设行为模型对于进行有效的安全分析至关重要，因为它们可以确保安全测试和分析基于正确的硬件行为假设。</span></p></li></ol><p><span>总的来说，这段话强调了通过直接利用芯片参考手册中的规格信息来创建外设模型的方法，这种方法可以提高固件仿真的准确性，并解决由于固件中的不准确信息导致的潜在问题。这对于开发高质量的仿真器和进行深入的固件安全分析非常有价值。</span></p></blockquote><p>&nbsp;</p><p><span>在获得足够的 C-A 规则后，在运行时，我们为固件执行期间访问的每个外设动态合成一个模型。具体而言，每个外设模型都代表相应的硬件提供适当的响应。</span></p><p><span>同时，我们通过有选择地以正确的顺序执行某些相关的 C-A 规则来保持外围设备的状态。</span></p><p><span>根据我们的实证研究，执行这些规则隐式维护相应的状态机。在第 3.2 节中，我们展示了一个 UART 外设的直观示例。维护状态反过来将帮助模型在处理下一个固件请求时选择正确的（子集）C-A 规则。</span></p><p>&nbsp;</p><p><span>由于手册的文档记录不多以及 NLP 引擎本身的局限性，我们偶尔会观察到缺失或错误的 C-A 规则，从而导致外设建模不准确。为了解决这个问题，我们结合了 𝜇Emu （周等人，2021）中提出的无效引导仿真来快速诊断根本原因。</span></p><p><span>直观地说，如果 C-A 规则缺失或错误，则仿真很可能会进入无效状态。如果发生这种情况，我们使用符号执行来快速识别哪个外设读取操作导致错误，并相应地修复 C-A 规则。</span></p><p><span>值得注意的是，我们基于NLP的方法和无效引导的仿真是相辅相成的。如果存在缺失/错误的 C-A 规则，无效引导仿真可以帮助快速找到它。但是，由于我们之前提到的原因，仅像  𝜇Emu 这样的无效引导仿真无法解决“固件中包含的不完整和误导性信息”问题。具体来说， 𝜇Emu 不知道何时发出中断，非崩溃执行不能保证数据的正确性。</span></p><p>&nbsp;</p><p><span>我们用一个名为SEmu（规范引导的EMUlator）的原型实现了所提出的想法，并以系统的方式对其进行了评估。</span></p><p><span>SEmu从五个芯片手册中自动提取 C-A 规则:</span></p><ul><li><p><span>STM32F1 （STMicroelectronics， 2021a）</span></p></li><li><p><span>TM32F4 （STMicroelectronics， 2021b）</span></p></li><li><p><span>STM32L1 （STMicroelectronics， 2020）</span></p></li><li><p><span>NXP K64 系列 （NXP， 2014b）</span></p></li><li><p><span>Atmel SMART 系列 （Microchip， 2021b）</span></p></li></ul><p><span>然后我们借助无效引导仿真（周 et al.， 2021）诊断并增强结果。</span></p><p><span>总的来说，这些外设模型使我们能够测试和评估现有工作中使用的同一组固件样本（Feng 等人，2020 年;周 等人，2021 年;Gustafson 等人，2019 年）。</span></p><p><strong><span>为了客观地将我们的解决方案与现有工作进行比较，我们开发了一种基于编辑距离的新方法来量化仿真保真度，该方法衡量仿真执行与硬件上实际执行的偏差程度。</span></strong></p><p><span>这使我们能够模拟更复杂的外设并获得更好的模糊测试结果。</span></p><p><span>最后，</span><strong><span>我们将我们的方法应用于一个新的动态分析任务，我们称之为基于规范的合规性检查。利用从手册中提取的语义信息，它检查外设驱动程序实现是否符合芯片手册中指定的逻辑</span></strong><span>。我们发现了一些不合规之处，后来被证实是编程错误。为了进一步的研究，我们将开源我们的工具和数据集。</span></p><p>&nbsp;</p><blockquote><p><span>这段话描述了SEmu（Specification-guided EMUlator，规格引导的仿真器）原型的实现、评估以及其在固件仿真和动态分析中的应用。以下是对这段话的详细理解：</span></p><ol start='' ><li><p><strong><span>SEmu原型实现</span></strong><span>：作者实现了一个名为SEmu的原型工具，这是一个基于规格的仿真器，它利用芯片参考手册中的信息来模拟外设行为。</span></p></li><li><p><strong><span>自动提取C-A规则</span></strong><span>：SEmu能够自动从五个不同系列的芯片手册中提取条件-动作（C-A）规则。这些芯片系列包括STMicroelectronics的STM32F1、STM32F4、STM32L1，NXP的K64系列，以及Microchip的Atmel SMART系列。</span></p></li><li><p><strong><span>诊断和增强</span></strong><span>：通过无效性引导的仿真（invalidity-guided emulation），SEmu能够诊断提取的C-A规则的准确性，并相应地增强这些规则。这有助于提高仿真的质量和可靠性。</span></p></li><li><p><strong><span>固件样本测试</span></strong><span>：利用SEmu生成的外设模型，作者能够测试和评估现有工作中使用的同一套固件样本。这表明SEmu能够与现有的固件分析工作兼容。</span></p></li><li><p><strong><span>仿真保真度的量化</span></strong><span>：为了客观地比较SEmu与现有解决方案的性能，作者开发了一种基于编辑距离的新方法来量化仿真保真度。编辑距离是一种衡量仿真执行与硬件上真实执行偏差的方法。</span></p></li><li><p><strong><span>仿真结果</span></strong><span>：通过这种量化方法，作者得出结论，SEmu在跟踪保真度方面比现有的固件引导解决方案有更好的表现。这意味着SEmu能够更准确地模拟复杂的外设行为。</span></p></li><li><p><strong><span>模糊测试</span></strong><span>：由于SEmu的高保真度仿真，它能够产生更好的模糊测试结果。模糊测试是一种通过自动生成大量随机输入来发现软件潜在缺陷的技术。</span></p></li><li><p><strong><span>规格基遵从性检查</span></strong><span>：SEmu还被应用于一种新的动态分析任务，称为基于规格的遵从性检查。这项检查利用从手册中提取的语义信息，来验证外设驱动程序的实现是否符合芯片手册中规定的逻辑。</span></p></li><li><p><strong><span>发现编程错误</span></strong><span>：在遵从性检查过程中，作者发现了一些不合规的情况，这些后来被确认为编程错误。</span></p></li><li><p><strong><span>开源计划</span></strong><span>：为了进一步的研究，作者计划开源他们开发的工具和数据集。</span></p></li></ol><p><span>总的来说，这段话强调了SEmu在提高固件仿真质量和进行高级动态分析方面的能力，以及作者在评估和测试SEmu时所采取的系统化方法和开放研究资源的承诺。</span></p></blockquote><p>&nbsp;</p><blockquote><p><span>在提到的“Specification-guided EMUlator”（简称SEmu）这个术语中，“Specification”指的是微控制器（MCU）的外设规格，这通常详细描述在芯片制造商提供的参考手册中。这些规格包括外设的行为、功能、状态转换、寄存器配置等技术细节，它们定义了外设如何响应不同的操作和条件。</span></p><p><span>在SEmu的上下文中，&quot;Specification-guided&quot;（规格引导的）意味着仿真器的设计与实现是基于这些技术规格，而不是依赖于固件代码本身来推断外设的行为。这种方法允许仿真器更准确地模拟硬件外设的行为，因为它直接使用了制造商提供的权威和详细的硬件描述。</span></p></blockquote><p>&nbsp;</p><p><span>总而言之，我们做出了以下贡献：</span></p><ul><li><p><span>我们提出了规范指导的固件仿真，以更准确地仿真固件。核心技术是利用NLP技术从芯片手册中自动提取有用的C-A规则。</span></p></li><li><p><span>我们建议结合无效引导仿真来识别 SEmu 提取的缺失或错误的 C-A 规则。</span></p></li><li><p><span>为了定量评估仿真保真度，我们提出了一种基于修改后的编辑距离的新方法，用于测量跟踪相似性。</span></p></li><li><p><span>我们实现了我们的想法，并将 SEmu 生成的外设模型与 QEMU 提供的 6 个实况模型以及现有固件引导解决方案生成的自动模型进行了比较。</span></p></li><li><p><span>提取的外设行为规则使我们能够进行驱动程序代码合规性检查，并且我们发现了真正的不合规性错误。</span></p></li></ul><p>&nbsp;</p><h2 id='background'><span>background</span></h2><h3 id='overview-of-mcu-peripherals'><span>Overview of MCU Peripherals</span></h3><p><span>MCU（微控制器单元）设备的主要功能是通过控制外设与外部环境交互来实现的。因此，MCU上运行的固件可以被视为外设用法的集合。</span></p><p><span>要正确操作外围设备，固件应确保外围设备在进行任何访问之前处于正确状态;否则，将发生意外行为。例如，如果外设忙于执行硬件操作（例如，模数转换器或ADC正在将外部模拟值转换为数字值），则无法响应固件功能。</span></p><p><span>为了传达如此重要的状态信息（即外设是否准备好响应某个访问请求），固件通常首先通过读取相应的状态寄存器（SR）来查询当前外设状态，SR是映射到处理器地址空间的内存（又名MMIO）。</span></p><p><span>外设还通过中断机制通知处理器（因此是固件）外部事件。通常，外部事件会导致外围设备的状态更改。此外，一些高吞吐量外设（如 I2C、USB 和以太网）可能会使用直接内存访问 （DMA） 在 RAM 和外设之间传输数据，而无需涉及 CPU。</span></p><p>&nbsp;</p><h3 id='mcu-reference-manuals'><span>MCU Reference Manuals</span></h3><p><span>可以看出，即使是一个简单的外设也涉及许多硬件状态。为了帮助固件开发人员了解外设行为，芯片供应商通常会为使用自然语言编写的每个芯片发布参考手册。MCU参考手册应该提供有关如何使用每个外设的基本信息，包括其寄存器、内存映射、硬件接口和行为。</span></p><p><span>由于每个外设都包含多个寄存器，因此手册至少包含一段寄存器存储器映射，以汇总每个外设寄存器的MMIO地址及其访问权限（例如，只读、只写和读/写）。</span></p><p><span>在存储器映射之后，除了字段描述表外，还阐明了每个寄存器的功能。</span></p><p><span>字段描述表指定寄存器中各个字段的含义，包括其名称、位、访问权限和功能。</span></p><p><span>在解释每个字段的功能时，它首先描述了字段的值将如何变化。</span></p><p>&nbsp;</p><p><span>然后，它枚举可能的值并解释相应的含义。以</span><strong><span>NXP K64F中的UART外设</span></strong><span>为例，我们发现以下句子来描述SR1寄存器的RDRF字段：</span></p><p><em><span>RDRF is set when the number of datawords in the receive buffer is equal to or more than the number indicated by RWFIFO[RXWATER].  1</span></em></p><p><em><span>当接收缓冲区中的数据字数等于或大于 RWFIFO[RXWATER] 指示的数量时，将设置 RDRF。 1</span></em></p><p><span>这句话指定了如何将字段 RDRF 更改为 1，我们将其称为条件。</span></p><p><span>根据该函数，寄存器字段可以分为以下类型之一：</span></p><ul><li><p><span>状态字段用于指示外围设备的当前状态。固件使用控制字段来配置或初始化外设功能。</span></p></li><li><p><span>数据字段为外设的 I/O 接口提供服务。它通常与移位寄存器连接，移位寄存器由数据缓冲器进一步支持。虽然某些外设使用相同的数据寄存器来连接发送缓冲区（用于发送数据）和接收缓冲器（用于接收数据），但有些外设使用两个专用数据寄存器来发送和接收数据。</span></p></li></ul><p>&nbsp;</p><p><span>该手册还包括一个中断向量分配表，该表汇总了为每个外设分配的 IRQ 编号。</span></p><p>&nbsp;</p><blockquote><p><span>在微控制器（MCU）和其他类型的嵌入式系统中，IRQ（Interrupt Request，中断请求）编号是用来唯一标识特定中断源的数字。每个中断源都会被分配一个IRQ编号，这些编号用于以下目的：</span></p><ol start='' ><li><p><strong><span>中断识别</span></strong><span>：当系统中发生事件，需要处理器注意时，相应的硬件模块会触发一个中断请求。IRQ编号帮助中断控制器（Interrupt Controller）识别是哪个硬件模块发出了中断请求。</span></p></li><li><p><strong><span>中断处理</span></strong><span>：处理器通过中断控制器响应中断请求，执行相应的中断服务例程（Interrupt Service Routine, ISR）。每个ISR都与一个特定的IRQ编号相关联，以便在发生中断时能够调用正确的处理程序。</span></p></li><li><p><strong><span>优先级排序</span></strong><span>：在多个中断同时发生时，中断控制器可以根据IRQ编号分配的优先级来决定首先处理哪个中断。一些系统允许开发者更改中断的优先级顺序。</span></p></li><li><p><strong><span>中断使能</span></strong><span>：开发者可以通过编程方式使能（enable）或禁用（disable）特定编号的中断，以此来控制何时响应特定的中断事件。</span></p></li><li><p><strong><span>中断配置</span></strong><span>：在系统初始化阶段，开发者需要配置中断系统，包括为每个中断源设置IRQ编号和相关的中断服务例程。</span></p></li></ol><p><span>在论文中提到的上下文中，IRQ编号可能与外设（如UART、I2C、SPI等）相关联，当这些外设需要处理器注意（例如，数据接收完成、传输完成、错误发生等）时，它们会产生中断请求。通过使用IRQ编号，外设可以触发中断，从而通知处理器进行相应的处理。这对于实现固件的动态分析和安全测试尤其重要，因为中断处理机制是嵌入式系统功能的重要组成部分。</span></p></blockquote><p>&nbsp;</p><p><span>请注意，某些外设可能具有多个用于不同功能的 IRQ 编号。例如，外设可能会在出现错误、警报或更新时生成中断。最后，外设的每个 DMA 请求都映射到 DMA 通道中。此信息汇总在称为 DMA 通道分配的表中。例如，来自 F103 器件的 ADC1 外设的 DMA 请求被路由到通道 1，通道 1 通过对相应外设的 DMA 控制位进行编程来激活通道 1。当 DMA 传输结束时，将触发相应的中断以通知固件。</span></p><p>&nbsp;</p><p><span>如前所述，芯片厂商通常会为开发人员发布参考手册，我们提出的方法依赖于这些手册的可用性以及其中包含的重要信息（即寄存器存储器映射、字段描述等）。为了展示芯片手册的普及程度（因此我们的方法适用），我们对全球 MCU 市场的 15 家顶级参与者进行了一项调查（MarketWatch，2022 年）。附录A中显示的结果表明，所有主要的芯片供应商都发布了芯片手册，并且手册包含所有需要的信息。值得一提的是，一些供应商需要免费注册才能访问手册（例如， NXP （ NXP ，2014c））。此外，不同的供应商可能会对语义相似的部分使用不同的名称。例如，在STM32手册中，“寄存器存储器映射部分”称为“存储器映射和寄存器边界地址”（STMicroelectronics，2021b）。但是，为了保持一致性，供应商倾向于在其芯片生产线上使用相同的部分名称。</span></p><p><span>另一方面，芯片手册可能不包括所有外围设备的全面信息。例如，在 Nordic 设计的流行 BLE 芯片（Nordic，2021 年）的手册中，开发人员被重定向阅读蓝牙核心规范，以充分理解其专有 BLE 外设的描述。的方法不支持对这些外设进行建模。</span></p><p>&nbsp;</p><h3 id='natural-language-processing'><span>Natural Language Processing</span></h3><p><span>虽然参考手册（主要是PDF格式）是非结构化数据，但在格式和文本方面存在可观察到的特征。因此，NLP技术可用于理解自然表达的句子，并从芯片手册中提取条件-动作逻辑。</span></p><p><span>更具体地说，NLP技术可以通过识别名词和动词短语来识别相关的音域和字段，通过句子结构和连词找到条件和动作之间的因果关系，并根据词对之间的关系推断句子的语义。</span></p><p><span>重用上面引用的句子作为示例。它有三个命名实体：RDRF、接收缓冲区和 RWFIFO[RXWATER]。词性（POS）标记技术（Manning等人，2014）可以通过识别单词（例如名词和动词）的特征结构来识别命名实体。因果关系可以通过选区分析来提炼（Zhu et al.， 2013）。生成二元解析树将句子划分为不同的成分，以便可以分离条件和操作。在此示例中，标识的动作是“设置了 RDRF”，其余子句是条件子句。此外，类型依赖分析（Chen和Manning，2014）可用于分析语法结构。它匹配动词及其对应的主语或宾语，以便 RDRF 句子可以转换为一阶逻辑。以子句“RDRF is set”为例，set 是一个依赖于名词短语 RDRF 的谓语。由于这种条件-动作表示在芯片手册中反复出现，因此 NLP 技术在提取 C-A 规则方面非常有效。</span></p><p>&nbsp;</p><h2 id='motivation-and-key-ideas'><span>Motivation and Key Ideas</span></h2><p><span>首先解释了现有的低保真仿真解决方案如何影响动态分析方法，特别是模糊测试。然后，用一个直观的例子来展示的方法如何实现更高的保真度。</span></p><p>&nbsp;</p><h3 id='problems-with-low-fidelity-emulation'><span>Problems with Low-fidelity Emulation</span></h3><p><span>为了便于进行大规模动态固件分析，必须进行不依赖任何硬件的全系统仿真。</span></p><p><span>最近的工作在外设建模方面取得了实质性进展，这是动态固件分析的关键障碍（周 等人，2021 年;Cao 等人，2020 年;Chen 等人，2016 年;Feng 等人，2020 年;Johnson 等人，2021 年;Gustafson 等人，2019 年;Spensky 等人，2021 年;Scharnowski 等人，2022 年）。</span></p><p><span>最近探索了不同的技术，例如访问模式识别（Feng et al.， 2020）、符号执行（Cao et al.， 2020;周 等人，2021 年;Johnson 等人，2021 年;Scharnowski 等人，2022 年）和真实痕量分析（Gustafson 等人，2019 年;Spensky 等人，2021 年）。</span></p><p><span>所有这些解决方案都具有相同的理念——只要外设模型满足固件的期望，仿真就被认为是成功的。在这里，满足预期意味着固件不会崩溃或挂起。因此，他们只使用固件作为信息源来构建粗粒度的静态外设模型。这些固件引导的解决方案仅近似模拟固件，因此当输入空间变大时，会遇到低保真度问题。在这里，用一个具体的例子来解释这个问题。</span></p><p><span>在清单 1 中，展示了在 P</span><sup><span>2</span></sup><span>IM 中评估的真实固件的代码片段（Feng 等人，2020 年）。它在PLC（可编程逻辑控制器）上运行，该控制器通过UART上的Modbus协议与远程SCADA机器持续通信。主程序逻辑在无限循环中运行。具体来说，在每个循环（称为扫描周期）中，都会调用 loop（） 函数。此函数首先检查是否有任何传入数据可用（第 3 行）。只有当缓冲区中累积了超过 7 个字节（第 4 行）时，它们才会从缓冲区中获取并得到处理（第 6 行）。要填充接收缓冲区，硬件必须引发 UART 中断，以便调用名为 UART_IRQHandler（） 的相应处理程序。处理程序不仅接收数据，还传输数据并处理错误。要调用的确切子函数（在处理程序函数中）由状态寄存器（即 isrflags）和两个控制寄存器（即 crlflags 和 cr3flags）共同决定。</span></p><p><span>在提出问题之前，首先解释UART硬件在接收外部数据时如何与所示的驱动程序代码协同工作。每当有字节可用时，硬件就会将一个字节移动到 UART 硬件内部的 FIFO 接收缓冲区，然后设置 UART 状态寄存器的 RXNE 标志。如果启用中断（即设置了标志 RXNEIE），则也会触发中断。根据当前状态和控制寄存器值，处理程序最终将执行读取数据寄存器的 UART_Receive_IT（） 函数。读取数据寄存器时，FIFO接收缓冲器被移位，以便通过数据寄存器将一个字节返回到固件。</span></p><p><span>在此示例中，在现有固件引导的工作中实现的近似仿真在模糊测试中至少表现出两个缺陷，这些缺陷从根本上是由固件中包含的不完整信息引起的。首先，仿真器不知道中断传送的类型和时间。因此，它以循环方式触发每个活动中断，基于执行的基本块的数量或消耗的时间。但是，在固件执行期间有许多活动中断。仿真器选择 UART 中断通常需要大量时间。其次，即使触发了UART中断，状态寄存器和控制寄存器也应该保持正确的值，以便可以调用正确的子函数（在的示例中为UART_Receive_IT（））。然而，现有的工作不能保证这一点，因为其他子函数（例如，UART_Transmit_IT（））也不会使执行崩溃，因此也可以选择。显然，固件无法告诉仿真器应该执行哪个子功能——相关信息不包含在固件中。综合起来，它通常需要很长时间或依赖于模糊测试的一些非确定性来调用预期的函数 UART_Receive_IT（） 来接收输入。</span></p><p><span>总而言之，固件从根本上缺乏固件引导仿真器的一些基本信息。因此，这些仿真器必须盲目地尝试输入空间中所有可能的组合（例如，中断时序和状态寄存器值）。虽然这些解决方案可以避免由于一些巧妙的设计而导致的崩溃和挂起，但它们不太强调仿真器的保真度。</span></p><p><img src="大作业/image-20240428210246785.png" referrerpolicy="no-referrer" alt="image-20240428210246785"></p><p><span>Listing 1: 实际 PLC 固件的代码片段（为节省篇幅，稍作修改）。</span></p><p>&nbsp;</p><h3 id='using-c-a-rules-to-emulate-state-transitions'><span>Using C-A Rules to Emulate State Transitions</span></h3><p><span>为了解决低保真度问题，的方法自动从芯片手册中提取结构化的C-A规则，并战略性地执行它们。</span></p><p><span>此过程模拟底层硬件的状态转换，而无需显式维护状态机，使仿真更具原则性，从而产生良好的保真度。</span></p><p><span>以 UART 外设为例，使用 Figure LABEL：fig：statemachine 来说明这个想法。</span></p><p>&nbsp;</p><p><img src="大作业/image-20240428210349298.png" referrerpolicy="no-referrer" alt="image-20240428210349298"></p><p><span>Figure 1. 检查、执行和链接条件操作规则可以模拟状态转换。</span></p><p>&nbsp;</p><p><span>上表列出了摘自 K64F 系列芯片原始参考手册（NXP，2014b）的三句话以及从中提取的 C-A 规则。突出显示了这些句子中的主要主语/宾语。在的 NLP 引擎中，它们是指定条件或操作的命名实体。在底部，显示了通过阅读手册手动构建的状态图。注意到，这是开发人员以传统方式实现外设驱动程序的重要步骤。</span></p><p><span>C-A 规则 1 指出，如果满足条件“#D[R] ¿= RWFIFO[RXWATER]”（UT1），则将调用操作“S1[RDRF] ：= 1”（US1）。请注意此 C-A 规则如何对应于 UART 状态图的边 UT1 和节点 US1。该操作将值 1 分配给寄存器字段 S1[RDRF]，这反过来又使 C-A 规则 2 的条件为 true （US1）。由于相应的操作 （NT1） 而生成 UART 中断。它使 UART 中断挂起 （NS1）。请注意，此操作具有跨外设效应，会影响 Arm 的内置中断管理外设 NVIC 的状态机。C-A 规则 3 与接收数据有关。它如何映射状态转换是不言自明的。</span></p><p><span>可以看出，通过简单地检查、执行和链接每个 C-A 规则，可以获得由手动构建的状态图控制的状态转换的相同结果。</span></p><p>&nbsp;</p><p><img src="大作业/image-20240428210641553.png" referrerpolicy="no-referrer" alt="image-20240428210641553"></p><p><span>Figure 2.SEmu 概述</span></p><p>&nbsp;</p><h2 id='overview'><span>Overview</span></h2><p><span>利用外设规范来指导仿真器克服先前工作的上述局限性。</span></p><p><span>从某种意义上说，模仿了真实世界的仿真器开发过程，在这个过程中，开发人员阅读芯片手册并相应地编写外设模型作为仿真器后端。</span></p><p><span>然而，为了使其具有可扩展性，利用了NLP的最新进展，采用了一种半自动方法。如图 2 所示，给定芯片手册，使用 NLP 引擎提取一组描述外围行为的条件-操作 （C-A） 规则（第 5 节）。关键的观察结果是，虽然芯片手册中使用的自然语言多种多样，但大多数句子的结构相似，这使得 C-A 规则的提取足够准确。使用这些规则，仿真器在运行时会拦截固件-外设交互，从而驱动 C-A 规则的检查、执行和链接。</span></p><p><span>如前所述，这模拟了外围硬件的状态转换，而无需显式维护状态机。当固件向外设寄存器发出读取请求时，仿真器会查询当前外设状态并计算响应。因此，的方法根据规范动态构建外设模型，实现状态感知固件仿真（第 6 节）。</span></p><p><span>由于文档不完善和 NLP 引擎本身的局限性，偶尔会观察到仿真失败。因此，还开发了一种符号执行辅助诊断技术，以快速查明错误或缺失的 C-A 规则。诊断结果由人工分析师手动分析，然后修改自动提取的 C-A 规则以解决问题（第 7 节）。</span></p><p><span>在提议的状态感知仿真器之上，开发了两个安全分析插件。首先，开发了一种基于 AFL 的模糊器来查找固件中与内存相关的错误。其次，开发了一个合规性检查工具，用于跟踪每个外设的MMIO访问序列，并将其与规范中的静态规则进行比较。除非另有说明，否则使用 NXP K64F手册（ NXP ，2014b）中的外设描述作为示例来说明想法。</span></p><p>&nbsp;</p><h2 id='extracting-c-a-rules-from-chip-manuals'><span>Extracting C-A Rules from Chip Manuals</span></h2><p><span>在本节中，首先介绍条件和动作的正式定义，以及它们的分类。然后，详细阐述了如何识别条件从句并提取触发动作规则。</span></p><p>&nbsp;</p><h3 id='conditions-and-actions'><span>Conditions and Actions</span></h3><p><span>条件-动作规则是系统中最关键的概念。它描述了重要事件（如访问 MMIO 寄存器）如何影响外设状态。条件由一个或多个使用布尔 𝑎𝑛𝑑 运算符组合的谓词组成。操作是一个或多个赋值函数。C-A 规则将一个条件和一个操作连接起来——当满足条件时，将执行配对操作。如果满足多个条件，则应执行所有关联的操作。</span></p><p><span>C-A 规则中的主体/对象被建模为命名实体（例如，寄存器字段）。因此，条件中的每个谓词都指定命名实体的值是等于、大于还是小于引用值或另一个命名实体的值。每个赋值函数都为命名实体分配一个值。从形式上讲，C-A 规则表示为以下逻辑表达式： 𝑃</span><sub><span>1</span></sub><span>∧𝑃</span><sub><span>2</span></sub><span>∧…∧𝑃</span><sub><span>𝑛</span></sub><span>→𝐹</span><sub><span>1</span></sub><span>,𝐹</span><sub><span>2</span></sub><span>,…,𝐹</span><sub><span>𝑚</span></sub><span> ，其中 𝑃 引用谓词并 𝐹 引用赋值函数。</span></p><p><span>条件是事件驱动的。也就是说，当某些事件发生时，可能会满足条件。</span></p><p><span>根据相关的命名实体和固件操作对条件进行分组。</span></p><p><span>事件通过信号传递。根据基础信号的产生方式，将受影响的情况分为三种类型。</span></p><ul><li><p><span>类型 1 条件（通过外部硬件生成的信号）：这些信号由外部硬件事件驱动，例如从物理 UART 接口接收新数据。结果通常可以抽象为用新数据填充内部缓冲区。此类条件的描述通常包含关键字“硬件”或“缓冲区”。在第 2.2 节引用的句子中，“接收缓冲区中的数据字数”是条件的主题，与硬件生成的信号有关。</span></p></li><li><p><span>类型 2 条件（通过固件生成的信号）：此类条件由固件操作驱动。例如，在句子“LBKDIF is cleared by writing a 1 to it”中，写入操作是更新 LBKDIF 值的信号。</span></p></li><li><p><span>类型 3 条件（通过内部信号）：当寄存器值由于执行任何先前操作而更新时，某些相关条件可能会变为真。称之为链式 C-A 规则执行。因此，当先前的操作导致寄存器更新时，将检查每个相关的 C-A 规则。经常发现由于链式 C-A 规则执行而导致中断传递或 DMA 请求。图 LABEL：fig：statemachine 中的 C-A 规则 2 显示了这样一个示例。</span></p></li></ul><p>&nbsp;</p><h3 id='c-a-rule-extraction'><span>C-A Rule Extraction</span></h3><p><span>自动提取相关的 C-A 规则有几个挑战：</span></p><ol start='' ><li><p><span>如何识别与 C-A 规则相关的句子？</span></p></li><li><p><span>如何识别和处理非常常见的共同引用?</span></p></li><li><p><span>如何确定句子的因果关系？</span></p></li></ol><p>&nbsp;</p><h4 id='collecting-relevant-sentences-via-named-entity'><span>Collecting Relevant Sentences via Named Entity</span></h4><p><span>芯片手册包含数千个句子，其中许多与任何有意义的 C-A 规则无关，应该过滤掉。为了收集相关句子，利用命名实体。如前所述，C-A 规则中的主体/对象表示为命名实体。首先确定一组重要的命名实体。基于它们，直接匹配句子中的出现次数以收集相关句子。</span></p><p><span>考虑命名实体的两个来源。首先，固件通过MMIO寄存器与外设进行交互。因此，外设寄存器及其字段是主要来源。其次，还将与数据寄存器连接的接收/发送缓冲区视为命名实体。</span></p><p><strong><span>命名实体的初始集是从手册的寄存器存储器映射部分中提取的。</span></strong><span>这很简单，因为此部分是枚举寄存器的中心位置。</span></p><p><span>然后，扫描字段描述部分以</span><strong><span>查找包含至少一个命名实体的相关句子</span></strong><span>。在此过程中，使用新遇到的主题/对象（例如以太网传输描述符 （TDES0））</span><strong><span>扩展命名实体集</span></strong><span>。通过新实体，还</span><strong><span>将搜索范围扩展到手册中的其他部分</span></strong><span>，例如功能描述和应用程序信息。当找到新的命名实体和相关句子时，将对已扫描的部分重新运行搜索算法。这是一个迭代过程，当找不到新的命名实体或句子或超过阈值（在的原型中默认为三个）时，该过程结束。</span></p><p>&nbsp;</p><h4 id='identifying-coreferences'><span>Identifying Coreferences</span></h4><p><span>NLP 中一个众所周知的挑战是自然语言中的多个表达式可以引用同一个实体。例如，对于UART状态寄存器，至少遇到了以下不同的表达式：UART、UARTx_SR和SR的状态寄存器。为了在 C-A 规则中统一表示它们，必须识别所有这些共同引用。</span></p><p>&nbsp;</p><blockquote><p><span>这段话讨论了自然语言处理（NLP）中的一个常见挑战，即在自然语言中，同一个实体可能会有多种不同的表达方式。这对于理解和处理语言的计算机系统来说是一个难题，因为它需要准确地识别和理解这些不同的表达实际上指的是同一个事物。</span></p><p><span>具体来说，这段话中提到的例子是关于UART（通用异步接收/发送器）状态寄存器的不同表达方式。UART是一种常见的硬件外设，用于实现串行通信。UART状态寄存器是一个存储UART当前状态的内存位置，对于固件开发人员来说，理解和操作这些寄存器是至关重要的。</span></p><p><span>在不同的上下文或文档中，UART状态寄存器可能被描述为：</span></p><ol start='' ><li><p><strong><span>Status register of UART</span></strong><span>：这是指UART的“状态寄存器”，这是一个比较通用和描述性的称呼。</span></p></li><li><p><strong><span>UARTx_SR</span></strong><span>：这可能是一个更具体的表达方式，其中“UARTx”表示某个特定型号或实例的UART（例如，&quot;x&quot;可能是一个型号或标识符），而“SR”通常代表“Status Register”。</span></p></li><li><p><strong><span>SR</span></strong><span>：这是一个更简洁的表达方式，仅用“SR”来指代状态寄存器。</span></p></li></ol><p><span>这段话的意思是，在处理芯片手册或其他技术文档时，NLP系统需要能够识别和理解这些不同的表达实际上都是指同一个硬件组件——UART的状态寄存器。这对于自动提取条件-动作（C-A）规则至关重要，因为这些规则需要准确地引用特定的硬件寄存器和它们的行为。</span></p><p><span>为了解决这个问题，NLP系统可能需要使用诸如共指消解（coreference resolution）的技术，这是一种确定文本中不同表达是否指向同一实体的方法。通过这种方式，NLP系统能够将不同的表达关联到相应的硬件组件上，从而正确地提取和应用C-A规则。</span></p></blockquote><p>&nbsp;</p><p><span>通过将随机名词短语与从寄存器内存映射中提取的初始命名实体集进行匹配来解决这个问题，因为句子中的名词短语通常与命名实体相关。名词短语在Stanford POS Tagger中被标记为“NP”（Manning et al.， 2014）。例如，图 LABEL：fig：nlp_example 中带下划线的短语“RWFIFO[RXWATER]指示的数字”是名词短语。</span><strong><span>使用近似字符串匹配来测量未知名词短语与每个初始命名实体集之间的相似性，以识别可能的共同引用。</span></strong><span>在此示例中，单词“RWFIFO[RXWATER]”接近“UART FIFO Receive Watermark（UARTx_RWFIFO）”。因此，知道“RWFIFO”是登记册与命名实体“UARTx_RWFIFO”的同义词。通过进一步搜索寄存器UARTx_RWFIFO的字段描述，将“RXWATER”识别为该寄存器的字段。</span></p><p>&nbsp;</p><h4 id='identifying-conditions-and-actions'><span>Identifying Conditions and Actions</span></h4><p><span>给定一个句子，然后我们应用</span><em><span>Stanford Constituency Parser</span></em><span>（Zhu et al.， 2013），一个流行的语言模型，来分析句子的语法结构。</span></p><p>&nbsp;</p><p><img src="大作业/image-20240428213416272.png" referrerpolicy="no-referrer" alt="image-20240428213416272"></p><p>&nbsp;</p><p><span>条件从句（在句子中）可以通过选区分析来识别，如图 LABEL：fig：nlp_example 所示，该分析以第 2.2 节中引用的句子为例。在这里，句子“S”被定义为名词短语“NP”后跟动词短语“VP”。以“SBAR”为根节点的子树代表以连词“When”开头的从属条件子句。确定条件从句后，句子分为两个子句，分别表示条件和动作。由于自然语言的复杂性，有时</span><em><span>Stanford Constituency Parser</span></em><span>无法识别复杂的条件从句。例如，</span><em><span>Stanford Constituency Parser</span></em><span>无法识别句子“LBKDIF is cleared by writing a 1 to it”中的条件从句，为了解决这个问题，我们扩展了解析器使用的语法模式来指定语法成分。语法模式是一系列将句子分成几个子句的正则表达式。在上面的例子中，两个子句 &lt;𝑁𝑃,𝑉𝐵𝑍,𝑉𝐵𝑁&gt; 和 &lt;𝑉𝐵𝐺,𝑁𝑃,𝐼𝑁,𝑁𝑃&gt; 是匹配的。这里， 𝑉𝐵.∗ 表示不同的动词形式，如动名词/现在分词（ 𝑉𝐵𝐺 ）、现在时 （ 𝑉𝐵𝑍 ） 和过去分词 （ 𝑉𝐵𝑁 ）。 𝐼𝑁 匹配所有介词/从属连词（例如，in、of、to）。第二个子句“给它写一个 1”是第一个子句“LBKDIF is cleared”的介词短语。因此，我们将第二个子句指定为条件，将第一个子句指定为动作。</span></p><p>&nbsp;</p><h4 id='c-a-rule-representation'><span>C-A Rule Representation</span></h4><p><span>在完全“理解”句子后，我们的 NLP 引擎为在线模型合成模块输出 C-A 规则的正式表示。</span></p><p><span>我们首先将条件和动作转换为谓词和赋值函数。为此，我们使用</span><em><span>Stanford Dependency Parser</span></em><span>（Chen和Manning，2014）将命名实体与相关动词连接起来。如图 LABEL：fig：nlp_example 所示，动词“set”连接到命名实体 RDRF。</span></p><p><span>然后，需要提取动词短语中涉及的值和运算符语义。为此，我们构建了一个映射表，其中一个或多个关键字映射到特定的二进制值（例如，关键字“set”映射到值 1，“cleared”映射到 0））或布尔运算符（例如，布尔运算符“等于或大于”映射到 &gt;=，赋值函数映射到 ：=).请注意，映射表的构造需要领域知识，但这是一次性的工作。</span></p><p><span>其次，我们制定规则触发器和行动。通过分析条件描述来识别规则触发器。例如，对于“当固件写入 1 时清除 LBKDIF 字段”这句话，我们应该仅在固件写入该字段时检查相应的 C-A 规则。我们定义了五种类型的触发器。</span></p><ol start='' ><li><p><span>B 触发器表示接收/发送缓冲区中的数据发生变化时检查的条件</span></p></li><li><p><span>W 触发器表示在固件写入操作中检查的条件</span></p></li><li><p><span>R 触发器表示在固件读取操作中检查的条件</span></p></li><li><p><span>V 型触发器表示当内部信号更新字段值时检查的条件</span></p></li><li><p><span>O 型触发器表示在任何其他信号（如定时器或手动调用）上检查的条件。</span></p></li></ol><p>&nbsp;</p><p><span>如果一个规则包含多个条件，我们使用 &amp; 符号将它们连接起来。从解析的句子中识别动作很简单。它们根据第 5.1 节中提到的类型进行编码。</span></p><p><span>最后，我们制定了C-A规则。命名实体正式表示为 Reg[Field]（例如，RWFIFO[RXWATER]）。对于数据寄存器，我们使用 D[R] 和 D[T] 来表示相应的接收器和发送缓冲器。# 在每个与缓冲区相关的关键字的开头表示该缓冲区的当前占用大小。我们使用符号 → 来分隔 C-A 规则中的条件和操作。由此产生的 C-A 规则的正式表示见附录 B。我们使用图 LABEL：fig：statemachine 中的第一句话来举例说明句子是如何表述的。翻译后的 C-A 规则为：</span></p><p><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="54.968ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 24295.7 1000" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.566ex;"><defs><path id="MJX-6-TEX-I-1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path><path id="MJX-6-TEX-N-23" d="M56 347Q56 360 70 367H313L355 524Q394 676 401 686Q406 694 416 694Q434 694 436 676Q436 672 396 522Q355 374 355 369L354 367H543L585 524Q626 679 630 685Q636 694 646 694Q653 694 659 689T665 678Q665 668 626 522Q585 374 585 369L584 367H762Q777 359 777 347Q777 334 767 331T722 327H667H572L552 251L531 174Q531 173 647 173H720Q756 173 766 170T777 153T762 133H519L477 -24Q436 -179 432 -185Q426 -194 416 -194Q409 -194 403 -189T397 -177Q397 -167 436 -21Q477 125 477 131L478 133H289L247 -24Q206 -179 202 -185Q196 -194 186 -194Q179 -194 173 -189T167 -177Q167 -167 206 -21Q247 125 247 131L248 133H70Q56 140 56 153Q56 168 72 173H260L280 249L301 326Q301 327 186 327H72Q56 332 56 347ZM531 326Q531 327 437 327H342L322 251L301 174Q301 173 395 173H490L510 249L531 326Z"></path><path id="MJX-6-TEX-I-1D437" d="M287 628Q287 635 230 637Q207 637 200 638T193 647Q193 655 197 667T204 682Q206 683 403 683Q570 682 590 682T630 676Q702 659 752 597T803 431Q803 275 696 151T444 3L430 1L236 0H125H72Q48 0 41 2T33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM703 469Q703 507 692 537T666 584T629 613T590 629T555 636Q553 636 541 636T512 636T479 637H436Q392 637 386 627Q384 623 313 339T242 52Q242 48 253 48T330 47Q335 47 349 47T373 46Q499 46 581 128Q617 164 640 212T683 339T703 469Z"></path><path id="MJX-6-TEX-N-5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"></path><path id="MJX-6-TEX-I-1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path><path id="MJX-6-TEX-N-5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"></path><path id="MJX-6-TEX-N-2265" d="M83 616Q83 624 89 630T99 636Q107 636 253 568T543 431T687 361Q694 356 694 346T687 331Q685 329 395 192L107 56H101Q83 58 83 76Q83 77 83 79Q82 86 98 95Q117 105 248 167Q326 204 378 228L626 346L360 472Q291 505 200 548Q112 589 98 597T83 616ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path><path id="MJX-6-TEX-I-1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path><path id="MJX-6-TEX-I-1D439" d="M48 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H742Q749 676 749 669Q749 664 736 557T722 447Q720 440 702 440H690Q683 445 683 453Q683 454 686 477T689 530Q689 560 682 579T663 610T626 626T575 633T503 634H480Q398 633 393 631Q388 629 386 623Q385 622 352 492L320 363H375Q378 363 398 363T426 364T448 367T472 374T489 386Q502 398 511 419T524 457T529 475Q532 480 548 480H560Q567 475 567 470Q567 467 536 339T502 207Q500 200 482 200H470Q463 206 463 212Q463 215 468 234T473 274Q473 303 453 310T364 317H309L277 190Q245 66 245 60Q245 46 334 46H359Q365 40 365 39T363 19Q359 6 353 0H336Q295 2 185 2Q120 2 86 2T48 1Z"></path><path id="MJX-6-TEX-I-1D43C" d="M43 1Q26 1 26 10Q26 12 29 24Q34 43 39 45Q42 46 54 46H60Q120 46 136 53Q137 53 138 54Q143 56 149 77T198 273Q210 318 216 344Q286 624 286 626Q284 630 284 631Q274 637 213 637H193Q184 643 189 662Q193 677 195 680T209 683H213Q285 681 359 681Q481 681 487 683H497Q504 676 504 672T501 655T494 639Q491 637 471 637Q440 637 407 634Q393 631 388 623Q381 609 337 432Q326 385 315 341Q245 65 245 59Q245 52 255 50T307 46H339Q345 38 345 37T342 19Q338 6 332 0H316Q279 2 179 2Q143 2 113 2T65 2T43 1Z"></path><path id="MJX-6-TEX-I-1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path><path id="MJX-6-TEX-I-1D44B" d="M42 0H40Q26 0 26 11Q26 15 29 27Q33 41 36 43T55 46Q141 49 190 98Q200 108 306 224T411 342Q302 620 297 625Q288 636 234 637H206Q200 643 200 645T202 664Q206 677 212 683H226Q260 681 347 681Q380 681 408 681T453 682T473 682Q490 682 490 671Q490 670 488 658Q484 643 481 640T465 637Q434 634 411 620L488 426L541 485Q646 598 646 610Q646 628 622 635Q617 635 609 637Q594 637 594 648Q594 650 596 664Q600 677 606 683H618Q619 683 643 683T697 681T738 680Q828 680 837 683H845Q852 676 852 672Q850 647 840 637H824Q790 636 763 628T722 611T698 593L687 584Q687 585 592 480L505 384Q505 383 536 304T601 142T638 56Q648 47 699 46Q734 46 734 37Q734 35 732 23Q728 7 725 4T711 1Q708 1 678 1T589 2Q528 2 496 2T461 1Q444 1 444 10Q444 11 446 25Q448 35 450 39T455 44T464 46T480 47T506 54Q523 62 523 64Q522 64 476 181L429 299Q241 95 236 84Q232 76 232 72Q232 53 261 47Q262 47 267 47T273 46Q276 46 277 46T280 45T283 42T284 35Q284 26 282 19Q279 6 276 4T261 1Q258 1 243 1T201 2T142 2Q64 2 42 0Z"></path><path id="MJX-6-TEX-I-1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path><path id="MJX-6-TEX-I-1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path><path id="MJX-6-TEX-I-1D438" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path><path id="MJX-6-TEX-N-2192" d="M56 237T56 250T70 270H835Q719 357 692 493Q692 494 692 496T691 499Q691 511 708 511H711Q720 511 723 510T729 506T732 497T735 481T743 456Q765 389 816 336T935 261Q944 258 944 250Q944 244 939 241T915 231T877 212Q836 186 806 152T761 85T740 35T732 4Q730 -6 727 -8T711 -11Q691 -11 691 0Q691 7 696 25Q728 151 835 230H70Q56 237 56 250Z"></path><path id="MJX-6-TEX-I-1D446" d="M308 24Q367 24 416 76T466 197Q466 260 414 284Q308 311 278 321T236 341Q176 383 176 462Q176 523 208 573T273 648Q302 673 343 688T407 704H418H425Q521 704 564 640Q565 640 577 653T603 682T623 704Q624 704 627 704T632 705Q645 705 645 698T617 577T585 459T569 456Q549 456 549 465Q549 471 550 475Q550 478 551 494T553 520Q553 554 544 579T526 616T501 641Q465 662 419 662Q362 662 313 616T263 510Q263 480 278 458T319 427Q323 425 389 408T456 390Q490 379 522 342T554 242Q554 216 546 186Q541 164 528 137T492 78T426 18T332 -20Q320 -22 298 -22Q199 -22 144 33L134 44L106 13Q83 -14 78 -18T65 -22Q52 -22 52 -14Q52 -11 110 221Q112 227 130 227H143Q149 221 149 216Q149 214 148 207T144 186T142 153Q144 114 160 87T203 47T255 29T308 24Z"></path><path id="MJX-6-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-6-TEX-N-3A" d="M78 370Q78 394 95 412T138 430Q162 430 180 414T199 371Q199 346 182 328T139 310T96 327T78 370ZM78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path><path id="MJX-6-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D435" xlink:href="#MJX-6-TEX-I-1D435"></use></g><g data-mml-node="mi" transform="translate(759,0)"><use data-c="23" xlink:href="#MJX-6-TEX-N-23"></use></g><g data-mml-node="mi" transform="translate(1592,0)"><use data-c="1D437" xlink:href="#MJX-6-TEX-I-1D437"></use></g><g data-mml-node="mo" transform="translate(2420,0)"><use data-c="5B" xlink:href="#MJX-6-TEX-N-5B"></use></g><g data-mml-node="mi" transform="translate(2698,0)"><use data-c="1D445" xlink:href="#MJX-6-TEX-I-1D445"></use></g><g data-mml-node="mo" transform="translate(3457,0)"><use data-c="5D" xlink:href="#MJX-6-TEX-N-5D"></use></g><g data-mml-node="mo" transform="translate(4012.8,0)"><use data-c="2265" xlink:href="#MJX-6-TEX-N-2265"></use></g><g data-mml-node="mi" transform="translate(5068.6,0)"><use data-c="1D445" xlink:href="#MJX-6-TEX-I-1D445"></use></g><g data-mml-node="mi" transform="translate(5827.6,0)"><use data-c="1D44A" xlink:href="#MJX-6-TEX-I-1D44A"></use></g><g data-mml-node="mi" transform="translate(6875.6,0)"><use data-c="1D439" xlink:href="#MJX-6-TEX-I-1D439"></use></g><g data-mml-node="mi" transform="translate(7624.6,0)"><use data-c="1D43C" xlink:href="#MJX-6-TEX-I-1D43C"></use></g><g data-mml-node="mi" transform="translate(8128.6,0)"><use data-c="1D439" xlink:href="#MJX-6-TEX-I-1D439"></use></g><g data-mml-node="mi" transform="translate(8877.6,0)"><use data-c="1D442" xlink:href="#MJX-6-TEX-I-1D442"></use></g><g data-mml-node="mo" transform="translate(9640.6,0)"><use data-c="5B" xlink:href="#MJX-6-TEX-N-5B"></use></g><g data-mml-node="mi" transform="translate(9918.6,0)"><use data-c="1D445" xlink:href="#MJX-6-TEX-I-1D445"></use></g><g data-mml-node="mi" transform="translate(10677.6,0)"><use data-c="1D44B" xlink:href="#MJX-6-TEX-I-1D44B"></use></g><g data-mml-node="mi" transform="translate(11529.6,0)"><use data-c="1D44A" xlink:href="#MJX-6-TEX-I-1D44A"></use></g><g data-mml-node="mi" transform="translate(12577.6,0)"><use data-c="1D434" xlink:href="#MJX-6-TEX-I-1D434"></use></g><g data-mml-node="mi" transform="translate(13327.6,0)"><use data-c="1D447" xlink:href="#MJX-6-TEX-I-1D447"></use></g><g data-mml-node="mi" transform="translate(14031.6,0)"><use data-c="1D438" xlink:href="#MJX-6-TEX-I-1D438"></use></g><g data-mml-node="mi" transform="translate(14795.6,0)"><use data-c="1D445" xlink:href="#MJX-6-TEX-I-1D445"></use></g><g data-mml-node="mo" transform="translate(15554.6,0)"><use data-c="5D" xlink:href="#MJX-6-TEX-N-5D"></use></g><g data-mml-node="mo" transform="translate(16110.3,0)"><use data-c="2192" xlink:href="#MJX-6-TEX-N-2192"></use></g><g data-mml-node="mi" transform="translate(17388.1,0)"><use data-c="1D446" xlink:href="#MJX-6-TEX-I-1D446"></use></g><g data-mml-node="mn" transform="translate(18033.1,0)"><use data-c="31" xlink:href="#MJX-6-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(18533.1,0)"><use data-c="5B" xlink:href="#MJX-6-TEX-N-5B"></use></g><g data-mml-node="mi" transform="translate(18811.1,0)"><use data-c="1D445" xlink:href="#MJX-6-TEX-I-1D445"></use></g><g data-mml-node="mi" transform="translate(19570.1,0)"><use data-c="1D437" xlink:href="#MJX-6-TEX-I-1D437"></use></g><g data-mml-node="mi" transform="translate(20398.1,0)"><use data-c="1D445" xlink:href="#MJX-6-TEX-I-1D445"></use></g><g data-mml-node="mi" transform="translate(21157.1,0)"><use data-c="1D439" xlink:href="#MJX-6-TEX-I-1D439"></use></g><g data-mml-node="mo" transform="translate(21906.1,0)"><use data-c="5D" xlink:href="#MJX-6-TEX-N-5D"></use></g><g data-mml-node="mo" transform="translate(22461.9,0)"><g data-mml-node="text"><use data-c="3A" xlink:href="#MJX-6-TEX-N-3A"></use></g><g data-mml-node="text" transform="translate(278,0)"><use data-c="3D" xlink:href="#MJX-6-TEX-N-3D"></use></g></g><g data-mml-node="mn" transform="translate(23795.7,0)"><use data-c="31" xlink:href="#MJX-6-TEX-N-31"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>𝐵</mi><mi mathvariant="normal">#</mi><mi>𝐷</mi><mo stretchy="false">[</mo><mi>𝑅</mi><mo stretchy="false">]</mo><mo>≥</mo><mi>𝑅</mi><mi>𝑊</mi><mi>𝐹</mi><mi>𝐼</mi><mi>𝐹</mi><mi>𝑂</mi><mo stretchy="false">[</mo><mi>𝑅</mi><mi>𝑋</mi><mi>𝑊</mi><mi>𝐴</mi><mi>𝑇</mi><mi>𝐸</mi><mi>𝑅</mi><mo stretchy="false">]</mo><mo stretchy="false">→</mo><mi>𝑆</mi><mn>1</mn><mo stretchy="false">[</mo><mi>𝑅</mi><mi>𝐷</mi><mi>𝑅</mi><mi>𝐹</mi><mo stretchy="false">]</mo><mo>:=</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container><script type="math/tex"> 𝐵\#𝐷[𝑅]≥𝑅𝑊𝐹𝐼𝐹𝑂[𝑅𝑋𝑊𝐴𝑇𝐸𝑅]→𝑆1[𝑅𝐷𝑅𝐹]:=1</script></p><p><span>“B”表示此 C-A 规则由 B 触发器触发。短语“接收缓冲区中的数据字数”形式化为 #D[R]，应“等于或大于”RWFIFO[RXWATER]。后一个实体直接从句子中提取，并且已经满足所需的 Reg[Field] 格式。该操作是将 1 分配给“RDRF”，我们的解析器会自动找到其持有者寄存器“S1”，从而产生一个操作“S1[RDRF] ：= 1”。我们在附录 C 中显示了所有提取的 K64F UART 的 C-A 规则。</span></p><p>&nbsp;</p><h2 id='synthesizing-peripheral-models-with-c-a-rules'><span>Synthesizing Peripheral Models with C-A Rules</span></h2><p><span>我们使用 QEMU 来模拟基本的 ARM ISA 和核心外设（例如 NVIC）。</span></p><p><span>在固件仿真过程中，我们为每个外设动态构建一个模型，将截获的固件-外设交互和提取的 C-A 规则作为输入。</span></p><p><span>通过捕获第 5.2.4 节中提到的规则触发器，我们检查是否满足任何 C-A 规则的条件。</span></p><p><span>由于截获的交互仅包含原始地址（例如，对地址读取/写入值），因此我们必须首先将目标地址转换为命名实体，这很简单，因为寄存器内存映射包含所需的信息。</span></p><p><span>如果命名实体与谓词匹配且满足条件，则将执行相应的操作。我们初始化每个外设的数据结构，其中包含：</span></p><ol start='' ><li><p><span>附属命名实体的当前值</span></p></li><li><p><span>中断和 DMA 请求的状态（如果有）。</span></p></li></ol><p>&nbsp;</p><p><span>如第 5.1 节所述，有三种类型的条件。</span></p><p><span>它们可能在外部硬件的触发、固件交互或内部硬件的作用下得到满足。</span></p><p><span>其中，固件交互可以通过拦截内存映射输入/输出（MMIO）访问直接捕获。内部硬件触发器来自于先前条件-动作（C-A）规则执行的结果。具体来说，一个C-A规则执行的结果会触发另一个C-A规则的执行，而这个执行又可能进而触发更多的规则。本质上，这实现了C-A规则的链式执行，这是模拟外设行为的一个非常重要的方面。</span></p><p>&nbsp;</p><p><span>为了捕获来自外部硬件的触发器，我们观察到大多数硬件信号都与数据传输有关。这使我们能够通过监控 I/O 接口（特别是发送和接收缓冲器）来对硬件信号进行建模。例如，当接收缓冲区已满时，将设置 UART 中的 RDRF 字段。</span></p><p><span>由于硬件接收/发送缓冲器用于外部 I/O 通道，因此我们使用两个字节数组模拟这些缓冲器。</span></p><p><span>当固件将字节写入数据寄存器时，我们将其移动到传输缓冲区。当固件从数据寄存器中读取时，我们从接收缓冲区返回一个字节，就像真正的硬件一样。</span></p><p><span>因此，可以很容易地模拟与缓冲区相关的条件，例如接收或发送缓冲区中的可用字节数。</span></p><p><span>同样，我们还可以使用软件模拟基于定时器的硬件信号。对于其余无法模拟的少数硬件信号，我们始终保持相应的条件。</span></p><p><span>这使得关联的操作有公平的机会被调用。例如，F103中ADC外设的SR[STRT]字段在常规通道转换开始时由硬件设置。由于我们不知道转换何时开始，因此我们将 SR[STRT] 字段设置为始终为 1。虽然这可能会影响仿真保真度，但我们发现它有助于推动仿真向前发展。</span></p><p>&nbsp;</p><h2 id='diagnosing-faultymissing-c-a-rules'><span>Diagnosing Faulty/Missing C-A Rules</span></h2><p><span>由于两个原因，提取的 C-A 规则可能不完整或不正确。</span></p><p><span>首先，如前所述，某些硬件信号无法仿真。我们使用一种解决方法，将相应的条件设置为始终为 true，从而导致某些 C-A 规则的错误执行。</span></p><p><span>其次，最先进的NLP技术在处理非常复杂的句子（例如具有潜在或嵌套条件的句子）方面面临困难。错误或缺失的 C-A 规则会影响仿真保真度，因此必须将其降至最低。然而，在找到根本原因方面，需要付出大量的人力努力。</span></p><p>&nbsp;</p><p><span>为了减少所需的手动工作，我们提出了一个基于无效状态检测的 C-A 规则检查器来自动诊断错误/缺失的 C-A 规则。</span></p><p><span>受 𝜇Emu（周 等人，2021 年）的启发，我们发现符号执行非常擅长推理仿真失败的根本原因。</span></p><p><span>失败的仿真通常会导致无效的执行状态（例如，停顿或崩溃），符号执行可以帮助我们快速定位外设读数的不正确响应。具体来说，对于目标外设，我们首先准备一个固件样本和一个有效的测试用例，该测试用例可以正确执行固件。这可以在真实设备上进行验证。然后，我们在 SEmu 上运行此示例，并收集合成的外围模型生成的具体响应。这些具体响应被输入到符号执行引擎，并用于指导符号执行选择分支，类似于 S2E 中实现的 concolic 模式（Cyberhaven，2022）。如果检测到无效状态，一定是由于错误的 C-A 规则造成的，因为我们专门选择了不触发任何无效状态的固件示例和测试用例。由于遇到无效状态，因此外围模型先前的响应之一一定是错误的。我们将取最后一个条件语句中的另一个分支，并求解相应的符号变量。</span><strong><span>这个符号变量告诉我们错误建模的寄存器的地址。我们进一步将模型生成的错误值与符号执行引擎求解的错误值进行比较，以识别不正确的位。</span></strong></p><p><span>最后，我们的工具以相反的顺序列出了与此字段相关的所有已执行的 C-A 规则。现在必须让人类参与进来，以确认错误的规则。诊断是一个迭代过程。 在每一轮中，它都会修复一个 C-A 规则，直到可以正确模拟使用的固件。</span></p><p>&nbsp;</p><p><span>一个应用诊断工具找到 C-A 规则提取错误的例子：</span></p><p><span>以 SAM3X 芯片 PMC 外设的 SR[MOSCXTS] 描述为例，我们的 NLP 引擎一开始无法为该字段生成任何 C-A 规则。因此，我们的模型默认使用重置值（零）。但是，在 PMC 初始化期间，由于读取 SR 寄存器的错误响应，诊断工具检测到无效状态。特别是，我们的诊断工具表明，此时应该0x1反应。检查手册，它没有明确说明此字段取决于硬件信号（即描述中没有“硬件”关键字），也没有找到条件子句。我们通过添加一个静态规则来解决此问题，该规则应始终设置 SR[MOSCXTS]。</span></p><p>&nbsp;</p><h2 id='evaluation'><span>Evaluation</span></h2><p><span>我们已经在一个名为 SEmu 的原型中实现了所提出的想法。</span></p><p><span>为了评估它，我们旨在回答以下研究问题：</span></p><ul><li><p><span>我们的 NLP 引擎能否自动提取 C-A 规则来描述外围行为？</span></p></li><li><p><span>诊断工具可以帮助纠正不正确的规则吗？</span></p></li><li><p><span>提取的 C-A 规则是否完整合理？</span></p></li><li><p><span>与固件引导方法相比，使用 C-A 规则动态构建的外设模型能否提供更高的保真度？</span></p></li><li><p><span>改进的仿真保真度会提供更好的性能吗？</span></p></li><li><p><span>需要更精确外设建模的合规性检查可以帮助我们发现错误吗？</span></p></li></ul><p>&nbsp;</p><p><span>我们选择了五本芯片手册，涵盖了二十多个流行的MCU系列，包括STM32F103（STMicroelectronics，2021a）、STM32F429（STMicroelectronics，2021b）、STM32L152（STMicroelectronics，2020）、NXP K64F系列（NXP，2014b）和Atmel SAM3X系列（Microchip，2021b），属于三大顶级MCU供应商。</span></p><p><span>值得注意的是，手册可以涵盖一系列共享相似外设的MCU芯片。例如，STM32F429（STMicroelectronics，2021b）还涵盖了STM32F405/415、STM32F407/417、STM32F427/437和STM32F439系列MCU。支持这些 MCU 模型使我们能够测试和评估现有工作中使用的同一组固件样本（Feng 等人，2020 年;周 等人，2021 年;Gustafson 等人，2019 年）。</span></p><p><span>我们首先从这些手册中提取了初始的 C-A 规则，并评估它们是否支持模拟一组单元测试样本（第 8.1 节）。</span></p><p><span>然后，我们进行了 C-A 规则诊断以改进 C-A 规则，并使用增强的规则来测试相同的单元测试以及一组实际固件和复杂的演示程序，这些程序随芯片 SDK 一起提供，这在以前的工作中无法处理（第 8.2 节）。</span></p><p>&nbsp;</p><p><span>To explain why the enhanced C-A rules include enough information for building peripheral models, we evaluated their faithfulness to the “ground-truth” used in QEMU peripheral models (Section </span><a href='https://ar5iv.labs.arxiv.org/html/2208.07833?_immersive_translate_auto_translate=1#S8.SS3'><span>8.3</span></a><span>).为了解释为什么增强的 C-A 规则包含足够的信息来构建外设模型，我们评估了它们对 QEMU 外设模型中使用的“基本事实”的忠实度（第 8.3 节）。</span></p><blockquote><p><span>这段话的意思是，为了阐明增强后的C-A（条件-动作）规则是否包含了构建外设模型所需的足够信息，作者们对这些规则进行了评估，以确定它们与QEMU外设模型中使用的“真实情况”（ground-truth）的一致性。这里的“真实情况”或“ground-truth”指的是被认为是正确和完整的参考信息，通常用于验证其他数据或模型的准确性。</span></p><p><span>详细解释如下：</span></p><ol start='' ><li><p><strong><span>增强后的C-A规则</span></strong><span>：这指的是在原始从芯片手册中提取的C-A规则的基础上，通过一些方法（如诊断工具发现的问题）进行了改进或修正的规则。</span></p></li><li><p><strong><span>构建外设模型</span></strong><span>：在仿真器中，外设模型是模拟真实硬件外设行为的虚拟等价物。这些模型使用C-A规则来确定在特定条件下应该执行的动作。</span></p></li><li><p><strong><span>评估</span></strong><span>：作者进行了一些形式的测试或分析，以检查增强后的C-A规则是否能够准确地反映外设的实际行为。</span></p></li><li><p><strong><span>忠实度（Faithfulness）</span></strong><span>：这是一个衡量标准，用来评价增强后的C-A规则与实际硬件行为之间的匹配程度。</span></p></li><li><p><strong><span>QEMU外设模型</span></strong><span>：QEMU是一个开源的处理器模拟器，它包括了一系列外设模型。在这里，QEMU外设模型被用作参考标准，因为它们被认为是实现了硬件外设行为的准确模拟。</span></p></li><li><p><strong><span>“真实情况”（ground-truth）</span></strong><span>：在这项研究中，QEMU模型中实现的外设行为被视为ground-truth，即它是验证其他模型准确性的基准。</span></p></li><li><p><strong><span>Section 8.3</span></strong><span>：这可能是指文档中的一个特定部分，其中详细描述了如何评估C-A规则的忠实度，以及使用QEMU模型作为ground-truth的原因和方法。</span></p></li></ol><p><span>总的来说，这段话描述了一个验证过程，旨在确保通过自然语言处理（NLP）技术提取并增强的C-A规则能够足够精确地模拟硬件外设的行为，以便可以信任这些规则用于构建可靠的外设模型。</span></p></blockquote><p>&nbsp;</p><h3 id='c-a-rule-extraction-2'><span>C-A Rule Extraction</span></h3><p><span>对于每本手册，我们提取了 26 种常用外设的 C-A 规则，包括 ADC、I2C、SPI、GPIO、UART、以太网等。</span></p><p><span>在表 5 中，我们显示了通过我们的 NLP 引擎获得的原始 C-A 规则的统计数据。</span></p><p><span>对于每个外设，我们列出了涉及句子（#Sent.）、寄存器和字段（#Reg(Field)）的数量。</span></p><p><span>对于提取的 C-A 规则，我们根据第 5.1 节中提到的分类信息进行了细分。</span></p><p><span>最后一列显示了总规则数和修订规则数（如有）。</span></p><p><span>我们总共从 23,424 个句子中提取了 3,602 条独特的 C-A 规则，涉及 26 个不同的外设。</span></p><p><span>如表 5 所示，超过一半的条件是由固件生成的信号 （C2） 触发的。这表明MMIO交互对外设操作的贡献最大。15.8% 的情况与硬件生成的信号 （C1） 相关，包括 I/O 交互和其他硬件信号。其余的（20.9%）是由内部条件（C3）触发的。它们中的大多数都与中断或 DMA 请求有关，这些请求由于另一个 C-A 规则执行（即链式执行）而变得活跃。</span></p><p><span>对于操作，84.2% 的 C-A 规则保留类型 1 操作 （A1） 来更新字段的状态。超过 14.2% 的 C-A 规则旨在生成中断 （A2），1.57% 的规则用于发送 DMA 请求 （A3）。</span></p><p>&nbsp;</p><h4 id='using-the-raw-c-a-rules-for-firmware-evaluation'><span>Using the Raw C-A Rules for Firmware Evaluation</span></h4><p><span>我们使用原始 C-A 规则为 P</span><sup><span>2</span></sup><span>IM 论文（Feng 等人，2020 年）中发布的 66 个单元测试样本构建外围模型。这些单元测试在三个芯片上运行，涵盖各种外设和操作系统库。对于这 66 个测试用例， P</span><sup><span>2</span></sup><span>IM 和 𝜇Emu 的通过率分别为 83% 和 95%。</span></p><p>&nbsp;</p><blockquote><p><span>根据您提供的上下文，P2IM 论文（Feng et al., 2020）提出了一种固件仿真方法，该方法自动构建外设接口模型，以实现硬件独立的固件测试。以下是关于 P2IM 如何模拟外设行为的概述：</span></p><ol start='' ><li><p><strong><span>自动外设接口建模</span></strong><span>：P2IM 的核心思想是通过分析目标固件来自动推断和构建外设的行为模型。这种方法旨在不需要具体硬件的情况下，对固件进行动态测试。</span></p></li><li><p><strong><span>访问模式识别</span></strong><span>：P2IM 通过观察固件对特定外设寄存器的访问模式，来推断这些寄存器的功能和类型（例如，控制寄存器、状态寄存器、数据寄存器等）。</span></p></li><li><p><strong><span>启发式方法</span></strong><span>：一旦确定了寄存器的类型，P2IM 使用启发式方法来生成对固件读写操作的适当响应。这些响应是基于寄存器类型信息生成的。</span></p></li><li><p><strong><span>搜索空间限制</span></strong><span>：在没有可用启发式方法的情况下，P2IM 会在外设响应的有限搜索空间中寻找合适的响应，以避免固件崩溃或挂起。</span></p></li><li><p><strong><span>固件引导的仿真</span></strong><span>：P2IM 的仿真过程是由固件本身引导的，这意味着仿真器会根据固件与外设的交互来动态调整其行为。</span></p></li><li><p><strong><span>硬件独立性</span></strong><span>：P2IM 的目标是实现硬件独立性，这样固件可以在不同的硬件平台上进行测试，而无需对仿真器进行修改。</span></p></li><li><p><strong><span>单元测试支持</span></strong><span>：P2IM 能够支持对固件的单元测试，这是通过使用一组单元测试样本来验证外设模型的有效性。</span></p></li><li><p><strong><span>局限性</span></strong><span>：尽管 P2IM 提供了一种硬件独立的方法来测试固件，但它也存在一些局限性，比如在外设寄存器类型识别上的误分类问题，以及在没有足够线索时搜索适当响应的挑战。</span></p></li></ol><p><span>请注意，这里的解释是基于您提供的文档内容中的信息。如果您需要更深入的了解 P2IM 论文的具体细节，您可能需要查阅 Feng et al., 2020 的原始论文。</span></p></blockquote><p>&nbsp;</p><p><span>遗憾的是，在固件启动过程中，我们的仿真器未能正确运行这些单元测试的时钟配置。具体来说，STM32F103 的 RCC、K64 的 MCG 和 SAM3X 的 PMC 的原始 C-A 规则无法忠实地为这些外设建立可用模型。</span></p><p><span>由于这些外设提供的时钟源属于不可绕过的启动槽，因此根据原始 C-A 规则建立的模型无法通过所有单元测试。</span></p><p><strong><span>不过，就单个外设而言，如表 5 最后一列所示，原始 C-A 规则无需增强即可正确用于大多数其他外设。</span></strong></p><p><span>修改时钟相关规则后，我们的方法达到了 96.97% 的通过率。</span></p><p><span>只有两个 F103 I2C 单元测试无法通过。我们将在第 8.2 节中解释失败原因以及如何半自动修订时钟外设规则。</span></p><p>&nbsp;</p><h3 id='c-a-rule-enhancement'><span>C-A Rule Enhancement</span></h3><p><span>如前所述，当使用原始 C-A 规则合成外围模型时，我们遇到了失败的仿真。</span></p><p><span>这在于NLP技术的局限性以及不可避免的模棱两可甚至错误的硬件描述。</span></p><p><span>虽然我们无法从根本上解决这个问题，但已经开发了一种符号执行辅助诊断工具，可以快速找出哪个规则不正确，然后我们可以手动增强规则。</span></p><p>&nbsp;</p><p><span>根据第 7 节中提到的描述，我们首先准备了 61 个固件示例，这些示例演示了供应商 SDK 在不同工作模式（例如，UART 的轮询、中断和 DMA 模式）下的各个外设用法。</span></p><p><span>然后，我们用 SEmu 运行样本，并使用收集到的具体响应来指导符号执行。如果符号执行引擎进入无效状态，它将终止并输出诊断信息，包括涉及的寄存器和 C-A 规则。</span></p><p><span>请注意，当检测到无效状态时，一定是由于错误的 C-A 规则造成的，因为我们已经确保测试的样本和测试用例不会在真实设备上崩溃。</span></p><p><span>我们总共增加了 26 条规则 （0.6%） 并固定了 21 条规则 （0.5%），如表 5 最后一列的括号所示。</span></p><p><span>具体来说，我们在 I2C 中添加了 5 个 C-A 规则（F103、F429 和 L152，总共 15 个规则），ADC DMA 模式 （SAM3X） 添加了 3 个规则，以太网 （F429） 添加了 3 个规则，MCG （K64） 添加了 4 个规则，PMC （SMA3） 添加了 1 个规则;我们还修改了 RCC 的 6 条规则（F103、F429 和 L152，总共 18 条规则），并删除了 SPI 调试模式 （K64） 的 3 条无用规则。</span></p><p>&nbsp;</p><p><span>我们使用 RCC（STM32F103的时钟外设）来解释如何借助我们的诊断工具纠正不正确的规则。</span></p><p><span>描述 RCC 的 CFGR[SWS] 字段的原句是“由硬件设置和清除，以指示哪个时钟源用作系统时钟”。</span></p><p><span>由于 NLP 引擎不知道硬件将如何设置/清除字段，因此我们的工具生成了一个规则，该规则 𝑂∗→𝐶𝐹𝐺𝑅[𝑆𝑊𝑆]:=0/1/2/3 指示：</span></p><ol start='' ><li><p><span>这是一个 O 触发器（第 5.2.4 节）</span></p></li><li><p><span>始终满足条件</span></p></li><li><p><span>操作是设置 CFGR[SWS] 从 0-3 的随机值（因为这是一个 2 位字段）。</span></p></li></ol><p><span>当我们对固件示例使用此规则时，我们发现 RCC 驱动程序始终无法启动。</span></p><p><span>使用诊断工具，我们能够捕获无效状态并精确定位此字段。回溯，检测到与CFGR[SWS]相对应的符号值。</span></p><p><span>然后，我们阅读了手册中描述CFGR[SWS]的相关句子，发现CFGR[SWS]应该遵循CFGR[SW]中的值。此外，3 是一个不可能的值。因此，我们将此规则更新为：</span></p><ol start='' ><li><p><span>𝑉𝐶𝐹𝐺𝑅[𝑆𝑊]==0→𝐶𝐹𝐺𝑅[𝑆𝑊𝑆]:=0</span></p></li><li><p><span>𝑉𝐶𝐹𝐺𝑅[𝑆𝑊]==1→𝐶𝐹𝐺𝑅[𝑆𝑊𝑆]:=1</span></p></li><li><p><span>𝑉𝐶𝐹𝐺𝑅[𝑆𝑊]==2→𝐶𝐹𝐺𝑅[𝑆𝑊𝑆]:=2</span></p></li></ol><p><span>条件是对 CFGR[SW] 的任何更新操作，操作是将相同的值分配给 CFGR[SWS]。</span></p><p>&nbsp;</p><h4 id='using-the-enhanced-c-a-rules-for-firmware-evaluation'><span>Using the Enhanced C-A Rules for Firmware Evaluation</span></h4><p><span>通过增强的规则，特别是与时钟相关的规则，我们重新运行了 P</span><sup><span>2</span></sup><span>IM 的 66 个单元测试样本。</span></p><p><span>SEmu 的通过率达到 100%。</span></p><p><span>我们还收集了 17 个新样本，这些样本代表了真实世界的应用或具有多个外设和多种工作模式（如 DMA）的更复杂的演示程序。例如，PinLock 固件在智能锁上运行，智能锁通过 UART 接口读取 PIN 码，对其进行哈希处理以与已知哈希进行比较，并在 PIN 正确时发送信号以解锁数字锁。</span></p><p><span>附录 F 中解释了其他示例的详细信息。 SEmu 成功地模拟了所有这些示例，P</span><sup><span>2</span></sup><span>IM 和 𝜇Emu 都无法运行这些示例中的任何一个，但 𝜇Emu 成功模拟了 Shell。在第 8.4 节中，我们清楚地表明 SEmu 实现了更好的仿真保真度。</span></p><p>&nbsp;</p><h3 id='faithfulness-of-c-a-rules'><span>Faithfulness of C-A Rules</span></h3><p><span>在本节中，我们将评估 SEmu 中使用的 C-A 规则对芯片手册的忠实程度。</span></p><p><span>为此，“基本事实”是必要的。我们可以手动检查所有句子的外围设备以构造基本事实；然而，这将是一项乏味的任务，取决于个人的看法。为了减少可能的偏差，我们改用了 QEMU 开发人员已经实现的工作外设模型。这些后端模型是用 C 编程语言编写的，并且仅实现正确模拟固件的基本外设逻辑。这避免了原始手册中大量不相关句子的干扰。</span></p><p><span>然后，使用外设模型的 C 源代码，我们手动检查程序逻辑，并使用与描述相同的格式将它们转换为 C-A 规则。</span></p><p><span>在附录 C 的清单 3 中，我们列出了 STM32F405 UART 后端仿真器的代码片段。</span></p><p><span>如果 C 语句可以转换为 C-A 规则，我们会用该规则注释此行。</span></p><p><span>例如，在第 5 行，当 QEMU 通过数据寄存器接收任何数据时，SR[RXNE] 字段将更新。这样的逻辑可以转化为 C-A 规则 𝐵#𝐷𝑅[𝑅]≥0→𝑆𝑅[𝑅𝑋𝑁𝐸]:=1 。然后，我们可以将 SEmu 生成的 C-A 规则与 QEMU 导出的“基本事实”进行比较。</span></p><p>&nbsp;</p><blockquote><p><span>这段话描述了一个评估过程，用于确定SEmu（Specification-guided EMUlator）中使用的C-A（条件-动作）规则与芯片手册中的描述的一致性或忠实度。以下是对这个评估过程的详细解释：</span></p><ol start='' ><li><p><strong><span>评估目的</span></strong><span>：评估SEmu使用的C-A规则与芯片参考手册中的描述之间的忠实度。</span></p></li><li><p><strong><span>构建“真实情况”（Ground-Truth）</span></strong><span>：为了进行评估，需要一个基准或“真实情况”。理论上，可以通过手动检查外设相关的所有句子来构建这个基准，但这是一项费时且依赖个人感知的任务。</span></p></li><li><p><strong><span>减少偏差</span></strong><span>：为了减少可能的偏差，作者选择了使用QEMU开发者已经实现的可用外设模型作为“真实情况”的来源。</span></p></li><li><p><strong><span>QEMU外设模型</span></strong><span>：QEMU是一个开源的处理器模拟器，它包含了用C语言编写的外设模型。这些模型实现了模拟固件所需的基本外设逻辑。</span></p></li><li><p><strong><span>避免无关信息干扰</span></strong><span>：使用QEMU模型可以避免原始手册中大量无关句子的干扰，从而更准确地确定哪些规则是核心的。</span></p></li><li><p><strong><span>转换为C-A规则</span></strong><span>：作者手动检查了QEMU的C语言源代码，并将其逻辑翻译成与SEmu使用的相同格式的C-A规则。</span></p></li><li><p><strong><span>示例</span></strong><span>：文中提到了STM32F405 UART后端仿真器的代码片段，并举例说明了如何将C语言的代码行转换为C-A规则。例如，当QEMU通过数据寄存器接收到数据时，状态寄存器（SR）的RXNE位会被更新。这个逻辑可以转换为一个C-A规则，即如果数据寄存器（DR）的值大于或等于0，则状态寄存器（SR）中的RXNE位应该设置为1。</span></p></li><li><p><strong><span>比较C-A规则</span></strong><span>：最后，作者将SEmu生成的C-A规则与从QEMU派生的“真实情况”进行比较，以评估SEmu规则的忠实度。</span></p></li></ol><p><span>这个过程的目的是为了验证SEmu通过自然语言处理（NLP）技术从芯片手册中提取的C-A规则是否能够准确地反映硬件外设的实际行为。通过与QEMU模型的比较，可以确定SEmu的规则集是否足够全面和准确，从而可以信任SEmu进行固件仿真和相关的动态分析。</span></p></blockquote><p><span>C-A 规则忠实度与 QEMU 模型中使用的规则比较 （STM32F405）如下图所示：</span></p><p><img src="大作业/image-20240501142303988.png" alt="image-20240501142303988" style="zoom:50%;" /></p><p>&nbsp;</p><p><span>按照这种方法，我们从最新的QEMU版本（7.0.0-rc1）的源代码中收集了所有QEMU支持的STM32F405外设的“真实”规则，包括SYSCFG、UART、ADC、SPI、Timer和EXTI。</span></p><p><span>注意 SEmu 支持同一芯片 20 个外设。在表 1 中，我们列出了 QEMU 模型实现的 SLOC（源代码行）、通用（和一致）规则的数量、SEmu 中缺失但存在于 QEMU 中的规则数量，以及 QEMU 中缺失但存在于 SEmu 中的规则数量。</span></p><p><span>👈表一</span></p><p><span>两个规则集之间存在大量重叠，这代表了最重要的外设逻辑。</span></p><p><span>我们的方法未能找到QEMU中存在的ADC外设的两个C-A规则。</span></p><p><span>在清单 4 中，我们使用 QEMU 中的代码片段来显示相应的逻辑。可以看出，QEMU 根据 ADC_CR1[RES] 的值截断接收到的数据。但是，在原始手册中，它仅指出ADC_CR1[RES]用于选择转换的分辨率宽度。没有给出关于 ADC_CR1[RES] 如何影响截断精度的信息，SEmu 无法自动引用截断精度。幸运的是，这些缺失的规则导致的数据被错误截断，并不影响 SEmu 的仿真能力。</span></p><p><span>这就是为什么我们的诊断工具没有发现这种缺陷的原因。现有的固件引导解决方案也无法处理这种缺陷，因为清单 4 中的任何一个分支都可以用于仿真。</span></p><p>&nbsp;</p><p><span>另一方面，与我们的相比，QEMU 中有很多缺失的规则。</span></p><p><span>主要原因是QEMU无法实现许多非标准的外设功能。为了“支持”外设，QEMU 只需要为该外设的最常见逻辑实现仿真。</span></p><p><span>因此，我们经常在 QEMU 源代码中观察到类似于“[**] 未实现，寄存器包含在内以实现兼容性”的注释。例如，QEMU 目前不支持 ADC 和 SPI 的 IRQ 或 DMA 请求。</span></p><p><span>再举一个例子，根据手册，SPI外设提供两个主要功能，支持SPI协议或I2S音频协议。但是，QEMU 不支持任何 I2S 功能。我们承认，SEmu 提取的许多规则都对应于很少使用的外围功能，并且在我们的评估中从未执行过。</span></p><p><span>然而，我们确实反对一些被QEMU忽视的关键外围逻辑。例如，根据STM32F4XX手册，一旦完成所选常规ADC通道的转换，就应设置SR寄存器中的EOC（转换结束）标志。但是，我们在QEMU源代码中没有找到这样的逻辑。为了确认这个问题，我们从官方STM32F4XX SDK包（STMicroelectronics，2022）运行了ADC演示，使用了最新的QEMU，仿真挂起，等待EOC设置。</span></p><p>&nbsp;</p><h3 id='emulation-fidelity-test'><span>Emulation Fidelity Test</span></h3><p><span>我们使用来自 P</span><sup><span>2</span></sup><span>IM 的单元测试样本来评估仿真保真度，并将 SEmu 与 𝜇Emu 和 P</span><sup><span>2</span></sup><span>IM 上的保真度进行比较，因为这些样本大多得到所有相关工作的支持。为了获得参考数据，我们利用外部硬件调试器（例如，ST-Link（STMicroelectronics，2021c）和OpenSDA（NXP，2014a））来收集真实硬件上的跟踪。遗憾的是，Atmel SAM3X 没有配备外部调试功能。因此，我们仅对恩智浦FRDM-K64F（FRDM-K64F，2021）和STMicroelectronics Nucleo-F103RB（STMicroelectronics，2021d）的固件样本进行了保真度测试。</span></p><p>&nbsp;</p><p><span>在以下段落中，我们首先介绍如何在真实设备和仿真器上收集跟踪。然后，我们解释</span><strong><span>一个数字指标来量化两个执行跟踪之间的相似性</span></strong><span>。它解决了固件执行过程中发生的非确定性问题（例如，同一硬件上的相同输入可能会生成不同的跟踪）。最后，我们讨论结果。</span></p><p>&nbsp;</p><h4 id='trace-collection'><span>Trace Collection</span></h4><p><span>为了在真实设备上收集跟踪，我们使用了OpenOCD（Högl和Rath，2006）和外部调试加密狗将目标板连接到芯片供应商提供的远程gdbserver。使用调试器，我们记录了每条指令执行的程序计数器。收集模拟器的执行跟踪要容易得多。我们直接记录了每个要执行的翻译块的起始地址。然后，我们将其与反汇编的固件代码对齐，以与真实设备相同的格式重建执行跟踪。</span></p><p>&nbsp;</p><h4 id='metrics'><span>Metrics</span></h4><p><span>为了定量测量仿真保真度，我们提出了一个新指标来指示执行跟踪之间的相似性。具体而言，我们使用真实设备上的执行轨迹作为参考。通过将跟踪表示为地址序列，我们可以使用传统的字符串距离算法，例如 Levenshtein 距离（又名编辑距离）（Nam，2021 年）。</span></p><p><span>然而，由于固件执行的非确定性（例如，中断定时），直接使用编辑距离无法可靠地测量真正的相似性。例如，使用相同的输入和固件，在真实设备上执行两次可能会产生非常不同的跟踪，但它们都实现了 100% 的保真度。</span></p><p><span>为了解决这个问题，我们根据每个跟踪的功能将每个跟踪分为三个部分：</span></p><ul><li><p><span>初始化跟踪涵盖了初始化功能，如外设配置。它在主函数的开头结束。</span></p></li><li><p><span>主回路走线包括主固件业务。在单元测试中，它对应于数据传输逻辑。我们修改了单元测试，以便主循环执行了五次。</span></p></li><li><p><span>中断跟踪记录在中断上下文中执行的指令。我们将其与其他方法分开，以消除非决定论。</span></p></li></ul><p>&nbsp;</p><p><span>对于跟踪的每个部分，我们使用编辑距离来测量相似性。</span></p><p><span>在计算语言学和计算机科学中，编辑距离用于量化两个字符串的不同程度，具体来说，将一个字符串传输到另一个字符串所需的最小操作（即删除、插入和替换）是多少。</span></p><p><span>同样，我们可以使用此方法来测量从仿真器上的跟踪到真实设备上的跟踪的距离。</span></p><p><span>具体来说，整个跟踪呈现为一系列地址，这些地址对应于每个基本块的开头。与真实设备的跟踪相比:</span></p><ul><li><p><span>删除操作意味着仿真器错误地获取了额外的基本块</span></p></li><li><p><span>插入操作意味着仿真器错过了基本的块执行</span></p></li><li><p><span>替换操作意味着仿真器执行不同的基本块</span></p></li></ul><p><span>需要的操作越少，两条迹线的相似度就越高。</span></p><p><span>在原始算法中，删除、插入和替换的权重相同。</span></p><p><span>然而，在我们的例子中，删除或插入重复的序列被认为不那么重要。例如，固件通常在轮询模式下运行，该模式等待状态寄存器的某个值。无论是运行 100 个循环还是 1,000 个循环都不会有效影响固件分析。因此，我们将重复删除或插入操作的权重分配给 1，而将其他操作分配给 2。</span></p><p><span>仿真器和真实设备之间的迹线距离由下式：</span></p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n764" cid="n764" mdtype="math_block" data-math-tag-before="0" data-math-tag-after="0" data-math-labels="[]"><div class="md-rawblock-container md-math-container" tabindex="-1"><mjx-container class="MathJax" jax="SVG" display="true" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="32.146ex" height="2.195ex" role="img" focusable="false" viewBox="0 -683 14208.5 970.2" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.65ex;"><defs><path id="MJX-3-TEX-I-1D437" d="M287 628Q287 635 230 637Q207 637 200 638T193 647Q193 655 197 667T204 682Q206 683 403 683Q570 682 590 682T630 676Q702 659 752 597T803 431Q803 275 696 151T444 3L430 1L236 0H125H72Q48 0 41 2T33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM703 469Q703 507 692 537T666 584T629 613T590 629T555 636Q553 636 541 636T512 636T479 637H436Q392 637 386 627Q384 623 313 339T242 52Q242 48 253 48T330 47Q335 47 349 47T373 46Q499 46 581 128Q617 164 640 212T683 339T703 469Z"></path><path id="MJX-3-TEX-I-1D438" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path><path id="MJX-3-TEX-I-1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-3-TEX-I-1D462" d="M21 287Q21 295 30 318T55 370T99 420T158 442Q204 442 227 417T250 358Q250 340 216 246T182 105Q182 62 196 45T238 27T291 44T328 78L339 95Q341 99 377 247Q407 367 413 387T427 416Q444 431 463 431Q480 431 488 421T496 402L420 84Q419 79 419 68Q419 43 426 35T447 26Q469 29 482 57T512 145Q514 153 532 153Q551 153 551 144Q550 139 549 130T540 98T523 55T498 17T462 -8Q454 -10 438 -10Q372 -10 347 46Q345 45 336 36T318 21T296 6T267 -6T233 -11Q189 -11 155 7Q103 38 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-3-TEX-I-1D459" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path><path id="MJX-3-TEX-I-1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path><path id="MJX-3-TEX-I-1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path><path id="MJX-3-TEX-I-1D45C" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path><path id="MJX-3-TEX-I-1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-3-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-3-TEX-I-1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path id="MJX-3-TEX-I-1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-3-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path id="MJX-3-TEX-I-1D45E" d="M33 157Q33 258 109 349T280 441Q340 441 372 389Q373 390 377 395T388 406T404 418Q438 442 450 442Q454 442 457 439T460 434Q460 425 391 149Q320 -135 320 -139Q320 -147 365 -148H390Q396 -156 396 -157T393 -175Q389 -188 383 -194H370Q339 -192 262 -192Q234 -192 211 -192T174 -192T157 -193Q143 -193 143 -185Q143 -182 145 -170Q149 -154 152 -151T172 -148Q220 -148 230 -141Q238 -136 258 -53T279 32Q279 33 272 29Q224 -10 172 -10Q117 -10 75 30T33 157ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><use data-c="1D437" xlink:href="#MJX-3-TEX-I-1D437"></use></g><g data-mml-node="TeXAtom" transform="translate(861,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D438" xlink:href="#MJX-3-TEX-I-1D438"></use></g><g data-mml-node="mi" transform="translate(764,0)"><use data-c="1D45A" xlink:href="#MJX-3-TEX-I-1D45A"></use></g><g data-mml-node="mi" transform="translate(1642,0)"><use data-c="1D462" xlink:href="#MJX-3-TEX-I-1D462"></use></g><g data-mml-node="mi" transform="translate(2214,0)"><use data-c="1D459" xlink:href="#MJX-3-TEX-I-1D459"></use></g><g data-mml-node="mi" transform="translate(2512,0)"><use data-c="1D44E" xlink:href="#MJX-3-TEX-I-1D44E"></use></g><g data-mml-node="mi" transform="translate(3041,0)"><use data-c="1D461" xlink:href="#MJX-3-TEX-I-1D461"></use></g><g data-mml-node="mi" transform="translate(3402,0)"><use data-c="1D45C" xlink:href="#MJX-3-TEX-I-1D45C"></use></g><g data-mml-node="mi" transform="translate(3887,0)"><use data-c="1D45F" xlink:href="#MJX-3-TEX-I-1D45F"></use></g></g></g><g data-mml-node="mo" transform="translate(4256.2,0)"><use data-c="3D" xlink:href="#MJX-3-TEX-N-3D"></use></g><g data-mml-node="msub" transform="translate(5312,0)"><g data-mml-node="mi"><use data-c="1D437" xlink:href="#MJX-3-TEX-I-1D437"></use></g><g data-mml-node="TeXAtom" transform="translate(861,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D456" xlink:href="#MJX-3-TEX-I-1D456"></use></g><g data-mml-node="mi" transform="translate(345,0)"><use data-c="1D45B" xlink:href="#MJX-3-TEX-I-1D45B"></use></g><g data-mml-node="mi" transform="translate(945,0)"><use data-c="1D456" xlink:href="#MJX-3-TEX-I-1D456"></use></g><g data-mml-node="mi" transform="translate(1290,0)"><use data-c="1D461" xlink:href="#MJX-3-TEX-I-1D461"></use></g></g></g><g data-mml-node="mo" transform="translate(7612.6,0)"><use data-c="2B" xlink:href="#MJX-3-TEX-N-2B"></use></g><g data-mml-node="msub" transform="translate(8612.9,0)"><g data-mml-node="mi"><use data-c="1D437" xlink:href="#MJX-3-TEX-I-1D437"></use></g><g data-mml-node="TeXAtom" transform="translate(861,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D45A" xlink:href="#MJX-3-TEX-I-1D45A"></use></g><g data-mml-node="mi" transform="translate(878,0)"><use data-c="1D44E" xlink:href="#MJX-3-TEX-I-1D44E"></use></g><g data-mml-node="mi" transform="translate(1407,0)"><use data-c="1D456" xlink:href="#MJX-3-TEX-I-1D456"></use></g><g data-mml-node="mi" transform="translate(1752,0)"><use data-c="1D45B" xlink:href="#MJX-3-TEX-I-1D45B"></use></g></g></g><g data-mml-node="mo" transform="translate(11409.2,0)"><use data-c="2B" xlink:href="#MJX-3-TEX-N-2B"></use></g><g data-mml-node="msub" transform="translate(12409.4,0)"><g data-mml-node="mi"><use data-c="1D437" xlink:href="#MJX-3-TEX-I-1D437"></use></g><g data-mml-node="TeXAtom" transform="translate(861,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D456" xlink:href="#MJX-3-TEX-I-1D456"></use></g><g data-mml-node="mi" transform="translate(345,0)"><use data-c="1D45F" xlink:href="#MJX-3-TEX-I-1D45F"></use></g><g data-mml-node="mi" transform="translate(796,0)"><use data-c="1D45E" xlink:href="#MJX-3-TEX-I-1D45E"></use></g></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><msub><mi>𝐷</mi><mrow data-mjx-texclass="ORD"><mi>𝐸</mi><mi>𝑚</mi><mi>𝑢</mi><mi>𝑙</mi><mi>𝑎</mi><mi>𝑡</mi><mi>𝑜</mi><mi>𝑟</mi></mrow></msub><mo>=</mo><msub><mi>𝐷</mi><mrow data-mjx-texclass="ORD"><mi>i</mi><mi>n</mi><mi>i</mi><mi>t</mi></mrow></msub><mo>+</mo><msub><mi>𝐷</mi><mrow data-mjx-texclass="ORD"><mi>𝑚</mi><mi>𝑎</mi><mi>𝑖</mi><mi>𝑛</mi></mrow></msub><mo>+</mo><msub><mi>𝐷</mi><mrow data-mjx-texclass="ORD"><mi>𝑖</mi><mi>𝑟</mi><mi>𝑞</mi></mrow></msub></math></mjx-assistive-mml></mjx-container></div></div><p><span>𝐷</span><sub><span>𝑖𝑛𝑖𝑡</span></sub><span> 、 𝐷</span><sub><span>𝑚𝑎𝑖𝑛</span></sub><span> 和 𝐷</span><sub><span>𝑖𝑟𝑞</span></sub><span> 是前面提到的三个部分的迹线的修改编辑距离。</span></p><p><span>最后，我们将测量的距离归一化为一个介于 0 到 1 之间的数字来表示保真度分数，其中 1 是最相似的（即短距离）。</span></p><p><span>具体来说，模拟器的保真度分数可以通过以下公式计算：</span></p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n768" cid="n768" mdtype="math_block" data-math-tag-before="0" data-math-tag-after="0" data-math-labels="[]"><div class="md-rawblock-container md-math-container" tabindex="-1"><mjx-container class="MathJax" jax="SVG" display="true" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="21.915ex" height="5.276ex" role="img" focusable="false" viewBox="0 -1359 9686.5 2332.2" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -2.202ex;"><defs><path id="MJX-4-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-4-TEX-N-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path id="MJX-4-TEX-I-1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-4-TEX-I-1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path id="MJX-4-TEX-I-1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-4-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path id="MJX-4-TEX-I-1D437" d="M287 628Q287 635 230 637Q207 637 200 638T193 647Q193 655 197 667T204 682Q206 683 403 683Q570 682 590 682T630 676Q702 659 752 597T803 431Q803 275 696 151T444 3L430 1L236 0H125H72Q48 0 41 2T33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM703 469Q703 507 692 537T666 584T629 613T590 629T555 636Q553 636 541 636T512 636T479 637H436Q392 637 386 627Q384 623 313 339T242 52Q242 48 253 48T330 47Q335 47 349 47T373 46Q499 46 581 128Q617 164 640 212T683 339T703 469Z"></path><path id="MJX-4-TEX-I-1D438" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path><path id="MJX-4-TEX-I-1D462" d="M21 287Q21 295 30 318T55 370T99 420T158 442Q204 442 227 417T250 358Q250 340 216 246T182 105Q182 62 196 45T238 27T291 44T328 78L339 95Q341 99 377 247Q407 367 413 387T427 416Q444 431 463 431Q480 431 488 421T496 402L420 84Q419 79 419 68Q419 43 426 35T447 26Q469 29 482 57T512 145Q514 153 532 153Q551 153 551 144Q550 139 549 130T540 98T523 55T498 17T462 -8Q454 -10 438 -10Q372 -10 347 46Q345 45 336 36T318 21T296 6T267 -6T233 -11Q189 -11 155 7Q103 38 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-4-TEX-I-1D459" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path><path id="MJX-4-TEX-I-1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path><path id="MJX-4-TEX-I-1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path><path id="MJX-4-TEX-I-1D45C" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path><path id="MJX-4-TEX-I-1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-4-TEX-I-1D444" d="M399 -80Q399 -47 400 -30T402 -11V-7L387 -11Q341 -22 303 -22Q208 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435Q740 255 592 107Q529 47 461 16L444 8V3Q444 2 449 -24T470 -66T516 -82Q551 -82 583 -60T625 -3Q631 11 638 11Q647 11 649 2Q649 -6 639 -34T611 -100T557 -165T481 -194Q399 -194 399 -87V-80ZM636 468Q636 523 621 564T580 625T530 655T477 665Q429 665 379 640Q277 591 215 464T153 216Q153 110 207 59Q231 38 236 38V46Q236 86 269 120T347 155Q372 155 390 144T417 114T429 82T435 55L448 64Q512 108 557 185T619 334T636 468ZM314 18Q362 18 404 39L403 49Q399 104 366 115Q354 117 347 117Q344 117 341 117T337 118Q317 118 296 98T274 52Q274 18 314 18Z"></path><path id="MJX-4-TEX-I-1D440" d="M289 629Q289 635 232 637Q208 637 201 638T194 648Q194 649 196 659Q197 662 198 666T199 671T201 676T203 679T207 681T212 683T220 683T232 684Q238 684 262 684T307 683Q386 683 398 683T414 678Q415 674 451 396L487 117L510 154Q534 190 574 254T662 394Q837 673 839 675Q840 676 842 678T846 681L852 683H948Q965 683 988 683T1017 684Q1051 684 1051 673Q1051 668 1048 656T1045 643Q1041 637 1008 637Q968 636 957 634T939 623Q936 618 867 340T797 59Q797 55 798 54T805 50T822 48T855 46H886Q892 37 892 35Q892 19 885 5Q880 0 869 0Q864 0 828 1T736 2Q675 2 644 2T609 1Q592 1 592 11Q592 13 594 25Q598 41 602 43T625 46Q652 46 685 49Q699 52 704 61Q706 65 742 207T813 490T848 631L654 322Q458 10 453 5Q451 4 449 3Q444 0 433 0Q418 0 415 7Q413 11 374 317L335 624L267 354Q200 88 200 79Q206 46 272 46H282Q288 41 289 37T286 19Q282 3 278 1Q274 0 267 0Q265 0 255 0T221 1T157 2Q127 2 95 1T58 0Q43 0 39 2T35 11Q35 13 38 25T43 40Q45 46 65 46Q135 46 154 86Q158 92 223 354T289 629Z"></path><path id="MJX-4-TEX-I-1D448" d="M107 637Q73 637 71 641Q70 643 70 649Q70 673 81 682Q83 683 98 683Q139 681 234 681Q268 681 297 681T342 682T362 682Q378 682 378 672Q378 670 376 658Q371 641 366 638H364Q362 638 359 638T352 638T343 637T334 637Q295 636 284 634T266 623Q265 621 238 518T184 302T154 169Q152 155 152 140Q152 86 183 55T269 24Q336 24 403 69T501 205L552 406Q599 598 599 606Q599 633 535 637Q511 637 511 648Q511 650 513 660Q517 676 519 679T529 683Q532 683 561 682T645 680Q696 680 723 681T752 682Q767 682 767 672Q767 650 759 642Q756 637 737 637Q666 633 648 597Q646 592 598 404Q557 235 548 205Q515 105 433 42T263 -22Q171 -22 116 34T60 167V183Q60 201 115 421Q164 622 164 628Q164 635 107 637Z"></path><path id="MJX-4-TEX-N-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path><path id="MJX-4-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><use data-c="31" xlink:href="#MJX-4-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(722.2,0)"><use data-c="2212" xlink:href="#MJX-4-TEX-N-2212"></use></g><g data-mml-node="mi" transform="translate(1722.4,0)"><use data-c="1D45A" xlink:href="#MJX-4-TEX-I-1D45A"></use></g><g data-mml-node="mi" transform="translate(2600.4,0)"><use data-c="1D456" xlink:href="#MJX-4-TEX-I-1D456"></use></g><g data-mml-node="mi" transform="translate(2945.4,0)"><use data-c="1D45B" xlink:href="#MJX-4-TEX-I-1D45B"></use></g><g data-mml-node="mo" transform="translate(3545.4,0)"><use data-c="28" xlink:href="#MJX-4-TEX-N-28"></use></g><g data-mml-node="mfrac" transform="translate(3934.4,0)"><g data-mml-node="msub" transform="translate(220,676)"><g data-mml-node="mi"><use data-c="1D437" xlink:href="#MJX-4-TEX-I-1D437"></use></g><g data-mml-node="TeXAtom" transform="translate(861,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D438" xlink:href="#MJX-4-TEX-I-1D438"></use></g><g data-mml-node="mi" transform="translate(764,0)"><use data-c="1D45A" xlink:href="#MJX-4-TEX-I-1D45A"></use></g><g data-mml-node="mi" transform="translate(1642,0)"><use data-c="1D462" xlink:href="#MJX-4-TEX-I-1D462"></use></g><g data-mml-node="mi" transform="translate(2214,0)"><use data-c="1D459" xlink:href="#MJX-4-TEX-I-1D459"></use></g><g data-mml-node="mi" transform="translate(2512,0)"><use data-c="1D44E" xlink:href="#MJX-4-TEX-I-1D44E"></use></g><g data-mml-node="mi" transform="translate(3041,0)"><use data-c="1D461" xlink:href="#MJX-4-TEX-I-1D461"></use></g><g data-mml-node="mi" transform="translate(3402,0)"><use data-c="1D45C" xlink:href="#MJX-4-TEX-I-1D45C"></use></g><g data-mml-node="mi" transform="translate(3887,0)"><use data-c="1D45F" xlink:href="#MJX-4-TEX-I-1D45F"></use></g></g></g><g data-mml-node="msub" transform="translate(561.2,-686)"><g data-mml-node="mi"><use data-c="1D437" xlink:href="#MJX-4-TEX-I-1D437"></use></g><g data-mml-node="TeXAtom" transform="translate(861,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="1D444" xlink:href="#MJX-4-TEX-I-1D444"></use></g><g data-mml-node="mi" transform="translate(791,0)"><use data-c="1D438" xlink:href="#MJX-4-TEX-I-1D438"></use></g><g data-mml-node="mi" transform="translate(1555,0)"><use data-c="1D440" xlink:href="#MJX-4-TEX-I-1D440"></use></g><g data-mml-node="mi" transform="translate(2606,0)"><use data-c="1D448" xlink:href="#MJX-4-TEX-I-1D448"></use></g></g></g><rect width="4178.4" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(8352.9,0)"><use data-c="2C" xlink:href="#MJX-4-TEX-N-2C"></use></g><g data-mml-node="mn" transform="translate(8797.5,0)"><use data-c="31" xlink:href="#MJX-4-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(9297.5,0)"><use data-c="29" xlink:href="#MJX-4-TEX-N-29"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mn>1</mn><mo>−</mo><mi>m</mi><mi>i</mi><mi>n</mi><mo stretchy="false">(</mo><mfrac><msub><mi>𝐷</mi><mrow data-mjx-texclass="ORD"><mi>𝐸</mi><mi>𝑚</mi><mi>𝑢</mi><mi>𝑙</mi><mi>𝑎</mi><mi>𝑡</mi><mi>𝑜</mi><mi>𝑟</mi></mrow></msub><msub><mi>𝐷</mi><mrow data-mjx-texclass="ORD"><mi>Q</mi><mi>E</mi><mi>M</mi><mi>U</mi></mrow></msub></mfrac><mo>,</mo><mn>1</mn><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></div></div><p><span>其中 𝐷</span><sub><span>𝑄𝐸𝑀𝑈</span></sub><span> 是在未修改的 QEMU 上测量的编辑距离。</span></p><p><span>此处表示最坏情况的仿真结果， 𝐷</span><sub><span>𝑄𝐸𝑀𝑈</span></sub><span> 因为未提供外设仿真。可以看出，如果 𝐷</span><sub><span>𝐸𝑚𝑢𝑙𝑎𝑡𝑜𝑟</span></sub><span> 足够低，保真度分数将为 1。如果 𝐷</span><sub><span>𝐸𝑚𝑢𝑙𝑎𝑡𝑜𝑟</span></sub><span> 等于或大于 𝐷</span><sub><span>𝑄𝐸𝑀𝑈</span></sub><span> ，则保真度分数将为 0。否则，保真度分数的范围为 0 到 1。</span></p><p>&nbsp;</p><h4 id='results'><span>Results</span></h4><p><span>在表 6 中，我们显示了 I2C、UART、GPIO 和 Timer 单元测试样本中跟踪的三个部分的保真度分数细分。在建议的保真度指标下，</span><strong><span>SEmu 是唯一在测试样本中获得满分的指标</span></strong><span>。</span></p><p>&nbsp;</p><p><span>最显着的差异发生在中断跟踪中，其中 P</span><sup><span>2</span></sup><span>IM 和 𝜇Emu 的表现都非常糟糕。经过人工分析，我们发现 P</span><sup><span>2</span></sup><span>IM 将许多控制或状态寄存器错误地归类为数据寄存器，从而触发了意外的仿真结果。例如，当传输使能字段（CR[TE]）被外部数据覆盖时，可能会阻止固件执行数据传输功能。另一方面，𝜇Emu 由于其不健全的无效状态启发式而存在低保真度问题。例如，我们发现它经常调用不可行的路径，这些路径实际上不会导致挂起或崩溃。最后，P</span><sup><span>2</span></sup><span>IM 和 𝜇Emu 都不知道中断时间。因此，中断处理程序通常采用不相关的路径。</span></p><p>&nbsp;</p><h3 id='fuzz-testing'><span>Fuzz Testing</span></h3><p><span>在本节中，我们将评估 SEmu 的模糊测试。测试的固件包括 P</span><sup><span>2</span></sup><span>IM 中使用的 10 个样本（Feng，2021 年）和 Pretender 中使用的 2 个复杂样本（Gustafson 和 Schloegel，2021 年）。我们还添加了 4 个新示例，这些示例使用 LwIP over Ethernet 作为网络层协议，通过 TCP 和 UDP 执行网络通信。它们是基于STM32F429芯片的演示代码开发的。我们集成了修改后的 AFL 作为模糊测试引擎。由于模糊测试的随机性，我们对每个测试样本进行了 5 次 24 小时模糊测试的试验，以使实验符合社区指南（Klees 等人，2018 年）。我们使用与每个测试目标（P</span><sup><span>2</span></sup><span>IM、 𝜇Emu、SEmu）相同的初始种子的随机值。在适用的情况下，我们使用了与已发布的工具一起发布的默认配置。</span></p><p>&nbsp;</p><p><span>模糊测试和符合性检查结果如下图所示：（- 表示仿真器不支持对该固件进行模糊测试）</span></p><p><img src="大作业/image-20240501144502012.png" referrerpolicy="no-referrer" alt="image-20240501144502012"></p><p>&nbsp;</p><h5 id='coverage-comparison-覆盖范围比较'><span>Coverage Comparison. 覆盖范围比较。</span></h5><p><span>我们列出了 5 项试验中的基本区组 （BB） 覆盖率中位数，以及实验的 p 值。我们观察到，在Soldering_Iron和四个TCP/UDP样本中与P</span><sup><span>2</span></sup><span>IM和 𝜇 Emu相比，代码覆盖率有了明显的提高。原因是 P</span><sup><span>2</span></sup><span>IM 和 𝜇 Emu 都不支持 DMA，因此也不支持以太网。虽然 𝜇 Emu 能够完成以太网样本的初始化，但它未能涵盖依赖 DMA 进行数据传输的主要固件逻辑。对于可以测试的固件，SEmu 的代码覆盖率平均分别比 P</span><sup><span>2</span></sup><span>IM 和 𝜇 Emu 高出 5.1% 和 6.7%。对于每个样本，我们还列出了测试的 p 值。它们使用 SEmu 与 P</span><sup><span>2</span></sup><span>IM 和 SEmu 与 𝜇 Emu 的双侧 Mann-Whitney U 检验进行测量。</span></p><p><span>覆盖率的提高似乎微不足道。然而，我们注意到 SEmu 实现了更好的路径保真度，因此没有探索很多错误处理函数。例如，一些外设（如 I2C）使用两个分离的中断来处理正常和错误信号。错误中断仅在硬件故障时发生。但是，P</span><sup><span>2</span></sup><span>IM 和 𝜇 Emu 仍然会定期触发这些错误中断，这不应该在不发生物理故障的情况下发生。此外，SEmu 只对实际的 I/O 接口进行模糊处理，而对现有工作也进行模糊处理的状态/控制寄存器。由于这些原因，SEmu 在某些固件（例如 Steering_Control）上实现的代码覆盖率较低。我们认为这是更高仿真保真度的一个很好的指标。</span></p><p>&nbsp;</p><blockquote><p><span>这段话讨论了SEmu（Specification-guided EMUlator）在模糊测试（fuzz testing）中的代码覆盖率（coverage）表现，以及它与现有工具（如P2IM和𝜇Emu）相比的优势。以下是对这段话的详细解释：</span></p><ol start='' ><li><p><strong><span>代码覆盖率的改进</span></strong><span>：尽管SEmu在某些情况下显示出代码覆盖率的提高，但这种改进看起来并不显著。</span></p></li><li><p><strong><span>路径保真度</span></strong><span>：SEmu在模拟固件执行路径时具有更高的保真度，这意味着它更准确地复现了固件在真实硬件上的行为。</span></p></li><li><p><strong><span>错误处理函数的探索</span></strong><span>：由于SEmu的高保真度，它不像其他工具那样频繁地探索错误处理函数。这是因为在真实的硬件上，某些错误处理路径只有在硬件故障时才会被触发。</span></p></li><li><p><strong><span>I2C外设中断</span></strong><span>：以I2C外设为例，它使用两个独立的中断来处理正常信号和错误信号。在没有硬件故障的情况下，错误中断是不会发生的。</span></p></li><li><p><strong><span>P2IM和𝜇Emu的问题</span></strong><span>：相比之下，P2IM和𝜇Emu会定期触发这些错误中断，这在没有物理故障的情况下是不应该发生的。</span></p></li><li><p><strong><span>SEmu的模糊测试目标</span></strong><span>：SEmu在模糊测试中只针对真实的输入/输出（I/O）接口，而不是像现有工作那样同时针对状态/控制寄存器进行模糊测试。</span></p></li><li><p><strong><span>代码覆盖率与保真度的关系</span></strong><span>：由于SEmu更精确地模拟了固件的行为，它在某些固件上实现了较低的代码覆盖率（例如，Steering_Control固件）。这实际上是仿真保真度更高的一个好指标，因为它表明SEmu没有在不可能导致实际硬件故障的路径上浪费时间。</span></p></li><li><p><strong><span>高保真度的意义</span></strong><span>：作者认为，较低的代码覆盖率在这种情况下实际上表明了SEmu的仿真质量更高，因为它专注于更有可能在真实硬件上发生的行为路径。</span></p></li></ol><p><span>总的来说，这段话强调了SEmu在模糊测试中的高保真度优势，以及这种优势如何导致它在某些情况下显示出较低的代码覆盖率，这实际上是一种更准确模拟固件行为的积极表现。</span></p></blockquote><p>&nbsp;</p><h5 id='crasheshangs-崩溃挂起'><span>Crashes/Hangs. 崩溃/挂起。</span></h5><p><span>在表 2 中，我们在 #Crashes/#Hangs 列中列出了 AFL 报告的崩溃和挂起次数。为了验证结果，对于每个报告的崩溃/挂起，我们将触发器测试用例重播到相应的模拟器，并收集执行跟踪。如果两个执行跟踪相同，则将其视为重复。如果我们在重播期间没有观察到崩溃/挂起报告，我们会将其视为误报。我们在标题为 Unique 的列中列出唯一的崩溃/挂起，并在标题为 Crashes/Hangs 的列中列出错误的崩溃/挂起 #False 数。</span></p><p><span>SEmu 成功地重现了之前工作中提到的所有错误，但没有报告任何错误的崩溃或挂起。事实上，在现有工作中提出的许多崩溃报告都是重复的或误报的。原因有两方面。首先，现有工作会随机提供中断，这会导致遭受相同崩溃的两个执行的边缘覆盖范围发生重大变化。因此，AFL会错误地将它们识别为两个不同的崩溃。其次，如前所述，由于P</span><sup><span>2</span></sup><span>IM和 𝜇 Emu的仿真不准确，许多不可行的路径正在探索中，导致大量误报的发生。</span></p><p>&nbsp;</p><h3 id='compliance-check-test'><span>Compliance Check Test</span></h3><p><span>通过从规范中提取语义信息，并受益于高保真仿真，SEmu 使另一种安全分析成为可能，即行为合规性检查。在一致性检查中，我们检查外设驱动程序的实现是否遵循芯片手册中的描述。具体来说，我们收集外设访问历史，并将其与NLP学习的预期访问约束相匹配。在我们的原型中，我们实现了一个动态合规性检查模块，用于检查两个规则。</span></p><p>&nbsp;</p><h5 id='peripheral-state-verification-r1外设状态验证'><span>Peripheral State Verification. R1：外设状态验证。</span></h5><p><span>固件应仅在检查另一个寄存器的状态后访问某些寄存器。这个简单的规则适用于许多 I/O 操作。例如，固件首先通过轮询状态寄存器中的状态来检查硬件是否准备就绪。只有当返回特定值时，它才会继续访问数据寄存器。如果固件直接访问数据寄存器，则违反 R1。</span></p><p>&nbsp;</p><h5 id='interrupt-activation-consistency-r2中断激活一致性'><span>Interrupt Activation Consistency. R2：中断激活一致性。</span></h5><p><span>要启用中断，固件不仅需要激活外设的本地配置，还需要通过在全局中断管理器（即 NVIC）中设置中断集启用寄存器 （ISERx） 来启用相应的中断源。当出现以下情况时，会发生冲突： R2（A）：固件在 NVIC 中启用中断，但在本地外设控制器中未启用中断。R2（B）：固件使能本地外设控制器，但不在 NVIC 中启用。</span></p><p>&nbsp;</p><h4 id='experiment-results'><span>Experiment Results</span></h4><p><span>我们对上一节中使用的同一组固件示例以及 P</span><sup><span>2</span></sup><span>IM 的单元测试示例执行了合规性检查。结果如表2的最后一列和附录中的表4所示。</span></p><p>&nbsp;</p><h5 id='r1-violation-r1-违规'><span>R1 Violation. R1 违规。</span></h5><p><span>我们在 SAM3X HAL 驱动程序代码中观察到几个 R1 冲突。我们后来证实，根本原因是外设访问的竞争条件。例如，SAM3X MCU的UART驱动代码在数据传输前检查TXRDY字段。但是，它还允许在 TXRDY 验证和数据传输之间发生 UART 中断，在此期间，中断处理程序进行独立的数据传输。当中断返回时，之前的 TXRDY 验证将失效，并且以下数据传输将失败。我们在 MCU 上的 SPI 单元测试示例中发现了类似的问题STMF103。</span></p><p>&nbsp;</p><h5 id='r2-violation-r2-违规'><span>R2 Violation. R2 违规。</span></h5><p><span>芯片供应商通常为开发人员提供 HAL 库。它抽象出硬件细节，并提供统一的 API 来访问外设功能。但是，并非所有 HAL 都支持 NVIC 寄存器配置。这是因为 IRQ 编号分配是特定于芯片的，并且开发人员负责配置 NVIC。这一假设导致了对 R2 的违反。特别是，开发人员可能会忘记配置 NVIC。例如，我们发现机器人固件调用 HAL 函数 HAL_TIM_Base_Start_IT（） 来设置TIM2_DIER寄存器以启用 Timer2 中断。但是，它不会在NVIC寄存器中启用相应的中断数（28）。因此，中断永远无法传递。原始 K64F 定时器单元测试示例也会发生这种情况。经过人工验证，我们发现测试代码为 K64F 定时器启用了不存在的中断通道，这已由 P</span><sup><span>2</span></sup><span>IM 作者确认和更正</span></p><p>&nbsp;</p><h2 id='limitations-and-discussion'><span>Limitations and Discussion</span></h2><h5 id='nlp-limitations-nlp-限制'><span>NLP Limitations. NLP 限制。</span></h5><p><span>最先进的 NLP 工具在处理不同句子间的引用以及带有潜在或嵌套条件的复杂句子时存在局限性。如第 8.2 节所述，这些限制会导致规则错误。然而，与其他应用不同的是，SEMU 受这些限制的影响较小，这是因为：</span></p><ul><li><p><span>操作通常明确表达为执行几个简单的寄存器分配，</span><strong><span>不使用跨部分引用</span></strong><span>。这句话的意思是，在微控制器的固件或硬件规范中，动作（actions）通常是通过执行一些简单的寄存器赋值操作来明确表示的，而不是通过跨章节或跨段落的引用来描述。</span></p></li><li><p><span>命名实体是芯片手册中的正式表达，减轻了共同引用问题（例如，我们使用近似字符串匹配来统一命名实体）、 我们使用近似字符串匹配来统一命名实体）</span></p></li><li><p><span>复杂条件通常取决于某些具有隐含语义的硬件信号，这些信号通常可以通过默认行为来模拟（例如，我们在第 6 节中的 F103 ADC 示例中采用的始终 “设置 ”启发式）</span></p></li></ul><p><span>我们还计划利用 NLP 技术的新进展来改进 SEmu。例如，在决定硬件触发信号的条件时，SEMU 可以极大地受益于共同参照解析的改进。</span></p><p>&nbsp;</p><h5 id='manual-efforts-手动工作'><span>Manual Efforts. 手动工作。</span></h5><p><span>人工工作有三个主要来源。</span></p><p><span>首先，对于每个固件，开发人员需要识别底层 MUC 芯片并配置仿真器的内存映射信息（例如，闪存、RAM、MMIO 的范围）。</span></p><p><span>其次，开发者需要手动复制PDF格式芯片手册中所需的部分，并输入到NLP引擎中。目前，需要寄存器存储器映射、字段描述、中断向量分配表和 DMA 通道分配表或等效部分。</span></p><p><span>第三，诊断错误的 C-A 规则需要双重的手动工作。</span></p><ul><li><p><span>需要准备测试固件和测试用例</span></p></li><li><p><span>当检测到无效状态时，开发人员需要阅读并理解规范，以微调错误的C-A规则。</span></p></li></ul><p><span>后者是无法避免的，因为有许多领域术语是 NLP 无法理解的。例如，F1XX 手册提到 I2C 可以根据地址字节的 LSB 进入不同的模式。LSB是指“发射缓冲器的低阶位”的知识必须由专家提供。</span></p><p>&nbsp;</p><p><span>为了评估 C-A 规则诊断所需的手动工作，我们邀请了三位具有 MCU 基本领域知识的嵌入式系统开发人员。在通读了手册的相关章节后，平均需要两个小时来修复 F103 I2C 有问题的 C-A 规则。相比之下，我们估计专家需要一个多星期的时间才能为 QEMU 编写一个 I2C 后端仿真器。</span></p><p>&nbsp;</p><h2 id='related-work-相关工作'><span>Related Work 相关工作</span></h2><h3 id='firmware-emulation-固件仿真'><span>Firmware Emulation 固件仿真</span></h3><p><span>依靠真正的硬件进行动态分析会产生许多问题（Muench 等人，2018 年;Koscher等人，2015;Kammerstetter et al.， 2016， 2014），例如性能差和可扩展性低。</span></p><p><span>仿真是解决这些问题的有效方法。仿真固件的关键挑战是如何正确建模外设行为，以便仿真执行与实际硬件上的执行相似。</span></p><p><span>高级仿真解决方案（Clements 等人，2020 年;Shoshitaishvili 等人，2015 年;Chen 等人，2016 年;Costin 等人，2016 年;Li et al.， 2021）通过挂接到高级库（例如硬件抽象层）并在本机上实现等效逻辑来避免模拟与外设相关的代码。高级仿真可以像 SEmu 一样实现良好的保真度。但是，这些方法完全跳过了固件中的外设逻辑，因此无法发现外设驱动程序的问题。此外，开发人员并不总是使用高级抽象库来考虑性能。</span></p><p><span>固件引导解决方案（Feng et al.， 2020;Chen 等人，2016 年;Spensky 等人，2021 年;Cao 等人，2020 年;周 等人，2021 年;Johnson 等人，2021 年）在仿真器中运行整个目标固件。根据该策略，它们可以进一步分为三种类型：基于访问模式的、基于符号执行的和基于学习的。通过观察外设接入模式，P</span><sup><span>2</span></sup><span>IM推断寄存器类型（即CR、SR、C&amp;SR和DR），然后使用启发式方法根据寄存器类型信息生成响应。但是，如前所述，它存在寄存器错误分类问题。此外，当启发式不可用时，P</span><sup><span>2</span></sup><span>IM会盲目地在有限的搜索空间内搜索合适的响应。基于符号执行的解决方案（Cao et al.， 2020;周 等人，2021 年;Johnson 等人，2021 年）通过推理外围设备的响应如何影响固件执行来解决上述问题。这些解决方案的一个关键局限性是它们依赖于启发式方法来决定要采取的路径。事实上，固件不包含足够的信息来指导仿真。PRETENDER（Gustafson 等人，2019 年）和 Conware（Spensky 等人，2021 年）通过从硬件和固件之间的真实交互中学习来创建外设模型。因此，它们需要依赖于硬件的记录阶段，从而降低了可扩展性。</span><strong><span>与固件引导的解决方案相比，我们的方法以外设规格为指导。它无需实际硬件即可实现更高的仿真保真度。</span></strong></p><p>&nbsp;</p><h3 id='rule-extraction-from-specifications-via-nlp-technology通过nlp技术从规范中提取规则'><span>Rule Extraction from Specifications via NLP Technology通过NLP技术从规范中提取规则</span></h3><p><span>从规范中提取规则来解决安全问题并不是什么新鲜事。SmartAuth （Tian et al.， 2017） 从物联网应用描述中学习策略相关性（实体、上下文和操作、条件），并验证物联网应用的代码实现是否遵循策略。ARE（Feng et al.， 2018）通过使用应用层数据和产品描述生成（设备检测）规则来自动发现物联网设备。iRuler （Wang et al.， 2019） 使用 NLP 技术来推断触发-操作信息流并发现物联网部署中的规则间漏洞。NLP 技术还用于自动收集和分析物联网安全报告，以提取特定于漏洞的特征（Feng 等人，2019 年）。Bookworm Game （Chen et al.， 2021） 使用 NLP 技术从电信领域的 LTE（长期演进）文档中识别风险操作。然后，它提取信息以构建可以满足触发风险操作条件的测试用例。访问控制策略（Xiao et al.， 2012）和访问控制规则（Slankas et al.， 2014）也可以从用例描述中提取。</span></p><p><span>我们的工作自动构建了用于安全分析驱动的固件仿真的外设模型。这是一个与现有工作不同的 NLP 应用程序。这个特定问题带来了一些独特的挑战。首先，可以通过不同的方式触发 C-A 规则。我们必须对提取的规则进行分类，以便仅在需要时才能检查它们。其次，为了支持固件仿真，必须将提取的规则的语义形式化为具体值和布尔运算符，以便以编程方式维护外设状态。第三，为了处理硬件生成的信号和与中断相关的动作，我们必须将特定于 MCU 的领域知识整合到 NLP 中。最重要的是，现有的工作不需要全面提取相关规则，但SEmu必须确保提取的规则足够完整。例如，在 Bookworm Game （Chen et al.， 2021） 中，它可以提取的上下文信息越多，它可以识别的风险操作就越大。即使提取的信息项只是一个子集，它们的方法仍然可以胜过不受 NLP 技术指导的解决方案。相反，如果 SEmu 没有达到相关 C-A 规则（包括链式规则）的足够完整性，则固件仿真很可能会失败。这种关键差异激发了SEmu独特的规则诊断机制。</span></p><p>&nbsp;</p><h2 id='conclusion-结论'><span>Conclusion 结论</span></h2><p><span>与提出另一种基于固件引导的仿真解决方案不同，本研究提出了第一个基于规格的固件仿真解决方案。这种新方法利用自然语言处理（NLP）技术，将芯片手册中用人类语言（自然语言）描述的外设行为转换为一组结构化的“条件-动作”规则。通过在运行时正确执行和链接这些规则，我们可以动态地为固件执行期间访问的每个外设合成一个外设模型。借助机器辅助的规则诊断，我们的评估确认了我们的原型在提出的保真度测量下与真实设备相比达到了100%的仿真保真度。相比之下，现有工作所达到的保真度在73%到86%之间。由于保真度更高，我们的解决方案提高了模糊测试的效率：在模糊测试期间没有观察到错误的崩溃和挂起。有了更高的仿真准确性，我们还设计了一个新的动态分析任务，来执行对规格的驱动代码合规性检查。我们发现了一些不符合规定的情况，后来确认这些是由于竞态条件引起的错误。</span></p><p>&nbsp;</p><blockquote><p><span>这段话的详细解释如下：</span></p><p><span>基于规格的仿真解决方案：提出了一种新的仿真方法，不是依赖于固件代码本身，而是基于芯片的技术规格。</span></p><p><span>NLP技术的应用：利用自然语言处理技术从芯片手册中提取关于外设行为的描述，并将其转换为结构化的规则。</span></p><p><span>动态合成外设模型：在固件执行期间，根据访问的外设动态创建外设模型，而不是静态地模拟所有可能的外设行为。</span></p><p><span>规则的执行和链接：在运行时，这些条件-动作规则被执行并链接起来，以模拟外设的实际行为。</span></p><p><span>机器辅助规则诊断：使用自动化工具帮助诊断和修正提取的规则，以提高仿真的准确性。</span></p><p><span>仿真保真度：评估表明，新方法达到的仿真保真度为100%，而现有方法的保真度在73%到86%之间。</span></p><p><span>模糊测试效率：由于仿真保真度的提高，模糊测试的效率也得到提升，没有观察到误报的崩溃或挂起。</span></p><p><span>动态分析任务：设计了新的动态分析任务，用于检查驱动代码是否符合规格要求。</span></p><p><span>发现和确认错误：通过合规性检查发现了一些不符合规格的情况，这些后来被确认为由竞态条件引起的编程错误。</span></p></blockquote></div></div>
+</body>
+<!-- <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script> -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--侧栏目录生成代码-->
+<script>
+    //标题序号计数器
+    var hCount = [0, 0, 0, 0, 0, 0];
+
+    //设置计数器
+    function setHCount(number) {
+        //当前计数器加一
+        hCount[number - 1]++;
+        for (var i = number, length = hCount.length; i < length; i++) {
+            //子目录计数器全部置零
+            hCount[i] = 0;
+        }
+    }
+
+    //重命名目录名称
+    function setHTagValue(item, number) {
+        //获取标题名
+        var text = $(item).get(0).innerHTML;
+        //初始化空字符串
+        var before = "";
+        //生成序号
+        for (var i = 0, length = hCount.length; i < number; i++) {
+            if (i < number - 1)
+                before += hCount[i] + ".";
+            else
+                before += hCount[i] + " ";
+        }
+        //在标题前面加上序号
+        $(item).get(0).innerHTML = before + text;
+    }
+
+    function renameHTag(item) {
+        var tag = $(item).get(0).localName;
+        if (tag === "h1") {
+            setHCount(1);
+            //console\.log("捕获到标签:%s", tag);
+            setHTagValue(item, 1);
+        }
+        if (tag === "h2") {
+            setHCount(2);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 2);
+        }
+        if (tag === "h3") {
+            setHCount(3);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 3);
+        }
+        if (tag === "h4") {
+            setHCount(4);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 4);
+        }
+        if (tag === "h5") {
+            setHCount(5);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 5);
+        }
+        if (tag === "h6") {
+            setHCount(6);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 6)
+        }
+    }
+
+    $(document).ready(function () {
+        $("h1,h2,h3,h4,h5,h6").each(function (i, item) {
+            //给<H>类标签编号
+            renameHTag(item);
+            //获取标签的名字,h1,还是h2
+            var tag = $(item).get(0).localName;
+            //为该标签设置id属性
+            $(item).attr("id", "wow" + i);
+            //添加一个页内超链接,并设置class选择器
+            //      $("#category").append('<a class="new'+tag+'" href="#wow'+i+'">'+$(this).text()+'</a></br>');
+            $("#category").append('<a class="new' + tag + '" href="#wow' + i + '">' + $(item).text() + '</a></br>');
+            //为每一个标题超链接的class属性设置左边距
+            $(".newh1").css("margin-left", 0);
+            $(".newh2").css("margin-left", 20);
+            $(".newh3").css("margin-left", 40);
+            $(".newh4").css("margin-left", 60);
+            $(".newh5").css("margin-left", 80);
+            $(".newh6").css("margin-left", 100);
+        });
+        //设置class选择器为.book-body的html内容
+        $(".book-body").html($(".book-body").nextAll())
+    });
+</script>
+<style type="text/css">
+    @media (max-width: 1600px) {
+        .book-body {
+            /* padding-left: 200px; */
+            padding-right: 0px;
+        }
+    }
+
+    @media (max-width: 1400px) {
+        .book-body {
+            /* padding-left: 200px; */
+            padding-right: 0px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .book-body {
+            /* padding-left: 300px; */
+            padding-left: 0px;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .book-body {
+            padding-left: 0px;
+        }
+    }
+
+    @media (min-width: 600px) {
+        #category {
+            /* 绝对定位 */
+            position: fixed;
+            /* left: 20px; */
+            /* 目录显示的位置 */
+            left: 0px;
+            top: 0;
+            /* 目录栏的高度,这里设置为60%主要是为了不挡住返回顶部和折叠按钮 */
+            height: 79%;
+            /* 开启垂直滚动条 */
+            overflow-y: scroll;
+            /* 开启水平滚动条 */
+            overflow-x: scroll;
+        }
+    }
+
+    @media (-webkit-max-device-pixel-ratio: 1) {
+        ::-webkit-scrollbar-track-piece {
+            background-color: #FFF
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #c2c2c2;
+            background-clip: padding-box;
+            min-height: 28px
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #A0A0A0
+        }
+    }
+</style>
+<script>
+    // id="category" οnclick="showOrCloseCategory()"
+    function showOrCloseCategory() {
+        var id = document.getElementById("category");
+        var book_body = document.getElementById("book_body");
+        //如果展开了
+        if (id.style.display == 'block') {
+            //console.log("开始展开");
+            id.style.display = 'none';
+            id.style.width = "0%";
+            book_body.style.width = "100%";
+            book_body.style.paddingleft = 0;
+        }
+        //如果被折叠了
+        else if (id.style.display == 'none') {
+            //console.log("开始折叠");
+            id.style.display = 'block';
+            book_body.style.width = "90%";
+            id.style.width = "20%"
+        }
+    }
+</script>
+<!--返回顶部-->
+<a href="javascript:scroll(0,0)" style="position:fixed;float:right;left:40px;top:80%">返回顶部</a>
+<button onclick="showOrCloseCategory()" style="position:fixed;float:right;left:40px;top:85%">折叠/展开</button>
+<!--文章主体部分-->
+<div class="book-body" id="book_body" style="width:90%;display:block"></div>
+<!--目录栏，设置占用宽度为20%可以根据实际情况设置-->
+<div class="book-summary" id="category" style="width:20%;display:block"></div>
+
+
+</html>

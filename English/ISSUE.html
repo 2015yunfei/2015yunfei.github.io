@@ -1,0 +1,807 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>ISSUE</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='题目出处'><span>题目出处</span></h1><p><span>所有题目均在GRE官方网站给出，理论上可以考前全部看一遍。即便没时间每篇文章都写一下，也可以大概知道每篇文章的行文思路。</span></p><p>&nbsp;</p><h1 id='issue的指令'><span>Issue的指令</span></h1><p><span>ISSUE一共有6种指令：</span></p><ol start='' ><li><p><span>Write a response in which you discuss the extent to which you agree or disagree with the statement and explain your reasoning for the position you take. In developing and supporting your position, you should consider ways in which the statement might or might not hold true and explain how these considerations shape your position.</span></p></li><li><p><span>Write a response in which you discuss the extent to which you agree or disagree with the recommendation and explain your reasoning for the position you take. In developing and supporting your position, describe specific circumstances in which adopting the recommendation would or would not be advantageous and explain how these examples shape your position.</span></p></li><li><p><span>Write a response in which you discuss the extent to which you agree or disagree with the claim. In developing and supporting your position, be sure to address the most compelling reasons and/or examples that could be used to challenge your position.</span></p></li><li><p><span>Write a response in which you discuss which view more closely aligns with your own position and explain your reasoning for the position you take. In developing and supporting your position, you should address both of the views presented.</span></p></li><li><p><span>Write a response in which you discuss the extent to which you agree or disagree with the claim and the reason on which that claim is based.</span></p></li><li><p><span>Write a response in which you discuss your views on the policy and explain your reasoning for the position you take. In developing and supporting your position, you should consider the possible consequences of implementing the policy and explain how these consequences shape your position.</span></p></li></ol><p>&nbsp;</p><h1 id='判分流程'><span>判分流程</span></h1><p><span>GRE的Issue部分由一个人工和程序同时打分，在这种情况下，我们应该以取悦ETS的判分程序为目标。</span></p><p>&nbsp;</p><h1 id='写作立场'><span>写作立场</span></h1><p><span>我们可以写的立场理论上只有三个：</span></p><ol start='' ><li><p><span>部分认同</span></p></li><li><p><span>中立（不推荐）</span></p></li><li><p><span>部分不认同</span></p></li></ol><blockquote><p><span>理论上，中立也是可以写的，因为只要我们可以在Issue中体现出来我们对事情的正反两面都有所思考就可以。但是考虑到中立这种思想本身行文比较困难，所以不推荐以中立的态度写作。</span></p></blockquote><p>&nbsp;</p><h1 id='写作方法一'><span>写作方法一</span></h1><p><span>五段论：</span></p><ol start='' ><li><p><span>开头</span></p></li><li><p><span>反</span></p></li><li><p><span>正</span></p></li><li><p><span>升</span></p></li><li><p><span>结尾</span></p></li></ol><p>&nbsp;</p><p><span>具体如何操作：</span></p><p><span>如果说我们的立场是有保留地同意A</span></p><ol start='' ><li><p><span>第一段：有保留地同意A</span></p></li><li><p><span>第二段（反）：先不写自己的观点，先让步，对方说的什么什么东西是有道理的</span></p></li><li><p><span>第三段（正）：但是我方的观点是更有道理的</span></p></li><li><p><span>第四段（升）：站在一个更高的角度，我们分歧的本质是什么，站在这个更高的角度，我来告诉你为什么我比你更有道理</span></p></li><li><p><span>第五段：虽然我同意对方的观点有道理，但是我依然认为我的观点更有道理</span></p></li></ol><p>&nbsp;</p><p><span>如何写好升：</span></p><ol start='' ><li><p><span>上位词</span></p></li><li><p><span>关键词</span></p></li><li><p><span>根本原因</span></p></li></ol><p>&nbsp;</p><p><span>范文：</span></p><p><span> </span></p><p><span>Some people believe that college students should consider only their own talents and interests when choosing a field of study. Others believe that college students should base their choice of a field of study on the availability of jobs in that field.</span></p><p><span> </span></p><p><span>Which field to choose to study might be the most important decision a young man needs to make during his or her teenage. While some people believe that college students should consider only their own talents and interests when choosing a field of study on the availability of jobs in that field. However, in my opinion, talent and interest are more important when deciding which field to study.</span></p><p>&nbsp;</p><p><span>It is true that students who choose a major based on job availability could have better returns. Students pursing the hottest fields will find a good job and lead a life of above the middle class. Today, the hottest college major is computer science. Upon graduation, students in the field can find a well-paid position in a high-tech company easily. They can be financially independent and become a winner envied by other people. Seen in this light, it is a wise choice especially for students from disadvantaged backgrounds.</span></p><p>&nbsp;</p><p><span>However, for most students, they should choose a field they have great interest in because it is the only way they can exploit their full potential and become the people they really want to be. The story of Steven Jobs is familiar to everyone. He took a calligraphy course when he was a freshman, which had nothing to do with finding a good job. But it was the calligraphy course that enlightened him to design better fonts for computers and ultimately impressed clients of Macintosh. If Jobs merely sought employment, he would never enter the class of calligraphy. The Apple we appreciate today would not exist at the very beginning.</span></p><p>&nbsp;</p><p><span>The key to find a solution to the long-time dilemma between interest and money is how to understand the role of higher education in today’s world. What is the essence of higher education? What is the ultimate goal of a higher education institution? People have conflicting opinion on it. Though some people may argue that universities should make qualified workers for society, I agree with the old motto: higher education is to enrich one’s soul and make him or her find the true self. A student chases job opportunity is short-sighted because we all know work only takes 1/5 of out life time and what is popular today may be outdated when you graduate. Moreover, the development of online education and vocational education provides many opportunities for students to receive vocational training besides college study, but you will find no place than a college to let you understand what you love and who you want to be.</span></p><p>&nbsp;</p><p><span>To sum up, although I admit job availability is an important indicator when choosing a field to study, interest and talent should play a more important role in students’ decision.</span></p><p>&nbsp;</p><h1 id='写作方法二'><span>写作方法二</span></h1><p><span>换对象</span></p><p>&nbsp;</p><ol start='' ><li><p><span>开头</span></p></li><li><p><span>对象A</span></p></li><li><p><span>对象B</span></p></li><li><p><span>对象C</span></p></li><li><p><span>结尾</span></p></li></ol><p>&nbsp;</p><p><span>也可以在写作途中修改为：</span></p><p>&nbsp;</p><ol start='' ><li><p><span>开头</span></p></li><li><p><span>对象A</span></p></li><li><p><span>对象B</span></p></li><li><p><span>升华（</span><strong><span>并不是具体情况具体分析，而是要给出自己的清晰的立场</span></strong><span>）</span></p></li><li><p><span>结尾</span></p></li></ol><blockquote><p><span>这也可以看作是一种“反正升”和“换对象”的结合</span></p></blockquote><p>&nbsp;</p><h1 id='完善中间段的方法'><span>完善中间段的方法</span></h1><h2 id='换对象'><span>换对象</span></h2><p><span>在中间段按照不同元素进行分类：</span></p><ul><li><p><span>发达国家、发展中国家</span></p></li><li><p><span>年轻人、老年人</span></p></li><li><p><span>经济、环境</span></p></li><li><p><span>时间、金钱</span></p></li><li><p><span>老师、学生</span></p></li><li><p><span>理工科、人文社科</span></p></li></ul><p>&nbsp;</p><h2 id='例证'><span>例证</span></h2><ul><li><p><span>claim</span></p></li><li><p><span>reason</span></p></li><li><p><span>evidence</span></p></li></ul><ol start='' ><li><p><span>诉诸常识</span></p></li><li><p><span>根据最高频的topic准备例子，刷题班也有部分准备好的例子。</span></p><ol start='' ><li><p><span>教育</span></p></li><li><p><span>科技</span></p></li><li><p><span>艺术</span></p></li><li><p><span>环保</span></p></li><li><p><span>政治</span></p></li></ol></li></ol><p>&nbsp;</p><h2 id='反证'><span>反证</span></h2><p><span>反过来说明</span></p><p>&nbsp;</p><p><span>正过来说：</span></p><p><span>经济发展对一个国家的发展是至关重要的。经济发展得好，就业率会提高，消费也会上升，从而形成良性循环。</span></p><p><span>反过来说：</span></p><p><span>经济发展对一个国家的发展是至关重要的。经济发展得不好，就业率会下降，消费也会下降，从而形成恶性循环。</span></p><p>&nbsp;</p><h1 id='丰满中间段1'><span>丰满中间段1</span></h1><p><span>换对象</span></p><p>&nbsp;</p><p><span>在中间段按照不同元素进行分类：</span></p><ul><li><p><span>发达国家、发展中国家</span></p></li><li><p><span>年轻人、老年人</span></p></li><li><p><span>经济、环境</span></p></li><li><p><span>时间、金钱</span></p></li><li><p><span>老师、学生</span></p></li><li><p><span>理工科、人文社科</span></p></li></ul><p>&nbsp;</p><h1 id='丰满中间段2'><span>丰满中间段2</span></h1><p><span>例证</span></p><p>&nbsp;</p><p><span>一个例证的中间段可以包含以下三个内容：</span></p><ul><li><p><span>claim</span></p></li><li><p><span>reason</span></p></li><li><p><span>evidence</span></p></li></ul><p>&nbsp;</p><p><span>诉诸常识：</span></p><p><span>TP：学生不应该以工作为导向选择专业 Appeal to common sense</span></p><ol start='' ><li><p><span>Awful: 学生不应该以工作为导向选择专业，因为我妈是这么说的。</span></p></li><li><p><span>Bad: 学生不应该以工作为导向选择专业，因为我身边有几个同学都选择了自己不喜欢的专业，他们很后悔。</span></p></li><li><p><span>Good: 学生不应该以工作为导向选择专业，因为以工作为导向很容易让学生丧失学习热情，增加学习压力，导致他们表现不佳。在每一所大学都会见到这样的学生，因为现在CS最热门所以选择了这个专业，但他们不喜欢编程，认为编程很枯燥，所以学习非常痛苦，在职场上也没有竞争力，最后虚度大学四年时光。</span></p></li></ol><p>&nbsp;</p><p><span>TP: 政治家不应该盲目服从选民的意见。  </span></p><ol start='' ><li><p><span>政治家不应该盲目服从选民的意见。因为选民的看法十分容易受限于他自己的立场和他能获得的信息，他在做决策的时候几乎只考虑到自己或自己身边人的利益。与之对比，政治家可以咨询专业人士，可以获得内部信息，他们理应站在更高的角度为全社会做出合理的判断。例如，选民经常会认为花钱在科研或太空探索项目上是浪费，更希望钱花在教育、医疗这样的领域。但政治家应该意识到，投资科研和太空项目可以带来长期利益，可以增加国家的竞争力。因此，一味强调政治家服从选民意见可能损害全社会的利益。</span></p></li></ol><p>&nbsp;</p><blockquote><p><span>举例子一定要举和西方背景比较接近的例子，因为判卷的人都是西方人。</span></p></blockquote><p>&nbsp;</p><h1 id='丰满中间段3'><span>丰满中间段3</span></h1><p><span>反证</span></p><p>&nbsp;</p><p><span>反过来说明</span></p><p>&nbsp;</p><p><span>正过来说：经济发展对一个国家的发展是至关重要的。经济发展得好，就业率会提高，消费也会上升，从而形成良性循环。</span></p><p><span>反过来说：经济发展对一个国家的发展是至关重要的。经济发展得不好，就业率会下降，消费也会下降，从而形成恶性循环。</span></p><p>&nbsp;</p><p><span>The advancement of technology should not be achieved at the cost of privacy protection. If privacy gives way to technological development, we will live a life full of risks and uncertainties. Our credit cards may be abused; our personal informational may be sold; our safety may be threatened.</span></p><p>&nbsp;</p><h1 id='丰满中间段4'><span>丰满中间段4</span></h1><p><span>引证</span></p><p>&nbsp;</p><p><span>也就是用名人给自己背书，但是需要准备好例子，同时也要记清楚人名。准备时间不够的同学可以不使用例证的方法。</span></p><p>&nbsp;</p><h1 id='例子准备示范'><span>例子准备示范</span></h1><p><span>根据最高频的topic准备例子：</span></p><ol start='' ><li><p><span>教育</span></p></li><li><p><span>科技</span></p></li><li><p><span>艺术</span></p></li><li><p><span>环保</span></p></li><li><p><span>政治</span></p></li></ol><p>&nbsp;</p><h1 id='跟着写issue1'><span>跟着写Issue1</span></h1><h2 id='第一篇文章'><span>第一篇文章</span></h2><p><img src="ISSUE/image-20240326095234577.png" referrerpolicy="no-referrer" alt="image-20240326095234577"></p><p><img src="ISSUE/image-20240326095533533.png" alt="image-20240326095533533" style="zoom: 33%;" /></p><p><img src="ISSUE/image-20240326095650963.png" alt="image-20240326095650963" style="zoom: 33%;" /></p><p><img src="ISSUE/image-20240326095946315.png" alt="image-20240326095946315" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326100148284.png" alt="image-20240326100148284" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326100805919.png" alt="image-20240326100805919" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326100909214.png" alt="image-20240326100909214" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326101123426.png" alt="image-20240326101123426" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326101227965.png" alt="image-20240326101227965" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326101309663.png" alt="image-20240326101309663" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326101819066.png" alt="image-20240326101819066" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326102648695.png" alt="image-20240326102648695" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326102906955.png" alt="image-20240326102906955" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326103144732.png" alt="image-20240326103144732" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326103946746.png" alt="image-20240326103946746" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326104300293.png" alt="image-20240326104300293" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326105705219.png" alt="image-20240326105705219" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326105958966.png" alt="image-20240326105958966" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326110125217.png" alt="image-20240326110125217" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326110254184.png" alt="image-20240326110254184" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326110347091.png" alt="image-20240326110347091" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326110514223.png" alt="image-20240326110514223" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326110819130.png" alt="image-20240326110819130" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326111255114.png" alt="image-20240326111255114" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326111344176.png" alt="image-20240326111344176" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326111536192.png" alt="image-20240326111536192" style="zoom: 50%;" /></p><p>&nbsp;</p><h2 id='第一篇文章基础款'><span>第一篇文章基础款</span></h2><p><span>In most profession and academic fields, imagination is more important than knowledge.</span></p><p>&nbsp;</p><p><span>In many jobs and research fields, people wonder if imagination is more important than knowledge. Different people have different opinions about this issue. As far as I am concerned, knowledge is important, but imagination is even more crucial in what we do.</span></p><p><span>It is true that knowledge is very important in many fields. Knowledge gives people the basic information they need to do their work well. Think about a scientist: before they can do new research or question old ideas, they need to know what has already been found out. This knowledge helps them do their work carefully, learn from past mistakes, and use what other have already learned. Without this basic knowledge, even big projects can fail because of small mistakes or misunderstandings.</span></p><p><span>However, it is our creativity and fresh thinking, rather than just our knowledge, that leads to significant discoveries. Imagination allows us to come up with ideas that are truly new. In the world of art, many renowned artists did not rely only on their training but exploited their imagination instead. Artists like Van Gogh and Picasso introduced new approaches and styles. Their art was not just a mirror to the world; it offered a unique perspective. Similarly, in the business world, imagination enables innovative thinking and technological revolution. Take Steve Jobs and his iPhone as an example. He did not just base it on existing technology, but explored what could be possible in the future. He imagined a phone that combined communication, entertainment, and work. This version set Apple apart and led to groundbreaking products.</span></p><p><span>The core of this issue is how we understand imagination. Some people think imagination is just a sudden idea and assert that knowledge is more important because it is the base of everything. But I believe imagination helps any field, whether it is scientific research or business project, move forward. Imagination does more than just bring new ideas; it links different kinds of knowledge and lets them work together. Without imagination, knowledge cannot change or grow; with imagination, knowledge can keep improving and combine with other ideas to make something new. We should never underestimate how important imagination is.</span></p><p><span>In conclusion, even though knowledge is very important in work and study, I think imagination is even more important. With imagination, scientists make big discoveries, businesses try new things, and society keeps moving forward.</span></p><p>&nbsp;</p><p><span>在许多工作和研究领域中，人们常常思考一个问题：想象力是否比知识更重要。不同的人对此有不同的看法。就我而言，知识固然重要，但想象力在我们所做的事情中更为关键。</span></p><p><span>诚然，在许多领域，知识的重要性不言而喻。知识为人们提供了做好工作所需的基本信息。以科学家为例：在进行新研究或质疑旧观念之前，他们需要了解已经发现了什么。这种知识帮助他们谨慎地工作，从过去的错误中学习，并利用他人的研究成果。没有这些基本知识，即使是大型项目也可能因为小的错误或误解而失败。</span></p><p><span>然而，正是我们的创造力和创新思维，而不仅仅是知识，引导我们取得重大发现。想象力使我们能够想出真正新颖的想法。在艺术界，许多著名艺术家并不仅仅依靠他们的训练，而是发挥了他们的想象力。像梵高和毕加索这样的艺术家引入了新的方法和风格。他们的艺术作品不仅仅反映了世界，还提供了一种独特的视角。同样，在商业世界中，想象力激发了创新思维和技术革命。以史蒂夫·乔布斯和他的iPhone为例。他不仅仅基于现有技术，而是探索未来可能实现的事情。他想象一种将通信、娱乐和工作结合在一起的手机。这一理念使苹果与众不同，并推动了开创性产品的诞生。</span></p><p><span>这个问题的核心在于我们如何理解想象力。有些人认为想象力只是一个突然的想法，并断言知识更重要，因为它是万物的基础。但我相信，想象力有助于任何领域的发展，无论是科学研究还是商业项目。想象力不仅仅带来新想法，它还连接不同类型的知识，使它们共同工作。没有想象力，知识无法改变或成长；有了想象力，知识可以不断改进，并结合其他想法创造出新的东西。我们绝不能低估想象力的重要性。</span></p><p><span>总之，尽管知识和工作中非常重要，但我认为想象力更为关键。有了想象力，科学家可以取得重大发现，企业可以尝试新事物，社会可以不断进步。</span></p><p>&nbsp;</p><h2 id='第一篇文章豪华款'><span>第一篇文章豪华款</span></h2><p><span>In numerous professional and scholarly arenas, it is often debated whether imagination holds greater significance than knowledge. Individuals from diverse backgrounds often differ in their opinions on the roles of imagination and knowledge playing in our work and study. While I recognize the value of knowledge, I maintain that imagination more profoundly.</span></p><p><span>It is true that knowledge can be vital in various professional and academic settings. Knowledge provides a foundation upon which we build our understanding and expertise. It acts as the bedrock, equipping individuals with the essential tools and information to navigate their respective fields. Consider a scientist: before they can venture into groundbreaking research or challenge existing paradigms, they must first be well-versed in established theories, methodologies, and historical experiments of their discipline. This foundational knowledge ensures they approach their work with precision, avoiding pitfall and building upon the collective wisdom of those who came before them. Without such a solid base, even the most ambitious endeavors.</span></p><p><span>In many instances, however, it is imagination rather than prior knowledge that propels the significant advancement of humanity. Imagination unveils a plethora of possibilities, allowing us to transcend existing boundaries and conceive the unparalleled. In the realm of art, numerous esteemed artists did not lean solely on their training and expertise but tapped into their innate creativity and imagination. Visionaries like Van Gogh and Picasso frequently surpassed the contemporary art of their era, forging entirely novel genres and artistic styles. Their masterpiece were not mere reflections of reality but innovative interpretations and envisioning of it. Similarly, in the business world, imagination holds paramount importance. Steve Jobs’s conceptualization of the iPhone was not merely rooted in the prevailing technology and market needs but was also a product of his foresight and dream for the future. He imagined a singular device that amalgamated communication, entertainment, and productivity, a concept that was groundbreaking then. This futuristic vision positioned Apple a step ahead of its rivals, leading to the inception of a line of transformative.</span></p><p><span>The core of this issue revolves around our understand of imagination. Some believe that imagination is merely sporadic inspiration, emphasizing that true vales lies in knowledge-as it forms the foundation of any domain and stands as the most trustworthy and invaluable. Yet, I argue that imagination drives the forward momentum of any discipline, whether academic or professional. More than just a spark for innovation, imagination seamlessly connects varied realms of knowledge, enabling interdisciplinary exchanges and collaborations. Without imagination, knowledge risks becoming insular and stagnant. In contrast, with the infusion of imagination, knowledge continuously evolves, merging with other field to create fresh insights and value. The significance of imagination cannot be downplayed.</span></p><p><span>In conclusion, while I acknowledge the indispensable role of knowledge in both professional and academic realms, I firmly believe that imagination holds greater significance that knowledge. It is through imagination that scientific research attains groundbreaking discoveries, businesses venture beyond their limits, and human civilization progresses unceasingly.</span></p><p><span> </span></p><p><span>在许多专业和学术领域，人们经常争论想象力是否比知识更重要。来自不同背景的个体在想象力和知识在我们的工作和学习中扮演的角色上往往有不同的看法。尽管我认识到知识的价值，但我坚持认为想象力更为深刻。</span></p><p><span>诚然，知识在多种专业和学术环境中可能至关重要。知识为我们提供了建立理解和专业知识的基石。它作为基础，为个人提供了导航各自领域所需的基本工具和信息。以科学家为例：在他们进行开创性研究或挑战现有范式之前，他们必须首先熟悉自己学科已建立的理论、方法学和历史实验。这一基础知识确保他们以精确的方式对待自己的工作，避免陷阱，并基于前人的集体智慧进行建设。没有这样的坚实基础，即使是雄心勃勃的事业也可能失败。</span></p><p><span>然而，在许多情况下，是想象力而不是先前知识推动了人类的重大进步。想象力揭示了无尽的可能性，使我们能够超越现有界限，构想出前所未有的东西。在艺术领域，许多杰出的艺术家并不仅仅依靠他们的训练和专业知识，而是挖掘了他们内在的创造力和想象力。像梵高和毕加索这样的远见者经常超越他们时代的当代艺术，创造了全新的艺术流派和风格。他们的杰作不仅仅是现实的反映，而是对现实创新性的解释和想象。同样，在商业世界中，想象力也极为重要。史蒂夫·乔布斯对iPhone的概念化并不仅仅基于现有技术和市场需求，也是他远见和未来梦想的产物。他想象出一个融合通信、娱乐和生产力于一体的单一设备，这个概念在当时是开创性的。这一未来主义的愿景使苹果领先于竞争对手，导致了变革性产品线的诞生。</span></p><p><span>这个问题的核心在于我们如何理解想象力。有些人认为想象力只是一种偶尔的灵感，强调真正的价值在于知识——因为它构成了任何领域的基石，并且是最值得信赖和宝贵的。然而，我认为想象力推动了任何学科的前进动力，无论是学术的还是专业的。想象力不仅仅是创新的火花，它还无缝地连接了不同的知识领域，使得跨学科的交流和合作成为可能。没有想象力，知识就有变得孤立和停滞的风险。相比之下，有了想象力的注入，知识不断进化，与其他领域融合创造出新的洞察和价值。想象力的意义不容小觑。</span></p><p><span>总之，虽然我承认知识在专业和学术领域中的不可或缺的作用，但我坚信想象力比知识更为重要。正是通过想象力，科学研究才能取得突破性的发现，企业才能超越自身的局限，人类文明才能不断进步。</span></p><p>&nbsp;</p><blockquote><p><span>提问：写作是否有人称的要求？之前雅思写作的时候一般用第三人称，最近在看老师列的高频题写作提纲里有一些第二人称。想请教下gre写作有没有相关的要求或建议～</span></p><p><span>没有强制要求 用第三人称写起来一般更方便更容易写得正式~</span></p></blockquote><p>&nbsp;</p><h2 id='第二篇文章'><span>第二篇文章</span></h2><p><img src="ISSUE/image-20240326160307692.png" alt="image-20240326160307692" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326160753921.png" alt="image-20240326160753921" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326161240462.png" alt="image-20240326161240462" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326161252923.png" alt="image-20240326161252923" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326161303668.png" alt="image-20240326161303668" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326161342776.png" alt="image-20240326161342776" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326161538928.png" alt="image-20240326161538928" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326161706450.png" alt="image-20240326161706450" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326161910417.png" alt="image-20240326161910417" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326162116379.png" alt="image-20240326162116379" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326162507397.png" alt="image-20240326162507397" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326162742620.png" alt="image-20240326162742620" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326163142072.png" alt="image-20240326163142072" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326163243215.png" alt="image-20240326163243215" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326164218355.png" alt="image-20240326164218355" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326164514417.png" alt="image-20240326164514417" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326182741891.png" alt="image-20240326182741891" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326182843931.png" alt="image-20240326182843931" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326182901039.png" alt="image-20240326182901039" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326183021727.png" alt="image-20240326183021727" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326183214032.png" alt="image-20240326183214032" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326183408241.png" alt="image-20240326183408241" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240419163412987.png" alt="image-20240419163412987" style="zoom:33%;" /></p><p><img src="ISSUE/image-20240326183818207.png" alt="image-20240326183818207" style="zoom: 50%;" /></p><p>&nbsp;</p><h2 id='第二篇文章基础款'><span>第二篇文章基础款</span></h2><p><span>In order for any work of art-for example, a film, a novel, a poem, or a song-to have merit, it must be understandable to most people.</span></p><p>&nbsp;</p><p><span>In the world of books, movies, and music, there is a debate about whether art is valuable if most people do not understand it. People from different backgrounds have different views on this. While some great works can be hard to understand, I still think the vales of an artwork is related to its understandability.</span></p><p>&nbsp;</p><p><span>Certainly, some artworks might be hard for the general public to understand, but they are sill important. These works might break traditional rules, introduce new ideas, or be deeply connected to a specific culture or time, making them harder for everyone to appreciate. For example, James Joyce’s “Ulysses” can be confusing because of its unique style and references. Yet, its complexity and depth have made it one of the most respected books, showing that being easy to understand is not the only measure of value.</span></p><p>&nbsp;</p><p><span>However, if we look at the history of art, there is a clear link between how easy a work is to understand and its importance. In movies, films like Steven Spielberg’s “E.T. The Extra-Terrestrial” or Frank Capra’s “It’s a Wonderful Life” are loved not just for their quality but because they beautiful show themes like love and hope that many people can relate to. Similarly, paintings like Van Gogh’s “starry Night” impress people with their unique colors and emotions and provoke them to think, even if they are not art experts.</span></p><p>&nbsp;</p><p><span>The key issue here is how we understand the “merit” of art. Some say that the more complex and deep a piece is, the better, implying that art is mainly for elites. However, I think the real beauty of art is its ability to connect with many people. If most people cannot relate to a piece of artwork, it loses its power to move people broadly. On the other hand, art that speaks to many can bridge gaps and bring people together. Therefore, art that is hard for most to understand might be missing something important.</span></p><p>&nbsp;</p><p><span>To sum up, while the value of art is not just about how clear it is, being understandable plays a big role in its lasting impact. Art reflects out world and emotions. Its true value shines when it reaches and moves many, not just a few.</span></p><p>&nbsp;</p><h2 id='第二篇文章豪华款'><span>第二篇文章豪华款</span></h2><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h1 id='写作练习'><span>写作练习</span></h1><h2 id='第一篇'><span>第一篇</span></h2><p><span>All college and university students would benefit from spending at least one semester studying in a foreign country.</span></p><p><span>Write a response in which you discuss the extent to which you agree or disagree with the statement and explain your reasoning for the position you take. In developing and supporting your position, you should consider ways in which the statement might or might not hold true and explain how these considerations shape your position.</span></p><p>&nbsp;</p><h3 id='原文'><span>原文</span></h3><p><span>Whether students in colleges and universities would benefit from at least one semester studying in a foreign country has been a hot topic today. While some argue that in the present and future, everybody has more chance to have a life experience in other country than ever before, which absolutely would bring a lot of benefits to students. However, I hold the opposite view that students should devote themselves in their own major, believing that studying in other country is a kind of wasting time and money.</span></p><p><mark><span>It is true that</span></mark><span> since the rapid development of economy and transportation, almost every person get the chance to have an experience in other countries. Someone believes that students in colleges and universities, if they spend at least one semester in a foreign country, will develop their ability to live independently in a foreign country while understanding how society works in other countries which will helps them get a better understanding of the world and have a clearer picture of their own life.</span></p><p><mark><span>As far as I concerned</span></mark><span>, students who want to have abroad learning life is about to face thousands of problems, Such as the limited time and the lack of financial support. On the one hand, in today&#39;s era of industrialization, every subject, even the humanities, has a huge knowledge hierarchy which consists massive knowledge that students can hardly acquire most of them without doubt. In this circumstance, it is widely regarded unwise to spend one semester, sometimes even more, in an unfamiliar country because as students, they should take the completion of the study of professional knowledge as the most important task. On the other hand, the source of money supporting this journey is also a big trouble. Students from poor family have to support themselves, both tuition and living expenses, surely having less chance to learning outside compared with the rich, which is going to widen the gap between the rich and the poor.</span></p><p><mark><span>The core of this issue is how we understand the true meaning of</span></mark><span> benefit. Some people think the life in a new country getting connection with different people in different language is helpful to students’ growth process. But I believe that compared with life in a foreign country, facing a lot of problem in the shortage of time and money sometimes with inefficient learning style, studying in the campus is a much better way to bring benefits to students, because their ultimate goal is learning useful expertise.</span></p><p><mark><span>In conclusion</span></mark><span>, even though the abroad studying life may bring some advantage to students, I think the easiest way, learning their major in a familiar campus and environment, is sure to benefit students most.</span></p><p>&nbsp;</p><p><span>在大学和大学中，学生们是否应该至少花一个学期去国外学习，已经成为一个热门话题。有人认为，在现在和将来，每个人都有比以往任何时候都更多的机会在其他国家生活，这无疑会给学生带来很多好处。然而，我持相反的观点，认为学生应该专心致志于自己的专业，认为去其他国家学习是一种浪费时间和金钱的行为。</span></p><p><span>诚然，由于经济和交通的快速发展，几乎每个人都有机会在其他国家体验生活。有人认为，如果大学生在国外学习至少一个学期，他们将培养出在外国独立生活的能力，并了解其他国家的社會运作方式，这将帮助他们更好地理解世界，对他们的生活有更清晰的认识。</span></p><p><span>在我看来，想要出国留学的学生将要面临诸多问题，如有限的时间和资金支持的不足。一方面，在当今的工业化时代，每个学科，甚至人文学科，都有一个巨大的知识层次结构，其中包含大量的知识，学生无疑很难掌握其中大部分。在这种情况下，花一个学期，有时甚至更多，在一个不熟悉的国家，被广泛认为是愚蠢的，因为学生应该把完成专业知识的学习作为最重要的任务。另一方面，支持这次旅行所需的资金来源也是一个大问题。来自贫困家庭的学生必须自己负担学费和生活费，与富人相比，他们肯定有更少的机会去外面学习，这将扩大贫富之间的差距。</span></p><p><span>这个问题的核心在于我们如何理解“好处”的真正含义。有些人认为，在新国家生活，与说不同语言的不同人建立联系，对学生的成长过程有帮助。但我相信，与在国外生活相比，面对时间和资金的短缺，有时还伴随着低效的学习方式，校园学习是给学生带来更多好处的更好方式，因为他们的最终目标是学习有用的专业知识。</span></p><p><span>总的来说，尽管留学生活可能会给学生带来一些优势，但我觉得最容易的方式，在一个熟悉的校园和环境里学习他们的专业，肯定是最能给学生带来好处的。</span></p><p>&nbsp;</p><h3 id='修改之后'><span>修改之后</span></h3><p><strong><span>The question of whether college students should spend at least one semester studying abroad has </span><mark><span>sparked a heated debate</span></mark></strong><span>. </span><mark><span>Proponents</span></mark><span> argue that in our </span><mark><span>increasingly globalized world</span></mark><span>, the opportunity to live and study in a foreign country can provide </span><mark><span>invaluable</span></mark><span> life experiences and </span><mark><span>broadened horizons</span></mark><span>. However, I respectfully disagree. I believe that students should focus their time and resources on their academic pursuits at home, as studying abroad can be both a financial and temporal </span><mark><span>drain（使人疲倦的事物，负担）</span></mark><span>.</span></p><p><strong><span>It is undeniable that</span></strong><span> modern advancements in economy and transportation have made international experiences more accessible than ever before. Advocates suggest that such experiences can foster independence and a deeper understanding of different societies, enhancing one&#39;s world perspective and self-awareness. While these are </span><mark><span>laudable</span></mark><span> goals, the reality is that </span><mark><span>embarking</span></mark><span> on such a journey is not without its challenges.</span></p><p><span>For one, the academic demands of today&#39;s educational landscape are rigorous and specialized. Every field of study, including the humanities, is built upon a vast foundation of knowledge that requires considerable time and effort to master. The idea of deviating from this path for a semester or more, especially in an unfamiliar environment, could impede the acquisition of critical skills and expertise. Students have a finite window to solidify their academic foundation, and it is widely believed that devoting this precious time to their studies at home is a wiser choice.</span></p><p><span>Moreover, financial constraints present a significant barrier for many students. The costs associated with studying abroad, including tuition, accommodation, and travel, can be prohibitive for those from less </span><mark><span>affluent</span></mark><span> backgrounds. This creates an unfortunate </span><mark><span>disparity</span></mark><span> between students who can afford such experiences and those who cannot, potentially exacerbating the wealth gap within academic circles.</span></p><p><strong><span>At the heart of this issue lies a fundamental question</span></strong><span>: what constitutes a true benefit in education? While some argue that the cultural </span><mark><span>immersion</span></mark><span> and language acquisition that come with living abroad are </span><mark><span>integral</span></mark><span> to personal growth, I </span><mark><span>contend</span></mark><span> that these benefits can be attained through other, more practical means. Engaging with diverse communities at home, for instance, or participating in language exchange programs can offer similar rewards without the same level of disruption to one&#39;s academic progress.</span></p><p><strong><span>In conclusion</span></strong><span>, while studying abroad may offer certain advantages, I believe that the most effective path to educational benefit lies in a student&#39;s focused </span><mark><span>dedication</span></mark><span> to their studies within the familiar environs of their home campus. Here, they can concentrate on mastering their chosen field, free from the distractions and financial burdens that can accompany an overseas semester. In doing so, students can ensure that their education is both efficient and </span><mark><span>impactful</span></mark><span>, equipping them with the expertise they need to succeed in an increasingly competitive world.</span></p><p>&nbsp;</p><p><span>关于大学生是否应该至少花一个学期到国外学习的问题引发了激烈的争论。支持者认为，在我们这个日益全球化的世界里，到外国生活和学习的机会可以提供宝贵的人生经历和开阔的视野。然而，我却不敢苟同。我认为，学生应该把时间和资源集中在国内的学业上，因为出国留学会耗费财力和时间。</span></p><p><span>不可否认的是，现代经济和交通的进步使得国际经验比以往任何时候都更容易获得。倡导者认为，这种经历可以培养学生的独立性，加深他们对不同社会的了解，增强他们的世界观和自我意识。虽然这些目标值得称赞，但现实是，踏上这样的旅程并非没有挑战。</span></p><p><span>首先，当今教育领域的学术要求严格而专业。每个学科领域，包括人文学科，都建立在广博的知识基础之上，需要花费大量的时间和精力才能掌握。在一个学期或更长的时间里，尤其是在一个陌生的环境中，偏离这条道路的想法可能会阻碍关键技能和专业知识的掌握。学生们只有有限的时间来巩固自己的学业基础，而人们普遍认为，将这宝贵的时间用于在家学习是更明智的选择。</span></p><p><span>此外，经济拮据也是许多学生的一大障碍。出国留学的相关费用，包括学费、住宿费和旅费，可能会让那些家境不富裕的学生望而却步。这就造成了有经济能力的学生与没有经济能力的学生之间的差距，有可能加剧学术界的贫富差距。</span></p><p><span>这个问题的核心在于一个根本性的问题：什么才是真正的教育福利？有些人认为，海外生活带来的文化熏陶和语言习得是个人成长不可或缺的一部分，但我认为，这些好处可以通过其他更实际的途径来实现。例如，在国内与不同的社区接触，或者参加语言交流项目，都能带来类似的收获，而不会对个人的学业进度造成同样程度的干扰。</span></p><p><span>总之，虽然出国留学可能会带来某些优势，但我认为，获得教育收益的最有效途径在于学生在自己熟悉的校园环境中专心致志地学习。在这里，他们可以专心致志地掌握自己所选择的专业，而不会受到海外学期的干扰和经济负担的影响。这样，学生就能确保他们的教育既高效又有影响力，使他们具备在竞争日益激烈的世界中取得成功所需的专业知识。</span></p><p>&nbsp;</p><h2 id='第二篇'><span>第二篇</span></h2><p><span>True success can be measured primarily in terms of the goals one sets for oneself.</span></p><p><span>Write a response in which you discuss the extent to which you agree or disagree with the statement and explain your reasoning for the position you take. In developing and supporting your position, you should consider ways in which the statement might or might not hold true and explain how these considerations shape your position.</span></p><p>&nbsp;</p><h3 id='原文-2'><span>原文</span></h3><p><span>The question of whether true success can be measured primarily in terms of the goals one sets for oneself has sparked a heated debate. Proponents argue that regarding success as a matter of personal growth process, true success can be measured primarily on the goals one set for himself or herself. However, I respectfully disagree. I believe that true success benefits both single person and society.</span></p><p><span>First of all, it is recognized that there is some validity in evaluating success according to personal goals which keep us moving forward and give us direction in our lives. When we achieve one goal after another, we feel satisfied and proud, and this satisfaction and pride is a significant part of success. From this perspective, personal goals are indeed an important measure of success.</span></p><p><span>However, I believe that success can be evaluated not only in terms of one&#39;s previously set goals, but also in terms of one&#39;s contribution to society collectively. A person&#39;s success is limited if he or she only achieves his or her goals without contributing anything to society. True success should be achieving one&#39;s personal goals while at the same time is good for society. For example, a famous Chinese businessman named Ma Yun, who set a almost unachievable target for himself that he was going to start up a business, aiming to make it much easier to do business in China. More than ten years have passed and the e-commerce platform he built has benefit so many small and medium-sized enterprise. Even though Ma Yun still not says that he has realized the goal he made long time ago, in fact many people have benefited from his company, which can be regarded as a true success without any doubts.</span></p><p><span>At the heart of this issue lies a fundamental question: what is the true success? While many may bind personal development to true success, thinking that making a lot of money or getting better grades in school or something else that bring advantages to themselves is true success, I believe a person&#39;s success is one-sided if he only achieves his goals but neglects his social responsibilities. True success should be an all-round success that includes both personal achievements and contributions to society and it should be the pursuit of personal goals while at the same time assuming social responsibility and contributing to society.</span></p><p><span>In conclusion, while true success actually is one part of personal goals, it indeed includes something more. True success can be helpful to others, or if bigger, promote social progress. </span></p><p>&nbsp;</p><p><span>真正的成功是否主要可以用一个人为自己设定的目标来衡量，这个问题引发了激烈的争论。支持者认为，成功是一个个人成长过程的问题，真正的成功主要可以用一个人为自己设定的目标来衡量。然而，我却不敢苟同。我认为，真正的成功既有利于个人，也有利于社会。</span></p><p><span>首先，我们承认，根据个人目标来评价成功是有一定道理的，这些目标使我们不断前进，并为我们的生活指明方向。当我们实现一个又一个目标时，我们会感到满足和自豪，这种满足和自豪是成功的重要组成部分。从这个角度看，个人目标的确是衡量成功的一个重要标准。</span></p><p><span>然而，我认为，成功不仅可以从个人先前设定的目标来评价，还可以从个人对社会的集体贡献来评价。如果一个人只实现了自己的目标，却没有为社会做出任何贡献，那么他的成功是有限的。真正的成功应该是在实现个人目标的同时对社会有益。例如，中国有一位著名的商人叫马云，他给自己定了一个几乎无法实现的目标：他要创业，目的是让在中国做生意变得更容易。十多年过去了，他建立的电子商务平台已经造福了众多中小企业。尽管马云还没有说他已经实现了自己很久以前制定的目标，但事实上，很多人已经从他的公司中受益，这可以毫无疑问地被视为真正的成功。</span></p><p><span>这个问题的核心在于一个根本性的问题：什么是真正的成功？很多人可能会把个人发展与真正的成功捆绑在一起，认为赚了很多钱、学习成绩好了或其他能给自己带来好处的事情就是真正的成功，但我认为，如果一个人只实现了自己的目标，却忽视了自己的社会责任，那么他的成功就是片面的。真正的成功应该是一种全面的成功，既包括个人的成就，也包括对社会的贡献，应该是在追求个人目标的同时，承担社会责任，为社会做出贡献。</span></p><p><span>总之，真正的成功实际上是个人目标的一部分，但它确实还包括更多的东西。真正的成功可以帮助他人，如果做得更大，还可以促进社会进步。</span></p><p>&nbsp;</p><h3 id='修改之后-2'><span>修改之后</span></h3><p><span>The debate over whether true success is primarily measured by the goals one sets for oneself is a contentious one. Advocates suggest that success is a reflection of personal growth and can be </span><mark><span>gauged</span></mark><span> mainly by the objectives we set for ourselves. However, I must </span><mark><span>dissent</span></mark><span> from this view. I am of the opinion that genuine success </span><mark><span>encompasses</span></mark><span> not only individual aspirations but also benefits the larger society.</span></p><p><span>To begin with, it is undeniable that there is value in assessing success against the backdrop of personal goals. These goals are the driving force that </span><mark><span>propels</span></mark><span> us forward and provides us with a sense of direction. The fulfillment and pride derived from achieving these </span><mark><span>milestones</span></mark><span> are indeed integral to our perception of success. From this standpoint, personal goals do serve as a significant </span><mark><span>criterion</span></mark><span> for measuring success.</span></p><p><span>Nonetheless, I contend that success should not be evaluated solely based on one&#39;s self-determined goals. It should also be judged by the degree to which an individual contributes to the collective good. A person&#39;s achievements are somewhat </span><mark><span>hollow</span></mark><span> if they do not </span><mark><span>transcend</span></mark><span> personal ambition and positively impact society. True success, then, is about achieving personal goals while </span><mark><span>simultaneously</span></mark><span> enriching the lives of others. For instance, consider Elon Musk, who set ambitious goals to revolutionize both the automotive and space industries. His successes with Tesla and SpaceX have not only realized personal ambitions but have also </span><mark><span>pushed the boundaries</span></mark><span> of technology and sustainability, benefiting society at large.</span></p><p><span>The </span><mark><span>crux</span></mark><span> of the matter lies in our definition of true success. While many </span><mark><span>equate</span></mark><span> it with personal development, such as financial gain or academic achievements, I argue that success is incomplete if it is pursued in isolation from societal responsibilities. True success is multifaceted; it encompasses personal achievements and contributions to </span><mark><span>the common good</span></mark><span>. It involves the pursuit of individual aspirations while also taking on the mantle of social responsibility and making a positive impact on the world.</span></p><p><mark><span>In essence</span></mark><span>, true success is not confined to the fulfillment of personal goals. It transcends individual achievements to make a meaningful difference in the lives of others and, on a grander scale, to advance the progress of society. When we broaden our definition of success to include these external markers, we recognize that our actions and accomplishments have the potential to create </span><mark><span>a ripple effect</span></mark><span>, touching lives and inspiring change beyond our own.</span></p><p><span>In conclusion, while personal goals are indeed a component of true success, they are not the </span><mark><span>sole</span></mark><span> measure. True success is </span><mark><span>multifaceted</span></mark><span> and extends beyond individual ambitions to include contributions to the greater good. It is this </span><mark><span>holistic</span></mark><span> approach to success that we should </span><mark><span>strive for</span></mark><span>, one that enriches both the individual and society as a whole.</span></p><p>&nbsp;</p><p><span>关于 “真正的成功是否主要通过为自己设定的目标来衡量 ”的争论颇具争议。支持者认为，成功是个人成长的反映，主要可以通过我们为自己设定的目标来衡量。然而，我必须反对这种观点。我认为，真正的成功不仅包括个人的愿望，而且还造福于整个社会。</span></p><p><span>首先，不可否认，以个人目标为背景来评估成功是有价值的。这些目标是推动我们前进的动力，为我们提供了方向感。实现这些里程碑式的目标所带来的成就感和自豪感，的确是我们对成功的看法中不可或缺的一部分。从这个角度来看，个人目标的确是衡量成功的一个重要标准。</span></p><p><span>然而，我认为，评价成功与否，不应只看个人自定的目标。它还应根据个人对集体利益的贡献程度来评判。如果一个人的成就不能超越个人野心，不能对社会产生积极影响，那么他的成就在某种程度上就是空洞的。因此，真正的成功是在实现个人目标的同时丰富他人的生活。举例来说，埃隆-马斯克（Elon Musk）设定了宏大的目标，要彻底改变汽车和太空产业。他在特斯拉和 SpaceX 的成功不仅实现了个人抱负，还推动了技术和可持续发展的发展，造福了整个社会。</span></p><p><span>问题的关键在于我们对真正成功的定义。虽然许多人将成功等同于个人发展，如经济收益或学术成就，但我认为，如果脱离社会责任去追求成功，那是不完整的。真正的成功是多方面的；它既包括个人成就，也包括对共同利益的贡献。它既包括追求个人理想，也包括承担社会责任，对世界产生积极影响。</span></p><p><span>从本质上讲，真正的成功并不局限于实现个人目标。它超越个人成就，为他人的生活带来有意义的改变，并在更大范围内推动社会进步。当我们把成功的定义扩大到包括这些外部标志时，我们就会认识到，我们的行动和成就有可能产生涟漪效应，触动他人的生活，激发超越我们自身的变革。</span></p><p><span>总之，虽然个人目标确实是真正成功的一个组成部分，但并不是唯一的衡量标准。真正的成功是多方面的，超越了个人的抱负，还包括对更大利益的贡献。我们应该努力追求的正是这种全面的成功方法，它既能丰富个人，也能丰富整个社会。</span></p><p>&nbsp;</p><h2 id='用于批改的prompt1'><span>用于批改的Prompt1</span></h2><p><span>请你修改这篇文章，删除不合理的表达使之更加流畅地道，更加符合英语母语者的表达方式，可以添加更多的细节，使文章字数更多</span></p><p>&nbsp;</p><h2 id='用于批改的prompt2'><span>用于批改的Prompt2</span></h2><p><span>假设你是一名GRE写作部分的考官，你负责批阅考生issue写作部分。</span></p><p><span>以下是一篇考生的issue文章{</span></p><p>&nbsp;</p><p><span>}</span></p><p><span>请你从以下方面指出这篇issue中的错误和不合适的表达：</span></p><ul><li><p><span>单词拼写错误</span></p></li><li><p><span>语法错误</span></p></li><li><p><span>动词使用错误</span></p></li><li><p><span>逻辑表达问题，例如不连续的表达，过于重复的表达</span></p></li></ul><p><span>基于上述评分标准，请你给这篇issue打分。</span></p><p><span>同时请修改这篇issue：</span></p><ul><li><p><span>修改文章中的各种错误</span></p></li><li><p><span>调整文章中过于重复的部分</span></p></li><li><p><span>修改部分句子的语法表达使之更加符合native speaker的风格。</span></p></li></ul><p><span>请给出修改之后的范文。</span></p><p><span>再次重复你要做三个的事情：</span></p><ol start='' ><li><p><span>指出各类问题</span></p></li><li><p><span>打分</span></p></li><li><p><span>修改原文，输出范文</span></p></li></ol><p>&nbsp;</p><h2 id='用于批改的prompt3'><span>用于批改的Prompt3</span></h2><p><span>假设你是一名GRE写作部分的考官，你负责批阅考生issue写作部分。</span></p><p><span>以下是一篇考生的issue文章{</span></p><p>&nbsp;</p><p><span>}</span></p><p><span>请修改这篇issue：</span></p><ul><li><p><span>修改文章中的各种错误</span></p></li><li><p><span>调整文章中过于重复的部分</span></p></li><li><p><span>修改部分句子的语法表达使之更加符合native speaker的风格。</span></p></li></ul><p><span>请给出修改之后的范文。</span></p><p>&nbsp;</p><h1 id='例子池'><span>例子池</span></h1><h2 id='教育学习'><span>教育、学习</span></h2><h3 id='online-education-platform'><span>online education platform</span></h3><p><span>便利</span></p><ul><li><p><span>communication channels</span></p></li><li><p><span>remove typical financial, and time constraints that hinder potential learners</span></p></li><li><p><span>network with peers from all over the work</span></p></li></ul><p><span>减轻教育的不公平</span></p><ul><li><p><span>bridge the gap in education</span></p></li><li><p><span>share the same curriculum, teachers, and textbooks</span></p></li><li><p><span>break the cycle of poverty</span></p></li></ul><p><span>终身学习</span></p><ul><li><p><span>lifelong learning</span></p></li></ul><h3 id='steven-jobs'><span>Steven Jobs</span></h3><p><span>兴趣是最好的老师</span></p><ul><li><p><span>interest is the best teacher</span></p></li></ul><p><span>挑战现状</span></p><ul><li><p><span>challenge the status quo and think differently</span></p></li><li><p><span>refuse to follow along and engage in herd behavior</span></p></li></ul><p><span>学历不代表一切</span></p><ul><li><p><span>it is not the degree but the knowledge that makes a person smart</span></p></li><li><p><span>drop out of university; Bill Gates; Mark Zuckerberg</span></p></li></ul><h3 id='名人名言'><span>名人名言</span></h3><ul><li><p><span>Plato: each individual should develop his or her ability to the fullest（完人教育）</span></p></li><li><p><span>Benjamin Franklin: An investment in knowledge pays the best interest </span></p></li><li><p><span>Jobs: Stay hungry, stay foolish</span></p></li></ul><h2 id='科学科技'><span>科学、科技</span></h2><h3 id='apollo-11'><span>Apollo 11</span></h3><p><span>=lunar landing mission</span></p><p><span>科技进步对人类的影响</span></p><ul><li><p><span>That is one small step for man, one giant leap for mankind.</span></p></li></ul><p><span>钱花得值不值</span></p><ul><li><p><span>shortsighted</span></p></li><li><p><span>desire to explore and challenge the boundaries of what know</span></p></li><li><p><span>expand technology, create new industries, and foster a peaceful connection with other nations (the international space station)</span></p></li></ul><h3 id='gene-engineering'><span>Gene Engineering</span></h3><p><span>advantage:</span></p><ul><li><p><span>tansgenic crop allowed an average increase in agriculral yield 22% and increase farmers&#39; profits by 68%</span></p></li></ul><p><span>disadvantage:</span></p><ul><li><p><span>broke the rules to create the first gene-edited babies</span></p></li><li><p><span>extremely unethical</span></p></li></ul><p><span>双刃剑</span></p><ul><li><p><span>a double-edged sword</span></p></li><li><p><span>the government must take a more active role in regulating the high-tech firms and labs</span></p></li></ul><h3 id='alpha-go'><span>Alpha-go</span></h3><p><span>工具</span></p><ul><li><p><span>teach machines to learn concepts and techniques the way human do</span></p></li></ul><p><span>超越</span></p><ul><li><p><span>Alpha-go Zero, was completely self-taught without learning from human games</span></p></li></ul><p><span>可以共处</span></p><ul><li><p><span>machine evolves to help human, not to replace human</span></p></li><li><p><span>technology should improve your life, not become your life</span></p></li></ul><p>&nbsp;</p><h2 id='艺术文化'><span>艺术、文化</span></h2><h3 id='the-renaissance'><span>the Renaissance</span></h3><h4 id='三大宗师'><span>三大宗师</span></h4><ul><li><p><span>Lenoardo da Vinci</span></p></li><li><p><span>Michelangelo</span></p></li><li><p><span>Raphael</span></p></li></ul><h4 id='恢复人性'><span>恢复人性</span></h4><ul><li><p><span>capture the experience of the individual and the beauty of the natural world</span></p></li></ul><h3 id='艺术和科学的关系'><span>艺术和科学的关系</span></h3><ul><li><p><span>the development of technologies was accompanied by a flowering of philosophy, literature and especially art.</span></p></li></ul><h3 id='vincent-van-gogh'><span>Vincent van Gogh</span></h3><ul><li><p><span>Van Gogh was not a product of the environment</span></p></li><li><p><span>educated or uneducated; art is nmot necessarily for elites</span></p></li></ul><h3 id='picasso'><span>Picasso</span></h3><ul><li><p><span>mimic (X), reconsideration and reconstruction</span></p></li><li><p><span>art is nor necessarily for comprehension</span></p></li><li><p><span>No good building without a good foundation. Successful innovation in art is not the luck of random insights, but rather the result of a deliberate process.</span></p></li><li><p><span>Everything you can imagine is real.</span></p></li></ul><p>&nbsp;</p><h2 id='环保生态'><span>环保、生态</span></h2><p><span>只要提到环保和生态就直接支持即可，比较方便行文</span></p><p>&nbsp;</p><h3 id='silent-spring'><span>Silent Spring</span></h3><ul><li><p><span>a critical link in the food chain</span></p></li><li><p><span>there is the potential for a domino effect</span></p></li><li><p><span>poor air quality, noise pollution, light pollution; stay healthy physcially and mentally</span></p></li></ul><p>&nbsp;</p><h3 id='绿色经济green-economy'><span>绿色经济Green Economy</span></h3><ul><li><p><span>the links between the ecnonomy and the environment are manifold: the environment provides resources to the economy, but poor environment quality in turn affects economic growth and wellbeing</span></p></li><li><p><span>call for a transformation to a green economy which is in line with nature and the environment.</span></p></li></ul><p>&nbsp;</p><h3 id='名人名言-2'><span>名人名言</span></h3><ul><li><p><span>防患于未然：An ounce of prevention is worth a pound of cure</span></p></li><li><p><span>Earth provides enough to satisfy every man&#39;s needs, but not everyone&#39;s greed</span></p></li></ul><p>&nbsp;</p><h2 id='政治社会'><span>政治、社会</span></h2><h3 id='克林顿-bill-clinton'><span>克林顿 Bill Clinton</span></h3><ul><li><p><span>Clinton presided over the longest period of peacetime economic expansion in American history.</span></p></li><li><p><span>But his sexual scandal with Monica Lewinsky ruined his reputation</span></p></li></ul><h3 id='abraham-lincoln'><span>Abraham Lincoln</span></h3><ul><li><p><span>declamation of emancipation; he was pulling the whole nation to recognize the human in a better way</span></p></li><li><p><span>we surround ourselves with different people who hold different views</span></p></li><li><p><span>decidate his life to a great cause</span></p></li><li><p><span>we change our minds all the time</span></p></li></ul><h3 id='希特勒-hitler'><span>希特勒 Hitler</span></h3><ul><li><p><span>The Nazi regime was responsible for the genocide of about 6 million Jews and millions of other victims</span></p></li><li><p><span>Hitler achieved full control over the legestiative and exectutive branches of government</span></p></li></ul><h3 id='名人名言-3'><span>名人名言</span></h3><ul><li><p><span>Lookers-on see more than players.</span></p></li><li><p><span>Man heads are better than one == Many hands make quick work</span></p></li></ul><p>&nbsp;</p></div></div>
+</body>
+<!-- <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script> -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--侧栏目录生成代码-->
+<script>
+    //标题序号计数器
+    var hCount = [0, 0, 0, 0, 0, 0];
+
+    //设置计数器
+    function setHCount(number) {
+        //当前计数器加一
+        hCount[number - 1]++;
+        for (var i = number, length = hCount.length; i < length; i++) {
+            //子目录计数器全部置零
+            hCount[i] = 0;
+        }
+    }
+
+    //重命名目录名称
+    function setHTagValue(item, number) {
+        //获取标题名
+        var text = $(item).get(0).innerHTML;
+        //初始化空字符串
+        var before = "";
+        //生成序号
+        for (var i = 0, length = hCount.length; i < number; i++) {
+            if (i < number - 1)
+                before += hCount[i] + ".";
+            else
+                before += hCount[i] + " ";
+        }
+        //在标题前面加上序号
+        $(item).get(0).innerHTML = before + text;
+    }
+
+    function renameHTag(item) {
+        var tag = $(item).get(0).localName;
+        if (tag === "h1") {
+            setHCount(1);
+            //console\.log("捕获到标签:%s", tag);
+            setHTagValue(item, 1);
+        }
+        if (tag === "h2") {
+            setHCount(2);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 2);
+        }
+        if (tag === "h3") {
+            setHCount(3);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 3);
+        }
+        if (tag === "h4") {
+            setHCount(4);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 4);
+        }
+        if (tag === "h5") {
+            setHCount(5);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 5);
+        }
+        if (tag === "h6") {
+            setHCount(6);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 6)
+        }
+    }
+
+    $(document).ready(function () {
+        $("h1,h2,h3,h4,h5,h6").each(function (i, item) {
+            //给<H>类标签编号
+            renameHTag(item);
+            //获取标签的名字,h1,还是h2
+            var tag = $(item).get(0).localName;
+            //为该标签设置id属性
+            $(item).attr("id", "wow" + i);
+            //添加一个页内超链接,并设置class选择器
+            //      $("#category").append('<a class="new'+tag+'" href="#wow'+i+'">'+$(this).text()+'</a></br>');
+            $("#category").append('<a class="new' + tag + '" href="#wow' + i + '">' + $(item).text() + '</a></br>');
+            //为每一个标题超链接的class属性设置左边距
+            $(".newh1").css("margin-left", 0);
+            $(".newh2").css("margin-left", 20);
+            $(".newh3").css("margin-left", 40);
+            $(".newh4").css("margin-left", 60);
+            $(".newh5").css("margin-left", 80);
+            $(".newh6").css("margin-left", 100);
+        });
+        //设置class选择器为.book-body的html内容
+        $(".book-body").html($(".book-body").nextAll())
+    });
+</script>
+<style type="text/css">
+    @media (max-width: 1600px) {
+        .book-body {
+            /* padding-left: 200px; */
+            padding-right: 0px;
+        }
+    }
+
+    @media (max-width: 1400px) {
+        .book-body {
+            /* padding-left: 200px; */
+            padding-right: 0px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .book-body {
+            /* padding-left: 300px; */
+            padding-left: 0px;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .book-body {
+            padding-left: 0px;
+        }
+    }
+
+    @media (min-width: 600px) {
+        #category {
+            /* 绝对定位 */
+            position: fixed;
+            /* left: 20px; */
+            /* 目录显示的位置 */
+            left: 0px;
+            top: 0;
+            /* 目录栏的高度,这里设置为60%主要是为了不挡住返回顶部和折叠按钮 */
+            height: 79%;
+            /* 开启垂直滚动条 */
+            overflow-y: scroll;
+            /* 开启水平滚动条 */
+            overflow-x: scroll;
+        }
+    }
+
+    @media (-webkit-max-device-pixel-ratio: 1) {
+        ::-webkit-scrollbar-track-piece {
+            background-color: #FFF
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #c2c2c2;
+            background-clip: padding-box;
+            min-height: 28px
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #A0A0A0
+        }
+    }
+</style>
+<script>
+    // id="category" οnclick="showOrCloseCategory()"
+    function showOrCloseCategory() {
+        var id = document.getElementById("category");
+        var book_body = document.getElementById("book_body");
+        //如果展开了
+        if (id.style.display == 'block') {
+            //console.log("开始展开");
+            id.style.display = 'none';
+            id.style.width = "0%";
+            book_body.style.width = "100%";
+            book_body.style.paddingleft = 0;
+        }
+        //如果被折叠了
+        else if (id.style.display == 'none') {
+            //console.log("开始折叠");
+            id.style.display = 'block';
+            book_body.style.width = "90%";
+            id.style.width = "20%"
+        }
+    }
+</script>
+<!--返回顶部-->
+<a href="javascript:scroll(0,0)" style="position:fixed;float:right;left:40px;top:80%">返回顶部</a>
+<button onclick="showOrCloseCategory()" style="position:fixed;float:right;left:40px;top:85%">折叠/展开</button>
+<!--文章主体部分-->
+<div class="book-body" id="book_body" style="width:90%;display:block"></div>
+<!--目录栏，设置占用宽度为20%可以根据实际情况设置-->
+<div class="book-summary" id="category" style="width:20%;display:block"></div>
+
+
+</html>

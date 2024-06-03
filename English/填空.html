@@ -1,0 +1,882 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>填空</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p><span>方法：概述和万能做法</span></p><p><span>取同：取同逻辑详解+多空联动</span></p><p><span>取反：取反逻辑详解+特殊逻辑</span></p><p><span>套路：六选二难点+常见对立逻辑</span></p><p>&nbsp;</p><h1 id='第一节课'><span>第一节课</span></h1><p>&nbsp;</p><p><span>GRE填空长什么样子？</span></p><p><span>什么是主旨？</span></p><p><span>正确选项的特征？错误选项的特征？</span></p><p><span>什么是信息对应？</span></p><p><span>主流方法的利与弊？</span></p><p>&nbsp;</p><h2 id='gre填空长什么样子'><span>GRE填空长什么样子</span></h2><p>&nbsp;</p><h3 id='gre填空完形填空'><span>GRE填空&amp;完形填空</span></h3><p>&nbsp;</p><p><span>完形填空：</span></p><p><span>我喜欢吃水果：</span></p><ul><li><p><span>汽车</span></p></li><li><p><span>苹果</span></p></li></ul><p>&nbsp;</p><p><span>GRE填空——考推理</span></p><p><span>我喜欢吃水果：</span></p><ul><li><p><span>苹果</span></p></li><li><p><span>汉堡</span></p></li></ul><p>&nbsp;</p><p><span>GRE：相比于语法更注重推理</span></p><p>&nbsp;</p><ul><li><p><span>定位</span></p></li><li><p><span>同义改写</span></p><ul><li><p><span>取同</span></p></li><li><p><span>取反</span></p></li></ul></li></ul><p>&nbsp;</p><h3 id='填空需要的技能'><span>填空需要的技能</span></h3><p>&nbsp;</p><p><img src="填空/image-20240226190642825.png" referrerpolicy="no-referrer" alt="image-20240226190642825"></p><p>&nbsp;</p><ul><li><p><span>定位</span></p></li><li><p><span>同义改写</span></p></li></ul><p>&nbsp;</p><h3 id='标化考试'><span>标化考试</span></h3><p>&nbsp;</p><p><span>所有做题需要的知识都再考试卷子中出现。</span></p><p>&nbsp;</p><p><span>有且仅有一个正确答案：</span></p><p><span>坚持排除法而不是比较法</span></p><p>&nbsp;</p><p><span>题型和选项都是固定的。</span></p><p>&nbsp;</p><p><span>备考难度远小于高考，略低于SAT，高于托福</span></p><p>&nbsp;</p><h3 id='填空题型'><span>填空题型</span></h3><p>&nbsp;</p><p><span>句子完型：单空、双空、三空</span></p><p><span>句子等价：单空</span></p><p>&nbsp;</p><p><img src="填空/image-20240226192245698.png" referrerpolicy="no-referrer" alt="image-20240226192245698"></p><p>&nbsp;</p><h3 id='出题顺序'><span>出题顺序</span></h3><p>&nbsp;</p><p><img src="填空/image-20240226192310620.png" referrerpolicy="no-referrer" alt="image-20240226192310620"></p><p>&nbsp;</p><h3 id='总结'><span>总结</span></h3><p>&nbsp;</p><p><img src="填空/image-20240226192413040.png" referrerpolicy="no-referrer" alt="image-20240226192413040"></p><p>&nbsp;</p><h2 id='什么是主旨'><span>什么是主旨</span></h2><p>&nbsp;</p><h3 id='填空和阅读在主旨上的区别'><span>填空和阅读在主旨上的区别</span></h3><p>&nbsp;</p><p><img src="填空/image-20240226192845850.png" referrerpolicy="no-referrer" alt="image-20240226192845850"></p><p>&nbsp;</p><p><img src="填空/image-20240226192913262.png" referrerpolicy="no-referrer" alt="image-20240226192913262"></p><p>&nbsp;</p><p><img src="填空/image-20240226193328814.png" referrerpolicy="no-referrer" alt="image-20240226193328814"></p><p>&nbsp;</p><p><img src="填空/image-20240226193520262.png" referrerpolicy="no-referrer" alt="image-20240226193520262"></p><p>&nbsp;</p><h3 id='填空的主旨'><span>填空的主旨</span></h3><p>&nbsp;</p><p><img src="填空/image-20240226193730584.png" referrerpolicy="no-referrer" alt="image-20240226193730584"></p><p>&nbsp;</p><h3 id='讲题方法'><span>讲题方法</span></h3><p>&nbsp;</p><p><img src="填空/image-20240226193810147.png" referrerpolicy="no-referrer" alt="image-20240226193810147"></p><p>&nbsp;</p><p><img src="填空/image-20240226194151713.png" referrerpolicy="no-referrer" alt="image-20240226194151713"></p><p>&nbsp;</p><p><img src="填空/image-20240226194941100.png" referrerpolicy="no-referrer" alt="image-20240226194941100"></p><p>&nbsp;</p><p><img src="填空/image-20240226200010191.png" referrerpolicy="no-referrer" alt="image-20240226200010191"></p><p>&nbsp;</p><h2 id='正确选项的特征错误选项的特征'><span>正确选项的特征&amp;错误选项的特征</span></h2><p>&nbsp;</p><h3 id='正确错误选项的特征'><span>正确/错误选项的特征</span></h3><p>&nbsp;</p><p><img src="填空/image-20240226200326190.png" referrerpolicy="no-referrer" alt="image-20240226200326190"></p><p>&nbsp;</p><h3 id='错题订正的方法'><span>错题订正的方法</span></h3><p>&nbsp;</p><p><img src="填空/image-20240226201012769.png" referrerpolicy="no-referrer" alt="image-20240226201012769"></p><p>&nbsp;</p><p><span>单词不认识：</span></p><ul><li><p><span>真的不认识</span></p></li><li><p><span>认识，但是不了解含义</span></p></li></ul><p>&nbsp;</p><p><span>句子没看懂：</span></p><ul><li><p><span>简单句子：很容易找到 logic 和 topic</span></p></li><li><p><span>复杂句子：不容易找到 logic 和 topic</span></p></li></ul><p>&nbsp;</p><h2 id='什么是信息对应'><span>什么是信息对应</span></h2><p>&nbsp;</p><h3 id='信息对应的作用'><span>信息对应的作用</span></h3><p>&nbsp;</p><p><img src="填空/image-20240226201610547.png" referrerpolicy="no-referrer" alt="image-20240226201610547"></p><p>&nbsp;</p><p><img src="填空/image-20240226201626511.png" referrerpolicy="no-referrer" alt="image-20240226201626511"></p><p>&nbsp;</p><p><img src="填空/image-20240226202340571.png" referrerpolicy="no-referrer" alt="image-20240226202340571"></p><p>&nbsp;</p><h3 id='题干和选项对应'><span>题干和选项对应</span></h3><p>&nbsp;</p><p><img src="填空/image-20240226202634463.png" referrerpolicy="no-referrer" alt="image-20240226202634463"></p><p>&nbsp;</p><p><img src="填空/image-20240226203310872.png" referrerpolicy="no-referrer" alt="image-20240226203310872"></p><p>&nbsp;</p><h3 id='题干和题干对应'><span>题干和题干对应</span></h3><p>&nbsp;</p><p><img src="填空/image-20240226203749384.png" referrerpolicy="no-referrer" alt="image-20240226203749384"></p><p>&nbsp;</p><p><img src="填空/image-20240226204727143.png" referrerpolicy="no-referrer" alt="image-20240226204727143"></p><p>&nbsp;</p><h3 id='选项和选项对应'><span>选项和选项对应</span></h3><p>&nbsp;</p><p><img src="填空/image-20240226205111634.png" referrerpolicy="no-referrer" alt="image-20240226205111634"></p><p>&nbsp;</p><p><img src="填空/image-20240226205537360.png" referrerpolicy="no-referrer" alt="image-20240226205537360"></p><p>&nbsp;</p><p><img src="填空/image-20240226210251914.png" referrerpolicy="no-referrer" alt="image-20240226210251914"></p><p>&nbsp;</p><h2 id='主流方法的利与弊'><span>主流方法的利与弊</span></h2><p>&nbsp;</p><p><span>方程法之类的东西？</span></p><p>&nbsp;</p><p><span>略</span></p><p>&nbsp;</p><p>&nbsp;</p><h1 id='第二节课'><span>第二节课</span></h1><p>&nbsp;</p><h2 id='补充说明'><span>补充说明</span></h2><p>&nbsp;</p><ol start='' ><li><p><span>冒号</span></p></li><li><p><span>破折号，——XXX—— 这种情况可以当作是 ，XXX，（把一组破折号当作是一组逗号或者一组括号）</span></p></li><li><p><span>括号</span></p></li><li><p><span>逗号，分号，句号</span></p></li></ol><p>&nbsp;</p><h2 id='因果'><span>因果</span></h2><p>&nbsp;</p><ol start='' ><li><p><span>because、as、given、given that、since</span></p></li><li><p><span>therefore、so、hense、thus、as a resultconsequently</span></p></li><li><p><span>result in、result from——这两个要重点区分</span></p></li><li><p><span>so ...... that、too ...... to</span></p></li></ol><p>&nbsp;</p><h2 id='并列递进'><span>并列、递进</span></h2><p>&nbsp;</p><ol start='' ><li><p><span>and</span></p></li><li><p><span>moreover、in addition、furthermore</span></p></li><li><p><span>particularly、especially</span></p></li></ol><p>&nbsp;</p><h2 id='目的手段'><span>目的、手段</span></h2><p>&nbsp;</p><ol start='' ><li><p><span>to、in order to</span></p></li><li><p><span>for</span></p></li><li><p><span>by</span></p></li><li><p><span>using、taking、adopting</span></p></li></ol><p>&nbsp;</p><h2 id='指代'><span>指代</span></h2><p>&nbsp;</p><ol start='' ><li><p><span>his、her、their</span></p></li><li><p><span>this、that、these、those</span></p></li><li><p><span>such</span></p></li></ol><p>&nbsp;</p><p><span>前文已经出现这些东西，后面的内容可以在前文找到对应的。</span></p><p>&nbsp;</p><h2 id='相同'><span>相同</span></h2><p>&nbsp;</p><ol start='' ><li><p><span>similar、same</span></p></li><li><p><span>similarly、likely</span></p></li><li><p><span>resemble</span></p></li><li><p><span>the same as</span></p></li></ol><p>&nbsp;</p><h2 id='多空题技巧'><span>多空题技巧</span></h2><p>&nbsp;</p><ol start='' ><li><p><span>多空联动（信息对应-选项和选项，所有有价值的信息都被挖成了空）</span>
+<img src="填空/image-20240303212330489.png" alt="image-20240303212330489" style="zoom:33%;" /></p></li><li><p><span>奠定全文基调的关键信息</span>
+<img src="填空/image-20240303212303130.png" alt="image-20240303212303130" style="zoom:33%;" /></p></li></ol><p>&nbsp;</p><h1 id='第三节课'><span>第三节课</span></h1><p>&nbsp;</p><h2 id='让步'><span>让步</span></h2><p>&nbsp;</p><ul><li><p><span>although、though</span></p></li><li><p><span>even though、even if、if</span></p></li><li><p><span>despite、in spite of、regardless of</span></p></li><li><p><span>albeit、for all</span></p></li></ul><p>&nbsp;</p><p><span>让步后面大多会跟转折</span></p><p>&nbsp;</p><p><span>让步的两种形式：</span></p><ul><li><p><span>承认自己有局限</span></p></li><li><p><span>承认对方有道理</span></p></li></ul><p>&nbsp;</p><h2 id='转折'><span>转折</span></h2><p>&nbsp;</p><ul><li><p><span>but、yet</span></p></li><li><p><span>however、nevertheless、nonetheless</span></p></li><li><p><span>while、whereas</span></p></li></ul><p>&nbsp;</p><p><span>however：完全转折、部分转折——他是个坏人，但是大家的看法是错的</span></p><p><span>nevertheless：部分转折——他是个坏人，但是他对妈妈很好</span></p><p>&nbsp;</p><h2 id='两种情况'><span>两种情况</span></h2><p>&nbsp;</p><p><span>矛盾：paradox、irony、mixed</span></p><p><span>惊讶：surprise、startle、astonish、shock</span></p><p><span>错误：mistake、misleading、wrong、error</span></p><p><span>掩盖：mask、belie、conceal</span></p><p><span>例外：except</span></p><p>&nbsp;</p><h2 id='对比'><span>对比</span></h2><p>&nbsp;</p><p><span>contrast、contrary</span></p><p><span>in fact、indeed、inreality</span></p><p><span>once、past、now、recent、until（时间上的对比关系）</span></p><p>&nbsp;</p><h2 id='换对象'><span>换对象</span></h2><p>&nbsp;</p><p><span>换对象也是一种对比：</span></p><p><span>小明是一个好人，小花是一个</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>__（坏人）</span></p><p><span>小明是一个好人，小花是一个好___（狗）</span></p><p>&nbsp;</p><p><span>与其说他是一名伟大的小说家，不如说他是一名伟大的记者</span></p><p>&nbsp;</p><h2 id='程度差异'><span>程度差异</span></h2><p>&nbsp;</p><p><span>差——良——优</span></p><p>&nbsp;</p><p><span>他才不是什么小帅哥，他是_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>_</span><span>（不确定填什么）</span></p><p>&nbsp;</p><h1 id='第四节课'><span>第四节课</span></h1><p>&nbsp;</p><h2 id='六选二的难点'><span>六选二的难点</span></h2><p>&nbsp;</p><ul><li><p><span>有两三组同义词</span></p></li><li><p><span>有一个单词很通顺，但是没有同义词</span></p></li><li><p><span>不像是同义词的一组单词 </span></p></li></ul><p>&nbsp;</p><h2 id='概念复合'><span>概念复合</span></h2><p>&nbsp;</p><p><span>用贫穷</span><code>justify</code><span>自己的偷窃行为。</span></p><p><span>如果两个选项在语境中看不出来区别，那说明两个都不可以选。</span></p><p><span>GRE的填空题必然是非常严格的信息对应，不可以脑补，脑补必然错！</span></p><p>&nbsp;</p><h2 id='科学中的对立概念'><span>科学中的对立概念</span></h2><p>&nbsp;</p><p><span>科学-迷信</span></p><p><span>稳定-变化</span></p><p><span>简单-复杂</span></p><p><span>隐藏-公开</span></p><p><span>机器-人</span></p><p>&nbsp;</p><h2 id='文化中的对立概念'><span>文化中的对立概念</span></h2><p>&nbsp;</p><p><span>大众-精英</span></p><p><span>好懂-难懂</span></p><p><span>接受-不接受</span></p><p>&nbsp;</p><h2 id='政治中的对立概念'><span>政治中的对立概念</span></h2><p>&nbsp;</p><p><span>民主-专制</span></p><p><span>有能-无能</span></p><p><span>交流-孤立</span></p><p><span>保守-激进</span></p><p>&nbsp;</p><h2 id='人性中的对立概念'><span>人性中的对立概念</span></h2><p>&nbsp;</p><p><span>诚实-虚伪</span></p><p><span>和谐-冲突</span></p><p><span>性格对比</span></p><p>&nbsp;</p><h1 id='刷题'><span>刷题</span></h1><h2 id='section-1-base-答题情况小结'><span>Section 1 Base 答题情况小结</span></h2><p><span>Blake&#39;s reputation for weakness is </span><span>_</span><span>_</span><span>___: almost all who have worked with him say he is a disciplined, intellectually </span><mark><span>formidable</span></mark><span>, and very tough politician.</span></p><p><span>A specious</span></p><p><span>B pervasive</span></p><p><span>C irreversible</span></p><p><span>D trivial</span></p><p><span>E ambivalent</span></p><p><span>formidable 可怕的，令人敬畏的；（形状、数量）巨大的；难对付的</span></p><p><span>A. specious假的</span>
+<span>B. pervasive普遍的；</span>
+<span>C. irreversible不可逆的；</span>
+<span>D. trivial不重要的；琐碎的</span>
+<span>E. ambivalent矛盾的；</span></p><p><span>【答案】A</span></p><p><span>【解析】冒号后文的内容说他是一个 tough 的政治家，所以前面 reputation for weakness 是假的，能体现“假”特征的词是 A 选项。specious 虚假的。</span></p><p><span>【句子翻译】Blake 软弱的名声是虚假的：几乎所有和他一起工作的人都说他是一个守纪律，有强大智力而且非常坚强的政治家。</span></p><p>&nbsp;</p><p><span>Though many professional book reviewers would agree that criticism should be (i)</span><strong><span>_</span></strong><span> </span><mark><span>enterprise</span></mark><span>, a tendency to write (ii)</span><strong><span>_</span></strong><span> reviews has risen, partly out of the mistaken belief that sharing personal details will help reviewers stand out of the pack</span></p><ul><li><p><span>Blank(i)</span></p><p><span>an anonymous</span></p><p><span>an evenhanded</span></p><p><span>a spirited</span></p></li><li><p><span>Blank(ii)</span></p><p><span>scathing</span></p><p><mark><span>confessional</span></mark></p><p><span>superficial</span></p></li></ul><p><span>enterprise事业、活动</span></p><p><span>A. an anonymous匿名的</span></p><p><span>D. scathing严厉的</span></p><p><span>B. an evenhanded公平的</span></p><p><span>E. confessional忏悔的; 自白的</span></p><p><span>C. a spirited英勇的</span></p><p><span>F. superficial表面的；肤浅的</span></p><p><span>【答案】A E</span></p><p><span>【解析】根据 though 推出前后两个空格要选反义，从 partly out of the mistaken belief that sharing personal details will help reviewers stand out of the pack 能够推出，第二空要对应 sharing personal details，所以第二空选 E 选项，所以第一空选第二空反义词，所以选 A 选项。 anonymous 匿名的，confessional 自白的。anonymous 匿名的 与confessional 自白的（忏悔的）相对</span></p><p><span>【句子翻译】尽管许多专业书评家会认同评论应该匿名，但透露个人信息的评论已经成为一种趋势。部分缘于某种错误观念：这样能让评论者出位。</span></p><p>&nbsp;</p><p><span>Although Thaler employs an innovative mode of analysis, his study offers yet another examination of quite (i)</span><strong><span>_</span></strong><span> ground--namely, the culture ideology of Norwegian-American preservationist writers in the early twentieth century. The history, literature, and changing internal dynamics of the Norwegian subculture in America constitute a particularly well-studied area. Anyone familiar with the authoritative work of scholars in the field will (ii)</span><strong><span>_</span></strong><span> little in Thaler&#39;s study that is (iii)</span><strong><span>_</span></strong><span>.</span></p><ul><li><p><span>Blank(i)</span></p><p><span>unfamiliar</span></p><p><span>well-worked</span></p><p><span>fruitful</span></p></li><li><p><span>Blank(ii)</span></p><p><span>find</span></p><p><span>understand</span></p><p><span>reveal</span></p></li><li><p><span>Blank(iii)</span></p><p><span>accurate</span></p><p><span>new</span></p><p><span>recognizable</span></p></li></ul><p><span>【答案】B D H</span></p><p><span>【解析】第一空对应后文的 particularly well-studied，所以第一空选 B 选项，因为 T 这次运用了创新的东西，所以熟悉以前的风格的人在“新”的作品中几乎“找不到”需要的内容，第三空格对应前文的 innovative，第三空选 H 选项，第二空选 D 选项。well-worked 精细研究的，find 发现，new 新颖的。</span></p><p><span>【句子翻译】尽管Thaler采用了一种创新的分析模式，但他的研究领域已经被充分研究过了，即早期二十世纪挪威裔美国保护主义作家的文化意识形态。挪威裔美国人的历史、文学以及内部动态的变化构成了一个已经被充分研究的领域。熟悉该领域学者的权威作品的人会发现Thaler的研究中几乎没有新的内容。</span></p><p><span>【选项释义】</span></p><p><span>unfamiliar不熟悉的</span></p><p><span>well-worked精细研究的</span></p><p><span>fruitful成果丰富的</span></p><p><span>find发现</span></p><p><span>understand理解</span></p><p><span>reveal揭露</span></p><p><span>accurate准确的</span></p><p><span>new新颖的</span></p><p><span>recognizable可辨认的</span></p><p>&nbsp;</p><p><span>Though it may seem as if more than a century of </span><strong><span>_</span></strong><span> has made the electrical grid an all-encompassing web connecting the whole of the continent, many vast and beautiful areas remain without power.</span></p><p><span>A refinement</span></p><p><span>B expansion</span></p><p><span>C ubiquity</span></p><p><span>D augmentation</span></p><p><span>E omnipresence</span></p><p><span>F isolation</span></p><p><span>【答案】B D</span></p><p><span>【解析】让步转折，后面说后多地方仍然没有电，所以前面应该说电力发展比较好，所以空格选 BD 选项。expansion 扩张，augmentation 增大。</span></p><p><span>【句子翻译】尽管这看起来像是经过了长达一个多世纪的扩张，使得电网格变成了一个包罗万象的网络连接整个大陆，很多广阔而又美丽的地区仍然没有电力。</span></p><p><span>【选项释义】</span></p><p><span>A. refinement精炼，提纯；改进，改善</span></p><p><span>confine</span></p><ul><li><p><em><span>v.</span></em><span>限制，局限；防止……扩散；关押，监禁；使离不开（或受困于床、轮椅等）</span></p></li><li><p><em><span>n.</span></em><span>边界，范围；限制，局限</span></p></li></ul><p><span>B. expansion扩张</span></p><p><span>C. ubiquity普遍存在</span></p><p><span>D. augmentation增加，增大；加强，补充</span></p><p><span>E. omnipresence无所不在</span></p><p><span>F. isolation 隔离；孤立</span></p><p>&nbsp;</p><p><span>Much of the literature of railroad seeks someone to </span><strong><span>_</span></strong><span>, and it is thus replete with encomiums on entrepreneurs and managers.</span></p><p><span>A indict</span></p><p><span>B rehabilitate</span></p><p><span>C exalt</span></p><p><span>D valorize</span></p><p><span>E </span><mark><span>emulate</span></mark></p><p><span>F </span><mark><span>excoriate</span></mark></p><p><span>【答案】C D</span></p><p><span>【解析】thus replete with encomiums 说明空格要填入 encomiums“表扬”的同义词，正确答案选 CD 选项。exalt 赞美，valorize 赞扬（这个词很多词典查不出赞扬的意思，一定要查韦氏）。</span></p><p><span>【句子翻译】很多关于铁路的文学描述期待有人能够赞美，因此这样的文学在企业和经理人之间充满了赞美。</span></p><p><span>【选项释义】</span>
+<span>A. indict 控告、起诉</span>
+<span>B. rehabilitate 使恢复</span>
+<span>C. exalt 赞美</span>
+<span>D. valorize 赞扬</span>
+<span>E. emulate 仿效，模仿；仿真</span>
+<span>F. excoriate 严厉指责</span></p><p>&nbsp;</p><p><span>Not only was this writer content to leave the reading public in the dark, she seems to have </span><strong><span>_</span></strong><span> the role of trickster, seeding her works with apparent clues that led nowhere.</span></p><p><span>A rejected</span></p><p><span>B disdained</span></p><p><span>C relished</span></p><p><span>D participated in</span></p><p><span>E delighted in</span></p><p><span>F developed</span></p><p><span>【答案】C E</span></p><p><span>【解析】不仅满足，还享受这个过程，递进关系，选 CE 选项。relish 享受， delight in 享受。</span></p><p><span>【句子翻译】作者不仅让读者看得一头雾水，还享受扮演欺诈师的角色，在作品留下了一些明显却毫无用处的线索。</span></p><p><span>【选项释义】</span></p><p><strong><span>A</span></strong><span> rejected 拒绝</span></p><p><strong><span>B</span></strong><span> disdained 轻视</span></p><p><strong><span>C</span></strong><span> relished 享受 </span></p><p><strong><span>D</span></strong><span> participated in 参与 </span></p><p><strong><span>E</span></strong><span> delighted in 喜欢，享受</span></p><p><strong><span>F</span></strong><span> developed 发展</span></p><p>&nbsp;</p><p><span>The major </span><strong><span>_</span></strong><span> of much popular history is that it betrays no interest in making intellectual contributions to our understanding of an issue.</span></p><p><span>A characteristic</span></p><p><span>B shortcoming</span></p><p><span>C dilemma</span></p><p><span>D </span><mark><span>quandary</span></mark></p><p><span>E </span><mark><span>ploy</span></mark></p><p><span>F fault</span></p><p><span>【答案】B F</span></p><p><span>【解析】注意 betray 是“表现”的意思，后文是负评价，所以空格选负评价词即可，正确答案选 BF 选项。shortcoming 缺点，fault 缺点。</span></p><p><span>【句子翻译】许多通俗历史的主要缺点是，它无意为我们对某一问题的理解做出智力贡献。</span></p><p><span>【选项释义】</span></p><p><span>A. characteristic 特征；特性</span></p><p><span>B. shortcoming 缺点</span></p><p><span>C. dilemma困境；进退两难</span></p><p><span>D. quandary困惑；窘境</span></p><p><span>E. ploy策略；活动</span></p><p><span>F. fault错误；缺点</span></p><p>&nbsp;</p><h2 id='section-2-base-答题情况小结'><span>Section 2 Base 答题情况小结</span></h2><p><span>While early biographies of Florence Nightingale tended to be quite </span><strong><span>_</span></strong><span>, Lytton Strachey&#39;s </span><mark><span>irreverent</span></mark><span> 1918 essay about her </span><mark><span>ushered</span></mark><span> in a new era, making it acceptable, even fashionable, to criticize her.</span></p><p><span>A unsympathetic</span></p><p><span>B </span><mark><span>sycophantic</span></mark></p><p><span>C unsentimental</span></p><p><span>D censorious</span></p><p><span>E </span><mark><span>pedantic</span></mark></p><p><span>usher</span></p><ul><li><p><em><span>n.</span></em><span>（电影院、戏院、婚礼等的）引座员，迎宾员；法庭庭警，法警；男傧相</span></p></li><li><p><em><span>v.</span></em><span>引导，引领；（喻）使开始，开创（usher sth. in）；作招待员，当引座员</span></p></li></ul><p><span>【答案】B</span></p><p><span>【解析】注意 irreverent 是“不尊重”的意思，后面说这种批评的文章变得流行起来了，然后通过 while 的让步知道前面的空格是表示“不批评”，所以正确答案选 B 选项。sycophantic 阿谀奉承的。</span></p><p><span>【句子翻译】早期的弗洛伦斯·南丁格尔的传记往往很是阿谀奉承的，然而里顿·斯特拉奇 1918 年关于她的一篇轻蔑的文章开启了一个新纪元，让批评她变得受欢迎，甚至是时髦的。</span></p><p><span>【选项释义】</span>
+<span>A.unsympathetic 冷漠的</span>
+<span>B. sycophantic 阿谀奉承的</span>
+<span>C.unsentimental 不感情用事的</span>
+<span>D. censorious挑剔的</span>
+<span>E. pedantic迂腐的、老学究的</span></p><p><span>endemic 地方性的；风土的</span></p><p>&nbsp;</p><p><span>The benefits offered by information technology do not (i)</span><strong><span>_</span></strong><span> the need for individual reasoning; for example, Internet user should not allow the reasoning process to be (ii)</span><strong><span>_</span></strong><span> the mere </span><mark><span>accumulation</span></mark><span> raw data.</span></p><ul><li><p><span>Blank(i)</span></p><p><span>disguise</span></p><p><span>signal</span></p><p><span>diminish</span></p></li><li><p><span>Blank(ii)</span></p><p><span>preceded by</span></p><p><span>supplemented with</span></p><p><span>supplanted by</span></p></li></ul><p><span>accumulation 积累，堆积；堆积物，堆积量</span></p><p><span>【答案】C F</span></p><p><span>【解析】后文例子解释前文道理，所以双空联立求解，前面选 C 选项，没有减少需求，后面选 F 选项，没有被取代，搭配合理。diminish 减少，supplant 取代。</span></p><p><span>【句子翻译】信息技术带来的好处并没有减少对个人推理的需求：例如，网民不应该让单单原始数据的堆叠取代推理的过程。</span></p><p><span>【选项释义】</span></p><figure class='table-figure'><table><thead><tr><th><span>Blank(i)</span></th><th><span>Blank(ii)</span></th></tr></thead><tbody><tr><td><span>A. disguise掩饰；假装</span></td><td><span>D. </span><mark><span>preceded</span></mark><span> by在…之前</span></td></tr><tr><td><span>B. signal标志</span></td><td><span>E. supplemented with补充</span></td></tr><tr><td><span>C. diminish缩小；变小</span></td><td><span>F. supplanted by代替</span></td></tr></tbody></table></figure><p>&nbsp;</p><p><span>Publisher, publicist, and broadcasters love anniversaries, those occasions when historical events become (i)</span><strong><span>_</span></strong><span> in (ii)</span><strong><span>_</span></strong><span> culture of celebration. On such occasions </span><mark><span>patriotic</span></mark><span> sentiment and national pride wrapped in the </span><mark><span>panoply</span></mark><span> of history to manufacture a </span><mark><span>mythical</span></mark><span> past that is serviceable for public (iii)</span><strong><span>_</span></strong><span>.</span></p><ul><li><p><span>Blank(i)</span></p><p><mark><span>elusive</span></mark><span> moments</span></p><p><span>marketable </span><mark><span>artifacts</span></mark></p><p><mark><span>raging</span></mark><span> controversies</span></p></li><li><p><span>Blank(ii)</span></p><p><span>an </span><mark><span>authentic</span></mark></p><p><span>a commercial</span></p><p><span>an </span><mark><span>elitist</span></mark></p></li><li><p><span>Blank(iii)</span></p><p><span>consumption</span></p><p><mark><span>scrutiny</span></mark></p><p><span>censure</span></p></li></ul><p><span>patriotic爱国的，有爱国心的</span></p><p><span>panoply华丽服饰；全套甲胄，全副盔甲</span></p><p><span>mythical神话的，神话中的；想象的，虚构的</span></p><p><span>elusive难以理解的，难以记住的；难以发现的，难以捕获的</span></p><p><span>artifact（尤指有文化价值或历史价值的）人工制品，历史文物；非自然存在物体，假象（=artefact）</span></p><p><span>raging</span></p><ul><li><p><em><span>adj.</span></em><span>强烈的；狂怒的；激烈的，没完没了的；极其强大的，猛烈的；严重的，剧烈的；&lt;非正式&gt; 巨大的</span></p></li><li><p><em><span>v.</span></em><span>发怒，怒斥；猛烈地继续，激烈进行；迅速蔓延（rage 的现在分词形式）</span></p></li></ul><p><span>authentic原作的，真迹的；传统的，正宗的；逼真的，仿真的；真实的，可靠的</span></p><p><span>elitist</span></p><ul><li><p><em><span>adj.</span></em><span>精英主义的，精英统治的；有优越感的</span></p></li><li><p><em><span>n.</span></em><span>精英论者，精英</span></p></li></ul><p><span>scrutiny仔细观察，详细审查</span></p><p><span>【答案】B F</span></p><p><span>【解析】三空联立，主要说的是这些纪念日现在都被用于商业目的，所以三空取同即可，答案 BEG 选项。marketable artifact 有市场的人工作品，commercial 商业化的，consumption 消费。</span></p><p><span>【句子翻译】出版商、公关人员和广播公司都喜欢周年纪念活动，在这种情况下，历史事件成为商业庆祝文化中的可销售文物。在这种情况下，爱国主义情绪和民族自豪感被包裹在整个历史中，制造出一种可供公众消费的神话般的过去。</span></p><p><span>【选项释义】</span></p><p><span>elusive moments 难以捉摸的时刻</span></p><p><span>marketable artifacts 市场化的物品</span></p><p><span>raging controversies 巨大的争议</span></p><p><span>an authentic 真实的</span></p><p><span>a commercial 商业的</span></p><p><span>an elitist 精英主义的</span></p><p><span>consumption 消费</span></p><p><span>scrutiny 仔细审查</span></p><p><span>censure 责难</span></p><p>&nbsp;</p><p><span>After rising continuously over the summer, </span><mark><span>commodity</span></mark><span> prices fell, leaving analyst wondering whether the downward trend is a turning point or merely a </span><strong><span>_</span></strong><span> before demand picks up in the winter months.</span></p><p><span>A </span><mark><span>spike</span></mark></p><p><span>B </span><mark><span>upsurge</span></mark></p><p><span>C </span><mark><span>harbinger</span></mark></p><p><span>D </span><mark><span>portent</span></mark></p><p><span>E </span><mark><span>lull</span></mark></p><p><span>F </span><mark><span>respite</span></mark></p><p><span>commodity商品，货物；有用的东西，必需品</span></p><p><span>【答案】E F</span></p><p><span>【解析】whether...or...得知空格和 turning point 取反，turning point 是“转折点”的意思，所以空格选 EF 选项。lull 间歇，respite 暂缓。</span></p><p><span>【句子翻译】在长达一个暑假的持续上涨之后，商品价格下降了，促使分析人员怀疑这个价格下降的趋势是不是一个转折点，或者仅仅只是在冬季到来之前蓄意再次涨价的一个缓冲而已。</span></p><p><span>【选项释义】</span></p><p><span>A spike 猛增</span></p><p><span>B upsurge 猛增</span></p><p><span>C harbinger 预兆</span></p><p><span>D portent 预兆</span></p><p><span>E lull 间歇</span></p><p><span>F respite 暂缓</span></p><p>&nbsp;</p><p><span>Doris Kearns Goodwin&#39;s elegant, </span><mark><span>incisive</span></mark><span> study of Lincoln </span><strong><span>_</span></strong><span> those whose knowledge of Lincoln is an </span><mark><span>amalgam</span></mark><span> of high school history and popular </span><mark><span>mythology</span></mark><span> as well as those who are experts.</span></p><p><span>A gratify</span></p><p><span>B </span><mark><span>entice</span></mark></p><p><span>C inspire</span></p><p><span>D confuse</span></p><p><span>E perplex</span></p><p><span>F please</span></p><p><span>incisive 深刻的；敏锐的；锋利的</span></p><p><span>amalgam [材] 汞合金，[化工] 汞齐；</span><mark><span>混合物</span></mark></p><p><span>mythology 神话，神话故事；错误的信念，谬误；神话学</span></p><p><span>【答案】A F</span></p><p><span>【解析】DKG 的研究用了 elegant 和 incisive 这俩形容词，所以后面空格也应该是正评价，所以正确答案选 AF选项。gratify 使满意，please 使满意。</span></p><p><span>【句子翻译】DKG 的优雅深刻的关于林肯的研究使得那些关于林肯的了解仅仅只是来自于高中历史和盛行流言的人，还有资深学者们，都能得到满足。</span></p><p><span>【选项释义】</span></p><p><strong><span>A</span></strong><span> gratify 使满意</span></p><p><strong><span>B</span></strong><span> entice 诱惑</span></p><p><strong><span>C</span></strong><span> inspire 激发</span></p><p><strong><span>D</span></strong><span> confuse 使困惑</span></p><p><strong><span>E</span></strong><span> perplex 使困惑</span></p><p><strong><span>F</span></strong><span> please 使高兴</span></p><p>&nbsp;</p><p><span>Explorers could not build each other&#39;s knowledge if they could not trust records of previous explorers; thus exploration depended on the </span><strong><span>_</span></strong><span> of those who had gone before.</span></p><p><span>A </span><mark><span>collegiality</span></mark></p><p><span>B endurance</span></p><p><span>C </span><mark><span>exactitude</span></mark></p><p><span>D meticulousness</span></p><p><span>E </span><mark><span>eminence</span></mark></p><p><span>F </span><mark><span>tenacity</span></mark></p><p><span>【答案】C D</span></p><p><span>【解析】前面说了探索者必要信任前人的记录，所以探索就取决于前人的精确性了，正确答案选 CD 选项。exactitude 精确性，meticulousness 注重细节。</span></p><p><span>【句子翻译】如果不信任前辈留下的记录，探索者们很难建立自己的知识体系，因此，探索有赖于前人记录的准确性。</span></p><p><span>【选项释义】</span></p><p><strong><span>A</span></strong><span> collegiality共同掌权</span></p><p><strong><span>B</span></strong><span> endurance持久力</span></p><p><strong><span>C</span></strong><span> exactitude精确</span></p><p><strong><span>D</span></strong><span> meticulousness一丝不苟</span></p><p><strong><span>E</span></strong><span> eminence卓越</span></p><p><strong><span>F</span></strong><span> tenacity坚持不懈</span></p><p><span>eminent（在某领域或职业中）卓越的，出众的；突出的，明显的</span></p><p>&nbsp;</p><p><span>Well organized and researched and including all significant discoveries and medical scientists, this history of Western medicine has justly been called </span><strong><span>__</span></strong><strong><span>__</span></strong><span>__.</span></p><p><span>A encyclopedic</span></p><p><span>B long-winded</span></p><p><span>C exhaustive</span></p><p><span>D </span><mark><span>rambling</span></mark></p><p><span>E </span><mark><span>overbearing</span></mark></p><p><span>F undiscriminating</span></p><p><span>【答案】A C</span></p><p><span>【解析】including all signif cant discoveries and medical scientists 体现这本书的全面性，正确答案选 AC 选项。encyclopedic 百科全书式的， exhaustive 全面的。</span></p><p><span>【句子翻译】组织有序，深入研究，并且包含了所有重要的发现以及药理学家，这个关于西方医药的历史书被称之为百科全书。</span></p><p><span>【选项释义】</span></p><p><span>A. encyclopedic 全面的</span></p><p><span>B.  long-winded 冗长的</span></p><p><span>C.  exhaustive 全面的；无遗漏的；详尽的；彻底的</span></p><p><span>D. rambling 漫无目的的</span></p><p><span>E.  overbearing 傲慢的；专横的；逞威风的；压倒性的</span></p><p><span>F. undiscriminating 不加区别的</span></p><p>&nbsp;</p><h2 id='section-3-base-答题情况小结'><span>Section 3 Base 答题情况小结</span></h2><p><span>Politicians who </span><mark><span>invoke</span></mark><span> the founders of the United States in support of their views seem to imply that the founders consistently </span><mark><span>concurred</span></mark><span> in their own views when in reality they were a highly </span><strong><span>_</span></strong><span> group of thinkers.</span></p><p><span>A erudite</span></p><p><span>B innovative</span></p><p><span>C predictable</span></p><p><span>D contentious</span></p><p><span>E methodical</span></p><p><span>invoke 行使，实施（法权）；援用，援引（法律）；</span><mark><span>提及，援引</span></mark><span>（某人、某理论、实例等作为支持）；提及（某著名人物）；唤起，引起（感情或想象）；（尤指向神灵）祈祷，祈求</span></p><p><span>concur 同意，赞同；（事件）同时发生</span></p><p><span>【答案】D</span></p><p><span>【解析】通过后文 in reality 看出，这里是拿理论和现实的情况进行对比，理论的特征是“concur”，所以现实的特征是找 concur 的反义词，正确答案选 D 选项。contentious 有争议的。</span></p><p><span>【句子翻译】那些援引美国国父来支持自己的政界人士，似乎在暗示国父们总是认同彼此的观点，而历史的真实情形是，他们经常吵的不可开交。</span></p><p><span>【选项释义】</span>
+<span>A. erudite 博学的</span>
+<span>B. innovative 创新的</span>
+<span>C. predictable 可预测的</span>
+<span>D. contentious 有争议的</span>
+<span>E. methodical 有条理的 </span></p><p><span>tendencious宣传性的；有支持某种立场的倾向</span></p><p>&nbsp;</p><p><span>Scholarly works on </span><mark><span>detective</span></mark><span> stories often begin with (i)</span><strong><span>_</span></strong><span>, suggesting that there is something </span><mark><span>vaguely</span></mark><span> wrong with adults who spend their time reading such fiction and certainly something (ii)</span><strong><span>_</span></strong><span> those who devote energy to its analysis.</span></p><ul><li><p><span>Blank(i)</span></p><p><span>chronologies</span></p><p><span>apologies</span></p><p><span>synopses</span></p></li><li><p><span>Blank(ii)</span></p><p><span>awry in</span></p><p><span>astute about</span></p><p><span>courageous about</span></p></li></ul><p><span>detective</span></p><ul><li><p><em><span>n.</span></em><span>侦探，警探；私家侦探</span></p></li><li><p><em><span>adj.</span></em><span>有关调查工作的；刑侦的</span></p></li></ul><p><span>vaguely 略微地，稍微地；不详细地，粗略地；茫然地，心不在焉地</span></p><p><span>【答案】B D</span></p><p><span>【解析】something vaguely wrong 说明第一空要选体现 wrong 的词，所以选 B选项，第二空和第一空是并列关系，所以第二空和第一空是广义同义，所以第二空选 D 选项。apology 道歉，awry 错误。</span></p><p><span>【句子翻译】侦探小说的学术著作往往以道歉开始，指出成年人花时间读这类书籍可能有点问题，并且他们还费尽心思去分析其中的情节也是有问题的。</span></p><p><span>【选项释义】</span></p><p><span>chronologies编年史</span></p><p><span>apologies道歉</span></p><p><span>synopses简要、概要</span></p><p><span>awry in错误的</span></p><p><span>astute about机敏的；狡猾的，诡计多端的</span></p><p><span>courageous about大胆的</span></p><p><span>【知识点】doing解释说明；and并列考点</span></p><p><span>【易错点】一空易错选synopses，需注意主干和后面doing修饰语逻辑和语义对应的关系</span></p><p>&nbsp;</p><p><span>Laws protecting intellectual property are intended to stimulate creativity, yet some forms of creative work have never enjoyed legal protection-a situation that ought to be of great interest. If we see certain forms of creative endeavor (i)</span><strong><span>_</span></strong><span> as a result of uncontrolled copying, we might decide to (ii)</span><strong><span>_</span></strong><span> intellectual property law. Conversely, if unprotected creative work (iii)</span><strong><span>_</span></strong><span> in the absence of legal rules against copying, we would do well to know how such flourishing is sustained.</span></p><ul><li><p><span>Blank(i)</span></p><p><span>languishing</span></p><p><span>proliferating</span></p><p><span>diversifying</span></p></li><li><p><span>Blank(ii)</span></p><p><span>jettison</span></p><p><span>extend</span></p><p><span>relax</span></p></li><li><p><span>Blank(iii)</span></p><p><span>declines in originality</span></p><p><span>manages to thrive</span></p><p><span>openly invites imitation</span></p></li></ul><p><span>【答案】A E H</span></p><p><span>【解析】uncontrolled copying 会对 creative endeavor 产生负面的影响，所以第一空选 A 选项，第二空根据前面的条件来推，前面说会产生负面影响，所以现在必须有这种法律，所以第二空选 E 选项，第三空同义重复 such flourishing，所以正确答案选 H 选项。languish 失去活力，extend 延伸， manage to thrive 成功繁荣。</span></p><p><span>【句子翻译】保护知识产权的法律，本意是鼓励创新，然而某些形式的创作从未受到保护 —— 它们本该创造巨大价值。如果我们认为某些形式的创造性劳动，因遭抄袭而受损，可能会选择扩大知识产权法的适用范围。相反地，如果现行法规未针对抄袭的情况下，不受保护的创作仍能够繁荣发展，我们该仔细研究这种繁荣何以持续。</span></p><p><span>【选项释义】</span></p><figure class='table-figure'><table><thead><tr><th><span>Blank(i)</span></th><th><span>Blank(ii)</span></th><th><span>Blank(iii)</span></th></tr></thead><tbody><tr><td><span>A. languishing 失去活力</span></td><td><span>D. jettison 投弃</span></td><td><span>G. declines in originality (创造力)</span></td></tr><tr><td><span>B. proliferating 增生的</span></td><td><span>E. extend 延伸；扩大</span></td><td><span>H. manages to thrive (繁荣)</span></td></tr><tr><td><span>C. diversifying 多样的</span></td><td><span>F. relax 休息；松懈</span></td><td><span>I. openly invites imitation (模仿)</span></td></tr></tbody></table></figure><p>&nbsp;</p><p><span>Science is </span><mark><span>arguably</span></mark><span> a very </span><mark><span>high-minded</span></mark><span> pursuit, but that is not to say that all of its practitioners are </span><strong><span>_</span></strong><span>, as numerous articles alleging overly generous pharmaceutical industry payments to medical researchers have tried to show.</span></p><p><span>A conventional</span></p><p><span>B clever</span></p><p><span>C unimpeachable</span></p><p><span>D ingenious</span></p><p><span>E blameless</span></p><p><span>F predictable</span></p><p><span>arguably 可论证地，按理</span></p><p><span>high-minded 高尚的；傲慢的；高洁的</span></p><p><span>【答案】C E</span></p><p><span>【解析】空格同义重复 high-minded，所以正确答案选 CE 选项。unimpeachable无可指责的，blameless 无可指责的。</span></p><p><span>【句子翻译】科学按理说本着很高尚的追求，但也不意味着所有的从业者都无可指摘，正如大量宣称制药行业薪酬过高的文章想指出的那样。。</span></p><p><span>【选项释义】</span></p><p><strong><span>A</span></strong><span> conventional 传统的</span></p><p><strong><span>B</span></strong><span> clever 聪明的</span></p><p><strong><span>C</span></strong><span> unimpeachable 无可指责的</span></p><p><strong><span>D</span></strong><span> ingenious 天才的</span></p><p><strong><span>E</span></strong><span> blameless 无可指责的 </span></p><p><strong><span>F</span></strong><span> predictable 可预测的 </span></p><p>&nbsp;</p><p><span>In a field of </span><mark><span>egotists</span></mark><span>, Bloomfield is </span><strong><span>_</span></strong><span>, often praising her competitors and </span><mark><span>punctuating</span></mark><span> her </span><mark><span>correspondence</span></mark><span> with </span><mark><span>self-deprecating</span></mark><span> remarks.</span></p><p><span>A unassuming</span></p><p><span>B complimentary</span></p><p><span>C acerbic</span></p><p><span>D ingenuous</span></p><p><span>E cutting</span></p><p><span>F modest</span></p><p><span>egotist 自高自大者；言必称“我”者（形容词 egotistic, 副词 egotistically）</span></p><p><span>punctuate</span></p><ul><li><p><em><span>vt.</span></em><span>不时打断；强调；加标点于</span></p></li><li><p><em><span>vi.</span></em><span>加标点</span></p></li></ul><p><span>correspondence </span><mark><span>信件</span></mark><span>，信函；通信；相似，关联</span></p><p><span>self-deprecating 自贬的；谦虚的（等于 self-deprecatory）</span></p><p><span>【答案】A F</span></p><p><span>【解析】整句逗号解释结构，空格是主句的判断词，概括解释部分praising her competitors, punctuating her correspondence with self-deprecating remarks，可知正确答案选 AF 选项。 unassuming 谦逊的，modest 谦虚的。</span></p><p><span>【句子翻译】在自我主义的领域中，布洛姆菲尔德是很谦逊的，她经常赞扬对手，自我贬损。（在众多自负者中，布卢姆菲尔德很谦虚，她经常称赞自己的竞争对手，并在书信中穿插自嘲的话语。——DeepL）</span></p><p><span>【选项释义】</span>
+<span>A. unassuming谦逊的</span>
+<span>B. complimentary赞美的</span>
+<span>C. acerbic尖刻的</span>
+<span>D. ingenuous纯真的、正直的</span>
+<span>E. cutting尖刻的</span>
+<span>F. modest谦逊的</span></p><p>&nbsp;</p><p><span>Because its previously </span><strong><span>_</span></strong><span> beliefs had become core </span><mark><span>tenets</span></mark><span> of mainstream politics, the activist group </span><mark><span>disbanded</span></mark><span>; with no more skeptics to persuade, its purpose had evaporated.</span></p><p><span>A arcane</span></p><p><span>B seditious</span></p><p><span>C quixotic</span></p><p><span>D idealistic</span></p><p><span>E popular</span></p><p><span>F conventional</span></p><p><span>tenet 原则，信条</span></p><p><span>disband 解散；遣散</span></p><p><span>【答案】C D</span>
+<span>【解析】with no more skeptics to persuade 说明它的 beliefs 之前有人质疑，所以空格填入质疑的广义同义，选项中只能对应 CD 选项。quixotic 不切实际的，idealistic 不切实际的。</span>
+<span>【句子翻译】因为早期理想主义的信念已经成为主流政治的核心原则，这个激进组织解体了，没有更多的怀疑论者可以说服，其目的也就烟消云散了。</span>
+<span>【选项释义】</span>
+<span>A arcane 神秘的</span>
+<span>B seditious 煽动性的；扰乱治安的；参与煽动的</span>
+<span>C quixotic 不切实际的</span>
+<span>D idealistic 理想主义的</span>
+<span>E popular 流行的</span>
+<span>F conventional 传统的 </span></p><p>&nbsp;</p><p><span>Although scientific progress leads to constant revision of ideas, one observation that has remained </span><strong><span>_</span></strong><span> over the years is that there are a lot of insects in the world: some 950,000 species have been identified.</span></p><p><span>A robust</span></p><p><span>B significant</span></p><p><span>C strong</span></p><p><span>D perplexing</span></p><p><span>E confounding</span></p><p><span>F obscure</span></p><p><span>【答案】A C</span></p><p><span>【解析】前面尽管有 revision of ideas，但是还是有没有改变的东西，所以空格选 revision 的反义，正确答案选 AC 选项。robust 强壮的，strong 强壮的。</span></p><p><span>【句子翻译】尽管科学研究进程意味着不断修正想法，一种几年来仍然有效的观察数据显示，世界上有很多很多的昆虫，其中 950000 种类已经被认定。</span></p><p><span>【选项释义】</span>
+<span>robust强健的</span>
+<span>significant有意义的</span>
+<span>strong坚强的</span>
+<span>perplexing复杂的</span>
+<span>confounding困惑的</span>
+<span>obscure昏暗的；晦涩的</span></p><p>&nbsp;</p><h2 id='section-4-base-答题情况小结'><span>Section 4 Base 答题情况小结</span></h2><p><span>What once seemed a quixotic vision-the “Subway to the Sea,” connecting Union Station in downtown Los Angeles to the Pacific Ocean in Santa Monica-no longer seems quite so </span><strong><span>_</span></strong><span>.</span></p><p><span>A impracticable</span></p><p><span>B prescient</span></p><p><span>C banal</span></p><p><span>D viable</span></p><p><span>E beneficial</span></p><p><span>【答案】A</span>
+<span>【解析】so+空格是和前文的 quixotic 同义重复，所以空格选 quixotic 的同义词，所以正确答案选 A 选项。impracticable不切实际的。</span>
+<span>【句子翻译】“STTS”连接洛杉矶和太平洋的 Santa Monica 曾经被认为是堂吉柯德式的幻想，现在看起来并不是那么不切实际。</span>
+<span>【选项释义】</span>
+<span>A. impracticable不切实际的</span>
+<span>B. prescient有先见之明的</span>
+<span>C. banal陈腐的</span>
+<span>D. viable可行的</span>
+<span>E. beneficial有益的</span></p><p>&nbsp;</p><p><span>Until the advent of film, commercial entertainment in England occurred only where concentrated urban populations provided audiences large enough to make it remunerative: theaters and music halls were (i)</span><strong><span>_</span></strong><span> in rural villages. But village cinemas quickly become (ii)</span><strong><span>_</span></strong><span>, even though they were ramshackle affairs in comparison to the urban picture palaces.</span></p><ul><li><p><span>Blank(i)</span></p><p><span>spartan</span></p><p><mark><span>unconceivable</span></mark></p><p><span>profitable</span></p></li><li><p><span>Blank(ii)</span></p><p><span>commonplace</span></p><p><span>sophisticated</span></p><p><span>unfashionable</span></p></li></ul><p><span>【答案】B D</span></p><p><span>【解析】第一空对比城市和农村，城市能盈利，农村取反，所以第一空选 B 选项: 不可想象的。第二空根据 but 得知后面是正评价，所以第二空选 D 选项。unconceivable，不可想象的，commonplace 常见的。</span></p><p><span>【句子翻译】在电影出现之前，英国的商业娱乐只在城市人口集中的地方出现，在那里观众数量庞大到足够使其回报颇丰：在乡村，剧院和音乐厅是不可想象的。但是乡村电影院很快变得普及，尽管它们和城市的图片宫殿比起来破烂不堪。 </span></p><p><span>【选项释义】</span></p><p><span>spartan 简朴的</span></p><p><span>unconceivable 难以相信的；不能想像的</span></p><p><span>profitable 有利可图的</span></p><p><span>commonplace 普及的</span></p><p><span>sophisticated 精致的</span></p><p><span>unfashionable 不时尚的 </span></p><p><strong><span>不要跳过最后一句话，提到了ramshackle，等同于Spartan简朴的。前后两句有个递进关系，从无到有，而后句即使是有，也是简朴，那么前句就不能和后句同等程度都为简朴，只能是啥都没有unconceivable”</span></strong></p><p>&nbsp;</p><p><span>Common sense tells me some people are more (i)</span><strong><span>_</span></strong><span> than others. The claim that these differences are (ii)</span><strong><span>_</span></strong><span>, or that deep down, everybody acts only to further their own interests, (iii)</span><strong><span>_</span></strong><span> our everyday observations and deep-seated human practices of moral evaluation.</span></p><ul><li><p><span>Blank(i)</span></p><p><span>altruistic</span></p><p><span>adaptable</span></p><p><span>disciplined</span></p></li><li><p><span>Blank(ii)</span></p><p><span>growing</span></p><p><span>illusory</span></p><p><span>relevant</span></p></li><li><p><span>Blank(iii)</span></p><p><span>mimics</span></p><p><span>explains</span></p><p><span>contradicts</span></p></li></ul><p><span>【答案】A E I     正确答案： altruistic , illusory , contradicts</span></p><p><span>【解析】everybody acts only to further their own interests 推出句子描写的是人类自私无私的事，所以第一空选 A 选项，也说明一些人是自私的，所以第二空想表达的意思是这种差别（有些人很无私）是不存在的，所以第二空选 E 选项，第三空自私和 moral 是反义关系，所以第三空选 I 选项。altruistic无私的，illusory 虚假的，contradict 与…矛盾。</span></p><p><span>【句子翻译】常识告诉我们一些人确实比另外一些人更无私。这些区别是虚假的，或者更深刻地说，每个人只考虑自己的利益的说法与我们每天的观察和深层的对于道德评估的人类实践是相矛盾的。</span></p><p><span>【选项释义】</span></p><p><span>altruistic 无私的</span></p><p><span>adaptable 适应的</span></p><p><span>disciplined 有纪律的</span></p><p><span>growing 增长的</span></p><p><span>illusory 虚幻的</span></p><p><span>relevant 相关的，合适的</span></p><p><span>mimics 模仿</span></p><p><span>explains 解释</span></p><p><span>contradicts 与...矛盾 </span></p><p><span>关键其实在于看懂“everybody acts only to further their own interests”是什么意思，这里的interests要理解为“利益‘。”deep down“指的是更进一步地说。 这样就能看出来1句和2句是对立的，所以选illusory。 第三空，这里的”deep-seated&quot;和第一句的&quot;common sense&quot;其实是对应的，除此之外，moral evaluation也表示大家的moral有差别，所以和前面的differences are illusory矛盾，所以选contradict</span></p><p>&nbsp;</p><p><span>Anne Carson`s book Nox is, very deliberately, </span><strong><span>_</span></strong><span> </span><mark><span>literary</span></mark><span> object-the opposite of an e-reader, which is designed to vanish in your palm as you read on a train.</span></p><p><span>A an evanescent</span></p><p><span>B a cumbersome</span></p><p><span>C an immutable</span></p><p><span>D an unwieldy</span></p><p><span>E an ephemeral</span></p><p><span>F an flexible</span></p><p><span>literary 文学的，文学上的；书面的；爱好文学的，从事文学研究（或写作）的</span></p><p><span>【答案】B D</span></p><p><span>【解析】vanish in your palm as you read on a train 说明这个东西容易操控，所以空格取反，正确答案选 BD 选项。cumbersome 笨重的，unwieldy 笨重的。</span></p><p><span>【句子翻译】A C 的《 Nox 》显然是一本笨重的读物 —— 电子书则正相反，它就是设计来在火车旅途中供人打发时间的。</span></p><p><span>【选项释义】</span></p><p><span>A. an evanescent 短暂的</span></p><p><span>B. a cumbersome 笨重的</span></p><p><span>C. an immutable 不变的</span></p><p><span>D. an unwieldy 笨重的</span></p><p><span>E. an ephemeral 短暂的</span></p><p><span>F. an flexible 灵活的</span></p><p><span>vanish in your palm 字面上的意思是“在你的手掌中消失”，指的是电子阅读器设计得轻巧和便携，以至于当你在使用它阅读时，几乎感觉不到它的物理存在——就像它在你的手掌中消失了一样。</span></p><p>&nbsp;</p><p><span>One of the </span><mark><span>peculiarities</span></mark><span> of humans is that we </span><mark><span>irrationally</span></mark><span> </span><mark><span>gravitate</span></mark><span> to the predictable and avoid risk, whatever the reasons for this </span><strong><span>_</span></strong><span>, it is hardly a sound basis for dealing with complex, long-term problems.</span></p><p><span>A </span><mark><span>eccentricity</span></mark></p><p><span>B predilection</span></p><p><span>C vacillation</span></p><p><span>D proclivity</span></p><p><span>E wavering</span></p><p><span>F cowardice</span></p><p><span>peculiarity 特点，特性；古怪之处，怪癖；奇特，怪异</span></p><p><span>irrationally 无理性地，不合理地</span></p><p><span>gravitate 向……移动，被吸引到；（物理）受重力（或其他引力）作用而运动（或倾向于运动）</span></p><p><span>【答案】B D</span></p><p><span>【解析】空格位于this 指代结构，可知指代前文的peculiarities: irrationally gravitate to the predictable and avoid risk,所以空格选“倾向”，正确答案选 BD 选项。predilection 偏爱，proclivity 倾向。</span></p><p><span>【句子翻译】人类的一个特点是，我们非理性地倾向于可预测的事物并避免风险，无论这种偏好的原因是什么，它都很难成为处理复杂、长期问题的坚实基础。</span></p><p><span>【选项释义】</span>
+<span>A. eccentricity 独特</span>
+<span>B. predilection 偏爱</span>
+<span>C. vacillation 犹豫</span>
+<span>D. proclivity 倾向</span>
+<span>E. wavering 犹豫</span>
+<span>F. cowardice 懦弱 </span></p><p>&nbsp;</p><p><span>Williamson had a fierce commitment to achieving an </span><mark><span>accord</span></mark><span>, spending enormous amount of time trying to </span><mark><span>forge</span></mark><span> a consensus out of an often </span><strong><span>_</span></strong><span> assembly.</span></p><p><span>A apathetic</span></p><p><span>B fractious</span></p><p><span>C </span><mark><span>restive</span></mark></p><p><span>D </span><mark><span>cynical</span></mark></p><p><span>E </span><mark><span>compliant</span></mark></p><p><span>F </span><mark><span>tractable</span></mark></p><p><span>accord</span></p><ul><li><p><em><span>n.</span></em><span>协议，条约；符合，一致</span></p></li><li><p><em><span>v.</span></em><span>使受到，给予（某种待遇）；（与……）一致，符合</span></p></li></ul><p><span>forge</span></p><ul><li><p><em><span>v.</span></em><span>形成，缔造；伪造，假冒；稳步前进；锻造；伪装，假冒</span></p></li><li><p><em><span>n.</span></em><span>锻铁炉，锻造车间</span></p></li></ul><p><span>【答案】B C</span></p><p><span>【解析】语义推理题，想在一群躁动不安的人群中形成一种一致。正确答案选 BC选项。fractious 易怒的，restive 躁动不安的。</span></p><p><span>【句子翻译】W 花了大量时间，在每天吵的不可开交的与会者中寻求共识，极力想促成协议。</span></p><p><span>【选项释义】</span></p><p><span>apathetic 冷漠的</span></p><p><span>fractious 易怒的</span></p><p><span>restive 焦躁不安的</span></p><p><span>cynical 愤世嫉俗的</span></p><p><span>compliant 顺从的</span></p><p><span>tractable 易于管教的</span></p><p><span>One </span><strong><span>_</span></strong><span> is that so far, Web services have turned out to be much harder to deliver than their </span><mark><span>champions</span></mark><span> had hoped.</span></p><p><span>A hope</span></p><p><span>B </span><mark><span>snag</span></mark></p><p><span>C prospect</span></p><p><span>D </span><mark><span>hitch</span></mark></p><p><span>E </span><mark><span>upshot</span></mark></p><p><span>F reason</span></p><p><span>champion</span></p><ul><li><p><em><span>n.</span></em><span>冠军，第一名；拥护者，斗士</span></p></li><li><p><em><span>v.</span></em><span>捍卫，拥护，支持</span></p></li><li><p><em><span>adj.</span></em><span>&lt;英，非正式&gt;极好的；冠军的，得一等奖的</span></p></li></ul><p><span>【答案】B D</span></p><p><span>【解析】后面的内容体现了一种非常 hard 的状态，所以对应的选项是 BD 选项。snag 障碍，hitch 故障。</span></p><p><span>【句子翻译】现在面临的一个困难在于，网络服务比他们的开发者所认为的更加难以传输。</span></p><p><span>【选项释义】</span></p><p><span>A. hope 希望；期望</span></p><p><span>B. snag 障碍</span></p><p><span>C. prospect 前途；预期</span></p><p><span>D. hitch 故障</span></p><p><span>E. upshot 结果，结局；要点</span></p><p><span>F. reason 理由</span></p><p>&nbsp;</p><h2 id='section-5-base-答题情况小结'><span>Section 5 Base 答题情况小结</span></h2><p><span>Unlike some mammals-cows and sheep, for instance-that are notably </span><strong><span>_</span></strong><span>, lions have a wide range of facial expressions.</span></p><p><span>A </span><mark><span>tractable</span></mark></p><p><span>B </span><mark><span>impassive</span></mark></p><p><span>C </span><mark><span>solitary</span></mark></p><p><span>D social</span></p><p><span>E </span><mark><span>sluggish</span></mark></p><p><span>【答案】B</span></p><p><span>【解析】unlike 体现对比关系，所以空格选 a wide range of facial expressions 的反义词，所以正确答案选 B 选项。 impassive 面无表情的。</span></p><p><span>【句子翻译】并不像有些动物，比如牛和羊，是出了名的面无表情，狮子却有着大量的表情。</span></p><p><span>【选项释义】</span></p><p><span>A. </span><mark><span>tractable</span></mark><span>易于管教的；易驾驭的；易处理的；驯良的</span></p><p><span>B. </span><mark><span>impassive</span></mark><span>冷漠的</span></p><p><span>C. </span><mark><span>solitary</span></mark><span>孤独的</span></p><p><span>D. social爱社交的</span></p><p><span>E. </span><mark><span>sluggish</span></mark><span>萧条的、缓慢的、迟钝的</span></p><p><strong><span>分清楚impassive和passive，是两个概念</span></strong></p><p>&nbsp;</p><p><span>Historian Barbara Alpern Engel&#39;s task in writing a book about women in Russia must have been a (i)</span><strong><span>_</span></strong><span> one, because the (ii)</span><strong><span>_</span></strong><span> the Russian empire&#39;s </span><mark><span>peoples</span></mark><span> meant that Russian women could never be treated as a homogeneous group.</span></p><ul><li><p><span>Blank(i)</span></p><p><span>motivating</span></p><p><span>boring</span></p><p><mark><span>daunting</span></mark></p></li><li><p><span>Blank(ii)</span></p><p><span>unity among</span></p><p><span>disinterest in</span></p><p><span>diversity of</span></p></li></ul><p><span>【答案】C F</span></p><p><span>【解析】could never be treated as a homogeneous group 说明第二空选 homogeneous 反义，所以第二空选 F 选项。第一空根据因果关系推，民族差异大所以写一本书很难，所以第一空选 C 选项。daunting 使人怯步的， diversity 差异。</span></p><p><span>【句子翻译】历史学家 BAE 要写一本关于俄国女性的书的任务一定是个非常让人畏缩的任务，因为俄国帝国中</span><mark><span>民族</span></mark><span>的差异化导致俄国女性从来不能被当作一个单一的群体。</span></p><p><span>【选项释义】</span></p><p><span>motivating 激励性的</span></p><p><span>boring 无聊的</span></p><p><mark><span>daunting</span></mark><span> 使人怯步的</span></p><p><span>unity among 团结</span></p><p><span>disinterest in 不关心</span></p><p><span>diversity of 差异</span></p><p>&nbsp;</p><p><span>China&#39;s rapidly growing population is the main threat facing large </span><mark><span>carnivores</span></mark><span> in the People&#39;s Republic. Increasingly, policies aimed at limiting population growth have been (i)</span><strong><span>_</span></strong><span>; nevertheless, the country&#39;s vast size and the isolation of many of its regions mean that human populations in areas where large carnivores still occur (ii)</span><strong><span>_</span></strong><span>. This human pressure has (iii)</span><strong><span>_</span></strong><span> the South China tiger.</span></p><ul><li><p><span>Blank(i)</span></p><p><span>modified</span></p><p><mark><span>deemphasized</span></mark></p><p><span>implemented</span></p></li><li><p><span>Blank(ii)</span></p><p><span>could start to decline</span></p><p><span>can grow unchecked</span></p><p><span>have stabilized</span></p></li><li><p><span>Blank(iii)</span></p><p><span>celebrated</span></p><p><mark><span>doomed</span></mark></p><p><span>bypassed</span></p></li></ul><p><span>carnivore 食肉动物；喜欢吃肉的人</span></p><p><span>【答案】C E H</span></p><p><span>【解析】aimed at limiting population growth 得知这些政策已经颁布了，第一空选 C 选项，第二空根据 nevertheless，得知这些政策尽管实施了，但是效果不好，所以人口还是在快速增加，第二空选 E 选项，第三空 human pressure 一定是负面的动词，所以第三空选 H 选项。implement 实施，can grow unchecked 不加约束的增长，doom 使…在劫难逃。</span></p><p><span>【句子翻译】中国快速增加的人口是让这个国家大型肉食生物面临的最大威胁。越来越频繁的关注于限制人口增长的政策已经被执行了。但是这个国家巨大的面积和很多地区的隔离意味着存在肉食动物的地区的人口数量会无限制地增加。这种人口压力已经让华南虎在劫难逃了。</span></p><p><span>【选项释义】</span></p><p><span>modified被修改</span></p><p><span>deemphasized被轻描淡写</span></p><p><span>implemented贯彻实施</span></p><p><span>could start to decline开始下降</span></p><p><span>can grow unchecked悄悄增长</span></p><p><span>have stabilized稳定</span></p><p><span>celebrated赞美</span></p><p><span>doomed使…在劫难逃</span></p><p><span>bypassed避开</span></p><p>&nbsp;</p><p><mark><span>Asserting</span></mark><span> a need to preserve the </span><strong><span>_</span></strong><span> that became the hallmark of her </span><mark><span>predecessor&#39;s</span></mark><span> </span><mark><span>tenure</span></mark><span>, the new director of federal monetary policy refused to subscribe to rigid or mechanistic rules in policy making.</span></p><p><span>A firmness</span></p><p><span>B adaptability</span></p><p><span>C unpredictability</span></p><p><span>D autonomy</span></p><p><span>E strictness</span></p><p><span>F flexibility</span></p><p><span>assert坚称，断言；维护，坚持（权利或权威）；坚持自己的主张，表现坚定；生效，起作用</span></p><p><span>predecessor 前任，前辈；（被取代的）原有事物，前身</span></p><p><span>tenure</span></p><ul><li><p><em><span>n.</span></em><span>（土地的）居住权，保有权；（尤指大学教师的）终身职位，长期聘用；（尤指重要政治职务的）</span><mark><span>任期，任职</span></mark></p></li><li><p><em><span>v.</span></em><span>授予……终身职位（尤指教师、讲师职位）</span></p></li></ul><p><span>【答案】B F</span></p><p><span>【解析】拒绝 rigid or mechanistic 是因为想保持灵活性，空格选 rigid 和 mechanistic 的反义，正确答案选 BF 选项。adaptability 可改性， flexibility 灵活性。</span></p><p><span>【句子翻译】新任联邦货币政策主任，在政策制定中拒绝僵化或机械的规定，宣称将保持灵活适应的特点，这也是她的前任的决策风格。</span></p><p><span>【选项释义】</span></p><p><span>A. firmness 坚固</span></p><p><span>B. adaptability 适应性</span></p><p><span>C. unpredictability 不可预测性</span></p><p><span>D. autonomy 自治</span></p><p><span>E. strictness 严格</span></p><p><span>F. flexibility 灵活性</span></p><p>&nbsp;</p><p><span>At first, most of the famous fairy tales seem so implausible and so irrelevant to contemporary life that their </span><strong><span>_</span></strong><span> is hard to understand.</span>
+<span>A universality</span></p><p><span>B persistence</span></p><p><span>C appeal</span></p><p><span>D ephemerality</span></p><p><span>E survival</span></p><p><span>F transience</span></p><p><span>【答案】B E</span></p><p><span>【解析】如此难以置信如此和当代生活无关，所以这种东西还能传下来是很难理解的一件事，正确答案选 BE 选项。persistence 持续存在，survival 持续在。</span></p><p><span>【句子翻译】最初，多数著名童话都显得如此不合逻辑，也与当代生活无关，以至于人们很难理解它们靠什么流传下来。</span></p><p><span>【选项释义】</span></p><p><span>universality普遍性</span></p><p><span>persistence持续存在</span></p><p><span>appeal呼吁，恳求；上诉，申诉；有吸引力，引起兴趣；启发，打动</span></p><p><span>ephemerality短暂</span></p><p><span>survival幸存</span></p><p><span>transience短暂</span></p><p>&nbsp;</p><p><span>Far from </span><strong><span>__</span></strong><strong><span>__</span></strong><span>_ innovations, as the patent system was designed to do, the </span><mark><span>patenting</span></mark><span> of concepts such as gene sequences gives individuals and corporations a legal choke to hold over ideas that should be useful to all.</span></p><p><span>A spurring</span></p><p><span>B recognizing</span></p><p><span>C codifying</span></p><p><span>D acknowledging</span></p><p><span>E fostering</span></p><p><span>F cataloging</span></p><p><span>patenting </span><em><span>v.</span></em><span>取得……的专利权（patent 的 ing 形式）</span></p><p><span>【答案】A E</span></p><p><span>【解析】通过 far from 推出空格与后文内容取反，后文的核心意思是hold over“推迟”，所以正确答案选 AE 选项。spur 激励，foster 促进。</span></p><p><span>【句子翻译】并非像专利制度所设计的那样刺激创新，基因序列等概念的专利让个人和公司在法律上扼杀了对所有人都有用的想法。</span></p><p><span>【选项释义】</span></p><p><span>A.  spurring激励</span></p><p><span>B.  recognizing承认; 赞成</span></p><p><span>C.  codifying编纂</span></p><p><span>D.  acknowledging承认</span></p><p><span>E.  fostering促进；收养</span></p><p><span>F.  cataloging编目录</span></p><p>&nbsp;</p><p><mark><span>Advocates</span></mark><span> for workers&#39; rights have adopted a new strategy, one that will require considerable </span><mark><span>ingenuity</span></mark><span> but that, if successful, could </span><strong><span>_</span></strong><span> a movement aimed at making labor rights an unassailable feature of American democracy.</span></p><p><span>A frustrate</span></p><p><span>B galvanize</span></p><p><span>C presume</span></p><p><span>D affect</span></p><p><span>E </span><mark><span>animate</span></mark></p><p><span>F thwart</span></p><p><span>advocate</span></p><ul><li><p><em><span>v.</span></em><span>拥护，提倡</span></p></li><li><p><em><span>n.</span></em><span>拥护者，提倡者；辩护律师；（为某一类人）谋利益者；（一项事业或个组织的）工作者</span></p></li></ul><p><span>ingenuity 心灵手巧，聪明才智，独创力；精巧的装置；灵活的方法</span></p><p><span>【答案】B E</span></p><p><span>【解析】通过 if successful，得知后面对于这种 movement 是正评价，所以答案选 BE 选项。galvanize 刺激，animate 激励。</span></p><p><span>【句子翻译】劳工权利的支持者已经采取了一种新策略，虽然需要相当多的想象力，可一旦成功，将会掀起一场运动，旨在把劳工权利牢牢嵌入美国民主体制。</span></p><p><span>frustrate 挫折 presume 推测 affect 影响 thwart 阻挠</span></p><p><span>【选项释义】</span></p><p><span>A. frustrate挫败的</span></p><p><span>B. galvanize刺激</span></p><p><span>C. presume假定；推测</span></p><p><span>D. affect影响；感染</span></p><p><span>E. </span><mark><span>animate</span></mark><span>鼓舞；推动</span></p><p><span>F. thwart挫败；反对</span></p><p>&nbsp;</p><h2 id='section-6-base-答题情况小结'><span>Section 6 Base 答题情况小结</span></h2><p><span>In protoscientific (for example, in ancient Greece), claims about the physical world were often accepted as true if they were reasonable; experimental verification, if thought necessary at all, was </span><strong><span>_</span></strong><span>.</span></p><p><span>A utilitarian</span></p><p><span>B </span><mark><span>perfunctory</span></mark></p><p><span>C </span><mark><span>egregious</span></mark></p><p><span>D empirical</span></p><p><span>E </span><mark><span>inductive</span></mark></p><p><span>【答案】B</span></p><p><span>【解析】本题最关键的地方是 if thought necessary at all，</span><strong><span>if 在这里是即使的意思</span></strong><span>，所以这句话的意思是即使被认为很有必要，所以后面的答案选一个和 necessary 广义取反的词，正确答案选 B 选项。perfunctory 敷衍的。</span></p><p><span>【句子翻译】在原科学时代（例如，在古希腊），关于物理世界的言论只要是合理的就被接受为真的；实验的确认，即使被认为有必要，也是很敷衍的。</span></p><p><span>【选项释义】</span></p><p><span>utilitarian实用的</span></p><p><mark><span>perfunctory</span></mark><span>敷衍的——insouciance无忧无虑；漫不经心；满不在乎</span></p><p><mark><span>egregious</span></mark><span>惊人的；过分的；恶名昭彰的</span></p><p><span>empirical经验主义的，以经验为依据的</span></p><p><mark><span>inductive</span></mark><span>归纳的</span></p><p>&nbsp;</p><p><span>Although the political science professor&#39;s paper is quite (i)</span><strong><span>_</span></strong><span> about the government&#39;s problem, suggesting that they are part of (ii)</span><strong><span>_</span></strong><span> a process, the prognosis for the government is, on the contrary, actually quite </span><mark><span>auspicious</span></mark><span>.</span></p><ul><li><p><span>Blank(i)</span></p><p><span>straightforward</span></p><p><mark><span>circuitous</span></mark></p><p><span>pessimistic</span></p></li><li><p><span>Blank(ii)</span></p><p><span>degenerative</span></p><p><span>comprehensive</span></p><p><span>spontaneous</span></p></li></ul><p><mark><span>auspicious</span></mark><span> 有助于成功的，有利的；吉利的，吉兆的</span></p><p><span>【答案】C D</span></p><p><span>【解析】第一空根据让步关系得知选后文 auspicious 的反义，所以第一空选 C 选项，第二空和第一空修饰关系取同，所以第二空选 D 选项。pessimistic 悲观的，degenerative 退步的。</span></p><p><span>【句子翻译】尽管政治学教授的论文对政府目前的问题很悲观，指出这些问题是衰退的一部分，但相反的是对政府的展望确非常有前景。</span></p><p><span>【选项释义】</span></p><p><span>straightforward直接的</span></p><p><mark><span>circuitous</span></mark><span>迂回的、曲折的</span></p><p><span>pessimistic悲观的</span></p><p><span>degenerative退化的、恶化的</span></p><p><span>comprehensive综合的</span></p><p><span>spontaneous自发的</span></p><p>&nbsp;</p><p><span>spontaneous自发的</span></p><p><span>simultaneous同时发生的，同步的</span></p><p><span>auspicious 有助于成功的，有利的；吉利的，吉兆的</span></p><p><span>audacious 无畏的；鲁莽的</span></p><p><span>conspicuous 出色的，引人注目的；显眼的，明显的</span></p><p>&nbsp;</p><p><span>Early </span><mark><span>practitioners</span></mark><span> of the natural sciences developed methods to remove distortions caused by either the research environment or the researcher. Such methods, especially with </span><mark><span>respect</span></mark><span> to the researcher, were considered to (i)</span><strong><span>_</span></strong><span> those (ii)</span><strong><span>_</span></strong><span> subjectivity whose </span><mark><span>unbridled</span></mark><span> expression was thought to (iii)</span><strong><span>_</span></strong><span> research.</span></p><ul><li><p><span>Blank(i)</span></p><p><span>restrain</span></p><p><span>reveal</span></p><p><span>disguise</span></p></li><li><p><span>Blank(ii)</span></p><p><span>incursions of</span></p><p><span>restrictions on</span></p><p><span>acknowledgements of</span></p></li><li><p><span>Blank(iii)</span></p><p><span>corrupt</span></p><p><span>justification</span></p><p><mark><span>expedite</span></mark></p></li></ul><p><span>practitioner （医学界或法律界的）从业人员，执业者；&lt;正式&gt;从事者，实践者</span></p><p><span>respect</span></p><ul><li><p><em><span>n.</span></em><span>尊敬，敬重；重视，尊重；</span><mark><span>方面</span></mark><span>，着眼点；问候，敬意（respects）</span></p></li><li><p><em><span>v.</span></em><span>尊敬，敬佩；慎重对待，尊重；遵守；避免破坏（或干扰）</span></p></li></ul><p><span>unbridled</span></p><ul><li><p><em><span>adj.</span></em><span>放肆的；无拘束的；激烈的</span></p></li><li><p><em><span>v.</span></em><span>放纵（unbridle 的过去分词形式）；卸下马辔头</span></p></li></ul><p><span>【答案】A D G</span></p><p><span>【解析】指代关系：such methods = methods to remove distotions；</span></p><p><span>第二空根据those（上文的指代重复distortions）得知空+subjectivity=distortions，所以第二空选D选项；</span></p><p><span>第一空重复前文的remove，所以第一空选A选项；</span></p><p><span>第三空则根据distortions caused by either the research environment or the researcher，主观的东西(researcher体现主观) 会带来distortions，所以第三空对应distortions, 选G选项 corrupt 破坏。</span></p><p><span>【句子翻译】自然科学的早期实践者开发了一些方法来消除研究环境或研究者造成的误差。这种方法，特别是对研究人员而言，被认为是为了抑制那些不受约束的主观的侵入，因为他们的不受约束的表达被认为是破坏研究的。</span></p><p><span>【选项释义】</span></p><p><span>restrain 限制</span></p><p><span>reveal 揭露</span></p><p><span>disguise 伪装</span></p><p><span>incursions of ……的入侵</span></p><p><span>restrictions on 对……的限制</span></p><p><span>acknowledgements of 承认……</span></p><p><span>corrupt 破坏</span></p><p><span>justify 证明合法</span></p><p><mark><span>expedite</span></mark><span> 使加速</span></p><p>&nbsp;</p><p><span>The researcher noted that </span><mark><span>microbes</span></mark><span>, although </span><strong><span>_</span></strong><span>, make up far more of the living </span><mark><span>protoplasm</span></mark><span> on Earth than all humans, animals and plants combined.</span></p><p><span>A invisible</span></p><p><span>B omnipresent</span></p><p><span>C diminutive</span></p><p><span>D ubiquitous</span></p><p><span>E minuscule</span></p><p><span>F </span><mark><span>ethereal</span></mark></p><p><span>microbes 细菌，[微]微生物；微生物类（microbe 的复数形式）</span></p><p><span>protoplasm 原生质；原浆；细胞质</span></p><p><span>【答案】A F</span></p><p><span>【解析】although提示让步转折，句子主干部分说微生物占比很大，说明他们非常庞大可观，将其取反后选择AF最合适，体现并非庞大可观，也就是看不到的、非实体的。</span><strong><span>注意此处不能选择CE，因为微小的也有可能占比很大，所以这个特征不必然和主干部分构成取反。</span></strong></p><p><span>【翻译】研究人员指出，虽然微生物是看不见的，但它们在地球上的原生质中所占的比例远远超过所有人类、动物和植物的总和。</span></p><p><span>【选项释义】</span></p><p><span>A invisible 看不见的</span></p><p><span>B omnipresent 无所不在的</span></p><p><span>C diminutive 极小的</span></p><p><span>D ubiquitous 无所不在的</span></p><p><span>E minuscule 极小的</span></p><p><span>F </span><mark><span>ethereal</span></mark><span> 飘渺的；优雅的</span></p><p>&nbsp;</p><p><span>In Inuit culture, </span><mark><span>elaborate</span></mark><span> carving has often been used to enhance </span><strong><span>_</span></strong><span> object such as </span><mark><span>harpoon</span></mark><span> heads and other tools.</span></p><p><span>A utilitarian</span></p><p><span>B functional</span></p><p><span>C domestic</span></p><p><span>D decorative</span></p><p><span>E manufactured</span></p><p><span>F ornamental</span></p><p><span>harpoon</span></p><ul><li><p><em><span>n.</span></em><span>（捕鲸的）鱼叉，鱼镖</span></p></li><li><p><em><span>v.</span></em><span>用鱼叉叉，用鱼叉捕获</span></p></li></ul><p><span>elaborate</span></p><ul><li><p><em><span>adj.</span></em><span>复杂的，详尽的；</span><mark><span>精心制作的</span></mark></p></li><li><p><em><span>v.</span></em><span>详细说明，详尽阐述；精心制作</span></p></li></ul><p><span>【答案】A B</span></p><p><span>【解析】句子含有such as 举例解释结构，鱼叉的头和其他工具体现的是实用性，正确答案选 AB 选项。 utilitarian 实用的，functional 实用的。</span></p><p><span>【句子翻译】在因纽特人的文化中，精心制作的雕刻经常被用来改进实用的物件，比如鱼叉头或者是其他工具。</span></p><p><span>【选项释义】</span>
+<span>A. utilitarian 实用的</span>
+<span>B. functional 实用的</span>
+<span>C. domestic 家庭的</span>
+<span>D. decorative 装饰的</span>
+<span>E. manufactured 制作的</span>
+<span>F. ornamental 装饰的 </span></p><p>&nbsp;</p><p><span>Benjamin Franklin&#39;s reputation is so much one of appearing scientific investigation with commonsense empiricism that it is somewhat </span><mark><span>startling</span></mark><span> to realize how </span><strong><span>_</span></strong><span> the great experiment&#39;s </span><mark><span>mentoring</span></mark><span> truly was.</span></p><p><span>A reasonable</span></p><p><span>B speculative</span></p><p><span>C pragmatic</span></p><p><span>D conjectural</span></p><p><span>E careless</span></p><p><span>F </span><mark><span>judicious</span></mark></p><p><span>startling</span></p><ul><li><p><em><span>adj.</span></em><span>令人吃惊的，不寻常的；极鲜亮的</span></p></li><li><p><em><span>v.</span></em><span>使吓一跳，使惊奇（startle 的现在分词）</span></p></li></ul><p><span>mentoring</span></p><ul><li><p><em><span>n.</span></em><span>职业辅导制度；指导</span></p></li><li><p><em><span>v.</span></em><span>指导；做……的良师（mentor 的现在分词）</span></p></li></ul><p><span>【答案】B D</span></p><p><span>【解析】富兰克林的名声是调查研究而来的，所以当人们发现这个实验是一个推测的时候，人们感觉到惊讶。</span></p><p><span>【句子翻译】BF 的形象似乎总跟用日常的经验主义从事科学研究联系在一起，以至于当人们听说他最伟大的实验设计中有很多推断都不免讶异。</span></p><p><span>【选项释义】</span></p><p><strong><span>A</span></strong><span> reasonable 合理的</span></p><p><strong><span>B</span></strong><span> speculative 推测的</span></p><p><strong><span>C</span></strong><span> pragmatic 实际的 </span></p><p><strong><span>D</span></strong><span> conjectural 推测的</span></p><p><strong><span>E</span></strong><span> careless 不关心的</span></p><p><strong><span>F</span></strong><span> judicious 理智的 </span></p><p>&nbsp;</p><p><span>Scientist reported last month on a sign of relative solar </span><strong><span>_</span></strong><span>; the solar wind, a rush of charged particles continually </span><mark><span>spewed</span></mark><span> from the Sun at a million miles an hour, had diminished to its lowest level in 50 years.</span></p><p><span>A </span><mark><span>quiescence</span></mark></p><p><span>B turbulence</span></p><p><span>C isolation</span></p><p><span>D calm</span></p><p><span>E remoteness</span></p><p><span>F instability</span></p><p><span>spew 喷涌；呕吐</span></p><p><span>【答案】A D</span></p><p><span>【解析】空格对应 had diminished to its lowest level in 50 years，所以空格选体现“lowest”的词，正确答案选 AD 选项。quiescence 静止，calm 平静。</span></p><p><span>【句子翻译】科学家上个月报告称，太阳活动出现相对平静的标志：太阳风，一束由太阳内部不断向外喷出的，时速上百万英里的带电粒子流，已降至 50 年来的最低水平。</span></p><p><span>【选项释义】</span></p><p><strong><span>A</span></strong><span> quiescence 静止</span></p><p><strong><span>B</span></strong><span> turbulence 混乱</span></p><p><strong><span>C</span></strong><span> isolation 隔离</span></p><p><strong><span>D</span></strong><span> calm 平静</span></p><p><strong><span>E</span></strong><span> remoteness 遥远</span></p><p><strong><span>F</span></strong><span> instability 动荡</span></p><p>&nbsp;</p><h2 id='section-7-base-答题情况小结'><span>Section 7 Base 答题情况小结</span></h2><p><span>Many readers today consider the moral sentiments expressed in the ancient writers&#39; work to be quite </span><mark><span>vapid</span></mark><span>, and in the seventeenth century they were similarly regarded as </span><strong><span>_</span></strong><span>.</span></p><p><span>A </span><mark><span>jejune</span></mark></p><p><span>B </span><mark><span>didactic</span></mark></p><p><span>C </span><mark><span>dogmatic</span></mark></p><p><span>D tendentious</span></p><p><span>E arcane</span></p><p><span>vapid 无趣味的；无生气的；索然乏味的</span></p><p><span>【答案】A</span></p><p><span>【解析】通过 similarly 可知，空格的特征和前文的特征是一致的，前面对moral sentiments 的态度是 quite vapid，所以空格选 vapid 的同义词，正确答案选 A 选项。jejune 枯燥乏味的。</span></p><p><span>【句子翻译】今天的许多读者认为，古代的作者在作品中表达的那些道德立场相当乏味，而十七世纪读者也抱着相似的看法。</span></p><p><span>【选项释义】</span></p><p><span>A. jejune无聊的 Syn. vapid</span></p><p><span>B. didactic说教的</span></p><p><span>C. dogmatic教条的 Syn. preachy 说教的〔含贬义〕</span></p><p><span>D. tendentious有偏见的</span></p><p><span>E. arcane难懂的 Syn. esoteric, recondite, abstruse </span></p><p>&nbsp;</p><p><span>The author of this travel guide (i)</span><strong><span>_</span></strong><span> to show his readers Cairo as it really is, but his information is not reliable: for example, his geography is (ii)</span><strong><span>_</span></strong><span>, with one walking tour covering areas of the city that are twenty miles apart.</span></p><ul><li><p><span>Blank(i)</span></p><p><span>designs</span></p><p><span>forbears</span></p><p><mark><span>purports</span></mark></p></li><li><p><span>Blank(ii)</span></p><p><span>erratic</span></p><p><span>erudite</span></p><p><span>extensive</span></p></li></ul><p><span>【答案】C D</span></p><p><span>【解析】通过 show his readers Cairo as it really is, but his information is not reliable，说明第一空是这个作者想要给读者呈现真实内容，所以第一空选C选项。冒号前后取同，例子说明观点，第二空体现not reliable，所以正确答案选D选项。purport声称（一般是虚假的: to have the often specious appearance of being, intending, or claiming），erratic不稳定的。</span></p><p><span>【句子翻译】这本旅行指南的作者声称要向他的读者展示真实的开罗，但他的信息并不可靠：例如，他的地理位置不稳定，其中一次步行游览覆盖相距二十英里的城市地区。</span></p><p><span>【选项释义】</span></p><p><span>A. designs设计</span></p><p><span>B. forbears克制</span></p><p><span>C. </span><mark><span>purports</span></mark><span>声称</span></p><p><span>D. erratic不稳定的</span></p><ul><li><p><em><span>adj.</span></em><span>不稳定的，难以预测的</span></p></li><li><p><em><span>n.</span></em><span>漂泊无定的人，古怪的人；（地质）漂块，漂砾</span></p></li></ul><p><span>E. erudite博学的</span></p><p><span>F. extensive广泛的</span></p><p><span>网上查的资料这样说的：purport 表示“事与愿违的意图”，有时会和design对比考察，design只是一个简单的“意图”；而如果用purport表示不仅有这个意图，而且这个意图没有实现。</span></p><p>&nbsp;</p><p><span>Although political events in different countries were not (i)</span><strong><span>_</span></strong><span> in the nineteen century, their interrelationship was (ii)</span><strong><span>_</span></strong><span> compared with the present, when interdependence has become far greater: (iii)</span><strong><span>_</span></strong><span> has </span><mark><span>ceased to</span></mark><span> be an option.</span></p><ul><li><p><span>Blank(i)</span></p><p><span>unconnected</span></p><p><span>trivial</span></p><p><span>simultaneous</span></p></li><li><p><span>Blank(ii)</span></p><p><span>conditional</span></p><p><span>superficial</span></p><p><span>transparent</span></p></li><li><p><span>Blank(iii)</span></p><p><span>isolationism</span></p><p><span>resilience</span></p><p><span>idealism</span></p></li></ul><p><span>ceased to 停止做某事：指不再继续进行某项活动或行为。</span></p><p><span>【答案】A E G</span></p><p><span>【解析】interrelationship=not+空格，所以空格选 interrelationship 的反义，正确答案选 A 选项，第三空根据 interdependence 变得 greater 得知，不再是选择的应该是 interdependence 的反义，所以第三空选 G 选项，最后填第二空，既然 interdependence 不再是选择了，说明现在的国家的相互联系更强了，所以过去的相互联系比现在的相互联系更弱，所以第二空选 E 选项。</span></p><p><span>unconnected 不相关的，superficial 表面的，肤浅的，isolationism 孤立主义。</span></p><p><span>【句子翻译】尽管在不同国家的政治事件在19 世纪的时候是相互联系的，但是它们的相互联系和当前比起来更加浅薄，当相互依赖变得越来越强的时候：孤立主义不再是一个选择了。</span></p><p><span>【选项释义】</span></p><p><span>unconnected 没有联系的</span></p><p><span>trivial 琐屑的</span></p><p><span>simultaneous 同时的</span></p><p><span>conditional 有条件的</span></p><p><span>superficial 肤浅的</span></p><p><span>transparent 透明的</span></p><p><span>isolationism 孤立主义</span></p><p><span>resilience 弹性</span></p><p><span>idealism 理想主义 </span></p><p>&nbsp;</p><p><mark><span>Publicity</span></mark><span> surrounding </span><mark><span>celebrities</span></mark><span>&#39; donations to charity is often greeted with </span><mark><span>cynicism</span></mark><span>, but a study of </span><mark><span>celebrity</span></mark><span> donation shows that they do </span><strong><span>_</span></strong><span> other donations.</span></p><p><span>A preclude</span></p><p><span>B elicit</span></p><p><span>C allow</span></p><p><span>D draw</span></p><p><span>E bar</span></p><p><span>F replace</span></p><p><span>Publicity（媒体的）关注，报道；宣传， 推广；宣传业，广告行业；宣传品，广告；引起公众关注的事物</span></p><p><span>celebrities 名人（celebrity 的复数）</span></p><p><span>celebrity 名声，名望；名人，明星</span></p><p><span>cynicism 愤世嫉俗；犬儒主义；</span><mark><span>冷嘲热讽</span></mark></p><p><span>【答案】B D</span></p><p><span>【解析】前面对于这种 donation 给予 cynicism，but 转折，所以后面对于donation 正评价：这些捐献能够推动别的捐献。elicit 引出，draw 吸引。</span></p><p><span>【句子翻译】人们对名人向慈善机构捐款的宣传往往持冷嘲热讽的态度，但一项关于名人捐款的研究表明，名人捐款确实能吸引其他捐款。</span></p><p><span>【选项释义】</span></p><p><span>A. preclude排除</span></p><p><span>B. elicit引出</span></p><p><span>C. allow容许</span></p><p><span>D. draw吸引</span></p><p><span>E. bar禁止</span></p><p><span>F. replace代替</span></p><p>&nbsp;</p><p><span>Aerial viewings of the </span><mark><span>gigantic</span></mark><span> stone horse attributed to the Native American Quechuan people fail to </span><strong><span>_</span></strong><span> the considerable artistry required to create the piece: the horse appears crudely constructed unless carefully examined from the ground.</span></p><p><span>A reveal</span></p><p><span>B justify</span></p><p><span>C manifest</span></p><p><span>D mitigate</span></p><p><span>E diminish</span></p><p><span>F undercut</span></p><p><span>gigantic 巨大的，庞大的</span></p><p><span>artistry 艺术性；工艺；艺术技巧；艺术效果；艺术工作</span></p><p><span>【答案】A C</span></p><p><span>【句子翻译】由美洲盖比亚人建造的巨石马，在空中俯瞰的时候，没有能够显示出建造一个艺术品的时候应该有的艺术性。这匹马看起来是被极其粗糙的建造，除非是在地面上仔仔细细地观察。</span></p><p><span>【选项释义】</span></p><p><span>A. reveal揭露</span></p><p><span>B. justify证明合法</span></p><p><span>C. manifest展现</span></p><ul><li><p><em><span>v.</span></em><span>显示，表明；（鬼魂或神灵）显灵，出现；（病症）显现；把……列入货单</span></p></li><li><p><em><span>adj.</span></em><span>明显的，显而易见的</span></p></li></ul><p><span>D. mitigate缓和</span></p><p><span>E. diminish减少</span></p><p><span>F. undercut削弱</span></p><p>&nbsp;</p><p><span>Culture, like speech, is primarily a human </span><mark><span>faculty</span></mark><span>, although both functions may exist in a more </span><strong><span>_</span></strong><span> form in lesser </span><mark><span>primates</span></mark><span>.</span></p><p><span>A </span><mark><span>indispensable</span></mark></p><p><span>B crucial</span></p><p><span>C primitive</span></p><p><span>D intelligible</span></p><p><span>E recognizable</span></p><p><span>F rudimentary</span></p><p><span>faculty </span><mark><span>机能；天赋，才能</span></mark><span>；（高等院校的）系，院；&lt;美&gt; 全体教员；&lt;旧&gt;（某行业，尤指医学行业的）全体从业人员；（尤指来自教会当权者的）特许证，许可证</span></p><p><span>primate</span></p><ul><li><p><em><span>n.</span></em><span>灵长目动物（包括人、猴子等）；大主教；首领</span></p></li><li><p><em><span>adj.</span></em><span>灵长目动物的；大主教的</span></p></li></ul><p><span>【答案】C F</span></p><p><span>【解析】让步关系，前面说主要是人类的能力，后文说在一些灵长类动物中也会以一种更加原始的方式出现，也就是说人类和灵长类动物都有文化和演讲，但是灵长类动物的文化和演讲更原始（初级），正确答案选 CF 选项。primitive 原始的，rudimentary 原始的。</span></p><p><span>【句子翻译】</span></p><p><span>译一：文化，就像演讲一样，主要是人类的能力，尽管同样的功能能够以一种更原始的形式出现于一小部分灵长类动物中。</span></p><p><span>译二：耕种，类似于讲演，主要是人类的技能，尽管较低级的灵长类中存在二者的初级形式。</span></p><p><span>【选项释义】</span></p><p><span>A.  </span><mark><span>indispensable</span></mark><span>不可缺少的</span></p><p><span>B.  crucial重要的</span></p><p><span>C.  primitive原始的</span></p><p><span>D.  intelligible可理解的</span></p><p><span>E.  recognizable可辨认的</span></p><p><span>F.  rudimentary基本的；初步的</span></p><p>&nbsp;</p><p><span>Jackie Wullschlager&#39;s biography of Hans Christian Andersen </span><strong><span>_</span></strong><span> the insipid sweetness with which Andersen coated his life and reveals a vulnerable gingerbread man with a bitter almond where his heart should be.</span></p><p><span>A conjures up</span></p><p><span>B imagines</span></p><p><span>C strips away</span></p><p><span>D overlooks</span></p><p><span>E removes</span></p><p><span>F ignores</span></p><p><span>【答案】C E</span></p><p><span>【解析】整句是个并列结构：biography </span><strong><span>_</span></strong><span> the insipid sweetness and reveals a vulnerable gingerbread man. 空格对应动词reveals, 可知 “去掉，剥离”</span></p><p><span>【句子翻译】JW 所写的安徒生传记，剥离了后者刻意披上的乏味的温和可亲的外衣，展示了一个内心凄苦，遍体鳞伤，长着深棕色头发的男人。</span></p><p><span>【选项释义】</span>
+<span>A. conjures up 变出 </span>
+<span>B. imagines 想象</span>
+<span>C. strip away 除去</span>
+<span>D. overlooks 忽略</span>
+<span>D. remove 去掉</span>
+<span>F. ignores忽略 </span></p><p><span>虽然gingerbread在韦氏词典中的解释有“没有用”的意思，但是感觉这里就是用姜饼人比喻Andersen（外表如ginderbread一样甜，但内在像bitter almond一样苦）？强调“外在”和“内在”的反差，所以填有“剥离”含义的strip away和remove，而不是“忽视”（虽然意思上能讲得通）。</span></p><p>&nbsp;</p><h2 id='section-8-base-答题情况小结'><span>Section 8 Base 答题情况小结</span></h2><p><span>For the urban researcher, the long lives of ancient cities can provide </span><mark><span>ample</span></mark><span> </span><mark><span>chronological</span></mark><span> data, </span><mark><span>making up for</span></mark><span> the </span><mark><span>paucity</span></mark><span> stemming from relative </span><strong><span>_</span></strong><span> of most present-day cities.</span></p><p><span>A complexity</span></p><p><span>B </span><mark><span>formlessness</span></mark></p><p><span>C transparency</span></p><p><span>D diversity</span></p><p><span>E youthfulness</span></p><p><span>ample 充足的，充裕的；丰满的；宽敞的，巨大的</span></p><p><span>chronological 按发生时间顺序排列的；（年龄）按时间计算的</span></p><p><span>paucity 缺乏；少数；少量</span></p><p><span>make up for 弥补，补偿，抵消：通过做某事来纠正或改善其他事情</span></p><p><span>【答案】E</span></p><p><span>【解析】空格要填入一个词作为当前城市的历史资料缺乏的原因，能导致这种缺乏的原因是 E 选项，城市的年轻导致了资料的缺乏。youthfulness 年轻。</span></p><p><span>【句子翻译】对于研究城市的学者，历史悠久的古城能提供丰富的年代学数据，弥补了多数现代都市历史较短造成的信息不足。</span></p><p><span>【选项释义】</span></p><p><span>A.  complexity复杂性</span></p><p><span>B.  formlessness无形</span></p><p><span>C.  transparency透明</span></p><p><span>D.  diversity多样性</span></p><p><span>E.  youthfulness年轻</span></p><p>&nbsp;</p><p><span>The school system&#39;s modest plan for curriculum improvements has (i)</span><strong><span>_</span></strong><span> local educators: some call it (ii)</span><strong><span>_</span></strong><span> effort, while others say it is a pragmatic approach given the complexity of the task.</span></p><ul><li><p><span>Blank(i)</span></p><p><span>surprised</span></p><p><span>impressed</span></p><p><span>divided</span></p></li><li><p><span>Blank(ii)</span></p><p><span>genuine</span></p><p><span>halfhearted</span></p><p><span>practical</span></p></li></ul><p><span>【答案】C E</span></p><p><span>【解析】some...while others 能看出这里有两种态度，所以第一空选 C 选项，第二空根据 while 后面的特征 pragmatic 倒推即可，所以第二空应该是负评价词，所以第二空选 E 选项。divided 有分歧的，halfhearted 不认真的。</span></p><p><span>【句子翻译】该校系统对课程改进的简单计划让当地的教育工作者产生了分歧：一些说它是半心半意的努力，而另一些说鉴于任务的复杂性，这倒是个务实的方法。</span></p><p><span>【选项释义】</span></p><figure class='table-figure'><table><thead><tr><th><span>Blank(i)</span></th><th><span>Blank(ii)</span></th></tr></thead><tbody><tr><td><span>A. surprised惊讶</span></td><td><span>D. genuine真实的</span></td></tr><tr><td><span>B. impressed印象深刻</span></td><td><span>E. halfhearted不认真的</span></td></tr><tr><td><span>C. divided分开；意见分歧</span></td><td><span>F. practical实用的</span></td></tr></tbody></table></figure><p>&nbsp;</p><p><span>The (i)</span><strong><span>_</span></strong><span> quality of much contemporary drawing may be attributable to the use of photography as a drawing </span><mark><span>shortcut</span></mark><span>. Photography (ii)</span><strong><span>_</span></strong><span> modern arts, but when it is used as a tracing tool in order to (iii)</span><strong><span>_</span></strong><span> the difficulties of achieving correct proportion, the resulting art often feels static and lifeless.</span></p><ul><li><p><span>Blank(i)</span></p><p><mark><span>inert</span></mark></p><p><mark><span>jubilant</span></mark></p><p><mark><span>sensuous</span></mark><span> </span></p></li><li><p><span>Blank(ii)</span></p><p><span>frequent </span><mark><span>enervated</span></mark></p><p><span>wonderfully enriched</span></p><p><span>inevitably circumscribed</span></p></li><li><p><span>Blank(iii)</span></p><p><span>augment</span></p><p><mark><span>foreground</span></mark></p><p><span>circumvent</span></p></li></ul><p><span>enervate</span></p><ul><li><p><em><span>vt.</span></em><span>使衰弱，使失去活力</span></p></li><li><p><em><span>adj.</span></em><span>衰弱的，无力的</span></p></li></ul><p><span>shortcut</span></p><ul><li><p><em><span>n.</span></em><span>近路；捷径，快捷方法；（电脑操作中的）快捷方式；（计算机）快捷键</span></p></li><li><p><em><span>v.</span></em><span>通过使用捷径缩短（路线、程序等）；抄近道</span></p></li></ul><p><span>【答案】A E I </span></p><p><span>【解析】第一空对应句尾的 static and lifeless，第二空根据 but 得知前后转折，but 之后的特征是 static and lifeless，所以第二空选正评价词，第二空选 E 选项，第三空搭配，摄影被用为一种工具去克服困难，所以第三空选 I选项。inert 无生气的，enrich 使丰富，circumvent 回避。 </span></p><p><span>【句子翻译】许多当代绘画缺乏生气可能是由于使用了照片用来辅助绘画。摄影本来极度丰富了现代艺术，但当它被当作一种描摹工具，用以规避构图过程中确定正确比例关系的困难，最终完成的绘画往往就给人一种静态无生气的感觉。 </span></p><p><span>【选项释义】 </span></p><p><mark><span>A. inert惰性的；无生气的</span></mark><span> </span></p><p><mark><span>B. jubilant欢腾的</span></mark><span> </span></p><p><mark><span>C. sensuous感性的</span></mark><span> </span></p><p><span>D. frequently enervated频繁地削弱 </span></p><p><span>E. wonderfully enriched奇妙地丰富</span></p><p><span>F. inevitably circumscribed不可避免地受到限制</span></p><p><span>G. augment增强 </span></p><p><span>H. </span><mark><span>foreground</span></mark><span>前景 </span></p><p><span>I. circumvent回避</span></p><p>&nbsp;</p><p><span>While it is always clear that the author&#39;s message is heartfelt, it is mostly buried by shortcomings of style, organization, and production, although the book does become more </span><strong><span>_</span></strong><span> toward the end.</span></p><p><span>A sincere</span></p><p><span>B intelligible</span></p><p><span>C orthodox</span></p><p><span>D readable</span></p><p><span>E frank</span></p><p><span>F </span><mark><span>voluble</span></mark></p><p><span>【答案】B D</span></p><p><span>【解析】让步关系，although 前面的 buried by shortcoming 是负评价，所以空格要对应buried，所以答案选 BD 选项。intelligible 可识别的，readable 可读的。AE为近义词，但不如BD对应更合句义要求。</span></p><p><span>【句子翻译】尽管读者能明确感觉到作者的诚恳，且书的后部的确渐入佳境，但这本书因为风格，结构和印刷装订等缺点，基本上还是被抛弃了。</span></p><p><span>【选项释义】</span></p><p><span>A sincere 真诚的 </span></p><p><span>B intelligible 可理解的，明白易懂的；只能凭智力理解的</span></p><p><span>C orthodox 正统的——paradoxical 自相矛盾的；事与愿违的</span></p><p><span>D readable 可读的</span></p><p><span>E frank 坦率的</span></p><p><span>F voluble 健谈的；缠绕的；易旋转的</span></p><p>&nbsp;</p><p><span>A clever form of diplomacy involves subtly </span><mark><span>inducing</span></mark><span> the other party to propose your preference so that your </span><strong><span>_</span></strong><span> their requests appears as the granting of concession.</span></p><p><span>A accession to</span></p><p><span>B inattention to</span></p><p><span>C subversion of</span></p><p><span>D </span><mark><span>abnegation</span></mark><span> of</span></p><p><span>E </span><mark><span>repudiation</span></mark><span> of</span></p><p><span>F acquiescence to</span></p><p><span>induce引诱，诱使；引起，导致；（用药物）催生；归纳出</span></p><p><span>abnegation 拒绝；放弃；克制</span></p><p><span>repudiation 否认，拒绝；抛弃，断绝关系</span></p><p><span>【答案】A F</span></p><p><span>【解析】结果是 as the granting of concession，所以空格要体现</span></p><p><span>concession 的意思，正确答案选 AF 选项。accession to 加入，acquiescence to 默许。</span></p><p><span>【句子翻译】外交的一种聪明的形式包含了不明显地引起另一党提出你的偏好，这样你对于他们的请求表示默许就是一种让步。</span></p><p><span>【选项释义】</span></p><p><span>A.  accession to加入</span></p><p><span>B.  inattention to注意力不集中</span></p><p><span>C.  subversion of颠覆</span></p><p><span>D.  abnegation of抵制</span></p><p><span>E.  repudiation of拒绝</span></p><p><span>F.  acquiescence to默认</span></p><p><span>accession来自于动词accede，有同意、即位的意思</span></p><p>&nbsp;</p><p><span>Films that critics have </span><mark><span>slumbered</span></mark><span> through rarely </span><mark><span>generate</span></mark><span> industry excitement, even though the critics&#39; </span><strong><span>_</span></strong><span> </span><mark><span>reception</span></mark><span> may be less the fault of the movie than of its unfortunate time </span><mark><span>slot</span></mark><span> near a </span><mark><span>fatiguing</span></mark><span> film festival&#39;s conclusion.</span></p><p><span>A </span><mark><strong><span>somnolent</span></strong></mark></p><p><span>B </span><mark><span>impartial</span></mark></p><p><span>C </span><mark><strong><span>lethargic</span></strong></mark></p><p><span>D </span><mark><span>laconic</span></mark></p><p><span>E </span><mark><span>befuddled</span></mark></p><p><span>F evenhanded</span></p><p><span>slumber</span></p><ul><li><p><em><span>n.</span></em><span>睡眠；麻木状态；静止状态</span></p></li><li><p><em><span>vi.</span></em><span>睡眠；蛰伏；麻木</span></p></li><li><p><em><span>vt.</span></em><span>睡眠；睡着度过</span></p></li></ul><p><span>generate产生，</span><mark><span>引起</span></mark></p><p><span>reception接待处，服务台；欢迎会，招待会；欢迎，</span><mark><span>反响</span></mark></p><p><span>slot</span></p><ul><li><p><em><span>n.</span></em><span>（可投入东西的）狭长孔，狭槽；（在一系列事件中为某事安排的）</span><mark><span>时间，空档</span></mark><span>；（组织、团体等中的）位置，职位</span></p></li><li><p><em><span>v.</span></em><span>把……投入窄孔中，把……放到指定位置；为……安排时间，安置； 与……融洽相处，适应（生活方式）；&lt;非正式&gt;（足球运动员）准确射门进球</span></p></li></ul><p><span>fatigue</span></p><ul><li><p><em><span>n.</span></em><span>疲乏，厌倦；（金属部件的）疲劳；（士兵穿的）工作服；士兵杂役（尤指作为惩罚,如做打扫、帮厨）</span></p></li><li><p><em><span>v.</span></em><span>使疲劳，使劳累</span></p></li><li><p><em><span>adj.</span></em><span>疲劳的</span></p></li></ul><p><span>【答案】A C</span></p><p><span>【解析】空格对应 rarely generate industry excitement，而且后文说不是电影本身的错，说明空格也应该是负评价词，所以答案选 AC 选项。somnolent打瞌睡的，lethargic 无精打采的。</span></p><p><span>【句子翻译】让影评人从头睡到尾的影片很少获得市场认可，即便影评人犯困未必是电影本身的错，只因此片档期不幸与让人疲劳的电影节撞车。</span></p><p><span>【选项释义】</span></p><p><strong><span>A</span></strong><span> </span><mark><span>somnolent</span></mark><span> 瞌睡的</span></p><p><strong><span>B</span></strong><span> </span><mark><span>impartial</span></mark><span> 公正的</span></p><p><strong><span>C</span></strong><span> </span><mark><span>lethargic</span></mark><span> 无精打采的</span></p><p><strong><span>D</span></strong><span> </span><mark><span>laconic</span></mark><span> 简洁的</span></p><p><strong><span>E</span></strong><span> </span><mark><span>befuddled</span></mark><span> 困惑的</span></p><p><strong><span>F</span></strong><span> evenhanded 公正的 </span></p><p><span>slumber = lethargic = somnolent</span></p><p><span>沉睡 = 昏昏欲睡 = 嗜睡</span></p><p>&nbsp;</p><p><span>Even the cleverest use of time management techniques is powerless to </span><strong><span>_</span></strong><span> the sum of minutes in a person&#39;s life (over 52 million, optimistically assuming a life expectancy of 100 years ), so people squeeze as much as they could into each one of them.</span></p><p><span>A justify</span></p><p><span>B quantify</span></p><p><span>C augment</span></p><p><span>D enrich</span></p><p><span>E measure</span></p><p><span>F extend</span></p><p><span>【答案】CF</span></p><p><span>【解析】so因果取同，so people squeeze as much as they could into each one of them 说明powerless to + 空格 + the sum of minutes，所以延长寿命是不可能的，答案选CF选项</span></p><p><span>【句子翻译】即使是最巧妙的时间管理技巧，也无法增加一个人一生的时间总和（超过5200万，乐观地假设预期寿命为100年），所以人们竭尽全力地挤压其中的每一分钟。</span></p><p><span>【选项释义】</span></p><p><span>A. justify 证明合理</span></p><p><span>B. quantify 量化</span></p><p><span>C. augment 增加</span></p><p><span>D. enrich 丰富</span></p><p><span>E. measure 衡量</span></p><p><span>F. extend 扩大</span></p><p><span>enrich为啥不行？</span></p><p><span>enrich: improve or enhance the quality or value of</span></p><p><span>enrich强调提升质量和价值而不是数量（时间的长度），可以理解为enrich 是增加生命的宽度？</span></p><p>&nbsp;</p><h2 id='section-9-base-答题情况小结'><span>Section 9 Base 答题情况小结</span></h2><p><span>Few studies have been published on ground-squirrel </span><mark><span>dispersal</span></mark><span>, and most of them have involved very small sample sizes, thus most statement regarding ground-squirrel dispersal must be considered </span><strong><span>_</span></strong><span>.</span></p><p><span>A invaluable</span></p><p><span>B unexceptional</span></p><p><span>C inveterate</span></p><p><span>D routine</span></p><p><span>E conjectural</span></p><p><span>dispersal 分散；传播；散布；疏散；消失</span></p><p><span>【答案】E </span></p><p><span>【解析】few studies 和 very small sample sizes 表明对ground-squirrel dispersal的研究比较有限、样本数量极少，也就说明跟它们相关大多数言论都不是基于研究的，即都是推测性的，正确答案选 E 选项。conjectural 推测的。 </span></p><p><span>【句子翻译】现已发表的关于地松鼠分布情况的研究不多，且其中大多限于样本数量过小（的问题），因而多数关于地松鼠分布情况的陈述一定是推测性的。 </span></p><p><span>【选项释义】 </span></p><p><span>A.invaluable 珍贵的 </span></p><p><span>B.unexceptional 普通的 </span></p><p><span>C.inveterate 根深的；积习难改的；成癖的</span></p><p><span>D. routine 惯例的 </span></p><p><span>E. conjectural 推测的</span></p><p>&nbsp;</p><p><span>It would be naive to treat remarks made in diaries or personal letters as giving especially </span><mark><span>candid</span></mark><span> access to historical truth or even as being expressions of the writer`s true state of mind, since the (i)</span><strong><span>_</span></strong><span> for exaggeration and </span><mark><span>deception</span></mark><span> in those forms is virtually nonexistent. Diaries and letters are rarely sites for (ii)</span><strong><span>_</span></strong><span>.</span></p><ul><li><p><span>Blank(i)</span></p><p><span>motivation</span></p><p><mark><span>penalty</span></mark></p><p><span>tendency </span></p></li><li><p><span>Blank(ii)</span></p><p><mark><span>premeditated</span></mark><span> </span><mark><span>manipulation</span></mark></p><p><span>childish </span><mark><span>theatrics</span></mark></p><p><span>balanced reflection</span></p></li></ul><p><span>candid 坦率的，直言不讳的；抓拍的，偷拍的；公正的</span></p><p><span>deception 欺骗，蒙骗；骗术，骗局</span></p><p><span>【答案】B F</span></p><p><span>【解析】第一空因果关系，没有惩罚，所以内容不一定真实，所以第一空选 B选项。第二空根据 rarely 得知选体现真实的意思，所以选 F 选项。penalty 惩罚，balanced reflection 公正的反映。</span></p><p><span>【句子翻译】 认为日记或私人信件中的评论，是直达历史真相的特殊途径，或甚至认为其表现了述话人的真实精神状态，是幼稚的，因为通过这些形式夸大或欺骗，实际上不会受到任何惩罚。日记和私人信件中向来少有持平之论。</span></p><p><span>【选项释义】</span></p><p><span>motivation 动机</span></p><p><mark><span>penalty</span></mark><span> 惩罚</span></p><p><span>tendency 倾向 </span></p><p><span>premeditated manipulation 预谋的操纵</span></p><p><span>childish theatrics 幼稚的表演 </span></p><p><span>balanced reflection 公正的反映</span></p><p>&nbsp;</p><p><span>premeditate</span></p><ul><li><p><em><span>vi.</span></em><span>预谋；预先考虑</span></p></li><li><p><em><span>vt.</span></em><span>预谋；预先考虑</span></p></li></ul><p><span>manipulation 操纵；推拿；（熟练的）控制，使用；（对账目等的）伪造，篡改；（对储存在计算机上的信息的）操作，处理</span></p><p><span>theatrics 戏剧演出；舞台效果；舞台表演艺术</span></p><p>&nbsp;</p><p><span>The experimental theater company&#39;s members know that their performances (i)</span><strong><span>_</span></strong><span> an audience, that they were dense and unpredictable and not always easy to digest. But none of the techniques used would be (ii)</span><strong><span>_</span></strong><span> anyone with an interest in music or films. Indeed, they would seem strange only to people who expected to see traditionally crafted plays. The actors therefore felt that theater critics&#39; </span><mark><span>derisive</span></mark><span> commentary showed only that the critics (iii)</span><strong><span>_</span></strong><span> the company&#39;s work.</span></p><ul><li><p><span>Blank(i)</span></p><p><span>made demands on</span></p><p><span>had to command</span></p><p><span>were sure to please</span></p></li><li><p><span>Blank(ii)</span></p><p><mark><span>contemplated</span></mark><span> by</span></p><p><mark><span>alien</span></mark><span> to</span></p><p><span>intuitive for</span></p></li><li><p><span>Blank(iii)</span></p><p><mark><span>lambasted</span></mark></p><p><span>exploited</span></p><p><span>misunderstood</span></p></li></ul><p><span>contemplate 沉思，深思熟虑；盘算，打算；凝视，注视；考虑接受（发生某事的可能性）</span></p><p><span>alien</span></p><ul><li><p><em><span>adj.</span></em><span>陌生的；外国的，异域的；与外星人有关的，与地球外有关的；（植物或动物种类）外来的；不相容的，格格不入的 （alien to）</span></p></li><li><p><em><span>n.</span></em><span>外国人，侨民；外星人（或生物）；（植物或动物种类）外国引进品种</span></p></li><li><p><em><span>v.</span></em><span>让渡，转让</span></p></li></ul><p><span>derisive 嘲笑的，嘲弄的；可付之一笑的</span></p><p><span>lambaste 痛打；严责；鞭打</span></p><p><span>【答案】A E I</span></p><p><span>【解析】第一空根据 dense, unpredictable 和 not easy to digest 说明表演对观众要求很高，所以第一空选 A 选项，第二空转折，尽管要求高，但对于那些对音乐和电影有兴趣的人不至于是怎么样的，第二空选要求高的递进词，正确答案选 E 选项，第三空根据前面的解释得知答案，前面说只有想要看到传统戏剧的人才会觉得奇怪，所以如果这些人去嘲笑，说明这些人是误解了这些作品，第三空选 I 选项。make demands on 对…提出要求，alien to 与…不相容，misunderstand 误解。</span></p><p><span>【句子翻译】先锋戏剧剧团的成员们明白，他们的剧对观众来说有一定门槛，晦涩难测往往不易理解。但任何对音乐或电影感兴趣的观众，都不会对他们运用的技巧感到陌生。实际上，大概只有想看传统戏剧的人会觉得他们的表演奇怪。因此演员们认为，那些语出讥讽的评论家没看懂他们的作品。</span></p><p><span>【选项释义】</span></p><p><span>made demands on 对...有需求</span></p><p><span>had to command 必须命令</span></p><p><span>were sure to please 肯定使...开心</span></p><p><span>contemplated by 被...思考</span></p><p><span>alien to 对...感到陌生</span></p><p><span>intuitive for 直觉的</span></p><p><span>lambasted 批评、痛斥</span></p><p><span>exploited 被利用</span></p><p><span>misunderstood 被误解</span></p><p>&nbsp;</p><p><span>alien to 不仅有疏远的意思，还有对...感到陌生的意思</span></p><p><span>experimental 先锋的，实验的</span></p><p><span>made demands on sb 对某人提出要求（对某人设立门槛）</span></p><p><span>had to command sb 不得不对某人发号施令</span></p><p><span>sth is intuitive for sb 某物对某人来说很 直观</span></p><p><span>dense = acrane 难懂的，晦涩的</span></p><p><span>traditionally crafted plays 传统戏剧</span></p><p><span>derisive = scoffing = teasing 嘲笑的，讥讽的</span></p><p><span>lambaste = criticize = condemn 痛斥，谴责</span></p><p>&nbsp;</p><p><span>In the absence of a surface </span><mark><span>gradient</span></mark><span>, the new laws of </span><mark><span>refraction</span></mark><span> and </span><mark><span>reflection</span></mark><span> are </span><strong><span>_</span></strong><span> the conventional law, so they represent more of an extension than a complete revolution.</span></p><p><span>A </span><mark><span>inferable</span></mark><span> from</span></p><p><span>B </span><mark><span>entailed</span></mark><span> by</span></p><p><span>C antithetical to</span></p><p><span>D coincident with</span></p><p><span>E antecedent to</span></p><p><span>F oppositional to</span></p><p><span>gradient</span></p><ul><li><p><em><span>n.</span></em><span>（尤指道路或铁路的）斜坡，坡度；（温度或压力变化的）梯度；（</span><mark><span>数学）斜率；梯度，梯度率</span></mark><span>；（数学）梯度算子</span></p></li><li><p><em><span>adj.</span></em><span>倾斜的；步行的，能步行的</span></p></li></ul><p><span>refraction 折射；折光</span></p><p><span>reflection （光、热或声音的）反射；反射光，反射热，回声</span></p><p><span>inferable 能推论的；能推理的</span></p><p><span>【答案】A B</span></p><p><span>【解析】so they represent more of an extension than a complete revolution 说明空格体现的是 extension，那么对应的答案是 AB 选项。</span></p><p><span>inferable from 从...推论，entailed by 被…引出。</span></p><p><span>【句子翻译】在不考虑梯度折射率的情况下， 新的折射和反射定律可以由传统的定律推导出，所以这些定律算是一个拓展而不是一个彻底的改变。</span></p><p><span>【选项释义】</span></p><p><span>A. </span><mark><span>inferable from 从...推断</span></mark></p><p><span>B. </span><mark><span>entailed by 由...带来</span></mark></p><p><span>C. antithetical to 与...对立</span></p><p><span>D. coincident with 符合、与……同时发生：表示两个或多个事件在同一时间发生或重合</span></p><p><span>E. antecedent to 先行于</span></p><p><span>F. oppositional to 对抗</span></p><p>&nbsp;</p><p><mark><span>Flawed</span></mark><span> as it may be because it is conducted by subjective scientists, science itself has methods that help us </span><strong><span>_</span></strong><span> our biases and talk about objective reality with some validity.</span></p><p><span>A bypass</span></p><p><span>B reduce</span></p><p><span>C exacerbate</span></p><p><span>D magnify</span></p><p><span>E acknowledge</span></p><p><span>F circumvent</span></p><p><span>flaw</span></p><ul><li><p><em><span>n.</span></em><span>缺点，缺陷；裂痕，瑕疵</span></p></li><li><p><em><span>v.</span></em><span>削弱，使失效</span></p></li></ul><p><span>【答案】A F</span></p><p><span>【解析】注意 as 是尽管的意思，题目的意思是尽管是由主管的科学家做的，但是科学本身能够避开这种主观，所以答案选 AF 选项。bypass 避开，circumvent 避开。</span></p><p><span>【句子翻译】由主观的科学家们构建的科学体系也许仍有疏失，但科学本身可以为我们提供一些方式，有效地帮助我们避开偏见，讨论客观现实。</span></p><p><span>【选项释义】</span></p><p><strong><span>A</span></strong><span> bypass避开</span></p><p><strong><span>B</span></strong><span> reduce减少</span></p><p><strong><span>C</span></strong><span> exacerbate加剧</span></p><p><strong><span>D</span></strong><span> magnify放大</span></p><p><strong><span>E</span></strong><span> acknowledge承认</span></p><p><strong><span>F</span></strong><span> circumvent避开</span></p><p>&nbsp;</p><p><span>In Japanese aesthetics, especially but not only in Noh, beauty contains the idea of </span><strong><span>_</span></strong><span>: beauty must have an air of evanescence, the </span><mark><span>intimation</span></mark><span> of its own demise.</span></p><p><span>A transience</span></p><p><span>B </span><mark><span>symmetry</span></mark></p><p><span>C decay</span></p><p><span>D simplicity</span></p><p><span>E balance</span></p><p><span>F deterioration</span></p><p><span>intimation 暗示；告知；讽示</span></p><p><span>demise 倒闭，败落；死亡，逝世；（律）（财产或所有权的）转让，遗赠</span></p><p><span>【答案】C F</span></p><p><span>【解析】空格重复后文的 an air of evanescence, the intimation of its own demise，正确答案选 CF 选项，对应 intimation of its own demise。decay 衰退，deterioration 衰退，此题 A 选项也正确，但是没有同义词，所以不选。</span></p><p><span>【句子翻译】在日本美学中，尤其是但又不仅仅局限于在 N 中，美感包含颓败，美感必须展示出稍纵即逝的气息，暗示自我的消亡。</span></p><p><span>【选项释义】</span></p><p><strong><span>A</span></strong><span> transience 短暂</span></p><p><strong><span>B</span></strong><span> symmetry 对称</span></p><p><strong><span>C</span></strong><span> decay 衰退</span></p><p><strong><span>D</span></strong><span> simplicity 简单化</span></p><p><strong><span>E</span></strong><span> balance 平衡</span></p><p><strong><span>F</span></strong><span> deterioration 恶化，衰退 </span></p><p>&nbsp;</p><p><span>The uniquely human ability to rethink and revise our social arrangements is a weird blessing, allowing us to create systems that are as likely to </span><strong><span>_</span></strong><span> us as to liberate us.</span></p><p><span>A cheer</span></p><p><span>B shackle</span></p><p><span>C admonish</span></p><p><span>D educate</span></p><p><span>E </span><mark><span>stifle</span></mark></p><p><span>F enliven</span></p><p><span>【答案】B E</span></p><p><span>【解析】题目关键点在 weird“奇怪的”，说明后面要体现对立特征，其中一个特征是 liberate，所以空格要选 liberate 的反义，所以正确答案选 BE 选项。shackle 束缚，stifle 镇压。</span></p><p><span>【句子翻译】人类独有的，反思与修改我们社会制度安排的能力，是一种诡异的恩赐，它允许我们创造出束缚自身的系统，亦如另外一些解放自己的系统。</span></p><p><span>【选项释义】</span></p><p><span>A. cheer欢呼</span></p><p><span>B. shackle束缚</span></p><p><span>C. admonish告诫</span></p><p><span>D. educate教育</span></p><p><span>E. </span><mark><span>stifle</span></mark><span>扼杀</span></p><p><span>F. enliven活跃</span></p><p><strong><span>as...as...结构一定要看到，不然就会取反了！</span></strong></p><p>&nbsp;</p><h2 id='section-10-base-答题情况小结'><span>Section 10 Base 答题情况小结</span></h2><p><span>In contrast to such </span><mark><span>sparsely</span></mark><span> populated terrestrial habitats as desert and tundra, the oceans </span><strong><span>_</span></strong><span> with a seemingly endless array of creatures.</span></p><p><span>A teem</span></p><p><span>B flow</span></p><p><span>C evolve</span></p><p><span>D roil</span></p><p><span>E ebb</span></p><p><span>sparsely 稀疏地；贫乏地</span></p><p><span>array </span></p><ul><li><p><em><span>n.</span></em><span>一系列，大量；数组，阵列；盛装</span></p></li><li><p><em><span>v.</span></em><span>布置，排列；配置（兵力）；穿戴，打扮</span></p></li></ul><p><span>【答案】A</span></p><p><span>【解析】通过 in contrast to 推知，空格与前文 such sparsely populated 取反，所以正确答案选 A 选项。teem with 充满。</span></p><p><span>【句子翻译】和陆地上动植物数量稀少的沙漠和苔原相反，海洋看起来充满了无穷的生物。</span></p><p><span>【选项释义】</span></p><p><span>A. teem充满</span></p><p><span>B. flow流动</span></p><p><span>C. evolve发展</span></p><p><span>D. roil搅动</span></p><p><span>E. ebb退潮</span></p><p><strong><span>teem with 充满</span></strong></p><p>&nbsp;</p><p><span>Recent scholarship has questioned the (i)</span><strong><span>_</span></strong><span> of tropical forests around the world. Archaeologists have shown, for example, that the largest </span><mark><span>contiguous</span></mark><span> </span><mark><span>tract</span></mark><span> of what was thought to be </span><mark><span>virgin</span></mark><span> rain forest in the southern Amazon had been transformed into a cultural parkland before European contact, and many of the forest islands in West Africa&#39;s savanna forest transition zone are (ii)</span><strong><span>_</span></strong><span> as well.</span></p><ul><li><p><span>Blank(i)</span></p><p><span>diversity</span></p><p><span>naturalness</span></p><p><span>sustainability</span></p></li><li><p><span>Blank(ii)</span></p><p><span>isolated</span></p><p><span>endangered</span></p><p><span>anthropogenic</span></p></li></ul><p><span>contiguous 连续的；邻近的；接触的</span></p><p><span>tract （尤指宣扬宗教、伦理或政治的）短文，传单，小册子；</span><mark><span>大片土地，地带</span></mark></p><p><span>virgin</span></p><ul><li><p><em><span>n.</span></em><span>处女，童男；无经验的人，新手；（昆）孤雌生殖的雌虫；圣母马利亚（the Virgin）；室女宫（the Virgin）</span></p></li><li><p><em><span>adj.</span></em><span>原始状态的，未开发的；处女的，处男的；（橄榄油）初榨的；（尤指白色物品）纯洁的，未玷污的；（黏土）未烧制的；（羊毛）未纺过的；（金属）从矿石直接提取的，原生的</span></p></li></ul><p><span>【答案】B F</span></p><p><span>【解析】后面的例子中 virgin rain forest 变成了 cultural parkland，说明第一空质疑的就是 virgin，所以第一空选 B 选项。第二空根据 as well 推出第二空要选前面的同义，所以第二空选 F 选项。naturalness 自然，anthropogenic 人为的。</span></p><p><span>【句子翻译】最近的学术研究质疑了世界上热带森林的天然性。比如，考古学家表示最大片连绵不断的南亚马逊的原始热带雨林在欧洲人接触之前其实就已经被变成了一个文化园地，并且许多西非的亚热带稀树草原森林过渡带的森林岛屿也是人为的。</span></p><p><span>【选项释义】</span></p><figure class='table-figure'><table><thead><tr><th><span>Blank(i)</span></th><th><span>Blank(ii)</span></th></tr></thead><tbody><tr><td><span>A. diversity多样性</span></td><td><span>D. isolated分离</span></td></tr><tr><td><span>B. naturalness自然</span></td><td><span>E. endangered濒危</span></td></tr><tr><td><span>C. sustainability可持续性</span></td><td><span>F. anthropogenic人为因素</span></td></tr></tbody></table></figure><p><span>主要是有个迷惑点是：这些森林是遭破坏了吗？ 并不是，要理解 Cultural parkland 并不代表森林遭到了破坏，更不代表森林没有可持续性。 就好选出答案这对了。</span></p><p>&nbsp;</p><p><span>Cultures can shape attitudes and beliefs in ways that (i)</span><strong><span>_</span></strong><span> conscious awareness or control; in other words, cultural orientations may develop from processes that do not </span><mark><span>entail</span></mark><span> (ii)</span><strong><span>_</span></strong><span> participation, and cultures may </span><mark><span>pervade</span></mark><span> subtle psychological dynamics in ways that individuals may not be able to (iii)</span><strong><span>_</span></strong><span>. Thus, theories and tools developed to study </span><mark><span>implicit</span></mark><span> cognition may increase our understanding of the complex interplay between culture and individuals.</span></p><ul><li><p><span>Blank(i)</span></p><p><span>operate outside of</span></p><p><span>tend to </span><mark><span>facilitate</span></mark></p><p><span>may not alter</span></p></li><li><p><span>Blank(ii)</span></p><p><span>active</span></p><p><span>random</span></p><p><mark><span>rote</span></mark></p></li><li><p><span>Blank(iii)</span></p><p><span>report</span></p><p><span>maintain</span></p><p><span>condone</span></p></li></ul><p><span>entail </span></p><ul><li><p><em><span>v.</span></em><span>使必要，需要；&lt;旧&gt;遗赠（财产），限定继承；使人承担</span></p></li><li><p><em><span>n.</span></em><span>限定继承，限嗣继承的财产</span></p></li></ul><p><span>pervade &lt;正式&gt;遍及，弥漫</span></p><p><span>implicit 含蓄的，未言明的；内含的，固有的；无疑问的，无保留的；（函数）隐式的，隐的</span></p><p><span>explicit 清楚明白的，明确的，详述的；直截了当的，坦率的</span></p><p><span>cognition 认识，认知；认识（或认知）的结果</span></p><p><span>facilitate 使更容易，使便利；促进，推动</span></p><p><span>【答案】A D G</span></p><p><span>【解析】in other words 说明分号前后两个句子是同义重复，不一定需要参与也就是说可以在外部进行，所以第一空选 A 选项，第二空看搭配，三个选项只有 active 合适，第二空选 D 选项，第三空对应点在 implicit 上，既然是implict，说明个人是无法去表达出来的，所以第三空选 G 选项。</span></p><p><span>【句子翻译】文化可以在人们的意识或控制之外塑造态度和信念。换句话说，文化取向可能是在不需要主动参与的过程中形成的，文化可能以个人无法报告的方式渗透到微妙的心理动态中。因此，为研究内隐认知而开发的理论和工具可以加深我们对文化与个人之间复杂的相互作用的理解。</span></p><p><span>【选项释义】</span></p><p><span>operate outside of 在...之外允许</span></p><p><span>tend to facilitate 促进</span></p><p><span>may not alter 不能改变</span></p><p><span>active 积极的</span></p><p><span>random 随机的</span></p><p><span>rote 死记硬背的</span></p><p><span>report 表达</span></p><p><span>maintain 维持；主张</span></p><p><span>condone 宽恕</span></p><p>&nbsp;</p><p><span>The Chavez Pass archaeological site was initially interpreted as </span><mark><span>indicative</span></mark><span> of </span><strong><span>_</span></strong><span> society, since it was thought to have been at the center of a cluster of smaller, contemporary settlements that it presumably controlled.</span></p><p><span>A an expansionist</span></p><p><span>B a hierarchical</span></p><p><span>C an urban</span></p><p><span>D a heterogeneous</span></p><p><span>E a diverse</span></p><p><span>F a stratified</span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='2024年4月最新命中gre填空机经题二）-答题情况小结'><span>2024年4月最新命中GRE填空机经题（二） 答题情况小结</span></h2><p><mark><span>Influenza</span></mark><span> is </span><strong><span>__</span></strong><strong><span>__</span></strong><span> virus: it is full of surprises and newness, prone to </span><mark><span>mutation</span></mark><span> and </span><mark><span>reassortment</span></mark><span>.</span></p><p><span>A a communicable</span></p><p><span>B a ubiquitous</span></p><p><span>C an archaic</span></p><p><span>D an immutable</span></p><p><span>E a </span><mark><span>protean</span></mark></p><p><span>【答案】E</span></p><p><span>【解析】整句冒号解释结构，概括解释部分，full of surprises and newness, prone to mutation and reassortment，可知E选项，protean, 变化的，不稳定的。</span></p><p><span>【句子翻译】</span><mark><span>流感</span></mark><span>是一种变化莫测的病毒：它充满了惊喜和新奇，容易发生突变和重组。</span></p><p><span>【选项释义】</span></p><p><span>a communicable 可交流的</span></p><p><span>a ubiquitous 无处不在的</span></p><p><span>an archaic 古老的</span></p><p><span>an immutable 不变的</span></p><p><span>a protean 不稳定的</span></p><p><span>mutation（动物或植物的）突变，变异；（基因结构突变产生的）突变体，突变型；（形式的）转变，改变；语流音变，变音</span></p><p><span>reassortment 重配；基因重组</span></p><p><span>protean 千变万化的；一人演几个角色的；变形虫的</span></p><p>&nbsp;</p><p><span>Appearing in the </span><mark><span>midst</span></mark><span> of so many </span><mark><span>equivocal</span></mark><span> comments, this unambiguous statement, whatever its </span><mark><span>intrinsic</span></mark><span> </span><mark><span>merit</span></mark><span>, plainly stands out as </span><strong><span>_</span></strong><span>. </span></p><p><span>A anomalous</span></p><p><span>B arcane</span></p><p><span>C irrelevant</span></p><p><span>D superfluous</span></p><p><span>E unusual</span></p><p><span>F esoteric</span></p><p><span>正确答案： A, E</span></p><p><span>midst </span></p><ul><li><p><em><span>n.</span></em><span>中部，中间</span></p></li><li><p><em><span>prep.</span></em><span>在……中间，在……之中（=amidst）</span></p></li></ul><p><span>equivocal 模棱两可的；可疑的</span></p><p><span>intrinsic 内在的，固有的</span></p><p><span>merit</span></p><ul><li><p><em><span>n.</span></em><span>优秀品质，价值；优点，长处；&lt;英&gt;（成绩等级）良好；事实真相，是非曲直；善行，善事</span></p></li><li><p><em><span>v.</span></em><span>值得，应受；应受赏（或罚）</span></p></li></ul><p><span>在这么多模棱两可的评论中，这一非常清晰的陈述，无论其内在优点如何，显然都是反常的。</span></p><p>&nbsp;</p><p><span>Developments in neuroscience and animal behavior have led researchers to question the view that unmitigated competition is </span><strong><span>__</span></strong><strong><span>__</span></strong><span>__ animal life: in </span><mark><span>primatology</span></mark><span>, the counter movement started with research into how friendships and conflict resolution favor survival.</span></p><p><span>A beneficial to</span></p><p><span>B manifest in</span></p><p><span>C rare in</span></p><p><span>D essential in</span></p><p><span>E evident in</span></p><p><span>F foundational to</span></p><p><span>primatology [脊椎] 灵长类动物学</span></p><p><span>【答案】DF</span></p><p><span>【解析】冒号表示解释说明，所以冒号后的内容和冒号前同义，冒号后表示：友谊和冲突解决更容易生存。所以完全竞争(unmitigated competition)有利于动物生存是存疑的。</span></p><p><span>【选项释义】</span></p><p><span>A. beneficial to (有益于)</span>
+<span>B. manifest in (表现在)</span>
+<span>C. rare in (在...中罕见)</span>
+<span>D. essential in (在...中至关重要)</span>
+<span>E. evident in (在...中明显)</span>
+<span>F. foundational to (作为...的基础)</span></p><p><span>A. beneficial to (有益于) 明显更好但是没有同义词</span></p><p>&nbsp;</p><p><span>Whether the film is </span><strong><span>__</span></strong><strong><span>__</span></strong><span> adaptation of the </span><mark><span>legend</span></mark><span> is debatable: the author of the screenplay claims that it was based on the original tale, but admits taking some interpretive license with the story.</span></p><p><span>A an inspired</span></p><p><span>B a rigorous</span></p><p><span>C an unsentimental</span></p><p><span>D a successful</span></p><p><span>E a sober</span></p><p><span>F a faithful</span></p><p><span>legend </span></p><ul><li><p><em><span>n.</span></em><span>传说，传奇故事；传奇人物；（标志、徽记、硬币等物品上的）刻印文字，铭文；（图片或地图的）文字说明，图例</span></p></li><li><p><em><span>adj.</span></em><span>十分出名的</span></p></li></ul><p><span>interpretive 解释的；作为说明的</span></p><p><span>【答案】BF</span></p><p><span>【解析】冒号取同，冒号后说作者声称基于原始故事，但是也承认做出了一些解释性描述，也就意味着现在争议内容在于是否严格忠于事实，所以答案选rigorous&amp;faithful。</span></p><p><span>【句子翻译】这部电影是否是对传奇的严格改编尚有争议:剧本的作者声称它是基于原始故事，但承认对故事进行了一些解释。</span></p><p><span>【选项释义】</span></p><p><span>an inspired启发的</span></p><p><span>a rigorous严格的</span></p><p><span>an unsentimental不动感情的</span></p><p><span>a successful成功的</span></p><p><span>a sober冷静的</span></p><p><span>a faithful如实的</span></p><p>&nbsp;</p><p><span>The relative isolation of Brittany into the early twentieth century allowed its regional costumes and certain other aspects of local culture to endure longer there than such traditions did elsewhere in France, though historical and </span><mark><span>ethnographic</span></mark><span> accounts of Breton costume have </span><mark><span>robustly</span></mark><span> challenged many outsiders&#39; assumptions that there was a timeless Breton traditionalism in dress. Although it would come to be seen as the distinctive marker of Breton cultural continuity, the region&#39;s costume was in fact a modern and evolving phenomenon. It had been the relaxation of </span><mark><span>sumptuary</span></mark><span> laws (regulations restricting people from wearing clothing considered above their station) during the late-eighteenth-century French revolutionary period that first allowed rural populations to be more expressive in their dress. They did this by </span><mark><span>incorporating</span></mark><span> formerly restricted items, such as silks, ribbons, and lace, into peasant dress that had formerly been fairly uniform across France. Moreover, nineteenth-century mechanization of fabric production made cloth available more cheaply in Brittany, and expanded commerce brought at least the larger Breton towns into contact with styles from Paris. Innovation and even fashion thus shaped the forms of Brittany&#39;s purportedly traditional costume, which in fact varied by locality within Brittany. Nevertheless, tourists tended to view Breton costumes as a </span><mark><span>legible</span></mark><span> marker of cultural cohesion and continuity.</span></p><p>&nbsp;</p><p><span>尽管布列塔尼服饰的历史和人种学记载有力地驳斥了许多外来者关于布列塔尼服饰具有永恒传统的假设，但布列塔尼在 20 世纪初的相对封闭性使其地区服饰和当地文化的某些其他方面比法国其他地方的此类传统更长久地延续了下来。虽然布列塔尼服饰后来被视为布列塔尼文化连续性的独特标志，但该地区的服饰实际上是一种不断演变的现代现象。十八世纪晚期法国大革命时期放宽了服饰法（限制人们穿着被认为高于其身份的服饰的法规），这使得农村居民的服饰更富有表现力。他们将丝绸、缎带和蕾丝等以前受限制的物品融入农民的服饰中，而这些服饰以前在整个法国都是相当统一的。此外，19 世纪布料生产的机械化使布列塔尼的布料更加便宜，商业的发展至少使布列塔尼较大的城镇接触到了来自巴黎的款式。因此，创新甚至时尚塑造了布列塔尼所谓的传统服装形式，而事实上，布列塔尼各地的传统服装也各不相同。然而，游客往往将布列塔尼服饰视为文化凝聚力和连续性的明显标志。</span></p><p>&nbsp;</p><p><span>ethnographic 人种志的；民族志学的</span></p><p><span>robustly 要用体力地；粗鲁地；坚定地</span></p><p><span>sumptuary 限制费用的；禁止奢侈的</span></p><p><span>incorporate </span></p><ul><li><p><em><span>v.</span></em><span>包含，合并；组成公司；掺和，混合（成分）；使具体化，体现</span></p></li><li><p><em><span>adj.</span></em><span>合成一体的，合并的；具体化的；组成公司（或社团）的</span></p></li></ul><p><span>legible （字迹，印刷）清楚的，易读的</span></p><p>&nbsp;</p><p><span>【文章结构分析】</span></p><p><span>首句先交代背景：B相对孤立所以其传统能够流传更长时间，接着交代历史学家和outsiders的分歧，outsiders认为B的衣着传统是一成不变的，而历史学家质疑了这一点。</span></p><p><span>第二句交代：B的着装传统是一个不断变化且现代的过程（evolving）</span></p><p><span>第三句：sumptuary laws的废除使得农村人口也能穿得更好</span></p><p><span>第四句：展开前句说明农村人口通过使用一些以前禁止他们使用的材质而改变了自己的服饰</span></p><p><span>第五句：继续讲使得着装发生变化的其他因素：制造业进步使得布匹更加便宜；贸易发展使得人们可以接触巴黎的时尚</span></p><p><span>第六句总结表明流行趋势和创新使得B的着装发生变化，甚至在B内部也会有由于地理位置不同而发生着装不同的差异现象</span></p><p><span>第七句：转折回到文章前面的主线说外来者却只看到B服装传统的一致性而没有看到其差异</span></p><p>&nbsp;</p><p><span>The primary purpose of the passage is to</span></p><p><span>A draw a contrast between nineteenth-century Breton costume and that of earlier periods</span></p><p><span>B discuss factors that distinguished Breton costume from the dress found elsewhere in France</span></p><p><span>C trace the history of a misconception about Breton costume</span></p><p><span>D explain why the use of Breton costume declined over time</span></p><p><span>E show why a common view about Breton costume was mistaken</span></p><p><span>【答案】E</span></p><p><span>【解析】这篇文章主要表达B地着装传统是不断变化且因为地区而具有差异的，反驳ousiders认为其服装是没有演变（timeless）的观点，所以对应到E选项</span></p><p><span>A文章没有对比</span></p><p><span>B 文章侧重点不是区分B和其他地区的服饰</span></p><p><span>C文章不是在追溯这个误解的起源</span></p><p><span>D 解释为什么B服装衰败了，文章没提及</span></p><p>&nbsp;</p><p><span>It is a paradox of the Victorians that they were both </span><strong><span>_</span></strong><span> and, through their empire, cosmopolitan.</span></p><p><span>A capricious</span></p><p><span>B insular</span></p><p><span>C mercenary</span></p><p><span>D idealistic</span></p><p><span>E intransigent</span></p><p><span>【答案】B</span></p><p><span>【解析】根据 paradox 可以判断出，空格要和 cosmopolitan 构成反义，insular 狭隘的，与世隔绝的，选项B正确。</span></p><p><span>【句子翻译】维多利亚时期的人实在是矛盾，他们既与世隔绝又与世相通。</span></p><p><span>【选项释义】</span></p><p><span>A. capricious （态度或行为）反复无常的，任性的；变幻莫测的，多变的</span></p><p><span>B. insular 狭隘的</span></p><p><span>C. mercenary 唯利是图的</span></p><p><span>D. idealistic 理想主义的</span></p><p><span>E. intransigent 顽固的；不妥协的；不让步的</span></p></div></div>
+</body>
+<!-- <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script> -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--侧栏目录生成代码-->
+<script>
+    //标题序号计数器
+    var hCount = [0, 0, 0, 0, 0, 0];
+
+    //设置计数器
+    function setHCount(number) {
+        //当前计数器加一
+        hCount[number - 1]++;
+        for (var i = number, length = hCount.length; i < length; i++) {
+            //子目录计数器全部置零
+            hCount[i] = 0;
+        }
+    }
+
+    //重命名目录名称
+    function setHTagValue(item, number) {
+        //获取标题名
+        var text = $(item).get(0).innerHTML;
+        //初始化空字符串
+        var before = "";
+        //生成序号
+        for (var i = 0, length = hCount.length; i < number; i++) {
+            if (i < number - 1)
+                before += hCount[i] + ".";
+            else
+                before += hCount[i] + " ";
+        }
+        //在标题前面加上序号
+        $(item).get(0).innerHTML = before + text;
+    }
+
+    function renameHTag(item) {
+        var tag = $(item).get(0).localName;
+        if (tag === "h1") {
+            setHCount(1);
+            //console\.log("捕获到标签:%s", tag);
+            setHTagValue(item, 1);
+        }
+        if (tag === "h2") {
+            setHCount(2);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 2);
+        }
+        if (tag === "h3") {
+            setHCount(3);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 3);
+        }
+        if (tag === "h4") {
+            setHCount(4);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 4);
+        }
+        if (tag === "h5") {
+            setHCount(5);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 5);
+        }
+        if (tag === "h6") {
+            setHCount(6);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 6)
+        }
+    }
+
+    $(document).ready(function () {
+        $("h1,h2,h3,h4,h5,h6").each(function (i, item) {
+            //给<H>类标签编号
+            renameHTag(item);
+            //获取标签的名字,h1,还是h2
+            var tag = $(item).get(0).localName;
+            //为该标签设置id属性
+            $(item).attr("id", "wow" + i);
+            //添加一个页内超链接,并设置class选择器
+            //      $("#category").append('<a class="new'+tag+'" href="#wow'+i+'">'+$(this).text()+'</a></br>');
+            $("#category").append('<a class="new' + tag + '" href="#wow' + i + '">' + $(item).text() + '</a></br>');
+            //为每一个标题超链接的class属性设置左边距
+            $(".newh1").css("margin-left", 0);
+            $(".newh2").css("margin-left", 20);
+            $(".newh3").css("margin-left", 40);
+            $(".newh4").css("margin-left", 60);
+            $(".newh5").css("margin-left", 80);
+            $(".newh6").css("margin-left", 100);
+        });
+        //设置class选择器为.book-body的html内容
+        $(".book-body").html($(".book-body").nextAll())
+    });
+</script>
+<style type="text/css">
+    @media (max-width: 1600px) {
+        .book-body {
+            /* padding-left: 200px; */
+            padding-right: 0px;
+        }
+    }
+
+    @media (max-width: 1400px) {
+        .book-body {
+            /* padding-left: 200px; */
+            padding-right: 0px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .book-body {
+            /* padding-left: 300px; */
+            padding-left: 0px;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .book-body {
+            padding-left: 0px;
+        }
+    }
+
+    @media (min-width: 600px) {
+        #category {
+            /* 绝对定位 */
+            position: fixed;
+            /* left: 20px; */
+            /* 目录显示的位置 */
+            left: 0px;
+            top: 0;
+            /* 目录栏的高度,这里设置为60%主要是为了不挡住返回顶部和折叠按钮 */
+            height: 79%;
+            /* 开启垂直滚动条 */
+            overflow-y: scroll;
+            /* 开启水平滚动条 */
+            overflow-x: scroll;
+        }
+    }
+
+    @media (-webkit-max-device-pixel-ratio: 1) {
+        ::-webkit-scrollbar-track-piece {
+            background-color: #FFF
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #c2c2c2;
+            background-clip: padding-box;
+            min-height: 28px
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #A0A0A0
+        }
+    }
+</style>
+<script>
+    // id="category" οnclick="showOrCloseCategory()"
+    function showOrCloseCategory() {
+        var id = document.getElementById("category");
+        var book_body = document.getElementById("book_body");
+        //如果展开了
+        if (id.style.display == 'block') {
+            //console.log("开始展开");
+            id.style.display = 'none';
+            id.style.width = "0%";
+            book_body.style.width = "100%";
+            book_body.style.paddingleft = 0;
+        }
+        //如果被折叠了
+        else if (id.style.display == 'none') {
+            //console.log("开始折叠");
+            id.style.display = 'block';
+            book_body.style.width = "90%";
+            id.style.width = "20%"
+        }
+    }
+</script>
+<!--返回顶部-->
+<a href="javascript:scroll(0,0)" style="position:fixed;float:right;left:40px;top:80%">返回顶部</a>
+<button onclick="showOrCloseCategory()" style="position:fixed;float:right;left:40px;top:85%">折叠/展开</button>
+<!--文章主体部分-->
+<div class="book-body" id="book_body" style="width:90%;display:block"></div>
+<!--目录栏，设置占用宽度为20%可以根据实际情况设置-->
+<div class="book-summary" id="category" style="width:20%;display:block"></div>
+
+
+</html>

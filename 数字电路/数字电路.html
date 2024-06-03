@@ -1,0 +1,966 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG2"] path[data-c], mjx-container[jax="SVG2"] use[data-c] {
+  stroke-width: 3;
+}
+
+g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+
+.MathJax g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+							stroke-width: 0;
+						}
+</style><title>数字电路</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='第一章-基本知识'><span>第一章 基本知识</span></h1><h2 id='数字系统'><span>数字系统</span></h2><p><span>模拟信号：连续</span></p><p><span>数字信号：离散</span></p><h2 id='数制及其转换'><span>数制及其转换</span></h2><p><span>基数：</span></p><p><span>位权：</span></p><p>&nbsp;</p><ol start='' ><li><p><span>十进制转二进制：</span></p><ul><li><p><span>整数部分</span></p></li><li><p><span>小数部分</span></p></li></ul></li><li><p><span>二进制转十进制：</span></p></li><li><p><span>二进制转八进制：</span></p></li><li><p><span>二进制转十六进制：</span></p></li></ol><h2 id='带符号二进制数的代码表述'><span>带符号二进制数的代码表述</span></h2><h3 id='原码'><span>原码</span></h3><ol start='' ><li><p><span>两种表示0的方式（原码、反码、补码）</span>
+<span>0.0000</span>
+<span>1.0000</span>
+<span>0.0000</span>
+<span>1.1111</span>
+<span>0.0000</span>
+<span>1.0000</span></p></li><li><p><span>不可以进行减法运算</span></p></li></ol><p>&nbsp;</p><h3 id='反码'><span>反码</span></h3><ol start='' ><li><p><span>两种表示0的方式，注意和原码两种表示0的方式不一样</span></p></li></ol><p>&nbsp;</p><h3 id='补码'><span>补码</span></h3><p><em><span>任何有模的计量系统都可以将减法运算化为加法运算</span></em></p><ol start='' ><li><p><span>0只有一种表示方式</span></p></li><li><p><span>可以只设置加法器</span></p></li></ol><p>&nbsp;</p><p><img src="./库/image-20230419182840114.png" alt="image-20230419182840114" style="zoom: 25%;" /></p><p>&nbsp;</p><h2 id='几种常用的编码'><span>几种常用的编码</span></h2><h3 id='十进制数的二进制编码------bcd码'><span>十进制数的二进制编码——BCD码</span></h3><ul><li><p><span>8421码</span></p></li><li><p><span>2421码</span></p></li><li><p><span>余3码</span></p></li></ul><p><img src="./库/image-20230419183026279.png" referrerpolicy="no-referrer" alt="image-20230419183026279"></p><p><strong><span>记忆2421码的一个捷径：</span></strong><code>d</code><span>和</span><code>9-d</code><span>的两个数，其二进制形式互补！所以只需要记住</span><code>0—4</code><span>的2421码表示即可。</span></p><p><strong><span>余3码：</span></strong><span>在原有0-9的二进制代码上再加上3，即</span><code>0011</code></p><p>&nbsp;</p><h3 id='可靠性编码'><span>可靠性编码</span></h3><p><span>奇偶校验码、格雷码</span></p><p>&nbsp;</p><h4 id='奇偶校验码'><span>奇偶校验码</span></h4><p><span>有奇校验和偶校验两种方式，校验位在被校验位的后面</span></p><ul><li><p><span>奇校验：让整个校验码中</span><code>1</code><span>的个数是奇数</span></p></li><li><p><span>偶校验：让整个校验码中</span><code>1</code><span>的个数是偶数</span></p></li></ul><p>&nbsp;</p><p><span>奇偶校验具有发现错误的能力，但是不具备对错误进行定位和纠正错误的能力，只能发现奇数个代码出现错误的能力，如果同时发生偶数个代码出错，则奇偶校验失效</span></p><p>&nbsp;</p><h4 id='格雷码'><span>格雷码</span></h4><p><span>特点：任意两个相邻的数，其格雷码仅有一位不同</span></p><p><span>作用：避免代码产生错误</span></p><p>&nbsp;</p><figure class='table-figure'><table><thead><tr><th><span>十进制数</span></th><th><span>格雷码</span></th></tr></thead><tbody><tr><td><span>0</span></td><td><span>0000</span></td></tr><tr><td><span>1</span></td><td><span>0001</span></td></tr><tr><td><span>2</span></td><td><span>0011</span></td></tr><tr><td><span>3</span></td><td><span>0010</span></td></tr><tr><td><span>4</span></td><td><span>0110</span></td></tr><tr><td><span>5</span></td><td><span>0111</span></td></tr><tr><td><span>6</span></td><td><span>0101</span></td></tr><tr><td><span>7</span></td><td><span>0100</span></td></tr><tr><td><span>8</span></td><td><span>1100</span></td></tr><tr><td><span>9</span></td><td><span>1101</span></td></tr><tr><td><span>10</span></td><td><span>1111</span></td></tr><tr><td><span>11</span></td><td><span>1110</span></td></tr><tr><td><span>12</span></td><td><span>1010</span></td></tr><tr><td><span>13</span></td><td><span>1011</span></td></tr><tr><td><span>14</span></td><td><span>1001</span></td></tr><tr><td><span>15</span></td><td><span>1000</span></td></tr></tbody></table></figure><p><strong><span>格雷码的计算过程</span></strong><span>：</span></p><p><img src="./库/image-20230419185211628.png" referrerpolicy="no-referrer" alt="image-20230419185211628"></p><p><span>注意可以考虑一下如何把格雷码转换回二进制数</span></p><p>&nbsp;</p><h1 id='第二章-逻辑代数基础'><span>第二章 逻辑代数基础</span></h1><p><span>五个公理</span></p><p><span>八个定理</span></p><p><span>三个规则</span></p><p><span>逻辑表达式的形式变换</span></p><p><span>逻辑表达式的化简</span></p><p>&nbsp;</p><h2 id='逻辑代数的基本概念'><span>逻辑代数的基本概念</span></h2><h3 id='逻辑函数的定义及公理'><span>逻辑函数的定义及公理</span></h3><p><span>逻辑函数又称布尔代数</span></p><p>&nbsp;</p><p><span>定义：</span></p><p><span>逻辑代数是一个封闭的代数系统，由一个逻辑变量集和与、或、非三种基本运算构成</span></p><p>&nbsp;</p><p><span>五个公理：</span></p><ol start='' ><li><p><span>交换律</span></p></li><li><p><span>结合律</span></p></li><li><p><span>分配律</span></p></li><li><p><span>01律</span></p></li><li><p><span>互补律：针对 逆 来定义</span></p></li></ol><p>&nbsp;</p><h3 id='逻辑变量及基本运算'><span>逻辑变量及基本运算</span></h3><p><span>逻辑变量的取：0和1</span></p><p><span>基本运算：与、或、非</span></p><p><img src="./库/image-20230419190421959.png" referrerpolicy="no-referrer" alt="image-20230419190421959"></p><p>&nbsp;</p><h3 id='逻辑函数及逻辑函数间的相等'><span>逻辑函数及逻辑函数间的相等</span></h3><p><span>逻辑函数：随自变量变化的因变量</span></p><ol start='' ><li><p><span>逻辑函数只有0和1两种取值</span></p></li><li><p><span>函数与变量之间的关系由与、或、非三种基本运算构成</span></p></li></ol><p>&nbsp;</p><p><span>逻辑电路的输出取决于：</span></p><ol start='' ><li><p><span>逻辑变量的取值</span></p></li><li><p><span>电路本身的结构</span></p></li></ol><p><strong><span>注意这里并没有强调是组合逻辑电路还是同步时序逻辑电路，是Mealy型电路还是Moore型电路，所以再次明确，对于一般的电路而言，输出取决于逻辑变量的取值和电路本身的结构！</span></strong></p><p>&nbsp;</p><p><span>电路的逻辑功能描述可由相应的逻辑函数完全描述</span></p><p><span>对电路的分析借助抽象代数表达式</span></p><p>&nbsp;</p><p><span>逻辑函数的相等：对于逻辑变量的任意一组取值，两个逻辑函数的取值都相同，则说明两个逻辑函数是相等的</span></p><p>&nbsp;</p><p><strong><span>判断逻辑函数相等的方法：</span></strong></p><ul><li><p><span>真值表法</span></p></li><li><p><span>代数法</span></p></li></ul><p>&nbsp;</p><h3 id='逻辑函数表示法'><span>逻辑函数表示法</span></h3><ul><li><p><span>逻辑函数表达式</span></p></li><li><p><span>真值表</span></p></li><li><p><span>卡诺图</span></p></li></ul><p>&nbsp;</p><h4 id='逻辑函数表达式'><span>逻辑函数表达式</span></h4><p><span>逻辑函数表达式由</span></p><ol start='' ><li><p><span>逻辑变量</span></p></li><li><p><span>与或非三种运算</span></p></li><li><p><span>括号（可有可无）</span></p></li></ol><p><span>构成</span></p><p>&nbsp;</p><p><span>在数字电路中，与（AND）、或（OR）和非（NOT）这三种逻辑运算的优先级如下：</span></p><ol start='' ><li><p><span>非（NOT）运算的优先级最高。</span></p></li><li><p><span>与（AND）运算的优先级高于或（OR）运算。</span></p></li></ol><p>&nbsp;</p><h4 id='真值表'><span>真值表</span></h4><p><span>真值表有 2</span><sup><span>n</span></sup><span> 行</span></p><p><img src="./库/image-20230419191258420.png" alt="image-20230419191258420" style="zoom: 25%;" /></p><p>&nbsp;</p><h4 id='卡诺图'><span>卡诺图</span></h4><p><span>图形描述逻辑函数，由表示逻辑变量所有组合的小方格所构成的平面图，可以与函数化简问题结合</span></p><p>&nbsp;</p><h2 id='逻辑代数的基本定理和规则'><span>逻辑代数的基本定理和规则</span></h2><h3 id='八个基本定理'><span>八个基本定理</span></h3><p><img src="./库/image-20230419191609351.png" referrerpolicy="no-referrer" alt="image-20230419191609351"></p><p><u><span>注意定理7和定理8两个式子的区别</span></u></p><p>&nbsp;</p><h3 id='三个规则'><span>三个规则</span></h3><ol start='' ><li><p><span>代入规则</span></p></li><li><p><span>反演规则</span></p></li><li><p><span>对偶规则</span></p></li></ol><p>&nbsp;</p><p><span>在数字电路中，有三个常用的规则，分别是代入规则、反演规则和对偶规则。它们是简化和优化逻辑电路的重要工具。</span></p><ol start='' ><li><p><strong><span>代入规则</span></strong><span>：</span><strong><span>将一个逻辑表达式中的一部分替换成另一个等价的逻辑表达式</span></strong><span>。</span><strong><span>这个等价的逻辑表达式可以是经过简化后的表达式，或者是通过其他规则推导出来的表达式。</span></strong><span>代入规则的目的是推导出更多的表达式，通常情况下是简化逻辑表达式，使得它更易于理解和实现。例如，将一个逻辑表达式中的一部分替换成它的等价式，可以将逻辑电路中的器件数目减少，降低电路的复杂度和成本。</span></p></li><li><p><strong><span>反演规则</span></strong><span>：</span><strong><span>将一个逻辑表达式中的输入反相，然后取反相的输出</span></strong><span>。</span><strong><span>所谓的反相是指：与运算变成或运算、或运算变成与运算、原变量变成反变量、反变量变成原变量，由此得到的新函数是原函数的反函数。注意要保持原函数中运算符号的优先顺序不变。</span></strong><span>这个规则可以用于优化逻辑电路中的非门数量，因为非门是逻辑电路中最简单的器件，但是它们也是造成信号延迟和功耗的主要因素之一。</span></p></li><li><p><strong><span>对偶规则</span></strong><span>：</span><strong><span>将与（AND）和或（OR）运算符相互交换，保持原函数中的运算顺序不变，得到的新逻辑函数表达式就是原函数的对偶式。</span></strong><span>这个规则可以用于简化逻辑电路中的表达式，因为在有些情况下，使用与（AND）运算符比使用或（OR）运算符更加方便。对偶规则的优点是可以将一个表达式变成另一个等价的表达式，这使得电路实现更加灵活和高效。若函数的对偶式与自身相同，则该函数是自对偶函数。利用对偶规则可以使定理、公式的证明减少一半。</span></p></li></ol><p>&nbsp;</p><h3 id='复合逻辑'><span>复合逻辑</span></h3><p><span>由三种基本运算构成的复合运算来描述，相应的逻辑门称为复合门</span></p><ul><li><p><span>与非门</span></p></li><li><p><span>或非门</span></p></li><li><p><span>与或非门</span></p></li><li><p><span>异或门</span></p></li></ul><p>&nbsp;</p><h4 id='与非逻辑'><span>与非逻辑</span></h4><p><img src="./库/image-20230419195355509.png" alt="image-20230419195355509" style="zoom:33%;" /></p><h4 id='或非逻辑'><span>或非逻辑</span></h4><p><img src="./库/image-20230419200253084.png" alt="image-20230419200253084" style="zoom:33%;" /></p><p>&nbsp;</p><p><strong><span>与非逻辑、或非逻辑都可以实现与或非三种基本逻辑</span></strong></p><p>&nbsp;</p><h4 id='与或非逻辑'><span>与或非逻辑</span></h4><p><img src="./库/image-20230419200347001.png" alt="image-20230419200347001" style="zoom:33%;" /></p><p>&nbsp;</p><h4 id='异或逻辑'><span>异或逻辑</span></h4><p><img src="./库/image-20230419200616668.png" alt="image-20230419200616668" style="zoom:33%;" /></p><p><img src="./库/image-20230419200657025.png" alt="image-20230419200657025" style="zoom: 33%;" /></p><p><span>当多个变量进行异或运算的时候，可用两两运算的结果再运算，也可以两两依次运算</span></p><p><span>异或运算的多个变量中如果有奇数个</span><code>1</code><span>则结果是</span><code>1</code></p><p><span>异或运算的多个变量中如果有偶数个</span><code>0</code><span>则结果是</span><code>0</code></p><p>&nbsp;</p><h4 id='同或逻辑'><span>同或逻辑</span></h4><p><img src="./库/image-20230419201107624.png" alt="image-20230419201107624" style="zoom:33%;" /></p><p>&nbsp;</p><p><strong><span>异或逻辑与同或逻辑既互为相反，又互为对偶！</span></strong></p><p>&nbsp;</p><h4 id='各个复合逻辑门的符号'><span>各个复合逻辑门的符号</span></h4><p><img src="./库/image-20230419200141490.png" referrerpolicy="no-referrer" alt="image-20230419200141490"></p><p>&nbsp;</p><h2 id='函数逻辑表达式的形式与变换'><span>函数逻辑表达式的形式与变换</span></h2><p><span>任何一个逻辑函数的表达式都不是唯一的。</span></p><p>&nbsp;</p><h3 id='两种基本形式'><span>两种基本形式</span></h3><ul><li><p><span>与或表达式</span></p></li><li><p><span>或与表达式</span></p></li></ul><p><span>无论什么形式都可以转化成两种基本形式，而两种基本形式都不是唯一的，因此引入逻辑函数表达式的标准形式。</span></p><p>&nbsp;</p><p><span>标准形式建立在最小项最大项的基础之上</span></p><p>&nbsp;</p><h3 id='最小项'><span>最小项</span></h3><p><code>n</code><span>个变量可以构成2</span><sup><span>n</span></sup><span>个最小项</span></p><p>&nbsp;</p><ul><li><p><span>最小项下标的取值规则是取原变量为1</span></p></li><li><p><span>任意一个最小项，其相应变量有且仅有一种取值使这个最小项的值为1，最小项不同，使其值为1的变量取值也不同，任意一种变量取值不可能使两个最小项同时为1</span></p></li><li><p><span>相同变量构成的两个不同的最小项相与为0</span></p></li><li><p><span>n个变量的全部最小项相或为1</span></p></li><li><p><span>n个变量构成的最小项有n个相邻最小项</span></p></li></ul><p>&nbsp;</p><h3 id='最大项'><span>最大项</span></h3><p><code>n</code><span>个变量可以构成2</span><sup><span>n</span></sup><span>个最大项</span></p><p>&nbsp;</p><ul><li><p><span>最大项下标的取值规则是取反变量为1</span></p></li><li><p><span>任意一个最大项，其相应变量有且仅有一种取值使这个最大项的值为0，最小项不同，使其值为0的变量取值也不同</span></p></li><li><p><span>任意一种变量取值不可能使两个最大项同时为0</span></p></li><li><p><span>相同变量构成的两个不同的最大项相或为1</span></p></li><li><p><span>n个变量的全部最大项相与为0</span></p></li><li><p><span>n个变量构成的最大项有n个相邻最大项</span></p></li></ul><p>&nbsp;</p><p><img src="./库/image-20230420183257928.png" referrerpolicy="no-referrer" alt="image-20230420183257928"></p><p>&nbsp;</p><p><span>最小项和最大项的关系</span></p><ul><li><p><span>同一问题中，下标相同的最小项和最大项互为反函数</span></p></li><li><p><span>相同变量构成的最小项m</span><sub><span>i</span></sub><span>和最大项M</span><sub><span>i</span></sub><span>之间存在互补关系</span>
+<img src="./库/image-20230420183431117.png" alt="image-20230420183431117" style="zoom: 50%;" /></p></li></ul><p>&nbsp;</p><p><span>标准与或表达式：由若干最小项相或构成的逻辑表达式</span></p><p><span>标准或与表达式：由若干最大项相与构成的逻辑表达式</span></p><p>&nbsp;</p><p><img src="./库/image-20230420183609200.png" alt="image-20230420183609200" style="zoom:50%;" /></p><p>&nbsp;</p><h3 id='逻辑函数表达式的转换方法'><span>逻辑函数表达式的转换方法</span></h3><ul><li><p><span>代数转化法</span></p></li><li><p><span>真值表转换法</span></p></li></ul><p>&nbsp;</p><h4 id='代数转换法'><span>代数转换法</span></h4><p><span>利用各种规则和定理化简</span></p><p>&nbsp;</p><p><span>求一个函数的标准表达式的技巧：</span></p><p><span>求一个函数的标准</span><strong><span>与或</span></strong><span>表达式：</span></p><ol start='' ><li><p><span>将函数表达式换成一般的与或表达式</span></p></li><li><p><span>反复使用</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="15.612ex" height="2.283ex" role="img" focusable="false" viewBox="0 -759 6900.6 1009" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.566ex;"><defs><path id="MJX-9-TEX-I-1D44B" d="M42 0H40Q26 0 26 11Q26 15 29 27Q33 41 36 43T55 46Q141 49 190 98Q200 108 306 224T411 342Q302 620 297 625Q288 636 234 637H206Q200 643 200 645T202 664Q206 677 212 683H226Q260 681 347 681Q380 681 408 681T453 682T473 682Q490 682 490 671Q490 670 488 658Q484 643 481 640T465 637Q434 634 411 620L488 426L541 485Q646 598 646 610Q646 628 622 635Q617 635 609 637Q594 637 594 648Q594 650 596 664Q600 677 606 683H618Q619 683 643 683T697 681T738 680Q828 680 837 683H845Q852 676 852 672Q850 647 840 637H824Q790 636 763 628T722 611T698 593L687 584Q687 585 592 480L505 384Q505 383 536 304T601 142T638 56Q648 47 699 46Q734 46 734 37Q734 35 732 23Q728 7 725 4T711 1Q708 1 678 1T589 2Q528 2 496 2T461 1Q444 1 444 10Q444 11 446 25Q448 35 450 39T455 44T464 46T480 47T506 54Q523 62 523 64Q522 64 476 181L429 299Q241 95 236 84Q232 76 232 72Q232 53 261 47Q262 47 267 47T273 46Q276 46 277 46T280 45T283 42T284 35Q284 26 282 19Q279 6 276 4T261 1Q258 1 243 1T201 2T142 2Q64 2 42 0Z"></path><path id="MJX-9-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-9-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path id="MJX-9-TEX-I-1D44C" d="M66 637Q54 637 49 637T39 638T32 641T30 647T33 664T42 682Q44 683 56 683Q104 680 165 680Q288 680 306 683H316Q322 677 322 674T320 656Q316 643 310 637H298Q242 637 242 624Q242 619 292 477T343 333L346 336Q350 340 358 349T379 373T411 410T454 461Q546 568 561 587T577 618Q577 634 545 637Q528 637 528 647Q528 649 530 661Q533 676 535 679T549 683Q551 683 578 682T657 680Q684 680 713 681T746 682Q763 682 763 673Q763 669 760 657T755 643Q753 637 734 637Q662 632 617 587Q608 578 477 424L348 273L322 169Q295 62 295 57Q295 46 363 46Q379 46 384 45T390 35Q390 33 388 23Q384 6 382 4T366 1Q361 1 324 1T232 2Q170 2 138 2T102 1Q84 1 84 9Q84 14 87 24Q88 27 89 30T90 35T91 39T93 42T96 44T101 45T107 45T116 46T129 46Q168 47 180 50T198 63Q201 68 227 171L252 274L129 623Q128 624 127 625T125 627T122 629T118 631T113 633T105 634T96 635T83 636T66 637Z"></path><path id="MJX-9-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path id="MJX-9-TEX-V-2032" d="M79 43Q73 43 52 49T30 61Q30 68 85 293T146 528Q161 560 198 560Q218 560 240 545T262 501Q262 496 260 486Q259 479 173 263T84 45T79 43Z"></path><path id="MJX-9-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D44B" xlink:href="#MJX-9-TEX-I-1D44B"></use></g><g data-mml-node="mo" transform="translate(1129.8,0)"><use data-c="3D" xlink:href="#MJX-9-TEX-N-3D"></use></g><g data-mml-node="mi" transform="translate(2185.6,0)"><use data-c="1D44B" xlink:href="#MJX-9-TEX-I-1D44B"></use></g><g data-mml-node="mo" transform="translate(3037.6,0)"><use data-c="28" xlink:href="#MJX-9-TEX-N-28"></use></g><g data-mml-node="mi" transform="translate(3426.6,0)"><use data-c="1D44C" xlink:href="#MJX-9-TEX-I-1D44C"></use></g><g data-mml-node="mo" transform="translate(4411.8,0)"><use data-c="2B" xlink:href="#MJX-9-TEX-N-2B"></use></g><g data-mml-node="msup" transform="translate(5412,0)"><g data-mml-node="mi"><use data-c="1D44C" xlink:href="#MJX-9-TEX-I-1D44C"></use></g><g data-mml-node="mo" transform="translate(855.1,363) scale(0.707)"><use data-c="2032" xlink:href="#MJX-9-TEX-V-2032"></use></g></g><g data-mml-node="mo" transform="translate(6511.6,0)"><use data-c="29" xlink:href="#MJX-9-TEX-N-29"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi><mo>=</mo><mi>X</mi><mo stretchy="false">(</mo><mi>Y</mi><mo>+</mo><msup><mi>Y</mi><mo data-mjx-alternate="1">′</mo></msup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container><script type="math/tex">X=X(Y+Y')</script><span>，也就是缺啥补啥</span></p></li></ol><p><span>求一个函数的标准</span><strong><span>或与</span></strong><span>表达式：</span></p><ol start='' ><li><p><span>将函数表达式换成一般的或与表达式</span></p></li><li><p><span>反复使用</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="22.066ex" height="2.283ex" role="img" focusable="false" viewBox="0 -759 9753 1009" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.566ex;"><defs><path id="MJX-10-TEX-I-1D44B" d="M42 0H40Q26 0 26 11Q26 15 29 27Q33 41 36 43T55 46Q141 49 190 98Q200 108 306 224T411 342Q302 620 297 625Q288 636 234 637H206Q200 643 200 645T202 664Q206 677 212 683H226Q260 681 347 681Q380 681 408 681T453 682T473 682Q490 682 490 671Q490 670 488 658Q484 643 481 640T465 637Q434 634 411 620L488 426L541 485Q646 598 646 610Q646 628 622 635Q617 635 609 637Q594 637 594 648Q594 650 596 664Q600 677 606 683H618Q619 683 643 683T697 681T738 680Q828 680 837 683H845Q852 676 852 672Q850 647 840 637H824Q790 636 763 628T722 611T698 593L687 584Q687 585 592 480L505 384Q505 383 536 304T601 142T638 56Q648 47 699 46Q734 46 734 37Q734 35 732 23Q728 7 725 4T711 1Q708 1 678 1T589 2Q528 2 496 2T461 1Q444 1 444 10Q444 11 446 25Q448 35 450 39T455 44T464 46T480 47T506 54Q523 62 523 64Q522 64 476 181L429 299Q241 95 236 84Q232 76 232 72Q232 53 261 47Q262 47 267 47T273 46Q276 46 277 46T280 45T283 42T284 35Q284 26 282 19Q279 6 276 4T261 1Q258 1 243 1T201 2T142 2Q64 2 42 0Z"></path><path id="MJX-10-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-10-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path id="MJX-10-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path id="MJX-10-TEX-I-1D44C" d="M66 637Q54 637 49 637T39 638T32 641T30 647T33 664T42 682Q44 683 56 683Q104 680 165 680Q288 680 306 683H316Q322 677 322 674T320 656Q316 643 310 637H298Q242 637 242 624Q242 619 292 477T343 333L346 336Q350 340 358 349T379 373T411 410T454 461Q546 568 561 587T577 618Q577 634 545 637Q528 637 528 647Q528 649 530 661Q533 676 535 679T549 683Q551 683 578 682T657 680Q684 680 713 681T746 682Q763 682 763 673Q763 669 760 657T755 643Q753 637 734 637Q662 632 617 587Q608 578 477 424L348 273L322 169Q295 62 295 57Q295 46 363 46Q379 46 384 45T390 35Q390 33 388 23Q384 6 382 4T366 1Q361 1 324 1T232 2Q170 2 138 2T102 1Q84 1 84 9Q84 14 87 24Q88 27 89 30T90 35T91 39T93 42T96 44T101 45T107 45T116 46T129 46Q168 47 180 50T198 63Q201 68 227 171L252 274L129 623Q128 624 127 625T125 627T122 629T118 631T113 633T105 634T96 635T83 636T66 637Z"></path><path id="MJX-10-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path id="MJX-10-TEX-V-2032" d="M79 43Q73 43 52 49T30 61Q30 68 85 293T146 528Q161 560 198 560Q218 560 240 545T262 501Q262 496 260 486Q259 479 173 263T84 45T79 43Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D44B" xlink:href="#MJX-10-TEX-I-1D44B"></use></g><g data-mml-node="mo" transform="translate(1129.8,0)"><use data-c="3D" xlink:href="#MJX-10-TEX-N-3D"></use></g><g data-mml-node="mo" transform="translate(2185.6,0)"><use data-c="28" xlink:href="#MJX-10-TEX-N-28"></use></g><g data-mml-node="mi" transform="translate(2574.6,0)"><use data-c="1D44B" xlink:href="#MJX-10-TEX-I-1D44B"></use></g><g data-mml-node="mo" transform="translate(3648.8,0)"><use data-c="2B" xlink:href="#MJX-10-TEX-N-2B"></use></g><g data-mml-node="mi" transform="translate(4649,0)"><use data-c="1D44C" xlink:href="#MJX-10-TEX-I-1D44C"></use></g><g data-mml-node="mo" transform="translate(5412,0)"><use data-c="29" xlink:href="#MJX-10-TEX-N-29"></use></g><g data-mml-node="mo" transform="translate(5801,0)"><use data-c="28" xlink:href="#MJX-10-TEX-N-28"></use></g><g data-mml-node="mi" transform="translate(6190,0)"><use data-c="1D44B" xlink:href="#MJX-10-TEX-I-1D44B"></use></g><g data-mml-node="mo" transform="translate(7264.2,0)"><use data-c="2B" xlink:href="#MJX-10-TEX-N-2B"></use></g><g data-mml-node="msup" transform="translate(8264.4,0)"><g data-mml-node="mi"><use data-c="1D44C" xlink:href="#MJX-10-TEX-I-1D44C"></use></g><g data-mml-node="mo" transform="translate(855.1,363) scale(0.707)"><use data-c="2032" xlink:href="#MJX-10-TEX-V-2032"></use></g></g><g data-mml-node="mo" transform="translate(9364,0)"><use data-c="29" xlink:href="#MJX-10-TEX-N-29"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi><mo>=</mo><mo stretchy="false">(</mo><mi>X</mi><mo>+</mo><mi>Y</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>X</mi><mo>+</mo><msup><mi>Y</mi><mo data-mjx-alternate="1">′</mo></msup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container><script type="math/tex">X=(X+Y)(X+Y')</script><span>，也就是缺啥补啥</span></p></li></ol><p>&nbsp;</p><h4 id='真值表转换法'><span>真值表转换法</span></h4><p><span>转换与或表达式（转换最小项表达式）</span></p><p><img src="./库/image-20230420185046314.png" alt="image-20230420185046314" style="zoom:50%;" /></p><p>&nbsp;</p><p><span>转换或与表达式（转换最大项表达式）</span></p><p><img src="./库/image-20230420185135173.png" alt="image-20230420185135173" style="zoom:50%;" /></p><p><span>最大项表达式也仅仅是把输出为 0 的挑出来，下标其实没变。</span></p><p><span>函数的真值表与函数的两种标准表达式之间存在一一对应的关系，而任意一个逻辑函数的真值表都是唯一的</span></p><p><span>由此可见：</span><strong><span>任何一个逻辑函数的两种标准形式也是唯一的</span></strong></p><p>&nbsp;</p><h2 id='逻辑函数化简'><span>逻辑函数化简</span></h2><p><span>化简的起点：</span></p><ul><li><p><span>或与表达式</span></p></li><li><p><span>与或表达式</span></p></li></ul><p>&nbsp;</p><p><span>化简方法：</span></p><ul><li><p><span>代数化简法</span></p></li><li><p><span>卡诺图化简法</span></p></li><li><p><span>*列表化简法</span></p></li></ul><p>&nbsp;</p><h3 id='代数化简法'><span>代数化简法</span></h3><ul><li><p><span>与或表达式的化简</span></p></li><li><p><span>或与表达式的化简</span></p></li></ul><p>&nbsp;</p><blockquote><p><img src="./库/image-20230420185634040.png" referrerpolicy="no-referrer" alt="image-20230420185634040"></p><p><img src="./库/image-20230420185648134.png" referrerpolicy="no-referrer" alt="image-20230420185648134"></p><p><img src="./库/image-20230420185659935.png" referrerpolicy="no-referrer" alt="image-20230420185659935"></p></blockquote><p>&nbsp;</p><h4 id='与或表达式的化简'><span>与或表达式的化简</span></h4><p><span>最简与或表达式：</span></p><ul><li><p><span>与项个数最少</span></p></li><li><p><span>每个与项中变量个数最少</span></p></li></ul><p><span>满足上述两个条件，相应逻辑电路所需门的数量和门的输入端个数均为最少，电路最经济</span></p><p>&nbsp;</p><p><span>方法：</span></p><ul><li><p><span>并项法</span></p></li><li><p><span>吸收法</span></p></li><li><p><span>消去法（定理4）</span></p></li><li><p><span>配项法</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="18.868ex" height="2.283ex" role="img" focusable="false" viewBox="0 -759 8339.5 1009" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.566ex;"><defs><path id="MJX-11-TEX-I-1D44B" d="M42 0H40Q26 0 26 11Q26 15 29 27Q33 41 36 43T55 46Q141 49 190 98Q200 108 306 224T411 342Q302 620 297 625Q288 636 234 637H206Q200 643 200 645T202 664Q206 677 212 683H226Q260 681 347 681Q380 681 408 681T453 682T473 682Q490 682 490 671Q490 670 488 658Q484 643 481 640T465 637Q434 634 411 620L488 426L541 485Q646 598 646 610Q646 628 622 635Q617 635 609 637Q594 637 594 648Q594 650 596 664Q600 677 606 683H618Q619 683 643 683T697 681T738 680Q828 680 837 683H845Q852 676 852 672Q850 647 840 637H824Q790 636 763 628T722 611T698 593L687 584Q687 585 592 480L505 384Q505 383 536 304T601 142T638 56Q648 47 699 46Q734 46 734 37Q734 35 732 23Q728 7 725 4T711 1Q708 1 678 1T589 2Q528 2 496 2T461 1Q444 1 444 10Q444 11 446 25Q448 35 450 39T455 44T464 46T480 47T506 54Q523 62 523 64Q522 64 476 181L429 299Q241 95 236 84Q232 76 232 72Q232 53 261 47Q262 47 267 47T273 46Q276 46 277 46T280 45T283 42T284 35Q284 26 282 19Q279 6 276 4T261 1Q258 1 243 1T201 2T142 2Q64 2 42 0Z"></path><path id="MJX-11-TEX-I-1D44C" d="M66 637Q54 637 49 637T39 638T32 641T30 647T33 664T42 682Q44 683 56 683Q104 680 165 680Q288 680 306 683H316Q322 677 322 674T320 656Q316 643 310 637H298Q242 637 242 624Q242 619 292 477T343 333L346 336Q350 340 358 349T379 373T411 410T454 461Q546 568 561 587T577 618Q577 634 545 637Q528 637 528 647Q528 649 530 661Q533 676 535 679T549 683Q551 683 578 682T657 680Q684 680 713 681T746 682Q763 682 763 673Q763 669 760 657T755 643Q753 637 734 637Q662 632 617 587Q608 578 477 424L348 273L322 169Q295 62 295 57Q295 46 363 46Q379 46 384 45T390 35Q390 33 388 23Q384 6 382 4T366 1Q361 1 324 1T232 2Q170 2 138 2T102 1Q84 1 84 9Q84 14 87 24Q88 27 89 30T90 35T91 39T93 42T96 44T101 45T107 45T116 46T129 46Q168 47 180 50T198 63Q201 68 227 171L252 274L129 623Q128 624 127 625T125 627T122 629T118 631T113 633T105 634T96 635T83 636T66 637Z"></path><path id="MJX-11-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-11-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path id="MJX-11-TEX-I-1D44D" d="M58 8Q58 23 64 35Q64 36 329 334T596 635L586 637Q575 637 512 637H500H476Q442 637 420 635T365 624T311 598T266 548T228 469Q227 466 226 463T224 458T223 453T222 450L221 448Q218 443 202 443Q185 443 182 453L214 561Q228 606 241 651Q249 679 253 681Q256 683 487 683H718Q723 678 723 675Q723 673 717 649Q189 54 188 52L185 49H274Q369 50 377 51Q452 60 500 100T579 247Q587 272 590 277T603 282H607Q628 282 628 271Q547 5 541 2Q538 0 300 0H124Q58 0 58 8Z"></path><path id="MJX-11-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path id="MJX-11-TEX-V-2032" d="M79 43Q73 43 52 49T30 61Q30 68 85 293T146 528Q161 560 198 560Q218 560 240 545T262 501Q262 496 260 486Q259 479 173 263T84 45T79 43Z"></path><path id="MJX-11-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D44B" xlink:href="#MJX-11-TEX-I-1D44B"></use></g><g data-mml-node="mi" transform="translate(852,0)"><use data-c="1D44C" xlink:href="#MJX-11-TEX-I-1D44C"></use></g><g data-mml-node="mo" transform="translate(1892.8,0)"><use data-c="3D" xlink:href="#MJX-11-TEX-N-3D"></use></g><g data-mml-node="mi" transform="translate(2948.6,0)"><use data-c="1D44B" xlink:href="#MJX-11-TEX-I-1D44B"></use></g><g data-mml-node="mi" transform="translate(3800.6,0)"><use data-c="1D44C" xlink:href="#MJX-11-TEX-I-1D44C"></use></g><g data-mml-node="mo" transform="translate(4563.6,0)"><use data-c="28" xlink:href="#MJX-11-TEX-N-28"></use></g><g data-mml-node="mi" transform="translate(4952.6,0)"><use data-c="1D44D" xlink:href="#MJX-11-TEX-I-1D44D"></use></g><g data-mml-node="mo" transform="translate(5897.8,0)"><use data-c="2B" xlink:href="#MJX-11-TEX-N-2B"></use></g><g data-mml-node="msup" transform="translate(6898,0)"><g data-mml-node="mi"><use data-c="1D44D" xlink:href="#MJX-11-TEX-I-1D44D"></use></g><g data-mml-node="mo" transform="translate(808,363) scale(0.707)"><use data-c="2032" xlink:href="#MJX-11-TEX-V-2032"></use></g></g><g data-mml-node="mo" transform="translate(7950.5,0)"><use data-c="29" xlink:href="#MJX-11-TEX-N-29"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi><mi>Y</mi><mo>=</mo><mi>X</mi><mi>Y</mi><mo stretchy="false">(</mo><mi>Z</mi><mo>+</mo><msup><mi>Z</mi><mo data-mjx-alternate="1">′</mo></msup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container><script type="math/tex">XY=XY(Z+Z')</script></p></li></ul><p>&nbsp;</p><blockquote><p><span>与或表达式化简举例</span></p><p><img src="./库/image-20230420190316735.png" referrerpolicy="no-referrer" alt="image-20230420190316735"></p><p><img src="./库/image-20230420190327355.png" referrerpolicy="no-referrer" alt="image-20230420190327355"></p><p><img src="./库/image-20230420190338436.png" referrerpolicy="no-referrer" alt="image-20230420190338436"></p></blockquote><p>&nbsp;</p><h4 id='或与表达式的化简'><span>或与表达式的化简</span></h4><p><span>最简或与表达式：</span></p><ul><li><p><span>或项个数最少</span></p></li><li><p><span>每个或项中变量个数最少</span></p></li></ul><p>&nbsp;</p><blockquote><p><span>或与表达式化简举例</span></p><p><img src="./库/image-20230420191037082.png" referrerpolicy="no-referrer" alt="image-20230420191037082"></p><p><img src="./库/image-20230420191044436.png" referrerpolicy="no-referrer" alt="image-20230420191044436"></p></blockquote><p>&nbsp;</p><h5 id='两次对偶法'><span>两次对偶法</span></h5><ol start='' ><li><p><span>对“或-与”表达式表示的函数F求对偶，得到“与-或”表达式F‘</span></p></li><li><p><span>求出F’的最简“与-或”表达式</span></p></li><li><p><span>对F&#39;再次求对偶，即可得到F的最简“或-与”表达式</span></p></li></ol><p>&nbsp;</p><blockquote><p><span>两次对偶法举例</span></p><p><img src="./库/image-20230420191725598.png" referrerpolicy="no-referrer" alt="image-20230420191725598"></p></blockquote><p>&nbsp;</p><h3 id='卡诺图化简法'><span>卡诺图化简法</span></h3><h4 id='最简与或表达式'><span>最简与或表达式</span></h4><p><strong><span>几何图形上处在相邻、相对、相重位置的小方格代表的最小项为相邻最小项</span></strong></p><p>&nbsp;</p><ul><li><p><span>1方格：表达式中对应的最小项</span></p></li><li><p><span>0方格：其余方格</span></p></li></ul><p>&nbsp;</p><ul><li><p><span>可以将函数表达式化简成最小项表达式，然后再做出卡诺图</span></p></li><li><p><span>可以根据函数表达式直接写出卡诺图（该方法甚至更快一点）</span></p></li></ul><p>&nbsp;</p><p><strong><span>利用画圈法合并卡诺图</span></strong></p><ol start='' ><li><p><span>做出函数卡诺图</span></p></li><li><p><span>在卡诺图中圈出函数全部的质蕴含项</span></p></li><li><p><span>从全部质蕴含项中找出所有的必要蕴含项</span></p></li><li><p><span>求函数的最简质蕴含项集</span></p></li></ol><p>&nbsp;</p><h4 id='最简或与表达式'><span>最简或与表达式</span></h4><h5 id='两次取反法'><span>两次取反法</span></h5><p><span>情况一：当给定逻辑函数为“与-或”表达式或标准“与-或”表达式时</span></p><ol start='' ><li><p><span>作出函数 F 的卡诺图</span></p></li><li><p><span>合并卡诺图上的 0 方格，求出反函数 F’ 的最简“与-或”表达式</span></p></li><li><p><span>对 F’ 的最简“与-或”表达式取反，得到函数F的最简“或-与”表达式</span></p></li></ol><p><img src="./库/image-20230420195104903.png" referrerpolicy="no-referrer" alt="image-20230420195104903"></p><p>&nbsp;</p><p><span>情况二：当给定逻辑函数为“或-与”表达式或标准“或-与”表达式时</span></p><ol start='' ><li><p><span>求出函数 F 的反函数 F‘ ，并作出 F’ 的卡诺图求出 F‘ 最简“与-或”表达式</span></p></li><li><p><span>合并卡诺图上的1方格，求出 F’ 最简“与-或”表达式</span></p></li><li><p><span>对 F‘ 的最简“与-或”表达式取反，得到 F 的最简“或-与”表达式</span></p></li></ol><p>&nbsp;</p><h1 id='第四章-组合逻辑电路'><span>第四章 组合逻辑电路</span></h1><p><span>研究的主要问题：</span></p><ul><li><p><span>组合逻辑电路的分析与设计方法</span></p></li><li><p><span>组合逻辑电路设计中几个常见的实际问题及其处理</span></p></li><li><p><span>组合逻辑电路中的竞争和险象问题</span></p></li></ul><p>&nbsp;</p><p><span>逻辑电路的分类</span></p><ul><li><p><span>组合逻辑电路</span></p><ul><li><p><span>电路的输出仅取决于当时的输入，与过去的输入无关</span></p></li><li><p><span>是时序逻辑电路的组成部分</span></p></li></ul></li><li><p><span>时序逻辑电路</span></p><ul><li><p><span>电路的输出不仅取决于当时的输入，而且与过去的输入情况，也就是过去电路的状态有关</span></p></li><li><p><span>电路由组合电路和存储电路组成，具有对过去输入进行记忆的功能</span></p></li><li><p><span>电路中包含反馈回路，通过反馈回路使电路与“时钟”相关</span></p></li><li><p><span>电路的输出由电路当时的输入和状态（过去的输入）决定</span></p></li></ul></li></ul><p>&nbsp;</p><p><span>同步时序逻辑电路：电路中有统一的定时信号，存储器件采用时钟控制触发器，电路状态在时钟脉冲控制下发生转换</span></p><p><span>异步时序逻辑电路：电路中没有统一的时钟信号同步，电路输入信号的变化将直接导致电路状态的变化</span></p><p>&nbsp;</p><h2 id='组合逻辑电路的分析'><span>组合逻辑电路的分析</span></h2><ul><li><p><span>根据给定电路分析输入输出直接的逻辑关系</span></p></li><li><p><span>得出电路的逻辑功能的描述</span></p></li><li><p><span>评估电路的性能</span></p></li><li><p><span>进一步改进电路</span></p></li></ul><p>&nbsp;</p><p><span>步骤：</span></p><ol start='' ><li><p><span>逻辑电路图</span></p></li><li><p><span>写出逻辑函数表达式</span></p><ol start='' ><li><p><span>代数法：根据电路逐级写出各门的输出表达式，直至写出整个电路的输出逻辑表达式</span></p></li></ol></li><li><p><span>表达式化简</span></p></li><li><p><span>真值表</span></p></li><li><p><span>分析逻辑功能</span></p></li><li><p><span>改进电路</span></p></li></ol><p>&nbsp;</p><p><strong><span>举例1</span></strong></p><p><img src="./库/image-20230426133922602.png" alt="image-20230426133922602" style="zoom: 25%;" /></p><p><img src="./库/image-20230426133946482.png" alt="image-20230426133946482" style="zoom:25%;" /></p><p>&nbsp;</p><p><strong><span>举例2</span></strong></p><p><img src="./库/image-20230426134036820.png" alt="image-20230426134036820" style="zoom:25%;" /></p><p><img src="./库/image-20230426134055783.png" alt="image-20230426134055783" style="zoom:25%;" /></p><p><img src="./库/image-20230426134112824.png" alt="image-20230426134112824" style="zoom:25%;" /></p><p><img src="./库/image-20230426134626547.png" alt="image-20230426134626547" style="zoom:25%;" /></p><p>&nbsp;</p><h2 id='组合逻辑电路的设计'><span>组合逻辑电路的设计</span></h2><p><span>逻辑设计是指根据问题要求完成的逻辑功能，求出在特定条件下实现给定功能的逻辑电路，又叫做逻辑综合。</span></p><p>&nbsp;</p><p><span>步骤：</span></p><ol start='' ><li><p><span>分析设计要求</span></p></li><li><p><span>列出真值表</span></p></li><li><p><span>最简逻辑表达式</span></p></li><li><p><span>表达式变换</span></p></li><li><p><span>修正表达式</span></p></li><li><p><span>逻辑电路图</span></p></li></ol><p>&nbsp;</p><ul><li><p><strong><span>关键</span></strong><span>：</span></p><ul><li><p><span>正确理解设计要求</span></p></li></ul></li><li><p><strong><span>确定</span></strong><span>：</span></p><ul><li><p><span>电路的输入和输出</span></p></li><li><p><span>函数与变量之间的逻辑关系</span></p></li></ul></li><li><p><strong><span>方法</span></strong><span>：</span></p><ul><li><p><span>真值表法</span></p><ul><li><p><span>规整、简单</span></p></li><li><p><span>不方便，变量个数较多的时候非常麻烦</span></p></li></ul></li><li><p><span>分析法</span></p><ul><li><p><span>通过对于设计要求的分析、理解，直接写出逻辑表达式</span></p></li></ul></li></ul></li></ul><p>&nbsp;</p><h3 id='举例1真值表法'><span>举例1：真值表法</span></h3><p><img src="./库/image-20230426143846984.png" alt="image-20230426143846984" style="zoom: 25%;" /></p><p><img src="./库/image-20230426143909960.png" alt="image-20230426143909960" style="zoom:25%;" /></p><p><img src="./库/image-20230426143921103.png" alt="image-20230426143921103" style="zoom:25%;" /></p><p><img src="./库/image-20230426143931802.png" alt="image-20230426143931802" style="zoom:25%;" /></p><p><img src="./库/image-20230426143943994.png" alt="image-20230426143943994" style="zoom:25%;" /></p><p><img src="./库/image-20230426143953911.png" alt="image-20230426143953911" style="zoom:25%;" /></p><p>&nbsp;</p><h3 id='举例2分析法'><span>举例2：分析法</span></h3><p><img src="./库/image-20230426144232334.png" alt="image-20230426144232334" style="zoom:25%;" /></p><p><img src="./库/image-20230426144248762.png" alt="image-20230426144248762" style="zoom:25%;" /></p><p><img src="./库/image-20230426144307193.png" alt="image-20230426144307193" style="zoom:25%;" /></p><p>&nbsp;</p><h2 id='包含无关条件的组合逻辑电路设计'><span>包含无关条件的组合逻辑电路设计</span></h2><p><span>无关最小项：由于输入变量之间存在的相互制约，问题的某种特殊限定，使得逻辑函数与输入变量的某些取值组合无关，这些取值的组合称为无关最小项，也叫做无关最小项，任意项。</span></p><p><span>描述包含无关条件的逻辑问题的逻辑函数称之为包含无关条件的逻辑函数</span></p><p>&nbsp;</p><p><img src="./库/image-20230426231916074.png" alt="image-20230426231916074" style="zoom:25%;" /></p><p>&nbsp;</p><p><span>当“最小项之和”表达式描述一个包含无关条件的逻辑问题时，</span><strong><span>表达式中是否包含无关项，以及对无关项是令其取值为1还是取值为0，并不影响函数的实际功能</span></strong></p><p><span>利用无关项的随意性往往可以使逻辑函数得到更好地简化，从而使电路达到更简</span></p><p>&nbsp;</p><p><strong><span>举例1</span></strong></p><p><img src="./库/image-20230426232715375.png" alt="image-20230426232715375" style="zoom: 25%;" /></p><p><img src="./库/image-20230426232826538.png" alt="image-20230426232826538" style="zoom:25%;" /></p><p><img src="./库/image-20230426232957235.png" referrerpolicy="no-referrer" alt="image-20230426232957235"></p><p><strong><span>利用无关项来进行化简，同时注意2421码的无关项排布规律</span></strong></p><p><img src="./库/image-20230426233427667.png" alt="image-20230426233427667" style="zoom: 33%;" /></p><p>&nbsp;</p><p><strong><span>举例2</span></strong></p><p><img src="./库/image-20230426233559542.png" alt="image-20230426233559542" style="zoom: 25%;" /></p><p><img src="./库/image-20230426234015009.png" alt="image-20230426234015009" style="zoom: 33%;" /></p><p><img src="./库/image-20230426234401226.png" alt="image-20230426234401226" style="zoom:25%;" /></p><p><img src="./库/image-20230426234448331.png" referrerpolicy="no-referrer" alt="image-20230426234448331"></p><p>&nbsp;</p><h2 id='多输出函数的组合逻辑电路设计'><span>多输出函数的组合逻辑电路设计</span></h2><ul><li><p><span>由同一组输入变量产生多个输出函数</span></p></li><li><p><span>应该将多个输出函数一起考虑，而不是将多个输出函数分割</span></p></li><li><p><strong><span>关键</span></strong><span>：在函数化简时找到各个输出函数的公用项，实现对逻辑门的共享</span></p></li></ul><p>&nbsp;</p><p><strong><span>举例1</span></strong></p><p><img src="./库/image-20230426234820951.png" alt="image-20230426234820951" style="zoom:25%;" /></p><p><img src="./库/image-20230426234930594.png" referrerpolicy="no-referrer" alt="image-20230426234930594"></p><p><img src="./库/image-20230426235105502.png" referrerpolicy="no-referrer" alt="image-20230426235105502"></p><p><img src="./库/image-20230427000559923.png" alt="image-20230427000559923" style="zoom:25%;" /></p><p><span>考虑另外一种化简方式：</span></p><p><img src="./库/image-20230427000632784.png" alt="image-20230427000632784" style="zoom:25%;" /></p><p><img src="./库/image-20230427000648523.png" alt="image-20230427000648523" style="zoom:25%;" /></p><p>&nbsp;</p><p><strong><span>举例2</span></strong></p><p><img src="./库/image-20230427001215079.png" alt="image-20230427001215079" style="zoom:25%;" /></p><p><img src="./库/image-20230427001251677.png" alt="image-20230427001251677" style="zoom:33%;" /></p><p><img src="./库/image-20230427001956328.png" alt="image-20230427001956328" style="zoom: 33%;" /></p><p><span>模 2 运算中：</span></p><ul><li><p><span>与==积</span></p></li><li><p><span>异或==和</span></p></li></ul><p><img src="./库/image-20230427002010793.png" alt="image-20230427002010793" style="zoom: 33%;" /></p><p><img src="./库/image-20230427002208394.png" alt="image-20230427002208394" style="zoom:33%;" /></p><p><img src="./库/image-20230427002246661.png" alt="image-20230427002246661" style="zoom:33%;" /></p><p>&nbsp;</p><h2 id='无反变量提供的组合逻辑电路设计'><span>无反变量提供的组合逻辑电路设计</span></h2><p><span>问题的提出：</span></p><ul><li><p><span>为了减少各个部件之间的连线，在某些问题的设计中，不提供反变量</span></p></li><li><p><span>若直接使用非门将原变量转化为反变量，则处理结果往往是不经济的</span></p></li><li><p><span>通常经过一定的变换，以便在无反变量提供的情况下，尽可能减少非门的数量，使逻辑电路尽可能简化</span></p></li></ul><p>&nbsp;</p><p><strong><span>关于无反变量提供时如何使组合电路达到最简的问题，至今尚无一种系统而有效的方法，只能由设计者根据具体问题进行灵活处理</span></strong></p><p>&nbsp;</p><p><strong><span>举例1</span></strong></p><p><img src="./库/image-20230427184335357.png" alt="image-20230427184335357" style="zoom: 25%;" /></p><p><img src="./库/image-20230427184642128.png" alt="image-20230427184642128" style="zoom:25%;" /></p><p><img src="./库/image-20230427184654261.png" alt="image-20230427184654261" style="zoom:25%;" /></p><p>&nbsp;</p><p><strong><span>举例2</span></strong></p><p><img src="./库/image-20230427184832157.png" alt="image-20230427184832157" style="zoom:25%;" /></p><p><img src="./库/image-20230427184844570.png" alt="image-20230427184844570" style="zoom: 33%;" /></p><p><img src="./库/image-20230427190916090.png" alt="image-20230427190916090" style="zoom:25%;" /></p><p><img src="./库/image-20230427191009009.png" alt="image-20230427191009009" style="zoom:33%;" /></p><p><img src="./库/image-20230427191025193.png" alt="image-20230427191025193" style="zoom:33%;" /></p><p><img src="./库/image-20230427191040057.png" alt="image-20230427191040057" style="zoom:33%;" /></p><p><strong><span>对该问题的逻辑描述是与血型编码直接相关的</span></strong></p><p><img src="./库/image-20230427191208924.png" alt="image-20230427191208924" style="zoom:33%;" /></p><p><span>0 方格的位置更加集中，所以对 0 方格进行化简</span></p><p><img src="./库/image-20230427191701705.png" alt="image-20230427191701705" style="zoom:33%;" /></p><p>&nbsp;</p><p><span>使得电路更简单的方法：</span></p><ol start='' ><li><p><span>变化表达式</span></p></li><li><p><span>更换编码方案</span></p></li></ol><p>&nbsp;</p><h2 id='险象'><span>险象</span></h2><p><span>在前面的探讨中：我们仅仅考虑了信号稳定输入时的情况，没有考虑信号的延迟问题</span></p><p><span>信号经过任何逻辑门和导线都会产生时间延迟</span></p><p><span>延迟时间与以下因素有关：</span></p><ul><li><p><span>信号经过的门的级数</span></p></li><li><p><span>具体逻辑门的时延大小</span></p></li><li><p><span>导线的长短</span></p></li></ul><p>&nbsp;</p><p><span>延迟时间对数字系统是一个有害的因素，会导致：</span></p><ul><li><p><span>系统操作速度下降</span></p></li><li><p><span>引起线路中信号的波形参数变坏</span></p></li><li><p><span>产生竞争和险象的问题</span></p></li></ul><p>&nbsp;</p><h3 id='竞争'><span>竞争</span></h3><p><span>由于延迟时间的影响，输入信号经过不同路径到达输出端的时间有先有后的现象</span></p><p>&nbsp;</p><h4 id='临界竞争'><span>临界竞争</span></h4><p><span>导致错误输出的竞争</span></p><p>&nbsp;</p><h4 id='非临界竞争'><span>非临界竞争</span></h4><p><span>不产生错误输出的竞争</span></p><p>&nbsp;</p><h3 id='险象的定义'><span>险象的定义</span></h3><p><span>由竞争导致的错误输出信号</span></p><ul><li><p><span>在组合逻辑电路中，险象是一种瞬态现象</span></p></li><li><p><span>表现为在输出端产生不应有的尖脉冲，暂时地破坏正常的逻辑关系</span></p></li><li><p><span>一旦瞬态过程结束，即可恢复正常的逻辑关系</span></p></li></ul><p>&nbsp;</p><p><img src="./库/image-20230427194013773.png" alt="image-20230427194013773" style="zoom: 25%;" /></p><p><img src="./库/image-20230427194031249.png" alt="image-20230427194031249" style="zoom: 25%;" /></p><p><img src="./库/image-20230427194051466.png" alt="image-20230427194051466" style="zoom:25%;" /></p><p>&nbsp;</p><p><span>险象的分类：</span></p><ul><li><p><span>静态险象：在输入变化而输出不应该变化的情况下，输出端产生了短暂的错误输出</span></p></li><li><p><span>动态险象：在输入变化而输出应该变化的情况下，输出在变化过程中产生了短暂的错误输出</span></p></li></ul><p>&nbsp;</p><p><span>按照错误输出的极性划分：</span></p><ul><li><p><span>0 型险象：错误输出信号是负脉冲</span></p></li><li><p><span>1 型险象：错误输出信号是正脉冲</span></p></li></ul><p>&nbsp;</p><p><img src="./库/image-20230427195523358.png" alt="image-20230427195523358" style="zoom:33%;" /></p><p>&nbsp;</p><h2 id='险象的判断'><span>险象的判断</span></h2><h3 id='代数法'><span>代数法</span></h3><p><span>检查函数表达式中是否含有存在具备竞争条件的变量，</span><strong><span>即某个变量同时以原变量和反变量的形式出现在函数表达式中</span></strong></p><p><span>若存在某个满足条件的变量，则消去函数中其他的变量，看函数表达式是否会变成</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="6.621ex" height="2.448ex" role="img" focusable="false" viewBox="0 -1000 2926.4 1082" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.186ex;"><defs><path id="MJX-12-TEX-I-1D44B" d="M42 0H40Q26 0 26 11Q26 15 29 27Q33 41 36 43T55 46Q141 49 190 98Q200 108 306 224T411 342Q302 620 297 625Q288 636 234 637H206Q200 643 200 645T202 664Q206 677 212 683H226Q260 681 347 681Q380 681 408 681T453 682T473 682Q490 682 490 671Q490 670 488 658Q484 643 481 640T465 637Q434 634 411 620L488 426L541 485Q646 598 646 610Q646 628 622 635Q617 635 609 637Q594 637 594 648Q594 650 596 664Q600 677 606 683H618Q619 683 643 683T697 681T738 680Q828 680 837 683H845Q852 676 852 672Q850 647 840 637H824Q790 636 763 628T722 611T698 593L687 584Q687 585 592 480L505 384Q505 383 536 304T601 142T638 56Q648 47 699 46Q734 46 734 37Q734 35 732 23Q728 7 725 4T711 1Q708 1 678 1T589 2Q528 2 496 2T461 1Q444 1 444 10Q444 11 446 25Q448 35 450 39T455 44T464 46T480 47T506 54Q523 62 523 64Q522 64 476 181L429 299Q241 95 236 84Q232 76 232 72Q232 53 261 47Q262 47 267 47T273 46Q276 46 277 46T280 45T283 42T284 35Q284 26 282 19Q279 6 276 4T261 1Q258 1 243 1T201 2T142 2Q64 2 42 0Z"></path><path id="MJX-12-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path id="MJX-12-TEX-S4-2013" d="M0 248V285H499V248H0Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D44B" xlink:href="#MJX-12-TEX-I-1D44B"></use></g><g data-mml-node="mo" transform="translate(1074.2,0)"><use data-c="2B" xlink:href="#MJX-12-TEX-N-2B"></use></g><g data-mml-node="mover" transform="translate(2074.4,0)"><g data-mml-node="mi"><use data-c="1D44B" xlink:href="#MJX-12-TEX-I-1D44B"></use></g><g data-mml-node="mo" transform="translate(0,615)"><svg width="852" height="237" x="0" y="148" viewBox="213 148 852 237"><use data-c="2013" xlink:href="#MJX-12-TEX-S4-2013" transform="scale(2.556,1)"></use></svg></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi><mo>+</mo><mover><mi>X</mi><mo accent="true">―</mo></mover></math></mjx-assistive-mml></mjx-container><script type="math/tex">X+\overline{X}</script><span>或者</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="5.49ex" height="2.262ex" role="img" focusable="false" viewBox="0 -1000 2426.4 1000" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: 0px;"><defs><path id="MJX-13-TEX-I-1D44B" d="M42 0H40Q26 0 26 11Q26 15 29 27Q33 41 36 43T55 46Q141 49 190 98Q200 108 306 224T411 342Q302 620 297 625Q288 636 234 637H206Q200 643 200 645T202 664Q206 677 212 683H226Q260 681 347 681Q380 681 408 681T453 682T473 682Q490 682 490 671Q490 670 488 658Q484 643 481 640T465 637Q434 634 411 620L488 426L541 485Q646 598 646 610Q646 628 622 635Q617 635 609 637Q594 637 594 648Q594 650 596 664Q600 677 606 683H618Q619 683 643 683T697 681T738 680Q828 680 837 683H845Q852 676 852 672Q850 647 840 637H824Q790 636 763 628T722 611T698 593L687 584Q687 585 592 480L505 384Q505 383 536 304T601 142T638 56Q648 47 699 46Q734 46 734 37Q734 35 732 23Q728 7 725 4T711 1Q708 1 678 1T589 2Q528 2 496 2T461 1Q444 1 444 10Q444 11 446 25Q448 35 450 39T455 44T464 46T480 47T506 54Q523 62 523 64Q522 64 476 181L429 299Q241 95 236 84Q232 76 232 72Q232 53 261 47Q262 47 267 47T273 46Q276 46 277 46T280 45T283 42T284 35Q284 26 282 19Q279 6 276 4T261 1Q258 1 243 1T201 2T142 2Q64 2 42 0Z"></path><path id="MJX-13-TEX-N-B7" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path><path id="MJX-13-TEX-S4-2013" d="M0 248V285H499V248H0Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D44B" xlink:href="#MJX-13-TEX-I-1D44B"></use></g><g data-mml-node="mo" transform="translate(1074.2,0)"><use data-c="B7" xlink:href="#MJX-13-TEX-N-B7"></use></g><g data-mml-node="mover" transform="translate(1574.4,0)"><g data-mml-node="mi"><use data-c="1D44B" xlink:href="#MJX-13-TEX-I-1D44B"></use></g><g data-mml-node="mo" transform="translate(0,615)"><svg width="852" height="237" x="0" y="148" viewBox="213 148 852 237"><use data-c="2013" xlink:href="#MJX-13-TEX-S4-2013" transform="scale(2.556,1)"></use></svg></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi><mo>·</mo><mover><mi>X</mi><mo accent="true">―</mo></mover></math></mjx-assistive-mml></mjx-container><script type="math/tex">X·\overline{X}</script><span>，如果可以变成这两种形式之一，则说明电路可能产生险象</span></p><p>&nbsp;</p><p><strong><span>举例1</span></strong></p><p><img src="./库/image-20230427200904795.png" alt="image-20230427200904795" style="zoom:25%;" /></p><p><img src="./库/image-20230427200929845.png" alt="image-20230427200929845" style="zoom:25%;" /></p><p>&nbsp;</p><p><strong><span>举例2</span></strong></p><p><img src="./库/image-20230427201157041.png" alt="image-20230427201157041" style="zoom:25%;" /></p><p><img src="./库/image-20230427201221795.png" alt="image-20230427201221795" style="zoom:25%;" /></p><p>&nbsp;</p><h3 id='卡诺图法'><span>卡诺图法</span></h3><p><strong><span>仅仅适用于与或表达式</span></strong></p><p><span>步骤：</span></p><ol start='' ><li><p><span>做出函数的卡诺图</span></p></li><li><p><span>画出和函数表达式中各个与项相对于的卡诺圈</span></p></li><li><p><span>若卡诺圈直接存在相切的关系，则该电路可能产生险象</span></p></li></ol><p>&nbsp;</p><p><strong><span>举例1</span></strong></p><p><img src="./库/image-20230427201428328.png" alt="image-20230427201428328" style="zoom:25%;" /></p><p><img src="./库/image-20230427201955513.png" alt="image-20230427201955513" style="zoom:25%;" /></p><p>&nbsp;</p><p><strong><span>判断组合逻辑电路中的险象和竞争的时，一定不能改变电路的结构，即不对原来的电路作任何的化简和变换等</span></strong></p><p>&nbsp;</p><h2 id='险象的消除'><span>险象的消除</span></h2><h3 id='增加冗余项'><span>增加冗余项</span></h3><p><span>增加冗余项的方法：</span></p><ul><li><p><span>或上冗余的与项</span></p></li><li><p><span>与上冗余的或项</span></p></li></ul><p>&nbsp;</p><p><span>冗余项的选择：</span></p><ul><li><p><span>代数法</span></p></li><li><p><span>卡诺图法：在函数的卡诺图上增加多余的卡诺圈</span></p></li></ul><p>&nbsp;</p><p><strong><span>代数法举例</span></strong></p><p><img src="./库/image-20230427203007891.png" alt="image-20230427203007891" style="zoom:25%;" /></p><p><strong><span>卡诺图法举例1</span></strong></p><p><img src="./库/image-20230427203206063.png" alt="image-20230427203206063" style="zoom:25%;" /></p><p><strong><span>卡诺图法举例2</span></strong></p><p><img src="./库/image-20230427203236927.png" alt="image-20230427203236927" style="zoom:25%;" /></p><p>&nbsp;</p><h3 id='增加惯性延时环节'><span>增加惯性延时环节</span></h3><p><span>在组合电路的输出端连接一个惯性延时环节，通常采用RC电路作为惯性延时环节</span></p><p><img src="./库/image-20230427203500099.png" alt="image-20230427203500099" style="zoom:25%;" /></p><p>&nbsp;</p><h3 id='选通法'><span>选通法</span></h3><p><span>选通法不必增加任何器件，仅仅是利用选通脉冲的作用，从时间上加以控制，使输出避开险象</span></p><p><img src="./库/image-20230427203759905.png" alt="image-20230427203759905" style="zoom: 25%;" /></p><p>&nbsp;</p><h1 id='第三章-集成门电路与触发器'><span>第三章 集成门电路与触发器</span></h1><h2 id='简单逻辑门电路'><span>简单逻辑门电路</span></h2><p><img src="./库/image-20230327175800547.png" alt="image-20230327175800547" style="zoom: 25%;" /></p><p><img src="./库/image-20230327175912586.png" alt="image-20230327175912586" style="zoom: 33%;" /></p><p>&nbsp;</p><h2 id='正逻辑和负逻辑'><span>正逻辑和负逻辑</span></h2><p>&nbsp;</p><ul><li><p><span>不同规定可使统一逻辑电路具有不同的逻辑功能</span></p></li><li><p><span>对于同一个电路可以采用正逻辑也可以采用负逻辑</span></p></li><li><p><span>正逻辑和负逻辑不涉及逻辑电路本身的结构与性能的好坏</span></p></li></ul><p>&nbsp;</p><p><span>正逻辑”与门“等价于负逻辑”或门“</span></p><p>&nbsp;</p><p><img src="./库/image-20230327180416480.png" alt="image-20230327180416480" style="zoom: 50%;" /></p><p>&nbsp;</p><h2 id='触发器概述'><span>触发器概述</span></h2><p>&nbsp;</p><p><span>触发器的结构</span></p><ul><li><p><span>有两个互补的输出端</span></p></li><li><p><span>有两个稳定状态”1“和”0“</span></p></li></ul><p>&nbsp;</p><ol start='' ><li><p><span>输入信号不发生变化时，触发器状态稳定不变</span></p></li><li><p><span>在一定的输入信号作用下，触发器可以从一个稳定状态转移到另一个稳定状态，输入信号撤销后，保持新的状态不变</span></p></li></ol><p>&nbsp;</p><p><span>触发器的状态：</span></p><ul><li><p><span>现态</span></p></li><li><p><span>次态</span></p></li></ul><p>&nbsp;</p><p><span>触发器的常用描述方法：</span></p><ul><li><p><span>功能表</span></p></li><li><p><span>状态表</span></p></li><li><p><span>状态图</span></p></li><li><p><span>次态方程</span></p></li><li><p><span>激励表</span></p></li><li><p><span>卡诺图</span></p></li></ul><p>&nbsp;</p><h2 id='rs触发器'><span>RS触发器</span></h2><h3 id='与非门rs触发器'><span>与非门RS触发器</span></h3><p><img src="./库/image-20230327181539095.png" referrerpolicy="no-referrer" alt="image-20230327181539095"></p><p><img src="./库/image-20230327181603366.png" referrerpolicy="no-referrer" alt="image-20230327181603366"></p><p><img src="./库/image-20230327182110249.png" referrerpolicy="no-referrer" alt="image-20230327182110249"></p><p><img src="./库/image-20230327181659863.png" referrerpolicy="no-referrer" alt="image-20230327181659863"></p><p><img src="./库/image-20230327181749346.png" referrerpolicy="no-referrer" alt="image-20230327181749346"></p><p>&nbsp;</p><h3 id='或非门rs触发器'><span>或非门RS触发器</span></h3><p><img src="./库/image-20230327181853582.png" referrerpolicy="no-referrer" alt="image-20230327181853582"></p><p><img src="./库/image-20230327182021820.png" referrerpolicy="no-referrer" alt="image-20230327182021820"></p><p><img src="./库/image-20230327182159115.png" referrerpolicy="no-referrer" alt="image-20230327182159115"></p><p><img src="./库/image-20230327182209618.png" referrerpolicy="no-referrer" alt="image-20230327182209618"></p><p>&nbsp;</p><p><strong><span>与非门RS触发器和或非门RS触发器</span></strong></p><p><img src="./库/image-20230327182252230.png" referrerpolicy="no-referrer" alt="image-20230327182252230"></p><p>&nbsp;</p><p><img src="./库/image-20230327182314523.png" referrerpolicy="no-referrer" alt="image-20230327182314523"></p><p>&nbsp;</p><h2 id='钟控触发器'><span>钟控触发器</span></h2><p><img src="./库/image-20230327182349317.png" referrerpolicy="no-referrer" alt="image-20230327182349317"></p><p>&nbsp;</p><h3 id='钟控rs触发器'><span>钟控RS触发器</span></h3><p><strong><span>钟控RS触发器和或非门构成的RS触发器功能一致</span></strong></p><p><img src="./库/image-20230501090133503.png" alt="image-20230501090133503" style="zoom:33%;" /></p><p><img src="./库/image-20230327182433475.png" referrerpolicy="no-referrer" alt="image-20230327182433475"></p><p><img src="./库/image-20230327182440243.png" referrerpolicy="no-referrer" alt="image-20230327182440243"></p><p><img src="./库/image-20230327182451315.png" referrerpolicy="no-referrer" alt="image-20230327182451315"></p><p>&nbsp;</p><h3 id='钟控d触发器'><span>钟控D触发器</span></h3><p><img src="./库/image-20230501090252184.png" alt="image-20230501090252184" style="zoom: 25%;" /></p><p><img src="./库/image-20230501090302684.png" alt="image-20230501090302684" style="zoom: 25%;" /></p><p><img src="./库/image-20230327182538392.png" referrerpolicy="no-referrer" alt="image-20230327182538392"></p><p>&nbsp;</p><h3 id='钟控jk触发器'><span>钟控JK触发器</span></h3><p><img src="./库/image-20230327182639622.png" alt="image-20230327182639622" style="zoom: 50%;" /></p><p><img src="./库/image-20230327182650116.png" referrerpolicy="no-referrer" alt="image-20230327182650116"></p><p><img src="./库/image-20230327182750447.png" referrerpolicy="no-referrer" alt="image-20230327182750447"></p><p><img src="./库/image-20230327183141353.png" referrerpolicy="no-referrer" alt="image-20230327183141353"></p><p>&nbsp;</p><h3 id='钟控t触发器'><span>钟控T触发器</span></h3><p><img src="./库/image-20230327183210781.png" alt="image-20230327183210781" style="zoom: 33%;" /></p><p><img src="./库/image-20230327183242983.png" referrerpolicy="no-referrer" alt="image-20230327183242983"></p><p>&nbsp;</p><h3 id='触发器规律总结'><span>触发器规律总结</span></h3><ul><li><p><span>与非门RS触发器看R，11不变，不可出现00</span></p></li><li><p><span>或非门RS触发器看S，00不变，不可出现11</span></p></li><li><p><span>钟控RS触发器与或非门相同，注意仅在CP=1时有效</span></p></li><li><p><span>钟控D触发器看D，是0置0，是1置1</span></p></li><li><p><span>钟控JK触发器，看J，是0置0，是1置1，00不变，11翻转</span></p></li><li><p><span>钟控T触发器看T，是0不变，是1翻转</span></p></li></ul><p>&nbsp;</p><h2 id='时序逻辑电路概述'><span>时序逻辑电路概述</span></h2><p><span>CP=0，触发器保持状态不变</span></p><p><span>CP=1，触发器在输入信号作用下发生变化</span></p><p><span>触发器状态转移被控制在一个约定的时间间隔内，而不是控制在某一时刻</span></p><p>&nbsp;</p><h3 id='空翻现象'><span>空翻现象</span></h3><p><span>同一个时钟脉冲作用期间触发器状态发生两次或两次以上变化的现象</span></p><p>&nbsp;</p><p><img src="./库/image-20230327184200093.png" alt="image-20230327184200093" style="zoom:50%;" /></p><p><img src="./库/image-20230327184222909.png" alt="image-20230327184222909" style="zoom: 50%;" /></p><p><span>空翻现象将造成状态的不确定和系统工作的混乱，这是不允许的。</span></p><p>&nbsp;</p><h2 id='主从rs触发器'><span>主从RS触发器</span></h2><p><img src="./库/image-20230327184715474.png" alt="image-20230327184715474" style="zoom: 50%;" /></p><p><img src="./库/image-20230327184822937.png" alt="image-20230327184822937" style="zoom: 33%;" /></p><p><img src="./库/image-20230327184842369.png" alt="image-20230327184842369" style="zoom: 50%;" /></p><p><img src="./库/image-20230327184853193.png" alt="image-20230327184853193" style="zoom:50%;" /></p><p><img src="./库/image-20230327185314043.png" alt="image-20230327185314043" style="zoom:50%;" /></p><p><img src="./库/image-20230327185329588.png" referrerpolicy="no-referrer" alt="image-20230327185329588"></p><p><img src="./库/image-20230327185445660.png" referrerpolicy="no-referrer" alt="image-20230327185445660"></p><p><span>约束方程和或非门RS触发器相同</span></p><p>&nbsp;</p><p><span>总结：</span></p><ul><li><p><span>前沿采样</span></p></li><li><p><span>后沿定局</span></p></li><li><p><span>状态变化是在时钟脉冲的后沿</span></p></li><li><p><span>无”空翻“</span></p></li></ul><p>&nbsp;</p><h2 id='主从jk触发器'><span>主从JK触发器</span></h2><p><span>和钟控JK触发器逻辑功能完全一致</span></p><p>&nbsp;</p><p><img src="./库/image-20230327185640695.png" referrerpolicy="no-referrer" alt="image-20230327185640695"></p><p><img src="./库/image-20230327185720869.png" referrerpolicy="no-referrer" alt="image-20230327185720869"></p><p><img src="./库/image-20230327185750059.png" referrerpolicy="no-referrer" alt="image-20230327185750059"></p><p>&nbsp;</p><h2 id='维持阻塞触发器'><span>维持阻塞触发器</span></h2><p>&nbsp;</p><h3 id='维持阻塞d触发器'><span>维持阻塞D触发器</span></h3><p><img src="./库/image-20230327185856470.png" referrerpolicy="no-referrer" alt="image-20230327185856470"></p><p><img src="./库/image-20230327185913087.png" referrerpolicy="no-referrer" alt="image-20230327185913087"></p><p><img src="./库/image-20230327190009792.png" referrerpolicy="no-referrer" alt="image-20230327190009792"></p><p><img src="./库/image-20230327190331002.png" referrerpolicy="no-referrer" alt="image-20230327190331002"></p><p><img src="./库/image-20230327191229826.png" referrerpolicy="no-referrer" alt="image-20230327191229826"></p><p><img src="./库/image-20230327190455696.png" referrerpolicy="no-referrer" alt="image-20230327190455696"></p><p><img src="./库/image-20230327190505551.png" referrerpolicy="no-referrer" alt="image-20230327190505551"></p><p><span>边沿触发器就是维持阻塞触发器</span></p><p>&nbsp;</p><h1 id='第五章-同步时序逻辑电路'><span>第五章 同步时序逻辑电路</span></h1><p><span>要点：</span></p><ol start='' ><li><p><span>同步时序逻辑电路</span><strong><span>分析</span></strong><span>的基本方法</span></p></li><li><p><span>同步时序逻辑电路</span><strong><span>设计</span></strong><span>的基本方法</span></p></li><li><p><span>同步时序逻辑电路中</span><strong><span>无关状态的分析和处理</span></strong></p></li></ol><p>&nbsp;</p><p><span>时序逻辑电路：若逻辑电路在任何时刻产生的稳定输出信号不仅与电路该时刻的输入信号有关还与电路过去的输入信号有关，则称为时序逻辑电路。</span></p><p>&nbsp;</p><p><img src="./库/image-20230327192932205.png" referrerpolicy="no-referrer" alt="image-20230327192932205"></p><p><img src="./库/image-20230327192941671.png" referrerpolicy="no-referrer" alt="image-20230327192941671"></p><p><img src="./库/image-20230327192959144.png" referrerpolicy="no-referrer" alt="image-20230327192959144"></p><p><img src="./库/image-20230327193110726.png" referrerpolicy="no-referrer" alt="image-20230327193110726"></p><p>&nbsp;</p><p><span>时序逻辑电路的分类：</span></p><ul><li><p><span>电路的工作方式</span></p></li><li><p><span>电路输出对输入的依从</span></p></li><li><p><span>输入信号的形式</span></p></li></ul><p>&nbsp;</p><h2 id='工作方式'><span>工作方式</span></h2><p><img src="./库/image-20230327225458740.png" alt="image-20230327225458740" style="zoom: 50%;" /></p><p>&nbsp;</p><p><strong><span>电路状态的改变依赖于输入信号和时钟脉冲信号</span></strong></p><p><span>在研究同步时序逻辑电路时，通常不把同步时钟信号作为输入信号处理，而是把它当作是一种默认的时间基准</span></p><p>&nbsp;</p><p><img src="./库/image-20230327225900576.png" alt="image-20230327225900576" style="zoom: 33%;" /></p><p><img src="./库/image-20230327230117623.png" alt="image-20230327230117623" style="zoom: 33%;" /></p><p>&nbsp;</p><h2 id='依从关系'><span>依从关系</span></h2><p>&nbsp;</p><p><img src="./库/image-20230327230218200.png" alt="image-20230327230218200" style="zoom:33%;" /></p><p><img src="./库/image-20230327230322120.png" referrerpolicy="no-referrer"></p><p><img src="./库/image-20230327230403333.png" alt="image-20230327230403333" style="zoom: 33%;" /></p><p>&nbsp;</p><h2 id='输入信号的形式'><span>输入信号的形式</span></h2><ul><li><p><span>脉冲型</span></p><ul><li><p><span>时钟脉冲</span></p></li><li><p><span>同步输入脉冲</span></p></li><li><p><span>异步输入脉冲</span></p></li></ul></li><li><p><span>电平型</span></p><ul><li><p><span>同步输入电平</span></p></li><li><p><span>异步输入电平</span></p></li></ul></li></ul><p>&nbsp;</p><p><img src="./库/image-20230327230443647.png" referrerpolicy="no-referrer" alt="image-20230327230443647"></p><p>&nbsp;</p><h2 id='时序逻辑电路的描述'><span>时序逻辑电路的描述</span></h2><ul><li><p><span>逻辑函数表达式</span></p></li><li><p><span>状态图</span></p></li><li><p><span>状态表</span></p></li><li><p><span>时间图</span></p></li></ul><p>&nbsp;</p><p><img src="./库/image-20230327231002532.png" referrerpolicy="no-referrer" alt="image-20230327231002532"></p><p>&nbsp;</p><h3 id='逻辑函数表达式-2'><span>逻辑函数表达式</span></h3><p><img src="./库/image-20230327231152964.png" alt="image-20230327231152964" style="zoom: 25%;" /></p><p><img src="./库/image-20230327231210470.png" alt="image-20230327231210470" style="zoom:25%;" /></p><p><strong><span>举例</span></strong></p><p><img src="./库/image-20230327231707631.png" alt="image-20230327231707631" style="zoom:25%;" /></p><p><img src="./库/image-20230327231638486.png" alt="image-20230327231638486" style="zoom:25%;" /></p><p>&nbsp;</p><h3 id='状态表'><span>状态表</span></h3><p><img src="./库/image-20230501102925296.png" alt="image-20230501102925296" style="zoom: 25%;" /></p><p><img src="./库/image-20230501102941269.png" alt="image-20230501102941269" style="zoom: 25%;" /></p><p>&nbsp;</p><h3 id='状态图'><span>状态图</span></h3><p><img src="./库/image-20230501103722765.png" alt="image-20230501103722765" style="zoom: 33%;" /></p><p>&nbsp;</p><h3 id='时间图'><span>时间图</span></h3><p><img src="./库/image-20230501103930650.png" alt="image-20230501103930650" style="zoom: 33%;" /></p><p>&nbsp;</p><h2 id='同步时序逻辑电路的分析'><span>同步时序逻辑电路的分析</span></h2><p><span>关键：找出电路状态和输出随输入变化而变化的规律，以便确定其逻辑功能</span></p><p>&nbsp;</p><p><span>分析的方法：</span></p><ul><li><p><span>表格法</span></p></li><li><p><span>代数法</span></p></li></ul><p>&nbsp;</p><h3 id='表格法'><span>表格法</span></h3><ol start='' ><li><p><span>逻辑电路图</span></p><ol start='' ><li><p><span>输入</span></p></li><li><p><span>输出</span></p></li><li><p><span>组合逻辑电路</span></p></li><li><p><span>时序逻辑电路</span></p></li><li><p><span>Mealy</span></p></li><li><p><span>Moore</span></p></li></ol></li><li><p><span>输出函数与激励函数表达式</span></p></li><li><p><span>次态真值表</span></p></li><li><p><span>状态表和状态图</span></p></li><li><p><span>描述功能</span></p></li></ol><p>&nbsp;</p><p><strong><span>表格分析法举例</span></strong></p><p><span>注意：这是一个特殊的Moore型电路，它是有输出的，不过不是</span><code>Z</code><span>或者</span><code>F</code><span>，而是y</span><sub><span>1</span></sub><span>和y</span><sub><span>2</span></sub><span>！</span></p><p><span>这个特殊的输出也导致了列出真值表和状态图的时候没有单独列出输出。</span></p><p><img src="./库/image-20230501104605435.png" alt="image-20230501104605435" style="zoom: 25%;" /></p><p><img src="./库/image-20230501104943837.png" alt="image-20230501104943837" style="zoom:25%;" /></p><p><img src="./库/image-20230501105212531.png" alt="image-20230501105212531" style="zoom:25%;" /></p><p><img src="./库/image-20230501105324442.png" alt="image-20230501105324442" style="zoom:25%;" /></p><p>&nbsp;</p><p><span>时间图的画法：</span></p><ol start='' ><li><p><span>假设电路的初始状态，并拟定一典型的输入序列。（大概估计一下电路的功能，拟定典型输入序列的时候就往这个方向靠）</span></p></li><li><p><span>做出状态和响应序列</span></p></li><li><p><span>根据响应序列画出波形图</span></p></li></ol><p>&nbsp;</p><p><img src="./库/image-20230501110005068.png" alt="image-20230501110005068" style="zoom: 33%;" /></p><p>&nbsp;</p><h3 id='代数法-2'><span>代数法</span></h3><p><strong><span>代数分析法举例</span></strong></p><p><span>前面与表格分析法一致</span></p><p><img src="./库/image-20230501104605435.png" alt="image-20230501104605435" style="zoom: 25%;" /></p><p><img src="./库/image-20230501111108897.png" alt="image-20230501111108897" style="zoom: 33%;" /></p><p><img src="./库/image-20230501111123231.png" alt="image-20230501111123231" style="zoom:33%;" /></p><p>&nbsp;</p><p><strong><span>代数分析法举例</span></strong></p><p><img src="./库/image-20230501111456227.png" referrerpolicy="no-referrer" alt="image-20230501111456227"></p><ul><li><p><span>两个D触发器，相同的时钟端，是同步时序逻辑电路</span></p></li><li><p><span>三个或非门</span></p></li><li><p><span>输入：X，输出：Y</span></p></li><li><p><span>电路的状态：y</span><sub><span>1</span></sub><span>，y</span><sub><span>2</span></sub></p></li></ul><p><img src="./库/image-20230501111724701.png" alt="image-20230501111724701" style="zoom:25%;" /></p><p><img src="./库/image-20230501111743880.png" alt="image-20230501111743880" style="zoom:33%;" /></p><p><img src="./库/image-20230501112633847.png" alt="image-20230501112633847" style="zoom:33%;" /></p><p><img src="./库/image-20230501112649778.png" alt="image-20230501112649778" style="zoom:33%;" /></p><p>&nbsp;</p><h2 id='同步时序逻辑电路的设计'><span>同步时序逻辑电路的设计</span></h2><ul><li><p><span>根据特定的逻辑要求设计出能实现逻辑功能的时序逻辑电路</span></p></li><li><p><span>使用尽可能少的触发器和逻辑门完成预定的逻辑要求</span></p></li></ul><p>&nbsp;</p><p><strong><span>完全确定同步时序逻辑电路</span></strong><span>：电路在不同的输入取值下都有确定的次态和输出</span></p><p><strong><span>不完全确定同步时序逻辑电路</span></strong><span>：电路中存在不确定的次态或者输出，即某些状态在某些输入取值下的次态或输出是不确定的</span></p><p>&nbsp;</p><p><img src="./库/image-20230501113051959.png" alt="image-20230501113051959" style="zoom:25%;" /></p><p>&nbsp;</p><p><span>由于状态图和状态表可以直观、清晰、形象地反映同步时序逻辑电路的逻辑特性，所以设计的第一步是根据设计要求，抽象出电路的输入、输出和状态之间的关系</span></p><p>&nbsp;</p><ol start='' ><li><p><span>原始状态图和状态表</span></p><ol start='' ><li><p><span>正确清晰的反应题意</span></p></li><li><p><span>对于是否是最简不做要求</span></p></li></ol></li><li><p><span>状态化简</span></p></li><li><p><span>状态编码（二进制的状态表）</span></p></li><li><p><span>根据二进制状态表，确定所要使用的触发器，根据触发器和触发器的激励表，得到输出函数和激励函数</span></p></li><li><p><span>根据输出函数和激励函数的表达式作出逻辑电路图</span></p></li></ol><p><strong><span>当电路包含冗余状态时，要对这些状态的处理结果加以讨论</span></strong></p><p>&nbsp;</p><h3 id='建立原始状态图和原始状态表'><span>建立原始状态图和原始状态表</span></h3><p><span>根据对设计要求的文字描述，抽象出电路的输入、输出以及状态之间的关系，形成状态图和状态表</span></p><p><span>一般是先画状态图，再作出状态表，因为状态图比状态表更加灵活</span></p><p>&nbsp;</p><h4 id='建立原始状态图的步骤'><span>建立原始状态图的步骤</span></h4><ol start='' ><li><p><span>确定是Mealy型还是Moore型</span></p></li><li><p><span>设立初始状态</span></p></li><li><p><span>根据需要增加状态</span></p><ol start='' ><li><p><span>需要记忆和区分的信息量？</span></p></li><li><p><span>转向已有状态</span></p></li><li><p><span>增加新的状态</span></p></li></ol></li><li><p><span>确定电路各个时刻的输出</span></p><ol start='' ><li><p><span>时序逻辑电路的功能是通过输出对输入的响应来确定的</span></p></li><li><p><span>在建立原始状态图的时候，必须确定各个时刻的输出值</span></p><ol start='' ><li><p><span>在Moore型电路中，应指明每种状态下的输出</span></p></li><li><p><span>在Mealy型电路中，应指明从每一个状态出发，在不同输入的作用下的输出值</span></p></li></ol></li></ol></li></ol><p><strong><span>状态数目能否达到最简无关紧要，因为可以再对他进行状态化简。此时应该把清晰正确地描述设计要求放在第一位</span></strong></p><p>&nbsp;</p><p><strong><span>举例1</span></strong></p><p><img src="./库/image-20230501115955630.png" alt="image-20230501115955630" style="zoom: 33%;" /></p><p><img src="./库/image-20230501120338117.png" referrerpolicy="no-referrer" alt="image-20230501120338117"></p><p><img src="./库/image-20230501120514440.png" alt="image-20230501120514440" style="zoom: 25%;" /></p><p><strong><span>考虑一个序列检测器的时候，要注意序列首尾是否一致，当序列首尾相同的时候，要考虑序列是否是可重叠的</span></strong></p><p><img src="./库/image-20230501142647211.png" alt="image-20230501142647211" style="zoom:33%;" /></p><p><img src="./库/image-20230501142803411.png" alt="image-20230501142803411" style="zoom:33%;" /></p><p>&nbsp;</p><ul><li><p><span>Mealy型一般比Moore型需要的状态数少</span></p></li><li><p><span>Mealy型不一定比Moore型需要的触发器少</span></p></li></ul><p>&nbsp;</p><p><strong><span>举例2</span></strong></p><p><img src="./库/image-20230501143021350.png" alt="image-20230501143021350" style="zoom:33%;" /></p><p><span>代码检测器的特点是输入信号是按位分组的，每组的检测过程相同，即一组检测完成之后，接着进行下一组的检测。</span></p><p>&nbsp;</p><h4 id='使用mealy型电路设计代码检测器'><span>使用Mealy型电路设计代码检测器</span></h4><p><img src="./库/image-20230501143627660.png" alt="image-20230501143627660" style="zoom:33%;" /></p><p><strong><span>低位在上，高位在下</span></strong></p><p><img src="./库/image-20230501143736287.png" alt="image-20230501143736287" style="zoom: 25%;" /></p><p><strong><span>代码检测器和序列检测器的主要区别是什么？</span></strong></p><p><span>代码检测器每读入X位得到一个结果</span></p><p><span>序列检测器时不时的得到一个结果</span></p><p>&nbsp;</p><h4 id='使用moore型电路设计代码检测器'><span>使用Moore型电路设计代码检测器</span></h4><p><img src="./库/image-20230501144034477.png" alt="image-20230501144034477" style="zoom:33%;" /></p><p>&nbsp;</p><p><span>如果是先输入高位再输入低位，如何做Mealy状态图？</span></p><p><img src="./库/image-20230501144302908.png" alt="image-20230501144302908" style="zoom:33%;" /></p><p>&nbsp;</p><p><strong><span>举例2</span></strong></p><p><span>注意，这也是一个特殊的Mealy型电路，输出就是y</span><sub><span>2</span></sub><span>和y</span><sub><span>1</span></sub><span>本身。</span></p><p><img src="./库/image-20230501144528494.png" alt="image-20230501144528494" style="zoom: 25%;" /></p><p><img src="./库/image-20230501144651350.png" alt="image-20230501144651350" style="zoom:25%;" /></p><p><img src="./库/image-20230501144756710.png" alt="image-20230501144756710" style="zoom:25%;" /></p><p><span>在本题中，我们直接通过题目所给的条件，得到了状态表，然后由状态表得到了状态图</span></p><p><span>对于不同的情况要不同对待，合理地省略掉某些步骤</span></p><p>&nbsp;</p><h3 id='原始状态图的化简'><span>原始状态图的化简</span></h3><p><span>电路状态的多少决定了所需触发器数量的多少，应该尽可能地使描述电路状态的状态图和状态表中的状态尽可能的少</span></p><p>&nbsp;</p><p><strong><span>状态化简：</span></strong><span>从原始状态表中消去多余状态，得到一个描述给定逻辑功能的包含状态数目最少的状态表，即最简状态表或者最小化状态表。</span></p><p><span>状态化简的目的是简化电路结构</span></p><p>&nbsp;</p><p><strong><span>状态数和所需触发器数量的关系</span></strong></p><p><img src="./库/image-20230501145741660.png" alt="image-20230501145741660" style="zoom:33%;" /></p><p><span>状态化简的常用方法：</span></p><ul><li><p><span>观察法</span></p></li><li><p><span>输出分类法</span></p></li><li><p><strong><span>隐含表法</span></strong></p></li></ul><p>&nbsp;</p><h4 id='隐含表法'><span>隐含表法</span></h4><p><span>隐含表法是建立在等效状态这个概念的基础之上的。</span></p><p><strong><span>等效状态：</span></strong><span>对于状态表中的两个状态，如果对于任何可能的输入序列，从这两个状态出发，所得到的输出相应序列完全相同，则这两个状态是等效的，称这两个状态是等效对。</span></p><p>&nbsp;</p><p><strong><span>等效状态的判断：</span></strong></p><p><span>两个状态是等效对的条件为在一位输入的各种取值组合下，满足两条：</span></p><ul><li><p><span>输出相同</span></p></li><li><p><span>次态属于下列情况之一：</span></p><ul><li><p><span>次态相同</span></p></li><li><p><span>次态交错或者为各自现态</span></p></li><li><p><span>次态循环或者为等效对</span></p></li></ul></li></ul><p>&nbsp;</p><p><strong><span>举例</span></strong></p><p><img src="./库/image-20230501150607539.png" alt="image-20230501150607539" style="zoom: 25%;" /></p><p><strong><span>等效具有传递性！</span></strong></p><p>&nbsp;</p><p><strong><span>等效类</span></strong><span>：由若干彼此等效的状态构成的集合。一般来说，两个及以上的状态都可以组成等效类，一个状态也可以组成等效类。</span></p><p><span>在同一个等效类中，任意两个状态都是等效的。</span></p><p>&nbsp;</p><p><strong><span>最大等效类</span></strong><span>：不被别的等效类包含的等效类。</span></p><p><span>最大并不是指它包含的状态数最多，而是指它的独立性。</span></p><p>&nbsp;</p><p><strong><span>如何利用隐含表进行状态化简？</span></strong></p><ol start='' ><li><p><span>做隐含表</span></p><ol start='' ><li><p><span>直角三角形阶梯状网格</span></p></li><li><p><span>每个方格代表一个状态对</span></p></li><li><p><img src="./库/image-20230501151415008.png" alt="image-20230501151415008" style="zoom:25%;" /></p></li></ol></li><li><p><span>找等效对</span></p><ol start='' ><li><p><span>顺序比较</span></p><ol start='' ><li><p><span>等效打√</span></p></li><li><p><span>不等效打×</span></p></li><li><p><span>如果取决于其他的状态对，就填写其他的状态对</span></p></li></ol></li><li><p><span>顺序比较完成后，进行关联比较</span></p><ol start='' ><li><p><span>观察待定比较对</span></p></li></ol></li></ol></li><li><p><span>找到最大等效类</span></p><ol start='' ><li><p><span>依据等效状态的传递性</span></p></li><li><p><span>各个最大等效类中不存在同一个状态</span></p></li><li><p><span>每个状态都必须属于一个最大等效类</span></p></li></ol></li><li><p><span>状态合并</span></p></li></ol><p>&nbsp;</p><p><strong><span>举例</span></strong></p><p><img src="./库/image-20230501152612460.png" referrerpolicy="no-referrer" alt="image-20230501152612460"></p><p><img src="./库/image-20230501152807076.png" referrerpolicy="no-referrer" alt="image-20230501152807076"></p><p>&nbsp;</p><h3 id='状态编码'><span>状态编码</span></h3><p><span>给最小化状态表中用字母或者数字表示的状态指定一个二进制编码，形成二进制状态表，也称状态分配或者状态赋值。</span></p><ul><li><p><span>确定编码的长度，即所需触发器的个数</span></p></li><li><p><span>寻找最佳的或者接近最佳的状态分配方案，以便使所设计的时序电路最简单，这里的最简单指的是电路中的组合逻辑部分</span></p></li></ul><p>&nbsp;</p><p><span>二进制代码的位数：</span><img src="./库/image-20230501153832644.png" alt="image-20230501153832644" style="zoom:25%;" /></p><p>&nbsp;</p><p><span>常用的方法：相邻分配法</span></p><p><span>相邻分配法的主要思想是：在选择状态编码到时候，尽可能使激励函数和输出函数在卡诺图上的“1”方格处在相邻位置，从而有利于激励函数和输出函数的化简。</span></p><p>&nbsp;</p><p><span>相邻分配法的状态编码原则：</span></p><ol start='' ><li><p><strong><span>次态相同，现态相邻</span></strong><span>：相同输入条件下，具有相同次态的现态应尽可能分配相邻的二进制代码</span></p></li><li><p><strong><span>同一现态，次态相邻</span></strong><span>：相同输入条件下，同一现态的次态应尽可能分配相邻的二进制代码</span></p></li><li><p><strong><span>输出相同，现态相邻</span></strong><span>：对应每一种输入取值均具有相同输出的现态应尽可能分配相邻的二进制代码</span></p></li></ol><p><strong><span>三条原则自上而下逐个考虑</span></strong></p><p><strong><span>一般将初始状态分配0状态</span></strong></p><p><span>多种方案任选其一即可</span></p><p>&nbsp;</p><p><strong><span>举例</span></strong></p><p><img src="./库/image-20230501154959173.png" referrerpolicy="no-referrer" alt="image-20230501154959173"></p><p><img src="./库/image-20230501154951344.png" alt="image-20230501154951344" style="zoom: 25%;" /></p><p>&nbsp;</p><h3 id='确定激励函数和输出函数'><span>确定激励函数和输出函数</span></h3><p><span>根据已经确定的二进制状态表和选定的触发器，求出这个触发器的激励函数表达式和电路的输出函数表达式并化简</span></p><p>&nbsp;</p><p><span>触发器的激励表：</span></p><ul><li><p><span>激励表反映了触发器从现态转移到某种次态时，对输入条件的要求</span></p></li><li><p><span>把触发器的现态和次态作为自变量，而把触发器的输入作为因变量</span></p></li></ul><p>&nbsp;</p><p><span>四种时钟控制触发器的激励表</span></p><p><img src="./库/image-20230501160025826.png" referrerpolicy="no-referrer" alt="image-20230501160025826"></p><p>&nbsp;</p><p><strong><span>步骤</span></strong></p><ol start='' ><li><p><span>列出激励函数和输出函数真值表</span></p></li><li><p><span>用卡诺图化简后写出最简表达式</span></p></li></ol><p>&nbsp;</p><p><strong><span>举例</span></strong></p><p><img src="./库/image-20230501160527653.png" alt="image-20230501160527653" style="zoom:33%;" /></p><p><img src="./库/image-20230501160601630.png" referrerpolicy="no-referrer" alt="image-20230501160601630"></p><p><img src="./库/image-20230501160850012.png" referrerpolicy="no-referrer" alt="image-20230501160850012"></p><p><img src="./库/image-20230501161126084.png" alt="image-20230501161126084" style="zoom:25%;" /></p><p><strong><span>用钟控D触发器实现上述电路</span></strong></p><p><img src="./库/image-20230501161918899.png" referrerpolicy="no-referrer" alt="image-20230501161918899"></p><p><img src="./库/image-20230501161955059.png" referrerpolicy="no-referrer" alt="image-20230501161955059"></p><p><span>在同步时序逻辑电路的设计中，采用不同的触发器会导致激励函数不同，使得设计出来的电路中的组合逻辑电路部分复杂度不同。</span></p><p>&nbsp;</p><h2 id='同步时序逻辑电路设计举例'><span>同步时序逻辑电路设计举例</span></h2><p><strong><span>举例1</span></strong></p><p><img src="./库/image-20230501162233939.png" alt="image-20230501162233939" style="zoom:33%;" /></p><p><span>该问题对电路所要求的状态数目和状态转换关系十分清楚，故可直接做出计数器的二进制状态图和二进制状态表</span></p><p><img src="./库/image-20230501162710468.png" referrerpolicy="no-referrer" alt="image-20230501162710468"></p><p><img src="./库/image-20230501163110787.png" alt="image-20230501163110787" style="zoom: 33%;" /></p><p><img src="./库/image-20230501163703346.png" alt="image-20230501163703346" style="zoom:33%;" /></p><p>&nbsp;</p><p><strong><span>举例2</span></strong></p><p><img src="./库/image-20230501163808598.png" alt="image-20230501163808598" style="zoom:33%;" /></p><p><img src="./库/image-20230501163949927.png" referrerpolicy="no-referrer" alt="image-20230501163949927"></p><p><img src="./库/image-20230501164154437.png" alt="image-20230501164154437" style="zoom:33%;" /></p><p><img src="./库/image-20230501164307536.png" referrerpolicy="no-referrer" alt="image-20230501164307536"></p><p><img src="./库/image-20230501164652081.png" referrerpolicy="no-referrer" alt="image-20230501164652081"></p><p><img src="./库/image-20230501165150165.png" referrerpolicy="no-referrer" alt="image-20230501165150165"></p><p><img src="./库/image-20230501165358856.png" alt="image-20230501165358856" style="zoom:33%;" /></p><p>&nbsp;</p><h2 id='自启动问题'><span>自启动问题</span></h2><p><span>数字电子技术基础中的自启动：数字电路中的状态机在上电时，无论它处于什么初始状态，都会自动经过有限次的跳变后，最终进入设定的状态中。</span></p><p><img src="./库/image-20230501170450198.png" alt="image-20230501170450198" style="zoom: 25%;" /></p><p><img src="./库/image-20230501170635651.png" referrerpolicy="no-referrer" alt="image-20230501170635651"></p><p><img src="./库/image-20230501170719005.png" alt="image-20230501170719005" style="zoom:33%;" /></p><p><img src="./库/image-20230501170810018.png" referrerpolicy="no-referrer" alt="image-20230501170810018"></p><p><img src="./库/image-20230501171005449.png" referrerpolicy="no-referrer" alt="image-20230501171005449"></p><p>&nbsp;</p><ul><li><p><span>当电路中包含多个无效状态的时候，往往将无效状态构成的集合称作是状态的无效序列</span></p></li><li><p><span>正常工作下的状态集合称作是状态的有效集合</span></p></li><li><p><span>要讨论在无效状态的时候，电路的输出和转移</span></p></li></ul><p>&nbsp;</p><p><span>讨论：</span></p><ul><li><p><span>电路是否具有自恢复（自启动）功能</span></p><ul><li><p><span>电路万一偶然进入无效状态，如果能在输入信号和时钟脉冲的作用下自动进入到有效状态，则称其具有自恢复功能，否则，称为挂起</span></p></li><li><p><span>若存在挂起，则必须修正</span></p></li></ul></li><li><p><span>电路是否会产生错误的输出信号</span></p><ul><li><p><span>电路万一处在无效状态下，是否会在输入信号和时钟脉冲的作用下产生错误输出信号</span></p></li><li><p><span>若存在错误信号，则必须修正</span></p></li></ul></li></ul><p>&nbsp;</p><p><img src="./库/image-20230501174942743.png" referrerpolicy="no-referrer" alt="image-20230501174942743"></p><p><img src="./库/image-20230501180405038.png" referrerpolicy="no-referrer" alt="image-20230501180405038"></p><p><img src="./库/image-20230501180501052.png" alt="image-20230501180501052" style="zoom:33%;" /></p><p><img src="./库/image-20230501180516927.png" alt="image-20230501180516927" style="zoom:33%;" /></p><p>&nbsp;</p><p><span>讨论：如果根据化简结果得到的无效状态的转移关系如下表，结果又如何，又该如何修正？</span></p><p><img src="./库/image-20230501180709646.png" referrerpolicy="no-referrer" alt="image-20230501180709646"></p><p><img src="./库/image-20230501180727132.png" referrerpolicy="no-referrer" alt="image-20230501180727132"></p><p><img src="./库/image-20230501180807992.png" referrerpolicy="no-referrer" alt="image-20230501180807992"></p><p><img src="./库/image-20230501180922697.png" referrerpolicy="no-referrer" alt="image-20230501180922697"></p><p><img src="./库/image-20230501180914344.png" referrerpolicy="no-referrer" alt="image-20230501180914344"></p><p>&nbsp;</p><h1 id='第六章-异步时序逻辑电路'><span>第六章 异步时序逻辑电路</span></h1><h2 id='异步时序逻辑电路概述'><span>异步时序逻辑电路概述</span></h2><h3 id='特点'><span>特点</span></h3><ul><li><p><span>电路中没有统一的同步时钟脉冲信号，电路状态的改变是外部输入信号变化直接作用的结果</span></p></li><li><p><span>电路的</span><strong><span>记忆功能</span></strong><span>可以由</span><strong><span>触发器</span></strong><span>实现，也可以由</span><strong><span>延时加反馈</span></strong><span>实现</span></p></li><li><p><span>无论输入信号是脉冲信号还是电平信号，对其变化均有一定约束</span></p></li></ul><p>&nbsp;</p><h3 id='分类'><span>分类</span></h3><p><span>根据电路结构和输入信号形式分类</span></p><ul><li><p><span>脉冲异步时序逻辑电路</span></p></li><li><p><span>电平异步时序逻辑电路</span></p></li></ul><p>&nbsp;</p><p><span>根据电路输出与输入的关系分类</span></p><ul><li><p><span>Mealy型</span></p></li><li><p><span>Moore型</span></p></li></ul><p>&nbsp;</p><h2 id='脉冲异步时序逻辑电路分析与设计'><span>脉冲异步时序逻辑电路分析与设计</span></h2><h3 id='脉冲异步时序逻辑电路结构'><span>脉冲异步时序逻辑电路结构</span></h3><h4 id='结构模型'><span>结构模型</span></h4><p><img src="./库/image-20230502174241446.png" alt="image-20230502174241446" style="zoom:33%;" /></p><p>&nbsp;</p><h4 id='输入信号的要求'><span>输入信号的要求</span></h4><p><strong><span>在脉冲异步时序电路中，引起触发器状态变化的脉冲信号是由输入端直接提供的。</span></strong><span>为了保证电路可靠地工作，</span><strong><span>输入脉冲信号</span></strong><span>必须满足如下约束条件：</span></p><ul><li><p><span>输入信号为脉冲信号</span>
+<span>客观上两个或两个以上脉冲不可能 “同时”，在没有时钟脉冲同步的情况下，由不可预知的时间延迟造成的微小时差可能导致电路产生错误的状态转移。</span></p></li><li><p><span>输入脉冲的宽度必须保证触发器可靠翻转</span></p></li><li><p><span>输入脉冲的间隔必须保证前一个输入脉冲引起的电路响应完全结束后，下一个脉冲才可以来</span></p></li><li><p><span>不允许在两个或两个以上输入端同时出现脉冲</span></p></li></ul><p>&nbsp;</p><p><strong><span>注意：由于不允许两个或两个以上输入端同时出现脉冲，并且输入端无脉冲出现时，电路状态不会发生变化。因此，对n个输入端的电路，一位输入只允许出现n+1种取值组合，其中有效输入种取值组合为n种。</span></strong></p><p><strong><span>对n个输入的异步时序逻辑电路，只需考虑各自单独出现脉冲的n种情况，而不像同步时序逻辑电路中那样需要考虑2</span><sup><span>n</span></sup><span>种情况。</span></strong></p><p><span>例如：假定电路有x</span><sub><span>1</span></sub><span>、x</span><sub><span>2</span></sub><span>和x</span><sub><span>3</span></sub><span>共3个输入，并用取值1表示有脉冲出现，则一位输入允许的输入取值组合只有000、001、010、100共4种，其中有效输入取值组合只有后面3种情况。</span></p><p>&nbsp;</p><h4 id='输出信号的形式'><span>输出信号的形式</span></h4><p><span>脉冲异步时序逻辑电路的输出信号可以是脉冲信号也可以是电平信号。</span></p><ul><li><p><span>若电路结构为Mealy型，则输出为脉冲信号</span></p><ul><li><p><span>因为输出不仅是状态变量的函数，而且是输入的函数，而输入为脉冲信号，所以，输出一般是脉冲信号</span></p></li></ul></li><li><p><span>若电路结构为Moore型，则输出是电平信号</span></p><ul><li><p><span>因为输出仅仅是状态变量的函数，所以，输出值被定义在两个间隔不定的输入脉冲之间，即由两个输入脉冲之间的状态决定</span></p></li></ul></li></ul><p>&nbsp;</p><p><span>脉冲异步时序电路与同步时序电路相同点：</span></p><ul><li><p><span>状态的改变都依赖于外加脉冲</span></p></li><li><p><span>存储元件都是触发器</span></p></li></ul><p>&nbsp;</p><p><span>脉冲异步时序电路与同步时序电路的差异：</span></p><ul><li><p><span>脉冲异步时序电路无外加的统一的时钟脉冲</span></p></li><li><p><span>输入变量x为脉冲信号，由输入脉冲直接引起电路的状态改变</span></p></li><li><p><span>由次态逻辑产生各触发器控制输入信号(Y1,Y2 ,...,Yr) ，而且还产生时间有先后的各触发器的时钟控制信号(CLK1, CLK1, ...,CLKr)</span></p></li></ul><p>&nbsp;</p><h3 id='脉冲异步时序逻辑电路的分析'><span>脉冲异步时序逻辑电路的分析</span></h3><h4 id='分析方法'><span>分析方法</span></h4><p><span>分析方法与同步时序逻辑电路大致相同。分析过程中同样采用状态表、状态图、时间图等作为工具。</span></p><p>&nbsp;</p><ul><li><p><strong><span>当存储元件采用时钟控制触发器时，对触发器的时钟控制端应作为激励函数处理。仅当时钟端有脉冲作用时，才根据触发器的输入确定状态转移方向，否则，触发器状态不变</span></strong></p></li><li><p><span>根据对输入的约束，分析时可以排除两个或两个以上输入端同时出现脉冲以及输入端无脉冲出现情况</span></p><ul><li><p><span>据此，可使状态图和状态表简化</span></p></li></ul></li></ul><p>&nbsp;</p><h4 id='步骤'><span>步骤</span></h4><ol start='' ><li><p><span>写出电路的输出函数和激励函数表达式</span></p></li><li><p><span>列出电路次态真值表或次态方程组</span></p></li><li><p><span>作出状态表和状态图</span></p></li><li><p><span>用文字描述电路的逻辑功能（必要时画出时间图）</span></p></li></ol><p>&nbsp;</p><h3 id='举例'><span>举例</span></h3><p><strong><span>举例1</span></strong></p><p><img src="./库/image-20230502181450677.png" alt="image-20230502181450677" style="zoom: 33%;" /></p><p><img src="./库/image-20230502182013313.png" alt="image-20230502182013313" style="zoom: 33%;" /></p><p><img src="./库/image-20230502182404696.png" alt="image-20230502182404696" style="zoom:33%;" /></p><p><img src="./库/image-20230502182558420.png" alt="image-20230502182558420" style="zoom:33%;" /></p><p>&nbsp;</p><p><strong><span>举例2</span></strong></p><p><strong><span>注意：异步电路的时钟控制端视为激励函数处理！！！</span></strong></p><p><img src="./库/image-20230502183004684.png" referrerpolicy="no-referrer" alt="image-20230502183004684"></p><p><img src="./库/image-20230502183212052.png" alt="image-20230502183212052" style="zoom:50%;" /></p><p>&nbsp;</p><p><strong><span>举例3</span></strong></p><p><img src="./库/image-20230509134727088.png" alt="image-20230509134727088" style="zoom:33%;" /></p><p><img src="./库/image-20230509134914772.png" referrerpolicy="no-referrer" alt="image-20230509134914772"></p><p>&nbsp;</p><p><strong><span>举例4</span></strong></p><p><span>问：为什么无时钟的情况下会被认为是异步时序逻辑电路？</span></p><p><u><span>两个触发器没有统一的时钟端，所以是异步时序逻辑电路</span></u></p><p><strong><span>注意有n个输入变量时，合法的输入只有n个。</span></strong></p><p><span>注意表格分了两栏，“输入”、“现态”，其中“现态”是触发器的原始状态，也就是说触发器的原始状态也是一种我们事先不知道的变量。</span></p><p><span>注意观察触发器是上升沿触发还是下降沿触发。</span></p><p><span>同时发现，没有时钟端的情况比较好处理，不需要考虑上升沿触发或者下降沿触发的问题。</span></p><p><img src="./库/image-20230505151754636.png" referrerpolicy="no-referrer" alt="image-20230505151754636"></p><p><img src="./库/image-20230505151930286.png" referrerpolicy="no-referrer" alt="image-20230505151930286"></p><p><img src="./库/image-20230505152019897.png" alt="image-20230505152019897" style="zoom:33%;" /></p><p>&nbsp;</p><h1 id='第七章-中规模通用集成电路及应用'><span>第七章 中规模通用集成电路及应用</span></h1><p><span>集成电路由SSI发展到MSI、LSI和VLSI，使单个芯片容纳的逻辑功能越来越强。</span></p><p><span>一般来说,在SSI中仅是基本器件(如逻辑门或触发器)的集成，在MSI中已是逻辑部件(如译码器、寄存器等)的集成，而在LSI和VLSI中则是一个数字子系统或整个数字系统(如微处理器)的集成。</span></p><p><span>采用中、大规模集成电路组成数字系统具有体积小、功耗低、可靠性高等优点，且易于设计、调试和维护。</span></p><p>&nbsp;</p><p><strong><span>本章知识要点</span></strong></p><ul><li><p><span>熟悉常用中规模通用集成电路的逻辑符号、基本逻辑功能、外部特性和使用方法</span></p></li><li><p><span>用常用中规模通用集成电路作为基本部件，恰当地、灵活地、充分地利用它们完成各种逻辑电路的设计，有效地实现各种逻辑功能</span></p></li></ul><p>&nbsp;</p><h2 id='常用中规模组合逻辑电路'><span>常用中规模组合逻辑电路</span></h2><p><span>使用最广泛的中规模组合逻辑集成电路有二进制并行加法器、译码器、编码器、多路选择器和多路分配器等。</span></p><p>&nbsp;</p><h3 id='二进制并行加法器'><span>二进制并行加法器</span></h3><p><span>二进制并行加法器：是一种能并行产生</span><strong><span>两个二进制数</span></strong><span>算术和的</span><strong><span>组合逻辑</span></strong><span>部件。</span></p><p>&nbsp;</p><p><span>按其</span><strong><span>进位方式的不同</span></strong><span>可分为：</span></p><ul><li><p><strong><span>串行进位</span></strong><span>二进制并行加法器</span></p></li><li><p><strong><span>超前进位</span></strong><span>二进制并行加法器</span></p></li></ul><p>&nbsp;</p><h4 id='串行进位二进制并行加法器'><span>串行进位二进制并行加法器</span></h4><p><span>由全加器级联构成，高位的进位输出依赖于低位的进位输入</span></p><p><img src="./库/image-20230505201527599.png" alt="image-20230505201527599" style="zoom:33%;" /></p><p>&nbsp;</p><h4 id='超前进位二进制并行加法器'><span>超前进位二进制并行加法器</span></h4><p><img src="./库/image-20230505202450761.png" referrerpolicy="no-referrer" alt="image-20230505202450761"></p><p><strong><span>注意进位传递函数和进位产生函数的计算方法</span></strong></p><p>&nbsp;</p><h4 id='典型芯片'><span>典型芯片</span></h4><p><img src="./库/image-20230505203132895.png" referrerpolicy="no-referrer" alt="image-20230505203132895"></p><p>&nbsp;</p><h4 id='应用举例'><span>应用举例</span></h4><ul><li><p><span>二进制加法运算</span></p></li><li><p><span>代码转换</span></p></li><li><p><span>二进制减法运算</span></p></li><li><p><span>二进制乘法运算</span></p></li><li><p><span>十进制加法运算</span></p></li></ul><p>&nbsp;</p><p><strong><span>举例1</span></strong></p><p><img src="./库/image-20230505203421992.png" alt="image-20230505203421992" style="zoom:80%;" /></p><p>&nbsp;</p><p><strong><span>举例2</span></strong></p><p><img src="./库/image-20230505204301374.png" referrerpolicy="no-referrer" alt="image-20230505204301374"></p><p><strong><span>注意是可以自己加入一个功能选择变量的！</span></strong></p><p><strong><span>注意取反加一还可以如上图所示那么操作，非常的巧妙！</span></strong></p><p><span>取反就是</span><u><span>与 1 异或</span></u></p><p>&nbsp;</p><p><strong><span>举例3</span></strong></p><p><span>实现乘法就要把乘法转换成加法</span></p><p><img src="./库/image-20230505204427031.png" referrerpolicy="no-referrer" alt="image-20230505204427031"></p><p>&nbsp;</p><p><strong><span>举例4</span></strong></p><p><img src="./库/image-20230505204610177.png" referrerpolicy="no-referrer" alt="image-20230505204610177"></p><p><img src="./库/image-20230505204713259.png" alt="image-20230505204713259" style="zoom: 50%;" /></p><p><span>题目中虽然没说要几个4位并行加法器，但是我们可以选择两个！</span></p><p><span>同时要注意两个余三码相加的特点，该如何处理两个余三码相加</span></p><p>&nbsp;</p><h3 id='译码器'><span>译码器</span></h3><p><span>译码器(Decoder)和编码器(Encoder)是数字系统中广泛使用的多输入多输出组合逻辑部件。</span></p><p><span>译码器的功能是对具有特定含义的输入代码进行“翻译”，将其转换成相应的输出信号。</span></p><p>&nbsp;</p><ul><li><p><span>二进制译码器</span></p></li><li><p><span>二-十进制译码器</span></p></li><li><p><span>数字显示译码器</span></p></li></ul><p>&nbsp;</p><h4 id='二进制译码器'><span>二进制译码器</span></h4><p><span>二进制译码器：能将n个输入变量变换成2</span><sup><span>n</span></sup><span>个输出函数，且</span><u><span>输出函数与输入变量构成的最小项具有对应关系</span></u><span>的一种多输出组合逻辑电路。</span></p><p>&nbsp;</p><p><span>特点：</span></p><ul><li><p><span>二进制译码器一般具有n个输入端、2</span><sup><span>n</span></sup><span>个输出端和一个(或多个)使能输入端</span></p></li><li><p><span>使能输入端为有效电平时，对应每一组输入代码，仅一个输出端为有效电平，其余输出端为无效电平（值与有效电平相反)</span></p></li><li><p><span>有效电平可以是高电平(称为高电平译码)，也可以是低电平(称为低电平译码)</span></p></li></ul><p>&nbsp;</p><h5 id='典型芯片74138'><span>典型芯片74138</span></h5><p><span>常见的MSI二进制译码器有:</span></p><ul><li><p><span>2-4线(2输入4输出)译码器</span></p></li><li><p><span>3-8线(3输入8输出)译码器</span></p></li><li><p><span>4-16线(4输入16输出)译码器</span></p></li></ul><p>&nbsp;</p><p><strong><span>二进制译码器74138</span></strong></p><p><span>这是一种典型的3-8线的译码器</span></p><p><span>带有开口的是引脚阵列，蓝色的是逻辑符号</span></p><p><span>使能端 S</span><sub><span>3</span></sub><span> 和 S</span><sub><span>2</span></sub><span> 是带非门的，也就是说要想使芯片正常工作，使能端的输入序列应该是</span><code>001</code></p><p><img src="./库/image-20230505211919627.png" alt="image-20230505211919627" style="zoom:50%;" /></p><p>&nbsp;</p><h4 id='二-十进制译码器'><span>二-十进制译码器</span></h4><p><span>功能：将4位BCD码的10组代码翻译成10个十进制数字符号对应的输出信号。</span></p><h5 id='典型芯片7442'><span>典型芯片7442</span></h5><p><span>常用芯片7442是一个</span><strong><span>将四位8421码转换成十进制数字</span></strong><span>的译码器</span></p><p><img src="./库/image-20230506105026287.png" alt="image-20230506105026287" style="zoom: 33%;" /></p><p><span>该译码器的输出为低电平有效。其次，对于8421码中不允许出现的6个非法码(1010～1111)，译码器输出端均无低电平信号产生，即译码器对这6个非法码拒绝翻译。</span></p><p>&nbsp;</p><h4 id='数字显示译码器'><span>数字显示译码器</span></h4><p><span>功能：数字显示译码器是驱动显示器件(如荧光数码管、液晶数码管等)的核心部件，它可以将输入代码转换成相应数字，并在数码管上显示出来。</span></p><p><span>常用的数字显示译码器有：</span></p><ul><li><p><span>七段数字显示译码器(Seven-segment Decoders)</span></p></li><li><p><span>八段数字显示译码器(Eight-segment Decoders) </span></p></li></ul><p>&nbsp;</p><h5 id='数字显示译码器74ls47'><span>数字显示译码器74LS47</span></h5><p><img src="./库/image-20230505212824705.png" alt="image-20230505212824705" style="zoom: 50%;" /></p><p>&nbsp;</p><h4 id='译码器应用举例'><span>译码器应用举例</span></h4><p><strong><span>举例1</span></strong></p><p><img src="./库/image-20230506110911998.png" referrerpolicy="no-referrer" alt="image-20230506110911998"></p><p><span>从这个例子就可以体会出来什么是最小项和输出端对应。</span></p><blockquote><p><span>二进制译码器：能将n个输入变量变换成2</span><sup><span>n</span></sup><span>个输出函数，且输出函数与输入变量构成的最小项具有对应关系的一种多输出组合逻辑电路。</span></p></blockquote><p><strong><span>本例说明译码器也可以作为实现全减器的元件</span></strong></p><p>&nbsp;</p><p><strong><span>举例2</span></strong></p><p><img src="./库/image-20230506111400984.png" referrerpolicy="no-referrer" alt="image-20230506111400984"></p><p><img src="./库/image-20230507194153461.png" alt="image-20230507194153461" style="zoom:33%;" /></p><p><strong><span>注意观察如何用两个3-8线译码器做出应对4个变量的译码器</span></strong></p><p><span>将其中一个变量作为译码器的状态变量输入，其余三个作为参数变量输入。用状态变量来判断该哪个译码器工作，不工作的译码器是没有输出的。</span></p><p>&nbsp;</p><p><strong><span>举例2的拓展</span></strong></p><p><img src="./库/image-20230506111811878.png" referrerpolicy="no-referrer" alt="image-20230506111811878"></p><p><span>某些巧合的时候可以只使用一个3-8译码器就达到4-16译码器的效果</span></p><p>&nbsp;</p><h3 id='编码器'><span>编码器</span></h3><p><span>功能：编码器的功能恰好与译码器相反，是对输入信号按一定规律进行编排，使每组输出代码具有其特定的含义。</span></p><p><span>类型：编码器按照被编信号的不同特点和要求，有各种不同的类型：</span></p><ul><li><p><span>二-十进制编码器</span></p></li><li><p><span>优先编码器</span></p></li></ul><p>&nbsp;</p><h4 id='二-十进制编码器'><span>二-十进制编码器</span></h4><p><span>功能：将十进制数字0～9分别编码成4位BCD码</span></p><p><span>这种编码器由10个输入端代表10个不同数字，4个输出端代表相应BCD代码。</span></p><p><span>注意：二-十进制编码器的输入信号是互斥的，即任何时候只允许一个输入端为有效信号。</span></p><p><span>最常见的有8421码编码器，例如，按键式8421码编码器：</span></p><ul><li><p><span>ABCD为代码输出端</span></p></li><li><p><span>S为使用输出标志</span></p></li><li><p><span>当按下某一输入键时，在ABCD输出相应的8421码</span></p></li><li><p><span>当按下I</span><sub><span>0</span></sub><span>～I</span><sub><span>9</span></sub><span>中任一个键时，S为1，表示输出有效，否则S为0，表示输出无效</span></p></li></ul><p><img src="./库/image-20230506133841192.png" alt="image-20230506133841192" style="zoom: 25%;" /></p><p>&nbsp;</p><h4 id='优先编码器'><span>优先编码器</span></h4><p><span>功能：识别输入信号的优先级别，选中优先级别最高的一个进行编码，实现优先权管理。</span></p><p><span>优先编码器是数字系统中实现优先权管理的一个重要逻辑部件。它与上述二-十进制编码器的最大区别是，优先编码器的各个输入不是互斥的，它允许多个输入端同时为有效信号。</span></p><p><span>优先编码器的每个输入具有不同的优先级别，当多个输入信号有效时，它能识别输入信号的优先级别，并对其中优先级别最高的一个进行编码，产生相应的输出代码。</span></p><p>&nbsp;</p><h5 id='典型芯片-2'><span>典型芯片</span></h5><p><span>常见MSI优先编码器74LS148的引脚排列图和逻辑符号：</span></p><p><img src="./库/image-20230506134219563.png" alt="image-20230506134219563" style="zoom:33%;" /></p><ul><li><p><strong><span>输入和输出的有效工作电平均为低电平。</span></strong></p></li><li><p><span>在输入端中，下角标号码越大的优先级越高。</span></p></li><li><p><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="13.662ex" height="2.762ex" role="img" focusable="false" viewBox="0 -1021 6038.5 1221" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.452ex;"><defs><path id="MJX-14-TEX-I-1D43C" d="M43 1Q26 1 26 10Q26 12 29 24Q34 43 39 45Q42 46 54 46H60Q120 46 136 53Q137 53 138 54Q143 56 149 77T198 273Q210 318 216 344Q286 624 286 626Q284 630 284 631Q274 637 213 637H193Q184 643 189 662Q193 677 195 680T209 683H213Q285 681 359 681Q481 681 487 683H497Q504 676 504 672T501 655T494 639Q491 637 471 637Q440 637 407 634Q393 631 388 623Q381 609 337 432Q326 385 315 341Q245 65 245 59Q245 52 255 50T307 46H339Q345 38 345 37T342 19Q338 6 332 0H316Q279 2 179 2Q143 2 113 2T65 2T43 1Z"></path><path id="MJX-14-TEX-I-1D460" d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z"></path><path id="MJX-14-TEX-S4-2013" d="M0 248V285H499V248H0Z"></path><path id="MJX-14-TEX-I-1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path><path id="MJX-14-TEX-I-1D438" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path><path id="MJX-14-TEX-I-1D44B" d="M42 0H40Q26 0 26 11Q26 15 29 27Q33 41 36 43T55 46Q141 49 190 98Q200 108 306 224T411 342Q302 620 297 625Q288 636 234 637H206Q200 643 200 645T202 664Q206 677 212 683H226Q260 681 347 681Q380 681 408 681T453 682T473 682Q490 682 490 671Q490 670 488 658Q484 643 481 640T465 637Q434 634 411 620L488 426L541 485Q646 598 646 610Q646 628 622 635Q617 635 609 637Q594 637 594 648Q594 650 596 664Q600 677 606 683H618Q619 683 643 683T697 681T738 680Q828 680 837 683H845Q852 676 852 672Q850 647 840 637H824Q790 636 763 628T722 611T698 593L687 584Q687 585 592 480L505 384Q505 383 536 304T601 142T638 56Q648 47 699 46Q734 46 734 37Q734 35 732 23Q728 7 725 4T711 1Q708 1 678 1T589 2Q528 2 496 2T461 1Q444 1 444 10Q444 11 446 25Q448 35 450 39T455 44T464 46T480 47T506 54Q523 62 523 64Q522 64 476 181L429 299Q241 95 236 84Q232 76 232 72Q232 53 261 47Q262 47 267 47T273 46Q276 46 277 46T280 45T283 42T284 35Q284 26 282 19Q279 6 276 4T261 1Q258 1 243 1T201 2T142 2Q64 2 42 0Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mover"><g data-mml-node="msub"><g data-mml-node="mi"><use data-c="1D43C" xlink:href="#MJX-14-TEX-I-1D43C"></use></g><g data-mml-node="mi" transform="translate(473,-150) scale(0.707)"><use data-c="1D460" xlink:href="#MJX-14-TEX-I-1D460"></use></g></g><g data-mml-node="mo" transform="translate(0,615)"><svg width="854.6" height="237" x="0" y="148" viewBox="213.7 148 854.6 237"><use data-c="2013" xlink:href="#MJX-14-TEX-S4-2013" transform="scale(2.564,1)"></use></svg></g></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(854.6,0)"><g data-mml-node="mo"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">、</text></g></g><g data-mml-node="msub" transform="translate(1738.6,0)"><g data-mml-node="mi"><use data-c="1D442" xlink:href="#MJX-14-TEX-I-1D442"></use></g><g data-mml-node="mi" transform="translate(796,-150) scale(0.707)"><use data-c="1D460" xlink:href="#MJX-14-TEX-I-1D460"></use></g></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(2916.3,0)"><g data-mml-node="mo"><text data-variant="normal" transform="scale(1,-1)" font-size="884px" font-family="serif">、</text></g></g><g data-mml-node="mover" transform="translate(3800.3,0)"><g data-mml-node="mrow"><g data-mml-node="msub"><g data-mml-node="mi"><use data-c="1D442" xlink:href="#MJX-14-TEX-I-1D442"></use></g><g data-mml-node="mi" transform="translate(796,-150) scale(0.707)"><use data-c="1D438" xlink:href="#MJX-14-TEX-I-1D438"></use></g></g><g data-mml-node="mi" transform="translate(1386.2,0)"><use data-c="1D44B" xlink:href="#MJX-14-TEX-I-1D44B"></use></g></g><g data-mml-node="mo" transform="translate(0,636)"><svg width="2238.2" height="237" x="0" y="148" viewBox="559.6 148 2238.2 237"><use data-c="2013" xlink:href="#MJX-14-TEX-S4-2013" transform="scale(6.715,1)"></use></svg></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mover><msub><mi>I</mi><mi>s</mi></msub><mo accent="true">―</mo></mover><mrow data-mjx-texclass="ORD"><mo>、</mo></mrow><msub><mi>O</mi><mi>s</mi></msub><mrow data-mjx-texclass="ORD"><mo>、</mo></mrow><mover><mrow><msub><mi>O</mi><mi>E</mi></msub><mi>X</mi></mrow><mo accent="true">―</mo></mover></math></mjx-assistive-mml></mjx-container><script type="math/tex">\overline{I_s}、O_s、\overline{O_EX}</script><span>用于工作状态选择和容量扩展。</span></p></li><li><p><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="6.082ex" height="1.901ex" role="img" focusable="false" viewBox="0 -683 2688.2 840.1" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.355ex;"><defs><path id="MJX-15-TEX-I-1D43C" d="M43 1Q26 1 26 10Q26 12 29 24Q34 43 39 45Q42 46 54 46H60Q120 46 136 53Q137 53 138 54Q143 56 149 77T198 273Q210 318 216 344Q286 624 286 626Q284 630 284 631Q274 637 213 637H193Q184 643 189 662Q193 677 195 680T209 683H213Q285 681 359 681Q481 681 487 683H497Q504 676 504 672T501 655T494 639Q491 637 471 637Q440 637 407 634Q393 631 388 623Q381 609 337 432Q326 385 315 341Q245 65 245 59Q245 52 255 50T307 46H339Q345 38 345 37T342 19Q338 6 332 0H316Q279 2 179 2Q143 2 113 2T65 2T43 1Z"></path><path id="MJX-15-TEX-I-1D460" d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z"></path><path id="MJX-15-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-15-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><use data-c="1D43C" xlink:href="#MJX-15-TEX-I-1D43C"></use></g><g data-mml-node="mi" transform="translate(473,-150) scale(0.707)"><use data-c="1D460" xlink:href="#MJX-15-TEX-I-1D460"></use></g></g><g data-mml-node="mo" transform="translate(1132.4,0)"><use data-c="3D" xlink:href="#MJX-15-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(2188.2,0)"><use data-c="31" xlink:href="#MJX-15-TEX-N-31"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>I</mi><mi>s</mi></msub><mo>=</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container><script type="math/tex">I_s=1</script><span>   说明74LS148不工作</span></p></li><li><p><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="6.813ex" height="1.948ex" role="img" focusable="false" viewBox="0 -704 3011.2 861.1" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.355ex;"><defs><path id="MJX-16-TEX-I-1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path><path id="MJX-16-TEX-I-1D460" d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z"></path><path id="MJX-16-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-16-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><use data-c="1D442" xlink:href="#MJX-16-TEX-I-1D442"></use></g><g data-mml-node="mi" transform="translate(796,-150) scale(0.707)"><use data-c="1D460" xlink:href="#MJX-16-TEX-I-1D460"></use></g></g><g data-mml-node="mo" transform="translate(1455.4,0)"><use data-c="3D" xlink:href="#MJX-16-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(2511.2,0)"><use data-c="30" xlink:href="#MJX-16-TEX-N-30"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>O</mi><mi>s</mi></msub><mo>=</mo><mn>0</mn></math></mjx-assistive-mml></mjx-container><script type="math/tex">O_s=0</script><span>  表示芯片在工作但是没有输入</span></p></li></ul><p><img src="./库/image-20230506134616379.png" referrerpolicy="no-referrer" alt="image-20230506134616379"></p><p>&nbsp;</p><h5 id='应用举例-2'><span>应用举例</span></h5><p><span>略</span></p><p>&nbsp;</p><h3 id='多路选择器和多路分配器'><span>多路选择器和多路分配器</span></h3><p><span>多路选择器和多路分配器是数字系统中常用的中规模集成电路。基本功能是完成对多路数据的选择与分配。此外，还可完成数据的并串转换、序列信号产生等多种逻辑功能。</span></p><p>&nbsp;</p><h4 id='多路选择器'><span>多路选择器</span></h4><p><span>多路选择器又称数据选择器或多路开关，常用MUX表示。它是一种多路输入、单路输出的组合逻辑电路。</span></p><p><span>逻辑功能：从多路输入中选中某一路送至输出端，受选择控制量控制。通常，一个具有2</span><sup><span>n</span></sup><span>路输入和一路输出的多路选择器有n个选择控制变量，控制变量的每种取值组合对应选中一路输入送至输出。</span></p><p><span>多路选择器的构成思想相当于一个单刀多掷开关。</span></p><p>&nbsp;</p><h5 id='典型芯片-3'><span>典型芯片</span></h5><p><span>四路数据选择器74153</span></p><p><img src="./库/image-20230506173133363.png" referrerpolicy="no-referrer" alt="image-20230506173133363"></p><p><img src="./库/image-20230506174140189.png" alt="image-20230506174140189" style="zoom:25%;" /></p><p>&nbsp;</p><p><strong><span>用具有n个选择变量的多路选择器实现n个变量函数</span></strong></p><p><span>一般方法：</span></p><p><span>将函数的n个变量依次连接到MUX的n个选择变量端，并将函数表示成最小项之和的形式。若函数表达式中包含最小项mi，则相应MUX的Di接1，否则Di接0。</span></p><p>&nbsp;</p><h5 id='应用举例-3'><span>应用举例</span></h5><p><strong><span>举例1</span></strong></p><p><img src="./库/image-20230507221332870.png" referrerpolicy="no-referrer" alt="image-20230507221332870"></p><p>&nbsp;</p><p><strong><span>举例2</span></strong></p><p><span>D</span><sub><span>i</span></sub><span> 的不同取值可以实现不同的函数表达式</span></p><p><img src="./库/image-20230507223349161.png" referrerpolicy="no-referrer" alt="image-20230507223349161"></p><p><img src="./库/image-20230507223448620.png" referrerpolicy="no-referrer" alt="image-20230507223448620"></p><p><span>注意：这种三变量函数只有四个输出，所以需要将一个变量作为状态输入，将另外两个作为参数输入。</span></p><p>&nbsp;</p><h4 id='多路分配器'><span>多路分配器</span></h4><p><span>多路分配器(Demultiplexer)又称数据分配器，常用DEMUX表示。</span>
+<span>多路分配器的结构与多路选择器相反，是一种单输入、多输出组合逻辑部件，由选择控制变量决定输入从哪一路输出。如图所示为4路分配器的逻辑符号。</span></p><p><img src="./库/image-20230507230330041.png" alt="image-20230507230330041" style="zoom: 33%;" /></p><p>&nbsp;</p><h5 id='应用举例-4'><span>应用举例</span></h5><p><span>多路分配器常与多路选择器联用，实现多通道数据分时传送。利用一根数据传输线分时传送8路数据的示意图如下。</span></p><p><img src="./库/image-20230507230512675.png" alt="image-20230507230512675" style="zoom: 33%;" /></p><p>&nbsp;</p><p><strong><span>举例</span></strong></p><p><img src="./库/image-20230507230544432.png" alt="image-20230507230544432" style="zoom:50%;" /></p><p><span>若两个三位二进制数相等，则多路选择器的输出W=0，否则W=1。</span></p><p>&nbsp;</p><h2 id='常用中规模时序逻辑电路'><span>常用中规模时序逻辑电路</span></h2><p><span>数字系统中最典型的时序逻辑电路是计数器和寄存器。</span></p><p><span>由于计数器和寄存器的应用十分广泛，所以，被制作成中规模集成电路的定型产品供用户选用。要求在掌握外部特性后，根据需要对器件进行合理选择、灵活使用。</span></p><h3 id='计数器'><span>计数器</span></h3><p><span>广义地说，计数器是一种能在输入信号作用下依次通过预定状态的时序逻辑电路。</span></p><p><span>就常用的集成电路计数产品而言，可以对其定义如下：计数器：是一种对输入脉冲进行计数的时序逻辑电路，计数的脉冲信号称作“计数脉冲”。</span></p><p><span>计数器中的“数”是用触发器的状态组合来表示的。计数器在运行时，所经历的状态是周期性的，总是在有限个状态中循环，通常将一次循环所包含的状态总数称为计数器的“模”。</span></p><p>&nbsp;</p><ul><li><p><span>按工作方式可分为同步计数器和异步计数器</span></p></li><li><p><span>按进位制可分为二进制计数器，十进制计数器，任意进制计数器</span></p></li><li><p><span>按功能可分为加法计数器，减法计数器，加/减可逆计数器等</span></p></li></ul><p><span>一般具有计数、保存、清除、预置等功能。</span></p><p>&nbsp;</p><h4 id='典型芯片74193'><span>典型芯片74193</span></h4><p><span>常用同步计数器芯片有4位二进制同步可逆计数器74193，该计数器具有清除、预置、累加计数、累减计数等功能。</span></p><p><img src="./库/image-20230510133830567.png" referrerpolicy="no-referrer" alt="image-20230510133830567"></p><ul><li><p><span>异步清零：直接使用清理CLR，无视时钟信号</span></p></li><li><p><span>同步清零：输入端输入四个0，利用时钟清零</span></p></li></ul><p>&nbsp;</p><p><span>同步可逆计数器74193的“模”为16，利用计数器的清除、预置等功能，可以很方便地构成模M＜16的计数器。也可以利用计数器的进位和借位输出脉冲，将多个74193计数器级联，构成模M＞16的计数器。</span></p><p><span>此外，计数器除了实现对输入脉冲进行计数的功能外，在数字系统中常用来构成脉冲分配器和序列信号发生器等逻辑部件。</span></p><p>&nbsp;</p><h5 id='模10计数器'><span>模10计数器</span></h5><p><span>注意高位是 Q</span><sub><span>D</span></sub></p><p><img src="./库/image-20230510141137084.png" referrerpolicy="no-referrer" alt="image-20230510141137084"></p><p>&nbsp;</p><h5 id='模147计数器'><span>模147计数器</span></h5><p><span>注意高位是 Q</span><sub><span>D</span></sub></p><p><img src="./库/image-20230510162917224.png" alt="image-20230510162917224" style="zoom: 33%;" /></p><p>&nbsp;</p><h3 id='寄存器'><span>寄存器</span></h3><p><span>寄存器：数字系统中用来存放数据或运算结果的一种常用逻辑部件。</span></p><p><span>功 能：</span></p><ul><li><p><span>接收数据</span></p></li><li><p><span>保存数据</span></p></li><li><p><span>传送数据</span></p></li><li><p><span>左、右移位</span></p></li><li><p><span>串、并输入</span></p></li><li><p><span>串、并输出</span></p></li><li><p><span>预置</span></p></li><li><p><span>清零</span></p></li></ul><p>&nbsp;</p><h4 id='典型芯片74194'><span>典型芯片74194</span></h4><p><img src="./库/image-20230510200724384.png" referrerpolicy="no-referrer" alt="image-20230510200724384"></p><p><span>S</span><sub><span>1</span></sub><span> 、S</span><sub><span>2</span></sub><span>都是1，并行输入，也是输入端 DCBA 唯一起到作用的时候</span></p><p><span>S</span><sub><span>1</span></sub><span> 、S</span><sub><span>2</span></sub><span>都是0，保持不变</span></p><p><span>具体往哪个方向移动是看 S ，移动之后补充的是 0 还是 1 要看 D</span><sub><span>R</span></sub><span> 和 D</span><sub><span>L</span></sub><span> 的值</span></p><p>&nbsp;</p><h5 id='模8计数器'><span>模8计数器</span></h5><p><img src="./库/image-20230510201225774.png" referrerpolicy="no-referrer" alt="image-20230510201225774"></p><p>&nbsp;</p><h5 id='序列发生器'><span>序列发生器</span></h5><p><img src="./库/image-20230510201611229.png" referrerpolicy="no-referrer" alt="image-20230510201611229"></p><p><img src="./库/image-20230510202227243.png" referrerpolicy="no-referrer" alt="image-20230510202227243"></p><p><img src="./库/image-20230510203014933.png" referrerpolicy="no-referrer" alt="image-20230510203014933"></p><p>&nbsp;</p><h5 id='序列发生器另解'><span>序列发生器另解</span></h5><p><img src="./库/image-20230510203637387.png" referrerpolicy="no-referrer" alt="image-20230510203637387"></p><p><span>利用计数器的计数功能，控制8路选择器按照 0 — 7 的顺序输出</span></p><p>&nbsp;</p><h1 id='第八章-可编程逻辑器件'><span>第八章 可编程逻辑器件</span></h1><h2 id='pld的基本概念'><span>PLD的基本概念</span></h2><p><span>可编程逻辑器件(Programmable Logic Device，简称PLD)。</span></p><p><span>数字系统中常用的大规模集成电路可分为三类</span></p><ul><li><p><span>非用户定制电路(Non-custom design IC)</span></p></li><li><p><span>全用户定制电路(Full-custom design IC)</span></p></li><li><p><span>半用户定制电路(Semi-custom design IC)</span></p></li></ul><p><span>可编程逻辑器件(Programmable Logic Device，简称PLD)属于半用户定制电路。PLD具有结构灵活、性能优越、设计简单等特点，在不同应用领域中受到广泛重视，是构成数字系统的理想器件。</span></p><p><span>PLD是70年代开始发展起来的一种大规模集成电路。一片PLD所容纳的逻辑门可达数百、数千甚至更多，其逻辑功能可由用户编程指定。</span></p><p><span>PLD适宜于构造小批量生产的系统，或在系统开发研制过程中使用。</span></p><p>&nbsp;</p><h3 id='pld的基本结构'><span>PLD的基本结构</span></h3><p><span>PLD的基本结构由</span><strong><span>与阵列</span></strong><span>和</span><strong><span>或阵列</span></strong><span>组成，或阵列的输出是输入变量的与－或函数。</span></p><p><span>阵列中输入线和输出线的交点通过逻辑元件相连接。这些元件是接通还是断开，可由厂家决定，或由用户决定。</span></p><p><img src="./库/image-20230502195503160.png" alt="image-20230502195503160" style="zoom:25%;" /></p><p><span>PLD“与”阵列的输入为外部输入原变量及在阵列中经过反相后的反变量。它们连接到各个与门的输入端，并在各与门的输出端产生某些输入变量的“与”项。</span>
+<span>这些“与”项按要求连接到相应或门的输入端，在每个或门的输出端产生输入变量的“与-或”函数表达式。</span></p><p><span>在基本结构的基础上，附加一些其他逻辑元件，如输入缓冲器、输出寄存器、内部反馈、输出宏单元等即可构成各种不同的PLD器件。</span></p><p>&nbsp;</p><h3 id='pld的电路表示法'><span>PLD的电路表示法</span></h3><p><span>对于PLD器件，通常很难用逻辑电路的一般表示法描述其内部结构。为此，对描述PLD基本结构的逻辑符号和规则作出约定。</span></p><p>&nbsp;</p><h4 id='与门和或门'><span>与门和或门</span></h4><p><span>3输入与门的两种表示法。传统表示法(图(a))中与门的3个输入A、B、C在PLD表示法(图(b))中称为3个输入项，而输出D称为“与”项。同样，或门也采用类似方法表示。</span></p><p>&nbsp;</p><h4 id='输入缓冲器'><span>输入缓冲器</span></h4><p><span>典型输入缓冲器的PLD表示法如下。它的两个输出B、C是其输入A的原和反。</span></p><p><img src="./库/image-20230502195723354.png" alt="image-20230502195723354" style="zoom:25%;" /></p><h4 id='连接方式'><span>连接方式</span></h4><p><span>PLD阵列交叉点上的三种连接方式如图(a)所示。</span></p><ul><li><p><span>实点“· ”表示硬线连接，即固定连接</span></p></li><li><p><span>“×”表示可编程连接</span></p></li><li><p><span>既没有“×” 也没有“· ”的表示两线不连接</span></p></li></ul><p><span>如图(b)，输出F=A·C。</span></p><p><img src="./库/image-20230502195833144.png" alt="image-20230502195833144" style="zoom:25%;" /></p><h4 id='与门不执行任何功能时的连接表示'><span>与门不执行任何功能时的连接表示</span></h4><p><img src="./库/image-20230502195914643.png" alt="image-20230502195914643" style="zoom:33%;" /></p><p><span>输出为D的与门连接了所有的输入项，其输出方程为 D = 0 。</span></p><p><span>用标有“×”标记的与门输出来表示所有输入缓冲器输出全部连到某一“与”项的情况，如图中输出E。</span></p><p><span>输出F表示无任何输入项与其相连。因此，该“与”项总是处于“浮动”的逻辑“1”。</span></p><p>&nbsp;</p><h2 id='低密度可编程逻辑器件'><span>低密度可编程逻辑器件</span></h2><p><span>根据PLD中阵列和输出结构不同，常用的低密度PLD有4种主要类型：</span></p><ul><li><p><span>可编程只读存储器(PROM)</span></p></li><li><p><span>可编程逻辑阵列(PLA)</span></p></li><li><p><span>可编程阵列逻辑(PAL)</span></p></li><li><p><span>通用阵列逻辑(GAL)</span></p></li></ul><p>&nbsp;</p><h3 id='存储器'><span>存储器</span></h3><p><span>存储器(Memory)是数字计算机和其他数字系统中存放信息的重要部件。随着大规模集成电路的发展，半导体存储器因其具有集成度高、速度快、功耗小、价格低等优点而被广泛应用于各种数字系统中。</span></p><p>&nbsp;</p><p><span>半导体存储器按功能可分为两大类：</span></p><ul><li><p><span>随机存取存储器RAM(Random Access Memory)</span></p></li><li><p><span>只读存储器ROM(Read Only Memory)</span></p></li></ul><p>&nbsp;</p><h3 id='随机存取存储器ram'><span>随机存取存储器RAM</span></h3><p><span>RAM是一种既可读又可写的存储器，故又称为读写存储器。</span></p><p><span>RAM的优点是读写方便，使用灵活；缺点是一旦断电，所存储的信息便会丢失。它属于易失性存储器。</span></p><p>&nbsp;</p><h3 id='只读存储器rom'><span>只读存储器ROM</span></h3><p><span>只读存储器ROM是一种在正常工作时只能读出、不能写入的存储器。通常用来存放固定不变的信息。只读存储器存入数据的过程称为编程。</span></p><p>&nbsp;</p><p><span>根据工艺和编程方法的不同，ROM可分为两类。</span></p><p><span>掩膜编程ROM（简称MROM）：存放的内容是由生产厂家利用掩膜技术写入的。优点是可靠性高，集成度高，批量生产价格便宜；缺点是用户不能重写，不灵活。</span></p><p><span>可编程ROM（简称PROM）：存放的内容是由用户写入的。优点是灵活方便，适宜于用来实现各种逻辑功能。</span></p><p>&nbsp;</p><p><u><span>只读存储器ROM属于非易失性存储器，即使切断电源，ROM中的信息也不会丢失，在数字系统中获得广泛应用。</span></u></p><p>&nbsp;</p><h4 id='prom的逻辑结构'><span>PROM的逻辑结构</span></h4><p><span>PROM主要由地址译码器和存储体两部分组成。</span></p><p><img src="./库/image-20230512153540950.png" alt="image-20230512153540950" style="zoom:33%;" /></p><p><span>A 0～A n-1为地址输入线；</span></p><p><span>W 0 ~ W 2</span><sup><span>n</span></sup><span>-1 为地址译码输出线，又称为字线；</span></p><p><span>D 0～D m-1为数据输出线，又称为位线。</span></p><p><span>地址译码器根据地址码译出字线，有选择地去驱动相应存储单元，并通过输出端D 0～D m-1读出该单元中存放的m位代码。</span></p><p><strong><span>PROM的存储容量</span></strong><span>表示为2</span><sup><span>n</span></sup><span>×m(位)</span></p><p>&nbsp;</p><h4 id='prom存储体的结构'><span>PROM存储体的结构</span></h4><p><span>从存储器的角度看：</span></p><p><span>PROM由地址译码器和存储体两大部分组成；</span></p><p><span>从逻辑电路的角度看：</span></p><p><span>PROM的由一个固定连接的与门阵列和一个可编程连接的或门阵列组成。</span></p><p>&nbsp;</p><p><span>例如，一个8×3可编程ROM的逻辑结构图如下：</span></p><p><img src="./库/image-20230512153902198.png" alt="image-20230512153902198" style="zoom:33%;" /></p><p><span>为了PROM设计方便，通常将逻辑结构图简化为阵列逻辑图，简称阵列图。画阵列图时，将PROM中的每个与门和或门都简化成一根线。</span></p><p>&nbsp;</p><p><span>根据存储元电路的构造不同，PROM有4种常用的类型。</span></p><p><span> </span><strong><span>一次编程的ROM(PROM)</span></strong></p><p><span>所有存储元均被加工成同一状态(“0”或“1”)。用户可通过编程改变某些存储元的状态。编程只能进行一次，一旦编程完毕，其内容便不能再改变。</span></p><p><strong><span>可抹可编程ROM(EPROM)</span></strong></p><p><span>EPROM不仅可由用户编程存放指定的信息，而且可由用户通过专用的</span><u><span>紫外线灯照射芯片</span></u><span>上的受光窗口，将原存储内容抹去，再写入新的内容。这一特性是由EPROM中存储元的电路结构决定的。但只能整体擦除，不能以字为单位擦除。</span>
+<span>注：EPROM的存储元通常采用浮栅雪崩注入MOS电路，简称 FAMOS 管 ， 或者叠栅雪崩注入 MOS 电路，简称 SIMOS 管。</span></p><p><span>EPROM虽然具有可反复编程的优点，但只能进行整体擦除，而且操作起来比较麻烦。</span></p><p><span>EEPROM克服了EPROM的这一不足。</span></p><p><strong><span>电可抹可编程ROM(EEPROM)</span></strong></p><p><span>EEPROM的结构与EPROM相似，但</span><u><span>擦除和编程均用电完成</span></u><span>，编程时以字为单位。工作电流小、擦除速度快，而且允许改写的次数一般在1万次以上，大大高于EPROM 。</span></p><p><strong><span>快闪存储器(Flash Memory)</span></strong></p><p><span>快闪存储器是用电信号擦除的可编程ROM。它既吸收了EPROM结构简单、编程可靠的优点，又具有EEPROM的快速性，而且集成度可以很高（有时将其归属于高密度可编程逻辑器件）。</span></p><p>&nbsp;</p><h4 id='prom应用举例'><span>PROM应用举例</span></h4><p><span>由于PROM是由固定连接的“与”阵列和可编程连接的“或”阵列组成，所以，用户只要改变“或”阵列上连接点的数量和位置，就可以在输出端形成由输入变量“最小项之和”表示的任何一种逻辑函数。</span></p><p>&nbsp;</p><p><span>采用PROM进行逻辑设计时，只需：</span></p><ol start='' ><li><p><span>首先根据逻辑要求列出真值表，把真值表的输入作为PROM的输入；</span></p></li><li><p><span>然后根据逻辑函数值确定对PROM“或”阵列进行编程的代码，画出相应的阵列图即可。</span></p></li></ol><p>&nbsp;</p><p><strong><span>举例1</span></strong></p><p><img src="./库/image-20230512154454709.png" referrerpolicy="no-referrer" alt="image-20230512154454709"></p><p><strong><span>举例2</span></strong></p><p><span>用PROM设计一个π发生器，其输入为 4 位二进制码，输出为8421码。该电路串行产生常数π，取小数点后15位数字，即 π=3.141592653589793。其逻辑框图如下。</span></p><p><img src="./库/image-20230512154711269.png" alt="image-20230512154711269" style="zoom: 25%;" /></p><p><span>解：根据题意，可用4位同步计数器控制PROM的地址输入端，使其地址码按4位二进制码递增的顺序进行周期性地变化，以便对所有存储单元逐个进行访问，存储单元中依次存放π的值，输出则为π的8421码。</span></p><p><span>PROM的输入输出关系如下表所示：</span></p><p><img src="./库/image-20230512154737083.png" alt="image-20230512154737083" style="zoom:33%;" /></p><p><img src="./库/image-20230512154803429.png" alt="image-20230512154803429" style="zoom:33%;" /></p></div></div>
+</body>
+<!-- <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script> -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--侧栏目录生成代码-->
+<script>
+    //标题序号计数器
+    var hCount = [0, 0, 0, 0, 0, 0];
+
+    //设置计数器
+    function setHCount(number) {
+        //当前计数器加一
+        hCount[number - 1]++;
+        for (var i = number, length = hCount.length; i < length; i++) {
+            //子目录计数器全部置零
+            hCount[i] = 0;
+        }
+    }
+
+    //重命名目录名称
+    function setHTagValue(item, number) {
+        //获取标题名
+        var text = $(item).get(0).innerHTML;
+        //初始化空字符串
+        var before = "";
+        //生成序号
+        for (var i = 0, length = hCount.length; i < number; i++) {
+            if (i < number - 1)
+                before += hCount[i] + ".";
+            else
+                before += hCount[i] + " ";
+        }
+        //在标题前面加上序号
+        $(item).get(0).innerHTML = before + text;
+    }
+
+    function renameHTag(item) {
+        var tag = $(item).get(0).localName;
+        if (tag === "h1") {
+            setHCount(1);
+            //console\.log("捕获到标签:%s", tag);
+            setHTagValue(item, 1);
+        }
+        if (tag === "h2") {
+            setHCount(2);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 2);
+        }
+        if (tag === "h3") {
+            setHCount(3);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 3);
+        }
+        if (tag === "h4") {
+            setHCount(4);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 4);
+        }
+        if (tag === "h5") {
+            setHCount(5);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 5);
+        }
+        if (tag === "h6") {
+            setHCount(6);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 6)
+        }
+    }
+
+    $(document).ready(function () {
+        $("h1,h2,h3,h4,h5,h6").each(function (i, item) {
+            //给<H>类标签编号
+            renameHTag(item);
+            //获取标签的名字,h1,还是h2
+            var tag = $(item).get(0).localName;
+            //为该标签设置id属性
+            $(item).attr("id", "wow" + i);
+            //添加一个页内超链接,并设置class选择器
+            //      $("#category").append('<a class="new'+tag+'" href="#wow'+i+'">'+$(this).text()+'</a></br>');
+            $("#category").append('<a class="new' + tag + '" href="#wow' + i + '">' + $(item).text() + '</a></br>');
+            //为每一个标题超链接的class属性设置左边距
+            $(".newh1").css("margin-left", 0);
+            $(".newh2").css("margin-left", 20);
+            $(".newh3").css("margin-left", 40);
+            $(".newh4").css("margin-left", 60);
+            $(".newh5").css("margin-left", 80);
+            $(".newh6").css("margin-left", 100);
+        });
+        //设置class选择器为.book-body的html内容
+        $(".book-body").html($(".book-body").nextAll())
+    });
+</script>
+<style type="text/css">
+    @media (max-width: 1600px) {
+        .book-body {
+            /* padding-left: 200px; */
+            padding-right: 0px;
+        }
+    }
+
+    @media (max-width: 1400px) {
+        .book-body {
+            /* padding-left: 200px; */
+            padding-right: 0px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .book-body {
+            /* padding-left: 300px; */
+            padding-left: 0px;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .book-body {
+            padding-left: 0px;
+        }
+    }
+
+    @media (min-width: 600px) {
+        #category {
+            /* 绝对定位 */
+            position: fixed;
+            /* left: 20px; */
+            /* 目录显示的位置 */
+            left: 0px;
+            top: 0;
+            /* 目录栏的高度,这里设置为60%主要是为了不挡住返回顶部和折叠按钮 */
+            height: 79%;
+            /* 开启垂直滚动条 */
+            overflow-y: scroll;
+            /* 开启水平滚动条 */
+            overflow-x: scroll;
+        }
+    }
+
+    @media (-webkit-max-device-pixel-ratio: 1) {
+        ::-webkit-scrollbar-track-piece {
+            background-color: #FFF
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #c2c2c2;
+            background-clip: padding-box;
+            min-height: 28px
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #A0A0A0
+        }
+    }
+</style>
+<script>
+    // id="category" οnclick="showOrCloseCategory()"
+    function showOrCloseCategory() {
+        var id = document.getElementById("category");
+        var book_body = document.getElementById("book_body");
+        //如果展开了
+        if (id.style.display == 'block') {
+            //console.log("开始展开");
+            id.style.display = 'none';
+            id.style.width = "0%";
+            book_body.style.width = "100%";
+            book_body.style.paddingleft = 0;
+        }
+        //如果被折叠了
+        else if (id.style.display == 'none') {
+            //console.log("开始折叠");
+            id.style.display = 'block';
+            book_body.style.width = "90%";
+            id.style.width = "20%"
+        }
+    }
+</script>
+<!--返回顶部-->
+<a href="javascript:scroll(0,0)" style="position:fixed;float:right;left:40px;top:80%">返回顶部</a>
+<button onclick="showOrCloseCategory()" style="position:fixed;float:right;left:40px;top:85%">折叠/展开</button>
+<!--文章主体部分-->
+<div class="book-body" id="book_body" style="width:90%;display:block"></div>
+<!--目录栏，设置占用宽度为20%可以根据实际情况设置-->
+<div class="book-summary" id="category" style="width:20%;display:block"></div>
+
+
+</html>

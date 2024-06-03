@@ -1,0 +1,837 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>学而思考满分——中文章刷题笔记</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='passage-1-medium'><span>Passage 1 Medium</span></h1><p><span>Although social learning (the acquisition of specific behaviors by observing other individuals exhibiting those behaviors) is well documented among fish, few studies have investigated social learning within a developmental context in these </span><mark><span>taxa</span></mark><span>. Rather than investigating the development of a particular skill, Chapman, Ward, and Krause investigated the role of group density during development in later </span><mark><span>foraging</span></mark><span> success in laboratory-housed guppies. When raised with a small number of conspecifics (members of the same species), guppies were quicker to locate food by following a trained adult guppy than were guppies raised in large groups. This counterintuitive finding is explained by the fact that guppies reared in the high-density condition were less likely to shoal (swim in a group) with others and, therefore, were less likely to learn the benefits of social learning. Instead, fish reared in high-density situations may learn that conspecifics are to be viewed as competitors, rather than as potential sources of adaptive information. This finding suggests that at least for guppies, the early social environment may have an effect on the capacity for social learning, if not on the socially learned behaviors themselves.</span></p><p><span> </span></p><p><span>taxon</span></p><ul><li><p><em><span>n.</span></em><span>[生物] 分类单元；分类学</span></p></li><li><p><em><span>adj.</span></em><span>分类的；分类学的</span></p></li></ul><p><span>forage</span></p><ul><li><p><em><span>n.</span></em><span>饲料；草料；搜索</span></p></li><li><p><em><span>vi.</span></em><span>觅食；搜寻</span></p></li></ul><p><span> </span></p><p><span>尽管鱼类的社会学习（通过观察其他个体的行为习惯而获得特定行为）已被广泛记录，但很少有研究调查这些类群在发育过程中的社会学习。查普曼、沃德和克劳斯并没有研究特定技能的发展，而是调查了实验室饲养的河豚鱼在成长过程中群体密度对日后觅食成功率的影响。当与少量同类（同一物种的成员）一起饲养时，与在大群体中饲养的河豚鱼相比，河豚鱼通过跟随训练有素的成年河豚鱼更快地找到食物。这一违反直觉的发现可以解释为，在高密度条件下饲养的河豚不太可能与其他鱼类结伴（成群游泳），因此不太可能学到社会学习的好处。相反，在高密度条件下饲养的鱼可能会学会把同类视为竞争对手，而不是适应信息的潜在来源。这一发现表明，至少对河豚来说，早期的社会环境可能会对社会学习能力产生影响，如果不是对社会学习行为本身产生影响的话。</span></p><p><span> </span></p><p><span>【文章结构分析】</span></p><p><span> 第一句：交代背景，没有研究研究鱼类在development context背景下的social learning</span>
+<span> 第二句：顺承第一句说明有三个人开始研究在development context背景下鱼的social learning（group density对于foraging success的影响）</span>
+<span> 第三句：介绍研究的结果（finding：small group的鱼能够更快定位食物）</span>
+<span> 第四句：解释第三句的finding「group密度越低越能更好地进行social learning」</span>
+<span> 第五句：顺承第四句「群体密度高，鱼类不太能够把同类当作学习对象」（继续解释第三句中 @的finding）</span>
+<span> 第六句：得出结论「对于guppies来说，环境会影响其social learning的能力」</span></p><p><span> </span></p><p><span>The primary purpose of the passage is to</span></p><p><span>A note a flaw in a scientific finding</span></p><p><span>B describe a particular scientific study（purpose≠主要内容，如果是主要内容可能选B，但是purpose应该是C更合适）</span></p><p><span>C present an interpretation of a finding</span></p><p><span>D note a difference between two scientific findings指出两个科学发现之间的差异</span></p><p><span>E contrast two conditions in which a particular phenomenon has been observed对比观察到某种现象的两种条件</span></p><p><span> </span></p><p><span>【答案】C</span>
+<span>【题型】主旨目的题</span>
+<span>【解析】文章前面介绍了Chapman. Ward, Krause三个⼈的研究。后面最后一句给出作者根据三人研究得出的观点。对应C，作者呈现了对于三人finding的看法（interpretation ）</span>
+<span>B选项只是前半部分的内容，没有体现作者最后的观点，不是文章的主要目的，只是部分细节，不选。</span></p><p><span> </span></p><p><span>Regarding research on fish, it can be inferred from the passage that</span></p><p><span>A research studies of the acquisition of important skills by fish have only recently begun to document the role of conspecifics in the learning process对鱼类学习重要技能的研究最近才开始记录同类在学习过程中的作用</span></p><p><span>B research on social learning in guppies suggests that guppies differ in important ways from most other fish in the means by which they learn particular skills对河豚社会学习的研究表明，河豚在学习特定技能的方式上与其他大多数鱼类有重要的不同</span></p><p><span>C research on social learning in fish has generally focused on the acquisition of skills other than foraging对鱼类社会性学习的研究一般集中在觅食以外技能的学习上</span></p><p><span>D research has established that social learning occurs in some fish species without investigating the development context in which it occurs. 研究确定了某些鱼类物种会进行社会学习，但没有调查其发生的发展背景。</span></p><p><span>E research to investigate social learning has been done more extensively on fish than on other aquatic animals. 与其他水生动物相比，对鱼类的社会学习研究更为广泛。</span></p><p><span> </span></p><p><span>【答案】D</span>
+<span> 【题型】推断题</span>
+<span> 【解析】该题只能选项定位。D选项可以定位到文章首句，是其同义改写: Although social learning (the acquisition of specific behaviors by observing other individuals exhibiting those behaviors) is well documented among fish, few studies have investigated social learning within a developmental context in these taxa.（虽然鱼类的社会学习（通过观察其他个体的行为习惯而获得特定行为）已被广泛记录，但很少有研究对这些类群在发育过程中的社会学习进行调查。）</span></p><p><span> </span></p><p><span>Which of the following can be inferred about the study by Chapman, Ward, and Krause?</span></p><p><span>A It was initially designed to investigate something other than social learning. 该研究最初的目的不是为了研究社会学习。</span></p><p><span>B It required researchers to observe individual guppies at multiple points in their life spans. 要求研究人员在河豚鱼生命周期的多个阶段对个体进行观察。</span></p><p><span>C It pointed to the possibility that population density may have little to do with guppies</span><span>`</span><span> social learning. 该研究指出，种群密度可能与河豚的社会学习关系不大。</span></p><p><span>D It required the observation of guppies under conditions that closely mimicked the conditions of guppies in the wild. 它要求在近似野生河豚的条件下观察河豚。</span></p><p><span>E It indicated that guppies gain adaptive information from being reared with a relatively large number of conspecifics. 结果表明，与相对较多的同类一起饲养，河豚鱼可以获得适应性信息。</span></p><p><span> </span></p><p><span>正确答案：B</span></p><p>&nbsp;</p><h1 id='passage-4-medium'><span>Passage 4 Medium</span></h1><p><span>African American drama has, until recently, been rooted in the </span><mark><span>mimetic</span></mark><span> tradition of modern American naturalism. The most distinctive attribute of this tradition is the </span><mark><span>mechanistic</span></mark><span>, </span><mark><span>materialistic</span></mark><span> conception of humanity. Naturalism sees each individual as </span><mark><span>inextricably</span></mark><span> bound to the environment and depicts each person as someone controlled by, instead of controlling, concrete reality. As long as African American drama maintained naturalism as its dominant mode, it could only express the &quot;</span><mark><span>plight</span></mark><span> of African American people&quot;. Its heroes might declare the madness of reality, but reality inevitably triumphed over them.</span></p><p><span>The </span><mark><span>surrealistic</span></mark><span> plays of Adrienne Kennedy mark one of the first departures from naturalism by an African American dramatist. The overall goal of her work has been to depict the world of the soul and the spirit, not to mirror concrete reality. Within this framework, Kennedy has been able to portray African American minds and souls </span><mark><span>liberated from</span></mark><span> their connections to the external environment.</span></p><p><span> </span></p><p><span>mimetic模仿的；拟态的；类似的</span></p><p><span>mechanistic机械论的；机械学的</span></p><p><span>materialistic物质享乐主义的，贪图享乐的；唯物主义的，唯物论的</span></p><p><span>inextricably不可分开地，密不可分地；逃不掉地；解不开地，解决不了地</span></p><p><span>plight困境，窘境；誓约</span></p><p><span>surrealistic超现实主义的</span></p><p><span>portray描绘，描写；（在艺术或文学作品中）描述，刻画；（在电影、戏剧等中）扮演</span></p><p><span>liberated from从……解放：摆脱某种束缚或限制，获得自由</span></p><p><span> </span></p><p><span>直到最近，非裔美国人的戏剧一直植根于美国现代自然主义的模仿传统。这一传统最显著的特征是机械主义、唯物主义的人性观念。自然主义认为每个人都与环境密不可分，并将每个人描绘成受具体现实控制的人，而不是控制具体现实的人。只要非裔美国人的戏剧仍以自然主义为主导模式，它就只能表现 “非裔美国人的困境”。剧中的英雄可能会宣称现实是疯狂的，但现实不可避免地战胜了他们。</span></p><p><span> </span></p><p><span>阿德里安娜-肯尼迪（Adrienne Kennedy）的超现实主义戏剧标志着美国黑人戏剧家首次脱离自然主义。她作品的总体目标是描绘灵魂和精神的世界，而不是反映具体的现实。在这一框架内，肯尼迪得以描绘从与外部环境的联系中解放出来的非裔美国人的思想和灵魂。</span></p><p><span> </span></p><p><span>Which of the following best states the central idea of the passage?</span></p><p><span>A African American drama has been primarily influenced by naturalisms emphasis on the materialistic. 非裔美国人的戏剧主要受到自然主义强调物质主义的影响</span></p><p><span>B African American drama has traditionally acknowledged the relationship between the individual and the environment. 非裔美国人的戏剧历来承认个人与环境之间的关系</span></p><p><span>C African American drama, traditionally naturalistic, has been little influenced by dramatist Kennedy</span><span>`</span><span>s spiritual and psychological approach to drama. 非裔美国人的戏剧传统上是自然主义的，很少受到戏剧家肯尼迪的精神和心理戏剧方法的影响</span></p><p><span>D The work of Kennedy suggests a shift away from a commitment to strict naturalism in African American drama. 肯尼迪的作品表明，非裔美国人的戏剧已不再坚持严格的自然主义</span></p><p><span>E The work of Kennedy best </span><mark><span>exemplifies</span></mark><span> the current interest of African American artists in the spiritual and psychological worlds. 肯尼迪的作品最能体现当前非裔美国艺术家对精神和心理世界的兴趣</span></p><p><span> </span></p><p><span>exemplify是……的典范；举例说明</span></p><p>&nbsp;</p><p><span>该题询问文章主旨，D最准确。</span></p><p><span> A选项只概括了首段内容</span></p><p><span>B选项概括主题偏离，没有体现对比变化</span></p><p><span>C选项无视二段内容</span></p><p><span>E选项best概念原文无，且没有体现一段</span></p><p><span> </span></p><p><span>According to the passage, Kennedy is concerned with depicting the根据这段文字，肯尼迪关注的是描绘</span></p><p><span>A internal rather than the external life of her characters她笔下人物的内部生活而非外部生活</span></p><p><span>B madness of reality rather than the effects of reality现实的疯狂而不是现实的影响</span></p><p><span>C effects of materialism on African American minds and souls唯物主义对非洲裔美国人思想和灵魂的影响</span></p><p><span>D relationship between naturalism and the human spirit自然主义与人类精神之间的关系</span></p><p><span>E effects that her characters have on the environment她笔下的人物对环境的影响</span></p><p>&nbsp;</p><p><span>答案：A</span></p><p><span>According to the passage, Kennedy is concerned with depicting the根据这篇文章，肯尼迪关心的是描绘回到第二段，定位到第2句。“她的工作的总体目标是描绘灵魂和精神的世界，而不是反映具体的现实。”所以肯尼迪关心的是描绘“描绘灵魂和精神的世界”。什么是“灵魂和精神的世界”？就是人的内心世界，灵魂世界。所以选A。A. internal rather than the external life of her characters A.她的人物的内部生活而不是外部生活内部生活——人的内心生活，灵魂生活。外部生活——现实的生活。再看其他错误选项。B. madness of reality rather than the effects of reality B.现实的疯狂，而不是现实的影响K为啥要关心</span></p><p>&nbsp;</p><p><span>Which of the following statements, if true, would most strengthen the authors assertion that Kennedy&#39;s work marks a serious departure from the tradition described in the first paragraph? 以下哪项陈述（如果为真）最能强化作者的论断，即肯尼迪的作品严重背离了第一段中描述的传统？</span></p><p><span>A Kennedy places the action in a real-life setting that is nevertheless unfamiliar to the average viewer or reader. 肯尼迪将故事发生在一个普通观众或读者并不熟悉的真实环境中。</span></p><p><span>B Kennedy movingly portrays the lives and struggles of prominent African Americans in the United States. 肯尼迪动人地描绘了美国杰出的非洲裔美国人的生活和斗争。</span></p><p><span>C Kennedy uses characters found only in ancient African legends and mythology. 肯尼迪使用了只有在古老的非洲传说和神话中才能找到的人物。</span></p><p><span>D Kennedy provides insights into American mimetic tradition and dramatic convention. 肯尼迪对美国的模仿传统和戏剧惯例提出了自己的见解。</span></p><p><span>E Kennedy depicts the events in a style reminiscent of a television documentary. Kennedy 以电视纪录片的风格描述事件。</span></p><p>&nbsp;</p><p><span>答案：C</span></p><p><span>第一段有几个标志：materialistic conception，plight of African American people，madness of reality。说明 tradition 都是描述的唯物主义的、现实的。所以为了体现是serious departure，可以说写的都是不唯物主义的，也就是神话中的人物（C）</span>
+<span>A错是错在，A说他选择了读者不熟悉的一种real-life setting，但再不熟悉也仍然是reality，无法体现出与tradition的不同。</span></p><p>&nbsp;</p><h1 id='passage-5-medium'><span>Passage 5 Medium</span></h1><p><span>Although many hypotheses have been proposed to explain why some plant communities are more susceptible than others to invasion by nonnative species, results from field studies have been inconsistent and no general theory of invasibility has yet emerged. However, a theory based on </span><mark><span>fluctuating</span></mark><span> resource availability could </span><mark><span>integrate</span></mark><span> most existing hypotheses and successfully resolve many of the apparently conflicting and ambiguous results of previous studies. The suggested theory is that a plant community becomes more susceptible to invasion whenever there is an increase in the amount of unused resources.</span></p><p><span>The diversity in the range of resource-release mechanisms could partly explain the absence of consistent ecological correlates of invasibility. In particular, the theory predicts that there will be no necessary relationship between the species diversity of a plant community and its susceptibility to invasion, since near-complete exploitation can each occur in both species-rich and species-poor communities. Though Lonsdale found a positive association between species richness and invasion, this may arise from the tendency of diverse plant communities to be nutrient poor and therefore more responsive to the effects of human-caused </span><mark><span>influxes</span></mark><span> of nutrients.</span></p><p><span> </span></p><p><span>fluctuating</span></p><ul><li><p><em><span>v.</span></em><span>波动，起伏不定（fluctuate 的现在分词）</span></p></li><li><p><em><span>adj.</span></em><span>波动的，变动的</span></p></li></ul><p><span>integrate</span></p><ul><li><p><em><span>v.</span></em><span>（使）合并，成为一体；（使）加入，融入群体；（使）取消种族隔离；求……的积分；表示（面积、温度等）的总和，表示……的平均值</span></p></li><li><p><em><span>adj.</span></em><span>整合的</span></p></li></ul><p><span>influx（人或物的）大量涌入，大量流入；（水）流入，注入（河，湖，海）</span></p><p><span> </span></p><p><span>尽管已经提出了许多假说来解释为什么有些植物群落比其他群落更容易受到非本地物种的入侵，但实地研究的结果并不一致，而且尚未出现关于入侵性的一般理论。然而，一种基于资源可用性波动的理论可以整合现有的大多数假说，并成功地解决以往研究中许多明显相互矛盾和模棱两可的结果。所提出的理论认为，只要未利用资源的数量增加，植物群落就更容易受到入侵。</span></p><p><span> </span></p><p><span>资源释放机制的多样性可以部分解释入侵性缺乏一致的生态相关性。特别是，该理论预测，植物群落的物种多样性与其易受入侵性之间没有必然联系，因为物种丰富和物种贫乏的群落都可能出现近乎完全的开发。虽然朗斯代尔发现物种丰富度与入侵之间存在正相关关系，但这可能是因为物种多样化的植物群落往往养分贫乏，因此对人类造成的养分流入的影响反应更为敏感。</span></p><p><span> </span></p><p><span>The passage is primarily concerned with</span></p><p><span>A assessing the empirical success of a theory</span></p><p><span>B explaining why no consistent theoretical account of a phenomenon has been possible</span></p><p><span>C advocating a potential solution to a theoretical </span><mark><span>impasse</span></mark></p><p><span>D </span><mark><span>deducing</span></mark><span> testable predictions from a proposed theory</span></p><p><span>E describing the difficulties involved in explaining certain empirical results</span></p><p><span> </span></p><p><span>impasse僵局；死路</span></p><p><span>deduce推断，演绎</span></p><p><span> </span></p><p><span> 【答案】C</span>
+<span> 【题型】主旨目的题</span>
+<span> 【解析】这道题是典型的主旨题。</span></p><p><span>选项A说是评价一个理论的实验观察上的成功。但原文中并没有讲到实验观察的地方，而是理论上的推测；</span></p><p><span>选项B说解释了为什么某一现象没有一致的理论原因，但文章主要讲了新理论如何解决旧理论的不一致性，而不是“为什么”的问题；</span></p><p><span>选项C说支持了一种有潜力可以解决原有理论僵局的新理论，符合题意；</span></p><p><span>选项D说由一个理论推测出了可以被检测的推论，但文中并没有提到推论，也没有提到检测问题；</span></p><p><span>选项E说描述了解释某些特定实验结果的困难。原文中只由第一段说某些原有假说与实验结果不一致，并非全文都在描述困难。</span></p><p><span> </span></p><p><span>It can be inferred that the author would most likely agree with which of the following assessments of the results from field studies</span></p><p><span>A Many of the results contradicted predictions of susceptibility to invasion that are based on the availability of resources unused by the community.许多结果与根据社区未使用资源的可用性对入侵易感性的预测相矛盾</span></p><p><span>B If fluctuating resource availability were taken into account, many of the apparent inconsistencies among the results could be explained.如果考虑到资源可用性的波动，许多明显不一致的结果就可以得到解释</span></p><p><span>C The apparent inconsistencies and ambiguities in the results are caused by trying to make them fit an inadequate general theory of invasibility.结果中明显的不一致和含糊不清是由于试图使它们符合不充分的入侵性一般理论造成的</span></p><p><span>D No general theory of invasibility has emerged because none of the studies has been able to assess the degree of an invasion accurately.因为没有一项研究能够准确地评估入侵程度，所以没有出现入侵的一般理论</span></p><p><span>E The results tend to show a degree of susceptibility to invasion that is lower than would be expected given the prevalence in the wild of nonnative species.鉴于非本地物种在野生环境中的普遍性，研究结果倾向于显示入侵的易感程度低于预期</span></p><p><span> </span></p><p><span>inadequate不充分的，不足的，不够好的；不能胜任的，信心不足的</span></p><p><span> </span></p><p><span> 【答案】B</span>
+<span> 【题型】推断题</span>
+<span> 【解析】根据field studies定位到文章首段（However, a theory based on fluctuating resource availability could integrate most existing hypotheses and successfully resolve many of the apparently conflicting and ambiguous results of previous studies.）</span></p><p><span> </span></p><p><span>According to the author, the theory based on fluctuating resource availability might resolve &quot;apparently conflicting and ambiguous results&quot; because</span></p><p><span>A It explains how a particular circumstance can produce disparate effects.</span></p><p><span>B It does not assume that all of the results are instances of the phenomenon that the theory is intended to explain.</span></p><p><span>C It predicts that seemingly minor variations in research methodology can have a dramatic effect on results.</span></p><p><span>D Its account is based on a statistical tendency rather than on the </span><mark><span>supposition</span></mark><span> that the results arise from a causal connection.</span></p><p><span>E It indicates why a similar outcome may be preceded by very different circumstances on different occasions.</span></p><p>&nbsp;</p><p><span>supposition 推测，假定；毫无根据的想法，无稽之谈</span></p><p>&nbsp;</p><p><span> 【答案】E</span>
+<span> 【题型】事实信息题</span>
+<span> 【解析】根据高亮关键词定位首段。尽管关键词出现在首段，因二段是对首段理论的详细展开，答案很可能出现在二段。E选项定位该句since原因从句：In particular, the theory predicts that there will be no necessary relationship between the species diversity of a plant community and its susceptibility to invasion, since near-complete exploitation can each occur in both species-rich and species-poor communities.该句用来否定物种多样性的解释，因为不同的（物种丰富）情况会有一样的结果：（外来物种）的几乎彻底开发利用。</span></p><p>&nbsp;</p><h1 id='passage-7-medium'><span>Passage 7 Medium</span></h1><p><span>Among many historians a belief persists that Cotton Mather</span><span>`</span><span>s biographies of some of the settlers of the Massachusetts Bay Colony (published 1702) are exercises in </span><mark><span>hagiography</span></mark><span>, endowing their subjects with </span><mark><span>saintly</span></mark><span> </span><mark><span>piety</span></mark><span> at the expense of historical accuracy. Yet modern studies have profited both from the breadth of information that Mather provides in, for example, his discussions of colonial medicine and from his critical observations of such leading figures as Governor John Winthrop. Mather</span><span>`</span><span>s </span><mark><span>wry</span></mark><span> humor as demonstrated by his detailed descriptions of events such as Winthrop</span><span>`</span><span>s efforts to prevent wood-stealing is overlooked by those charging Mather with presenting his subjects as extremely </span><mark><span>pious</span></mark><span>. The charge also </span><mark><span>obscures</span></mark><span> Mather</span><span>`</span><span>s concern with the settlers</span><span>`</span><span> material, not just spiritual, </span><mark><span>prosperity</span></mark><span>. Further, this </span><mark><span>pejorative</span></mark><span> view underrates the biographies</span><span>`</span><span> value as chronicles: Mather </span><mark><span>amassed</span></mark><span> all sorts of published and unpublished documents as sources, and his selection of key events shows a marked sensitivity to the nature of the colony</span><span>`</span><span>s development.</span></p><p><span> </span></p><p><span>hagiography圣徒传记；圣徒言行录</span></p><p><span>endow向（人，机构）捐赠，资助；赋予</span></p><p><span>saintly圣洁的</span></p><p><span>piety虔诚，虔敬；虔诚信念，虔诚观点</span></p><p><span>wry</span></p><ul><li><p><em><span>adj.</span></em><span>歪斜的，扭歪的；歪曲的；用反语表达幽默的；揶揄的</span></p></li><li><p><em><span>vt.</span></em><span>扭曲；扭歪</span></p></li><li><p><em><span>vi.</span></em><span>扭曲；扭歪</span></p></li></ul><p><span>pious虔诚的；敬神的；可嘉的；尽责的</span></p><p><span>obscure</span></p><ul><li><p><em><span>adj.</span></em><span>难以说清楚的，模糊的；鲜为人知的，默默无闻的；未被查实的，不确定的；费解的，晦涩的</span></p></li><li><p><em><span>v.</span></em><span>遮掩，遮蔽；使费解</span></p></li><li><p><em><span>n.</span></em><span>某种模糊的或不清楚的东西</span></p></li></ul><p><span>prosperity繁荣，成功</span></p><p><span>pejorative</span></p><ul><li><p><em><span>adj.</span></em><span>轻蔑的，贬损的；恶化的，变坏的</span></p></li><li><p><em><span>n.</span></em><span>轻蔑语，贬义词</span></p></li></ul><p><span>amass积累，积聚</span></p><p><span> </span></p><p><span>许多历史学家始终认为，科顿-马瑟（Cotton Mather）关于马萨诸塞湾殖民地一些定居者的传记（1702 年出版）是 &quot;神化 &quot;之作，在牺牲历史准确性的前提下赋予了传记对象圣人般的虔诚。然而，马瑟提供了大量信息，例如他对殖民地医学的讨论，以及他对约翰-温斯罗普州长等重要人物的批判性观察，这些都使现代研究获益匪浅。马瑟对事件的详细描述（如温斯罗普为防止偷盗木材所做的努力）体现了他的诙谐幽默，但那些指责马瑟将他的臣民描绘得极为虔诚的人却忽视了这一点。这种指责也掩盖了马瑟对定居者物质而不仅仅是精神富足的关注。此外，这种贬义观点低估了传记作为编年史的价值： 马瑟收集了各种已出版和未出版的文件作为资料来源，他对关键事件的选择显示出他对殖民地发展性质的明显敏感性。</span></p><p><span> </span></p><p><span>The primary purpose of the passage is to</span></p><p><span>A argue against a theory universally accepted by historical researchers没有提到universally accepted by historical researchers</span></p><p><span>B call attention to an unusual approach to documenting a historical era没有提到an unusual approach</span></p><p><span>C summarize research on a specific historical figure C选项说总结了关于一个历史人物的研究，但显然文章并没有全部在说某一个历史人物的研究工作。文中提到了Governor John Winthrop，目的是为了说明Mather的critical observations</span></p><p><span>D counter a particular view about the work of a biographer D选项说反驳了关于某个传记作家某部作品的一些看法，纵观全文，作者的确是一直反驳一些历史学家对于Mather的传记的看法，正确</span></p><p><span>E point out subtle differences among controversial historical reports E选项说指出了矛盾的历史报告的微妙不同，显然与主题已无关。</span></p><p>&nbsp;</p><p><span>答案：D</span></p><p><strong><span>注意theory和view的区别，theory理论，学说，view是个观点（可以有态度）</span></strong></p><p><span> </span></p><p><span>The author of the passage implies that an argument for the historical accuracy of Mather</span><span>`</span><span>s works is most strongly supported by which of the following?</span></p><p><span>A surviving documents that corroborate Mather</span><span>`</span><span>s detailed descriptions of his subjects</span></p><p><span>B Mather</span><span>`</span><span>s firsthand personal acquaintance with those about whom he wrote</span></p><p><span>C Mather</span><span>`</span><span>s frank and straightforward accounts of the lives and times of people about whom he had conducted extensive research</span></p><p><span>D Mather</span><span>`</span><span>s ability to detail important historical events in the religious context of which they were a part</span></p><p><span>E the quantity and nature of the sources from which Mather obtained his information.</span></p><p><span> </span></p><p><span> 【答案】E</span>
+<span> 【题型】推断题</span>
+<span> 【解析】问题问的是支持Mather传记的准确性的最有利证据，Yet转折后作者评价说，modern studies have profited both from the breadth of information that Mather provides...and from his critical observations of ...后文是对该评价的展开。可知选E最有力，quantity=breath, nature=critical observation。文章结尾提到了传记可以作为编年史的价值，也提到了Mather手机各种出版的或者未出版的文件作为来源，以及他对关键时间的选择非常敏感，这些都可以作为quantity和nature的依据。</span></p><p><span> </span></p><p><span>Information in the passage best supports which of the following statements about Mather</span><span>`</span><span>s biographies of the settlers of the Massachusetts Bay Colony?</span></p><p><span>A </span><mark><span>Annals</span></mark><span> written by Mather and others were censored by later historians, thus detracting from their value as full and accurate accounts of the period. A：annals不是Mather写得，他只是提供了材料</span></p><p><span>B Mather</span><span>`</span><span>s description of Governor Winthrop includes all of Winthrop</span><span>`</span><span>s shortcomings, such as a tendency toward levity at inappropriate times.没提到：all of Winthrop</span><span>`</span><span>s shortcomings</span></p><p><span>C Mather</span><span>`</span><span>s descriptions of the Massachusetts Bay colonists were based primarily on firsthand experiences.没说Mather的依据是firsthand experiences</span></p><p><span>D Many historians believe that Mather</span><span>`</span><span>s biographies are poor sources of historical information because biography is an inherently unreliable genre of historical writing. 选项D说biography is an inherently unreliable genre of historical writing在原文中找不到对应。而且历史学家只是批评Mather，并未涉及历史写作类型。</span></p><p><span>E Mather</span><span>`</span><span>s writings reflect an interest in the degree of economic success achieved by early Massachusetts Bay colonists. 选项E可定位至“The charge also obscures Mather’s concern with the settlers material, not just spiritual, prosperity.”正确。</span></p><p><span> </span></p><p><span>annals年报；编年史；年鉴</span></p><p><span> </span></p><p><span>答案：E</span></p><p>&nbsp;</p><h1 id='passage-36-medium'><span>Passage 36 Medium</span></h1><p><span>Astronomers have had difficulty accounting for certain planets discovered outside our solar system. They are called hot Jupiters because each is similar in mass to </span><mark><span>Jupiter</span></mark><span>, the largest solar-system planet, but orbits its parent star at </span><mark><span>a fraction of</span></mark><span> the distance at which Earth, let alone Jupiter, orbits the Sun. In the standard, solar-system-based theory of planetary formation, such as a massive planet could not form so close to a star. So most attempts to explain a hot Jupiter</span><span>`</span><span>s existence </span><mark><span>envision</span></mark><span> it forming farther away, then migrating inward. According to one hypothesis, the planet</span><span>`</span><span>s gravitational field </span><mark><span>tugs</span></mark><span> on the </span><mark><span>protoplanetary</span></mark><span> </span><mark><span>disk</span></mark><span> of dust and gas from which it formed. The disk exerts its own gravitational tug, and this interplay of forces robs the planet of </span><mark><span>momentum</span></mark><span> in its orbital path, forcing it to </span><mark><span>spiral</span></mark><span> in toward the star. According to another hypothesis, the planet</span><span>`</span><span>s gravitational field is so strong that it creates a </span><mark><span>groove</span></mark><span> in the disk, </span><mark><span>partitioning</span></mark><span> it into inner and outer regions; the resulting gravitational interactions between the planet and these regions cause the planet to lose orbital momentum and spiral inward. Another question remains: what prevents the planet from continuing its spiral until it collides with the star?</span></p><p><span> </span></p><p><span>Jupiter [天] 木星；朱庇特（罗马神话中的宙斯神）</span></p><p><span>a fraction of一小部分；一部分；零点几</span></p><p><span>envision想象，预想；</span><strong><span>是一个动词</span></strong></p><p><span>tug</span></p><ul><li><p><em><span>v.</span></em><span>（用力地）拉，拖，拽；（迅速地）穿（衣服）；用拖船拖（船）；努力做</span></p></li><li><p><em><span>n.</span></em><span>拖船；猛拉，拽；一股强烈的感情；强大的吸引力；（滑翔机的）拖航飞机；（系在马鞍上支承车杠或挽绳的）圆环；苦干；竞争，较量</span></p></li></ul><p><span>protoplanetary原行星的：与原行星盘（一种围绕恒星形成的尘埃和气体盘，被认为是行星形成的场所）有关的。</span></p><p><span>disk指的是一个扁平的、旋转的盘状结构，由气体和尘埃组成，通常出现在新形成的恒星的周围。这个盘是行星系统形成的场所，因为其中的物质在引力的作用下逐渐聚合，形成了行星和其他小天体。星云盘是行星形成过程中的关键组成部分，它为行星胚胎的诞生提供了必要的基础材料。</span></p><p><span>exert运用，施加（影响）；努力，尽力（exert oneself）</span></p><p><span>momentum冲力，推力；动力，势头；动量，冲量</span></p><p><span>spiral</span></p><ul><li><p><em><span>n.</span></em><span>螺旋形，螺旋形之物；持续加剧的上升（或下降、恶化）；旋球</span></p></li><li><p><em><span>v.</span></em><span>螺旋式上升（或下降），盘旋上升（或下降）；持续下降，持续恶化；急剧上升</span></p></li><li><p><em><span>adj.</span></em><span>螺旋形的；（医）扭折（骨折的一种）</span></p></li></ul><p><span> groove</span></p><ul><li><p><em><span>n.</span></em><span>凹槽；（流行音乐的）节奏；驾轻就熟，得心应手；常规，习惯</span></p></li><li><p><em><span>v.</span></em><span>在……上开出沟（或槽等）；形成沟槽；欣赏音乐，跟着音乐起舞；&lt;旧&gt;出色地演奏（尤指节奏持续不变的）流行乐（或爵士乐）；过得快活</span></p></li></ul><p><img src="学而思考满分——中文章刷题笔记/image-20240504092325743.png" alt="image-20240504092325743" style="zoom: 50%;" /></p><p><span>partition</span></p><ul><li><p><em><span>n.</span></em><span>隔墙，隔板；（国家的）分裂，分治；（化学）分离层；（计算机）存储分区；（数学）分割</span></p></li><li><p><em><span>v.</span></em><span>分割，分裂（国家）；（用隔板、隔扇等）隔开，分隔</span></p></li></ul><p><span> </span></p><p><span>天文学家很难解释在太阳系外发现的某些行星。它们被称为热木星，因为每颗行星的质量都与太阳系最大的行星木星相近，但围绕母恒星运行的距离却只有地球围绕太阳运行距离的一小部分，更不用说木星了。根据基于太阳系的标准行星形成理论，这样一颗大质量的行星不可能在如此靠近恒星的地方形成。因此，大多数解释热木星存在的尝试都设想它在更远的地方形成，然后向内迁移。有一种假设认为，行星的引力场牵引着由尘埃和气体组成的原行星盘。原行星盘也施加了自己的引力，这种相互作用的力量剥夺了行星在其轨道上的动量，迫使它向恒星的方向螺旋上升。根据另一种假设，行星的引力场非常强大，以至于在圆盘上形成了一个凹槽，将圆盘分割成内外两个区域；行星与这些区域之间产生的引力相互作用导致行星失去轨道动量并向内螺旋。另一个问题依然存在：是什么阻止了行星继续螺旋上升，直到与恒星相撞？</span></p><p><span> </span></p><p><span>The author of the passage mentions &quot;Earth&quot; primarily in order to</span></p><p><span>A stress the massive size of a hot Jupiter</span></p><p><span>B emphasize the </span><mark><span>proximity</span></mark><span> of a hot Jupiter to its parent star</span></p><p><span>C imply that hot Jupiters are unlikely to harbor extraterrestrial life</span></p><p><span>D point out differences between Earth and Jupiter with regard to their orbital distance from the Sun</span></p><p><span>E illustrate how hot Jupiters might fit into the standard theory of planetary formation</span></p><p>&nbsp;</p><p><span>proximity （时间、空间、关系的）靠近，亲近</span></p><p>&nbsp;</p><p><span>【答案】B</span></p><p><span>【题型】细节目的题</span></p><p><span>【解析】由关键词Earth定位到“They are called hot Jupiters because each is similar in mass to Jupiter, the largest solar-system planet, but orbits its parent star at a fraction of the distance at which Earth, let alone Jupiter, orbits the Sun”可知hot Jupiters得名于它们和木星的质量相似，同时它们与母恒星的距离较近。提到地球主要是强调与母星的距离很近，选B。</span></p><p><span>A 错误，并不是为了突出hot Jupiter的体积。 </span></p><p><span>B 正确，强调hot Jupiter离母恒星很近。</span></p><p><span>C 错误，文章中并没有提到生命。</span></p><p><span>D 错误，提到Earth只是为了说hot Jupiter，并没有要将Earth和Jupiter进行比较。</span></p><p><span>E fit into the standard theory, 错误，文中是说hot Jupiter 和the standard theory不符合。</span></p><p><span> </span></p><p><span>Which of the following elements is part of one but not both of the hypotheses discussed in the passage?</span></p><p><span>A an interplay of gravitational forces</span></p><p><span>B a loss of orbital momentum</span></p><p><span>C a protoplanetary disk composed of dust and gas</span></p><p><span>D a protoplanetary disk divided into two regions.</span></p><p><span> </span></p><p><span>【答案】D</span></p><p><span>【题型】事实信息题</span></p><p><span>【解析】问题要求选择一项两个解释中只有一种解释讨论过的要素。由两种解释区别可知选D。C选项another hypothesis提到了：it creates a groove in the disk, 该disk重复前文one hypothesis中disk, 也是由dust and gas组成的。</span></p><p><span>A 两个都有讲到，错误</span></p><p><span>B 两个都有，错误</span></p><p><span>C虽然第二个假说没有说完整disk的内容，但是the disk就指代的是前面说的disk。都提到过，错误。</span></p><p><span>D 只有第二个假说讲到了把disk分成两个部分，正确。</span></p><p><span> </span></p><p><span>It can be inferred from the passage that the &quot;attempts&quot; share which of the following goals? 从这段话中可以推断出，&quot;尝试 &quot;具有以下哪项共同目标？</span></p><p><span>A to explain how a Jupiter-sized planet could form so close to its parent star. 解释木星大小的行星是如何在离母恒星如此近的地方形成的</span></p><p><span>B to explain what prevents a hot Jupiter from colliding with its parent star. 解释是什么阻止了热木星与其母恒星相撞</span></p><p><span>C to determine whether a hot Jupiter is formed from a protoplanetary disk of dust and gas. 确定热木星是否是由尘埃和气体组成的原行星盘形成的</span></p><p><span>D to determine whether a hot Jupiter</span><span>`</span><span>s gravitational field is strong enough to create a groove in its protoplantary disk确定热木星的引力场是否强大到足以在它的原行星盘上形成凹槽</span></p><p><span>E to account for hot Jupiters in a way that is not inconsistent with the standard theory of planetary formation. 以一种与行星形成的标准理论不相悖的方式来解释热木星</span></p><p><span> </span></p><p><span>【答案】E</span></p><p><span>【题型】推断题</span></p><p><span>【解析】题目问这些hypothesis的共性（shared goal），根据“attempts” 定位到“In the standard, solar-system-based theory of planetary formation, such as a massive planet could not form so close to a star. So most attempts to explain a hot Jupiter&#39;s existence envision it forming farther away, then migrating inward”，根据文章结构和后文内容可知之后解释都符合standard theory of planetary formation, 所以选E。</span></p><p><span>A 错误，不是form so close，是形成在更远的地方后变近的。</span></p><p><span>B colliding 错误，这是第二个假说的遗留问题</span></p><p><span>C 错误，只有后面的两个假说提到了这一点。</span></p><p><span>D 错误，只有第二个假说提到了这一点。</span></p><p>&nbsp;</p><h1 id='passage-40-medium'><span>Passage 40 Medium</span></h1><p><span>Buell</span><span>`</span><span>s study of village sketches (a type of fiction popular in the United States in the 1830s and 1840s) provides a valuable summary of sketches that </span><mark><span>portray</span></mark><span> the community as </span><mark><span>homogeneous</span></mark><span> and fixed, but it ignores those by women writers, which typically depicted the diversity that increasingly characterized actual village communities at that time. These women</span><span>`</span><span>s </span><mark><span>geographical</span></mark><span> mobility was restricted (although women writers of the time were not </span><mark><span>uniformly</span></mark><span> circumscribed in this way), and their subject matter reflected this fact. Yet their texts were enriched by what Gilligan, writing in a different context, has called the ability to attend to voices other than one</span><span>`</span><span>s own. To varying degrees, the women</span><span>`</span><span>s sketches portray differences among community members: all stress differences among men and among women (particularly the latter) as well as differences between the sexes, and some also depict cultural diversity. These writers represent community as dynamic, as something that must be negotiated and renegotiated because of its members</span><span>`</span><span> divergent histories, </span><mark><span>positions</span></mark><span>, expectations, and beliefs.</span></p><p>&nbsp;</p><p><span>portray 描绘，描写；（在艺术或文学作品中）描述，刻画；（在电影、戏剧等中）扮演</span></p><p><span>homogeneous 同种类的，同性质的；齐性的，齐次的；同形态（固态、液态或气态）的</span></p><p><span>geographical 地理的，地理学的</span></p><p><span>uniformly 一致地</span></p><p>&nbsp;</p><p><span>Buell 对乡村小品（19 世纪 30 年代和 40 年代流行于美国的一种小说类型）的研究，对那些将社区描绘成单一和固定的小品进行了有价值的总结，但却忽略了女作家创作的小品，这些小品通常描绘的是当时日益成为实际乡村社区特征的多样性。这些妇女的地域流动性受到限制（尽管当时的女作家并非都受到这种限制），她们的题材也反映了这一事实。然而，吉利根（Gilligan）在不同的背景下写作时称之为 “关注自己以外的声音的能力”，丰富了她们的文本。这些女性素描在不同程度上描绘了社区成员之间的差异：所有素描都强调男性之间和女性之间的差异（尤其是后者）以及两性之间的差异，有些素描还描绘了文化多样性。这些作家将社区表现为动态的，由于其成员的历史、</span><mark><span>立场</span></mark><span>、期望和信仰各不相同，因此必须进行谈判和重新谈判。</span></p><p>&nbsp;</p><p><span>According to the passage, village sketches written by women in the United States in the 1830s and 1840s typically reflected</span></p><p><span>A the negotiations that characterized trade relationships between villages</span></p><p><span>B the fact that these women did not often travel very far beyond their own village</span></p><p><span>C the </span><mark><span>plurality</span></mark><span> of experiences and ideas that existed among the residents of a village</span></p><p>&nbsp;</p><p><span>plurality 多数；复数；兼职；胜出票数</span></p><p>&nbsp;</p><p><span>答案：BC</span></p><p><span>B：geographical mobility was restricted 就是“女性不能远离她们自己的村庄”</span></p><p><span>C：These writers represent community as dynamic, as something that must be negotiated and renegotiated because of its members&#39; divergent histories, positions, expectations, and beliefs 对应C选项--》Plurality.</span></p><p>&nbsp;</p><p><span>Select the sentence in the passage that contrasts how men and women depicted life in village communities.</span></p><p><span>就是第一句话Buell`s study of village sketches (a type of fiction popular in the United States in the 1830s and 1840s) provides a valuable summary of sketches that portray the community as homogeneous and fixed, but it ignores those by women writers, which typically depicted the diversity that increasingly characterized actual village communities at that time. Buell 对乡村小品（19 世纪 30 年代和 40 年代流行于美国的一种小说类型）的研究，对那些将社区描绘成单一和固定的小品进行了有价值的总结，但却忽略了女作家创作的小品，这些小品通常描绘的是当时日益成为实际乡村社区特征的多样性。</span></p><p>&nbsp;</p><p><span>The passage indicates that when Gilligan spoke of &quot;the ability to attend to voices other than one`s own,&quot; she这段话表明，当吉利根谈到 “关注自己以外的声音的能力 ”时，她</span></p><p><span>A did not consider that ability to be a desirable psychological characteristic不认为这种能力是一种理想的心理特征</span></p><p><span>B did not believe that individuals differ greatly with respect to that ability不认为个人在这种能力上有很大差异</span></p><p><span>C was implying that that ability enhances a sense of belonging in communities暗示这种能力会增强对社区的归属感</span></p><p><span>D was assuming that good writers are able to depict diverse characters假设优秀作家能够描绘不同的人物形象</span></p><p><span>E was not discussing the women who wrote village sketches不是在讨论写乡村小品的妇女</span></p><p>&nbsp;</p><p><span>答案：E</span></p><p><span>文章提到：“...by what Gilligan, writing in a different context, has called the ability to attend to voices other than one`s own.”这句中的“writing in a different context”表示Gilligan是在另一个不同的背景或情境下写的，这意味着她原始的论述与村庄写的sketches女性作家没有直接的关系。所以这句话暗示了Gilligan并没有直接讨论写的sketches女性作家</span></p><p>&nbsp;</p><h1 id='passage-43-medium'><span>Passage 43 Medium</span></h1><p><span>Constant variations in the amount of sunlight available on Earth at any given location make energy storage a necessary design feature of terrestrial solar-energy systems. For systems transforming solar to thermal energy, the thermal energy may be stored in matter as either </span><mark><span>latent</span></mark><span> heat or sensible heat. Latent heat is absorbed or released whenever matter changes </span><mark><span>phase</span></mark><span>, as when matter changes from liquid to gas, for example, or from gas to liquid. Large heat capacities are associated with certain materials, like salts, but in any substance this storage is available only at the unique fixed temperature at which the particular phase transition occurs in that substance. Moreover, materials that have </span><mark><span>transitions</span></mark><span> at the temperatures that terrestrial solar-energy systems are likely to encounter are usually destructively corrosive at those temperatures. The storage of sensible heat, on the other hand, allows flexibility as to temperature, in addition, safe substances like water and most rocks have large sensible heat capacities.</span></p><p>&nbsp;</p><p><span>latent （性质，状态）潜在的，隐藏的；（芽、静止期等）休眠的，潜伏的；（微生物，尤指病毒）蛰伏的；（疾病）潜伏的</span></p><p><span>phase （发展或变化的）阶段，时期；做出某种行为的短时期；（动物生活周期或年周期的）阶段，期</span></p><p><span>transition </span></p><ul><li><p><em><span>n.</span></em><span>过渡，转变；（分子生物）转换；（乐）临时转调；（物理）跃迁，转变</span></p></li><li><p><em><span>v.</span></em><span>转变，过渡</span></p></li></ul><p>&nbsp;</p><p><span>地球上任何特定地点的日照量都在不断变化，这使得能量储存成为陆地太阳能系统的必要设计特征。对于将太阳能转化为热能的系统，热能可以潜热或显热的形式储存在物质中。当物质改变相位时，如物质从液体变为气体，或从气体变为液体，都会吸收或释放潜热。某些物质（如盐类）具有较大的热容量，但在任何物质中，只有在该物质发生特定相变的唯一固定温度下，才能储存热量。此外，在地面太阳能系统可能遇到的温度下发生转变的材料，在这些温度下通常具有破坏性腐蚀。另一方面，显热的储存可以灵活调节温度，此外，水和大多数岩石等安全物质都具有较大的显热容量。</span></p><p>&nbsp;</p><p><span>The primary purpose of the passage is to discuss which of the following?</span></p><p><span>A reasons for the necessity for developing solar-energy systems</span></p><p><span>B different ways of storing solar energy as heat</span></p><p><span>C new designs for devices that collect solar energy</span></p><p><span>D procedures for transferring thermal energy between materials</span></p><p><span>E differences between capacities of solids and liquids to store sensible heat</span></p><p>&nbsp;</p><p><span>【答案】B</span></p><p><span>【题型】主旨内容题</span></p><p><span>【解析】根据全文结构分析可知全文顺承，在首句提及了储存热量的重要性之后，文章后续分别介绍了两种热能储存的方式，因此选B</span></p><p><span>A 文章未提及热能系统重要的原因</span></p><p><span>C 文章未提及new design相关信息</span></p><p><span>D 文章的重点是两种热能储存方式的重要性，而非两种热能储存的过程</span></p><p><span>E sensible heat只是文章的细节内容之一，并非主线逻辑</span></p><p>&nbsp;</p><p><span>Consider each of the choices separately and select all that apply.</span></p><p><span>According to the passage, solar-energy systems located on Earth must store energy for which of the following reasons?</span></p><p><span>A At any given location on Earth, the amount of sunlight available frequently changes.</span></p><p><span>B The operation of such systems depends on devices that require a power source other than solar energy</span></p><p><span>C Demand for the energy produced by such systems varies in unpredictable ways</span></p><p><span>【答案】A</span></p><p><span>【题型】事实信息题</span></p><p><span>【解析】选项定位。原文首句:“Constant variations in the amount of sunlight available on Earth at any given location make energy storage a necessary design feature of terrestrial solar- energy systems”在地球上的任意一个地方，光照量总在变化，使得储存能量成为solar-energy systems的一个特征。可知选A。</span></p><p><span>B 原文未提及solar energy以外的power source相关信息</span></p><p><span>C 原文未提及任何Demand和unpredictable ways</span></p><p>&nbsp;</p><p><span>The author suggests that which of the following constitutes a potential disadvantage of using latent heat for energy storage?</span></p><p><span>A The circumstances under which phase transitions occur would limit the versatility of latent heat as a storage method.发生相变的情况会限制潜热作为一种储存方法的通用性</span></p><p><span>B The supply of substances that possess the properties that are needed in a medium for latent heat storage is dwindling.具有潜热贮存介质所需的特性的物质越来越少</span></p><p><span>C The properties that are needed in a medium for latent heat storage are found in substances that have other, undesirable properties.潜热储存介质所需的特性存在于具有其他不良特性的物质中</span></p><p>&nbsp;</p><p><span>答案：AC</span></p><p><span>A：this storage is available only at the unique fixed temperature at which the particular phase transition occurs in that substance.只有在该物质发生特定相变的唯一固定温度下，才能储存热量。</span></p><p><span>B：没提到</span></p><p><span>C： terrestrial solar-energy systems are likely to encounter are usually destructively corrosive at those temperatures.在这些温度下通常具有破坏性腐蚀。</span></p><p>&nbsp;</p><h1 id='passage-49-medium'><span>Passage 49 Medium</span></h1><p><span>There is mounting evidence that the frequency and </span><mark><span>magnitude</span></mark><span> of landsliding is changing in many parts of the world in response to climate change. This is not surprising, given that </span><mark><span>precipitation</span></mark><span> is one of the two external triggering mechanisms--the other being </span><mark><span>seismic</span></mark><span> activity--involved in the formation of landslides. </span><strong><span>Evidence from the past</span></strong><span> clearly indicates that cycles of elevated landslide activity have been followed by cycles of low activity, and that these are </span><mark><span>correlated</span></mark><span> with climate fluctuations over a variety of timescales.</span></p><p><span>What sets current changes in landslide activity apart is the likely influence of anthropogenic [i.e., human-caused] factors, either acting alone or </span><mark><span>in concert with</span></mark><span> climate, which can further modify the process of landsliding and the nature of ecosystem responses. Among these factors, deforestation and land-use change have the potential to influence the frequency and magnitude of landsliding because of their direct effects on vegetation attributes that influence slope stability. The extent and conditions under which mountain ecosystems are </span><mark><span>resilient</span></mark><span> to these changes--that is, the amount of disturbance they can absorb before changing into states with different structure and function--are not known. Addressing this issue is crucial for the long-term conservation of mountainscapes.</span></p><p>&nbsp;</p><p><span>magnitude巨大，重要性；震级；规模，大小；数量，数值；（恒星的）亮度，星等</span></p><p><span>precipitation降水（如雨，雪，冰雹）；沉淀，淀析；仓促，鲁莽，轻率；坠落</span></p><p><span>seismic地震的，地震引起的；影响深远的，重大的</span></p><p><span>correlate</span></p><ul><li><p><em><span>v.</span></em><span>相互关联；显示紧密联系</span></p></li><li><p><em><span>n.</span></em><span>相关的事物</span></p></li></ul><p><span>concert </span></p><ul><li><p><em><span>n.</span></em><span>音乐会，演奏会；一致，和谐；（尤指犯罪时的）联合行动</span></p></li><li><p><em><span>v.</span></em><span>共同议定，协调</span></p></li></ul><p><span>in concert with与……一起合作或协调：与某人或某事物一起工作或合作，以达到共同的目标或目的。</span></p><p><span>resilient（人或动物）对困境有承受力的，有复原力的；（物质或物体）有弹性的，有回弹力的</span></p><p>&nbsp;</p><p><span>越来越多的证据表明，世界许多地方的山体滑坡频率和规模正在随着气候变化而发生变化。这并不奇怪，因为降水是山体滑坡形成的两个外部触发机制之一--另一个是地震活动。过去的证据清楚地表明，山体滑坡活动高发周期之后是活动低发周期，这些周期与不同时间尺度的气候波动相关。</span></p><p><span>当前山体滑坡活动的变化与众不同之处在于可能受到人为因素（即人为因素）的影响，无论是单独作用还是与气候共同作用，这些因素都会进一步改变山体滑坡的过程和生态系统响应的性质。在这些因素中，森林砍伐和土地利用变化有可能影响山体滑坡的频率和规模，因为它们会对影响斜坡稳定性的植被属性产生直接影响。山地生态系统对这些变化的适应程度和条件尚不清楚，也就是说，在转变为具有不同结构和功能的状态之前，它们能吸收多少干扰。解决这个问题对于长期保护山区景观至关重要。</span></p><p>&nbsp;</p><p><span>The author of the passage cites &quot;evidence from the past&quot; in order to</span></p><p><span>A support a partial explanation支持部分解释</span></p><p><span>B </span><mark><span>concede</span></mark><span> a potential objection</span></p><p><span>C </span><mark><span>dismiss</span></mark><span> an apparent counterexample</span></p><p><span>D highlight a scientific consensus</span></p><p><span>E account for a historical anomaly</span></p><p><span>concede （通常指不情愿地）承认；认（输），承认（失败）</span></p><p><span>dismiss 开除，解雇；不考虑，不理会；驳回，停止受理；让……离开，解散</span></p><p><span>【答案】A</span></p><p><span>【题型】细节目的题</span></p><p><span>【解析】定位句在文章第一段第三句。前一句话提到两个外部机制precipitation和seismic activity，第三句论据支持解释了climate fluctuations这个机制，由此得到A。</span></p><p><span>B concede表示让步，高亮句并不是让步句</span></p><p><span>C dismiss标志反对，高亮句和前文是顺承的关系，并非对立</span></p><p><span>D 强调了一个科学上的共识。高亮句之前并不存在共识</span></p><p><span>E 解释了一个历史上的怪事。高亮句之前没有怪事</span></p><p>&nbsp;</p><p><span>The passage makes which of the following claims?</span></p><p><span>A A rise in precipitation resulting from human factors has increased the frequency and magnitude of landsliding.人为因素导致的降水量增加增加了山体滑坡的频率和规模。</span></p><p><span>B Human factors have led to greater changes in landsliding activity than have cyclical climate fluctuations.与周期性气候波动相比，人为因素导致的滑坡活动变化更大。</span></p><p><span>C Decreases in landsliding activity have historically been accompanied by changes in climate.滑坡活动的减少历来伴随着气候的变化。</span></p><p><span>D Slope stability is more influenced by seismic activity than it is by human factors与人为因素相比，地震活动对斜坡稳定性的影响更大</span></p><p><span>E Changes in land-use patterns in mountain ecosystems are generally correlated with changes in climate.山区生态系统中土地利用模式的变化通常与气候的变化相关。</span></p><p><span>【答案】C</span></p><p><span>【题型】推断题</span></p><p><span>【解析】C选项能定位到原文“Evidence from the past clearly indicates that cycles of elevated landslide activity have been followed by cycles of low activity, and that these are correlated with climate fluctuations over a variety of timescales&quot;，其中，low activity = decrease。</span></p><p><span>原文中precipitation 、human factors和seismic activity三者之间是并列的关系，且并未提及三个因素的比较，因此涉及这三个因素之间比较关系的选项必然都是错误的</span></p><p>&nbsp;</p><p><span>The author of the passage suggests which of the following about the role of human factors in landsliding activity?</span></p><p><span>A Human factors can intensify or alter the effects of climate change on landsliding activity.</span></p><p><span>B It is likely that human factors affect landsliding activity more than climate change does.</span></p><p><span>C Until recently, human factors did not have much impact on landsliding activity.</span></p><p><span>【答案】AC</span></p><p><span>【题型】推断题</span></p><p><span>【解析】</span></p><p><span>A正确：结合What sets current changes in landslide activity apart is the likely influence of anthropogenic [i.e., human-caused] factors, either acting alone or in concert with climate, which can further modify the process of landsliding and the nature of ecosystem responses.可知人为因素可以影响landsliding的过程，并且可以modify the nature of responses 也就是说人为因素是可以和气候因素叠加在一起来影响landsliding的（intensify），同时人为因素可以改变生态系统如何作出反应，也就是alter。</span></p><p><span>B未提及：文章没有比较这两个因素谁的影响更大</span></p><p><span>C正确：结合原文What sets current changes in landslide activity apart is the likely influence of anthropogenic [i.e., human-caused] factors，注意到current，也就是说现在才有了人为因素的影响，那之前应该是没有影响的，也就是选项中的untill（before）recently，人为因素没有影响。</span></p><p>&nbsp;</p><h1 id='passage-51-medium'><span>Passage 51 Medium</span></h1><p><span>The </span><mark><span>relevance</span></mark><span> of the literary personality--a writer&#39;s distinctive attitudes, concerns, and artistic choices--to the analysis of a literary work is being scrutinized by various schools of contemporary criticism. </span><mark><span>Deconstructionists</span></mark><span> view the literary personality, like the writer</span><span>`</span><span>s biographical personality, as irrelevant. The proper focus of literary analysis, they argue, is a work</span><span>`</span><span>s intertextuality (interrelationship with other texts), subtexts (unspoken, concealed, or repressed discourses), and metatexts (self-referential aspects), not a perception of a writer</span><span>`</span><span>s verbal and aesthetic &quot;fingerprints.&quot; New historicists also devalue the literary personality, since, in their emphasis on a work</span><span>`</span><span>s historical contexts, they </span><mark><span>credit</span></mark><span> a writer </span><mark><span>with</span></mark><span> only those insights and ideas that were generally available when the writer lived. However, to readers interested in literary detective work--say scholars of classical (Greek and Roman) literature who wish to reconstruct damaged texts or deduce a work</span><span>`</span><span>s authorship-the literary personality sometimes provides vital clues.</span></p><p><span>relevance相关性，实用性，意义</span></p><p><span>Deconstructionist</span></p><ul><li><p><em><span>n.</span></em><span>解构主义者</span></p></li><li><p><em><span>adj.</span></em><span>解构主义的</span></p></li></ul><p><span>credit with认为某人具有某种品质：指认为某人具备或拥有某种特定的品质、能力或功绩。</span></p><p><span>文学个性--作家独特的态度、关注点和艺术选择--与文学作品分析的相关性正受到当代各种批评流派的审视。解构主义者认为，文学个性与作家的传记个性一样，都是无关紧要的。他们认为，文学分析的正确重点是作品的互文性（与其他文本的相互关系）、潜文本（未言明、隐藏或压抑的话语）和元文本（自我指涉方面），而不是对作家的语言和美学 “指纹 ”的感知。新历史主义者还贬低文学个性，因为他们强调作品的历史背景，只将作家在世时普遍具有的洞察力和思想归功于作家。然而，对于对文学侦探工作感兴趣的读者--例如希望重建受损文本或推断作品作者的古典（希腊和罗马）文学学者--来说，文学个性有时会提供重要的线索。</span></p><p>&nbsp;</p><p><span>【文章结构分析】</span></p><p><span>文章作者围绕对于the literary personality的观点，介绍不同学派的学者对其看法。多种当代批评流派重视。解构主义( Deconstructionists )轻视，认为intertextuality, subtext, metatexts更重要。新历史主义者(New historicists )也轻视，认为作家生活年代的思想潮流更重要。However转折后给出一些readers的观点，他们认为literary personality有其关键价值。</span></p><p>&nbsp;</p><p><span>The passage is primarily concerned with</span></p><p><span>A discussing attitudes toward a particular focus for literary analysis</span></p><p><span>B describing the limitations of two contemporary approaches to literary analysis</span></p><p><span>C pointing out the similarities among seemingly contrasting approaches to literary analysis</span></p><p><span>D defending the resurgence of a particular focus for literary analysis</span></p><p><span>E defining a set of related terms employed in literary criticism</span></p><p>&nbsp;</p><p><span>答案：A</span></p><p><span>文章没有提到任何limitation和similarity，作者也没有表达支持或反对某一方或者给出定义，因此排除掉BCDE，选A</span></p><p>&nbsp;</p><p><span>It can be inferred from the passage that on the issue of how to analyze a literary work, the new historicists would most likely agree with the deconstructionists that</span></p><p><span>A The writer</span><span>`</span><span>s insights and ideas should be understood in terms of the writer</span><span>`</span><span>s historical context.应该从作家的历史背景来理解作家的见解和思想</span></p><p><span>B The writers literary personality has little or no relevance.作家的文学个性几乎无关</span></p><p><span>C The critic should primarily focus on intertextuality, subtexts and metatexts.评论家应主要关注互文性、潜文本和元文本</span></p><p><span>【答案】B</span>
+<span>【题型】推断题</span>
+<span>【解析】问题要求选择new historicists和deconstructionists观点的共同之处，回到原文Deconstructionists view the literary personality, like the writer&#39;s biographical personality,as irrelevant.....New historicists also devalue the literary personality可知二者都否认literary personality的价值，所以选B。</span></p><p><span>A选项是新历史主义观点，解构主义没有提到。</span></p><p><span>C选项是解构主义观点，新历史主义没有提到。</span></p><p>&nbsp;</p><p><span>In the context in which it appears, &quot;credit a writer with&quot; most nearly means</span></p><p><span>A trust a writer with</span></p><p><span>B applaud a writer for</span></p><p><span>C believe a writer created</span></p><p><span>D </span><mark><span>presume</span></mark><span> a writer had</span></p><p><span>E accept a writer for</span></p><p><span>presume料想，（不肯定地）认为；假设，设想；（法律上或官方）假定，推定；擅自，冒昧；意味着；&lt;正式&gt;擅作主张，冒昧</span></p><p><span>【答案】B</span>
+<span>【题型】词汇题</span>
+<span>【解析】根据上下文：New historicists also devalue the literary personality, since, in their emphasis on a work&#39;s historical contexts, they credit a writer with only those insights and ideas that were generally available when the writer lived. 知其对应devalue, 是devalue反义词，选项B最准确，其余的选项对应动词都体现不出value这个意思。</span></p><p>&nbsp;</p><h1 id='passage-55-medium'><span>Passage 55 Medium</span></h1><p><span>Some historians have recently challenged the &quot;party period paradigm,&quot; the view, </span><mark><span>advanced</span></mark><span> by McCormick and others, that political parties--especially the two major parties--in the United States between the years 1835 and 1900 </span><mark><span>evoked</span></mark><span> extraordinary loyalty from voters and dominated political life. Voss-Hubbard cites the frequency of third-party eruptions during the period as evidence of popular </span><mark><span>antipathy</span></mark><span> to the two-party </span><mark><span>regime</span></mark><span>. He correctly credits third parties with helping generate the nineteenth century</span><span>`</span><span>s historically high rates of voter turnout by forcing major parties to bolster supporters&#39; </span><mark><span>allegiance</span></mark><span>, lest minor parties </span><mark><span>siphon off</span></mark><span> their votes, and with pushing policy demands that the major parties ignored. Formisano stresses the </span><mark><span>pervasive</span></mark><span> record of nonpartisan and anti-party governance at the local level, and women</span><span>`</span><span> s frequent participation in nineteenth-century public life, prior to their </span><mark><span>enfranchisement</span></mark><span>, in nonpartisan and antiparty ways as evidence of the limitations of the party period paradigm. Yet McCormick would deny that the existence of antiparty sentiment during the period undermined the paradigm, since he has always acknowledged the </span><mark><span>residual</span></mark><span> strength of such sentiment during the nineteenth century. In any case, the strength of the paradigm is its comparative thrust: the contrast it draws between the period in question and earlier and later political eras.</span></p><p><span>advanced </span></p><ul><li><p><em><span>adj.</span></em><span>先进的；高级的，高等的；晚期的，状况不佳的；高龄的；</span><mark><span>新提出（尚未被广泛接受）的</span></mark></p></li><li><p><em><span>v.</span></em><span>行进；发展，进步；预付（advance 的过去式和过去分词形式）</span></p></li></ul><p><span>evoke 引起，唤起（感情、记忆或形象）；召（魂），唤（神）</span></p><p><span>antipathy 反感；厌恶；憎恶；不相容</span></p><p><span>regime（尤指独裁的）政府，政权；（机构、公司、经济等的）管理制度，组织方法；饮食起居制度，养生法</span></p><p><span>allegiance （对政党、宗教、统治者的）忠诚，效忠，拥戴</span></p><p><span>siphon </span></p><ul><li><p><em><span>n.</span></em><span>虹吸管</span></p></li><li><p><em><span>vi.</span></em><span>通过虹吸管</span></p></li><li><p><em><span>vt.</span></em><span>用虹吸管吸出；抽取</span></p></li></ul><p><span>siphon off 挪用：不诚实地从组织或其他来源中取走钱财，并将其用于不应用于的目的。</span></p><p><span>pervasive 弥漫的，遍布的</span></p><p><span>enfranchisement 解放，释放</span></p><p><span>residual</span></p><ul><li><p><em><span>adj.</span></em><span>残留的；（数量）剩余的；（物质状态在成因消失后）剩余的；（实验误差）舍去的；（土壤）残余的</span></p></li><li><p><em><span>n.</span></em><span>（数量）剩余；残差；（付给表演者的）复播追加酬金；残丘，蚀余山；（新车购入一定时间后的）转售值</span></p></li></ul><p><span>thrust</span></p><ul><li><p><em><span>v.</span></em><span>猛推，猛塞；刺，扎；（人）推进，挤过；上伸，伸出；强使接受</span></p></li><li><p><em><span>n.</span></em><mark><span>要点，要旨</span></mark><span>；猛推，刺；（飞机、火箭等的）驱动力，推力；强攻，挺进；（拱、椽的）侧向压力；（地质）冲断层，逆断层；苛评</span></p></li></ul><p><span>一些历史学家最近对 “政党时期范式 ”提出了质疑，麦考密克等人认为，1835 年至 1900 年间，美国的政党--尤其是两大政党--唤起了选民的非凡忠诚，并主导了政治生活。沃斯-哈伯德列举了这一时期频繁爆发的第三方事件，以此证明民众对两党制的反感。他正确地认为，第三党迫使主要政党加强支持者的忠诚度，以免小党攫取他们的选票，并推动主要政党忽视的政策要求，从而帮助创造了 19 世纪历史上的高投票率。福米萨诺强调了地方层面无党派和反党治理的普遍记录，以及妇女在获得选举权之前以无党派和反党方式频繁参与 19 世纪公共生活的情况，以此证明政党时期范式的局限性。然而，麦考密克否认这一时期反党情绪的存在破坏了这一范式，因为他一直承认这种情绪在 19 世纪的残余力量。无论如何，该范式的优势在于它的比较主旨：它将相关时期与之前和之后的政治时代进行对比。——By DeepL</span></p><p><span>一些历史学家最近对美国1835年至1900年间的“政党时期范式”提出了质疑。这个范式是由McCormick等人提出的，认为当时的政治党派——尤其是两大主要政党——赢得了选民前所未有的忠诚并主导了政治生活。Voss-Hubbard指出在这段时期内第三方党派的频繁出现，作为民众对两党制体制反感的证据。他正确地认为，第三方党派通过迫使主要政党加强支持者的忠诚度，以防止小党派分流选票，从而帮助提高了19世纪历史上极高的投票率，并推动了主要政党忽视的政策要求。Formisano强调了在地方层面非党派和反党派治理的普遍记录，以及妇女在获得选举权之前，以非党派和反党派的方式频繁参与19世纪公共生活的情况，这些都作为政党时期范式局限性的证据。然而，McCormick会否认在党派情绪的存在削弱了这一范式，因为他一直承认19世纪这种情绪的残余力量。无论如何，这个范式的优势在于其比较性的推动力：它所提出的时期与早期和后期政治时代的对比。——By 智谱清言</span></p><p>&nbsp;</p><p><span>【文章结构分析】</span></p><p><span>第一句：“party period paradigm”（M提出）观点认为5-1900期间美国两党evoked extraordinary loyalty from voters and dominated political life（两党获得选民的忠诚并且占了主导）【一些历史学家不同意这个观点】</span></p><p><span>第二句：摆some historians的论据【V提出third-party eruptions作为一句反驳paradigm】</span></p><p><span>第三句：详细展开V的观点并表明作者的态度，作者认为V「正确地」将高得票率归功于third-party</span></p><p><span>第四句：F提出limitations of the party period paradigm（支持V）</span></p><p><span>第五句：M会否认F所提出的limitation，M否认anti-party的存在削弱了paradigm</span></p><p><span>第六句：作者点评 - 无论如何，paradigm的优势在于它的相对推动力</span></p><p>&nbsp;</p><p><span>The primary purpose of the passage is to</span></p><p><span>A correct a common misconception about a historical period</span></p><p><span>B identify a feature of a historical period that has often been overlooked</span></p><p><span>C challenge the validity of evidence used to support a claim</span></p><p><span>D discuss certain challenges to a particular view</span></p><p><span>E account for a particular feature of historical period</span></p><p><span>【答案】D</span></p><p><span>【题型】主旨目的题</span></p><p><span>【解析】根据文章结构分析，可知D选项最准确。</span></p><p><span>A：“common”概念不准确，文中的party period paradigm只是由M提出的，甚至没有correct a common misconception</span></p><p><span>B：没提到a historical period that has often been overlooked</span></p><p><span>C：challenge the validity of evidence 不准确。</span></p><p>&nbsp;</p><p><span>In the context in which it appears, &quot;evoked&quot; most nearly means</span></p><p><span>A elicited 引起</span></p><p><span>B recalled 回顾</span></p><p><span>C cited 引用</span></p><p><span>D suggested 建议</span></p><p><span>E elaboratedc 阐明</span></p><p><span>答案：A</span></p><p>&nbsp;</p><h1 id='passage-57-medium'><span>Passage 57 Medium</span></h1><p><strong><span>Recent</span></strong><span> studies of the Philippine fruit bat </span><mark><span>fauna</span></mark><span> have confirmed some previous hypotheses regarding bats on oceanic islands: for example, species richness[ the number of different species in a particular area] and abundance are generally highest in the lowlands and decrease with increasing </span><mark><span>elevation</span></mark><span>. With few exceptions, each </span><mark><span>endemic</span></mark><span> species [species native to a particular place] is restricted to the modern islands that made up a single island during periods of low sea level, and </span><strong><span>genetic differentiation has been influenced by the </span><mark><span>ecology</span></mark><span> of the species and the current and past </span><mark><span>geographic</span></mark><span> and </span><mark><span>geological</span></mark><span> conditions</span></strong><span>. However, far more previous hypotheses have been </span><mark><span>overturned</span></mark><span> than supported. Some endemic Philippine species use disturbed habitat as extensively as nonendemic species that are widespread in Southeast Asia. Levels of genetic variation within all species are high, not low, and rather than showing evidence of an intrinsic vulnerability to extinction from natural causes, independent </span><mark><span>lineages</span></mark><span> of these bats have persisted in rather small areas for very long periods of time(often millions of years) in spite of frequent typhoons and volcanic eruptions. While colonization from outside areas has clearly contributed to the high species richness, speciation within the archipelago has contributed at least a quarter of the total species richness, including many of the most abundant species.</span></p><p><span>fauna 动物群；[动]动物区系</span></p><p><span>elevation 度，海拔；立面，立视图；提拔，提升；增加，升高；高地，高处</span></p><p><span>endemic</span></p><ul><li><p><em><span>adj.</span></em><span>地方性的；风土的</span></p></li><li><p><em><span>n.</span></em><span>地方病</span></p></li></ul><p><span>ecology 生态学；生态；生态保护运动</span></p><p><span>geographic 地理的，地理学的</span></p><p><span>geological 地质的，地质学的</span></p><p><span>overturn （使）翻倒，（使）倾覆；推翻，撤销（判决等）；颠覆，破坏（政府或体系）</span></p><p><span>lineages &lt;正式&gt;血统，世系</span></p><p><span>最近对菲律宾果蝠动物群的研究证实了以前关于海洋岛屿上蝙蝠的一些假设：例如，物种丰富度[特定地区不同物种的数量]和丰度通常在低地最高，随着海拔的升高而降低。除少数例外情况外，每个特有物种[原产于某地的物种]都仅限于在海平面较低时期组成单个岛屿的现代岛屿，基因分化受到物种生态学以及当前和过去的地理和地质条件的影响。然而，推翻的假设远远多于支持的假设。菲律宾的一些特有物种与广泛分布于东南亚的非特有物种一样，广泛使用受干扰的栖息地。所有物种内部的遗传变异水平都很高，而不是很低，而且，尽管台风和火山爆发频繁，这些蝙蝠的独立品系并没有显示出因自然原因而灭绝的内在脆弱性，而是在相当小的区域内持续存在了很长一段时间（通常是数百万年）。虽然来自外部地区的殖民显然是物种丰富度高的原因之一，但群岛内部的物种变异至少占物种丰富度总数的四分之一，其中包括许多最丰富的物种。</span></p><p>&nbsp;</p><p><span>【文章结构分析】</span>
+<span>文章是用最近的研究成果来评价过去的旧观点，并对其进行分类点评。</span>
+<span>首句介绍的是被新研究成果核实的老观点：</span></p><p><span>1）物种丰富性和海拔负相关。</span>
+<span>2）本地物种和地理因素（海岛分隔）相关。</span>
+<span>3）基因区分演化（genetic differentiation）受物种所在生态环境影响。</span></p><p><span>However转折后是被新证据推翻的老观点，新证据表明：</span>
+<span>1）一些本地物种能象外来物种一样适应利用不规则生态栖息地（disturbed habitat）</span>
+<span>2）所有物种（本地/外地）基因变化程度都高</span>
+<span>3）（本地/外地）都能在小区域延续独立种系（independent lineages），本地物种分化对物种丰富性贡献大。</span></p><p>&nbsp;</p><p><span>The primary purpose of the passage is to</span></p><p><span>A draw on studies of the Philippine fruit bat in proposing a new theory regarding bats on oceanic islands</span></p><p><span>B show how recent research on the Philippine fruit bat reflects debates about bats on oceanic islands</span></p><p><span>C argue for the relevance of certain new evidence pertaining to the Philippine fruit bat or the study of bats on oceanic islands</span></p><p><span>D discuss recent investigations of Philippines fruit bat </span><mark><span>in light of</span></mark><span> conventional </span><mark><span>wisdom</span></mark><span> regarding bats on oceanic islands</span></p><p><span>E explain why the Philippine fruit bat is atypical among bats on oceanic islands in terms of genetic variation</span></p><p><span>【答案】D</span></p><p><span>【题型】主旨目的题</span></p><p><span>【解析】从全文整体结构分析可知选D选项最合适。</span></p><p><span>A选项，a new theory文章无。</span></p><p><span>B选项，文章没有debates，只是驳斥了一些之前的结论，对方没有回应，并不是debates。</span></p><p><span>C选项，论证某些与菲律宾果蝠有关的新证据或对海洋岛屿上的蝙蝠的研究的相关性（不是在说二者的相关性，是用前者支持或者反驳后者）</span></p><p><span>E选项，文章没有说菲律宾果蝇atypical。</span></p><p><span>in light of 基于某种情况或信息，考虑到某事或在某种情况下</span></p><p><span>wisdom 智慧，才智；明智；学问，知识；</span><mark><span>普遍看法</span></mark></p><p>&nbsp;</p><p><span>The primary function of the highlighted text is to</span></p><p><span>A identify a finding from the Philippine fruit bat studies that will have a significant impact on how oceanic bats generally are viewed</span></p><p><span>B point out a hypothesis that has been the subject of considerable disagreement among researchers studying oceanic bats</span></p><p><span>C present evidence that is difficult to reconcile with other recent findings regarding the Philippine fruit bat</span></p><p><span>D illustrate a widely held view about oceanic bats generally that was confirmed by the Philippine fruit bat studies</span></p><p><span>E identify a feature of the Philippine fruit bat that does not appear to apply to oceanic bats generally</span></p><p><span>【答案】D</span></p><p><span>A.确认了菲律宾果蝠研究的一项发现，该发现将对人们如何看待海洋蝙蝠产生重大影响(没说会产生重大影响，只说了支持一些假设，驳斥一些假设)</span></p><p><span>B.指出一个假说，这个假说在研究海洋蝙蝠的研究人员中引起了相当大的分歧(没说到分歧)</span></p><p><span>C.提供的证据很难与最近关于菲律宾果蝠的其他发现相一致(列举的就是recent findings，而不是在列举过去的findings)</span></p><p><span>D.举例说明一种被广泛接受的关于海洋蝙蝠的观点，这一观点得到了菲律宾果蝠研究的证实(正确，have confirmed some previous hypotheses regarding bats on oceanic islands)——如果看明白了全文的话，其实D选项是非常容易看出来的。但是我在做题的时候没有看明白全文，导致选择了错误的选项。</span></p><p><span>E.确定菲律宾果蝠的一个特征，这个特征似乎不适用于海洋蝙蝠(反，果蝠也是符合这一点的)</span></p><p>&nbsp;</p><p><span>Which of the following can be inferred from the passage about the &quot;recent studies&quot;?</span></p><p><span>A They point to the need for a significantly revised perspective on oceanic island bats generally.</span></p><p><span>B They were undertaken with the assumption that Philippine fruit bats were somewhat atypical among oceanic bats.</span></p><p><span>C They remain some what controversial among researchers because of the number of standard hypotheses that they tested.</span></p><p><span>D They have largely confirmed what scientists thought about the Philippine fruit bat.</span></p><p><span>E They suggest that bats on oceanic islands are more vulnerable to extinction than previously thought.</span></p><p><span>答案：A</span></p><p><span>A.他们指出，一般来说，需要对海洋岛屿蝙蝠的观点进行重大修正——正确，However, far more previous hypotheses have been overturned than supported.</span></p><p><span>B.他们的假设是，菲律宾果蝠在海洋蝙蝠中有些非典型。(没提到atypical)</span></p><p><span>C.由于他们测试的标准假设的数量，这些假设在研究人员中仍然存在一些争议——没提到the number of standardhypotheses</span></p><p><span>D.他们基本上证实了科学家对菲律宾果蝠的看法。(反，是反对了更多，而不是基本证实)</span></p><p><span>E.他们认为海洋岛屿上的蝙蝠比以前认为的更容易灭绝。(反，rather than showing evidence of an intrinsic vulnerability to extinction from natural causes, independent lineages of these bats have persisted in rather small areas for very long periods of time(often millions of years，不容易灭绝)</span></p><p>&nbsp;</p><h1 id='passage-62-hard'><span>Passage 62 Hard</span></h1><p><span>Much recent work has examined the claim that women encounter increasing obstacles relative to men as they move up the organizational </span><mark><span>ladder</span></mark><span> in business. This </span><mark><span>proposition</span></mark><span>, which we term the increasing-disadvantage model, is a core element of the popular glass ceiling metaphor.</span></p><p><span>Despite continued widespread public acceptance of the glass ceiling idea and some consistent findings, most research </span><mark><span>to date</span></mark><span> has failed to support the increasing disadvantage model. Indeed, several studies based on private- sector firms find that women` s mobility prospects improve, rather than decline, as they climb upward in corporate hierarchies. In the public sector, researchers have found either no sex differences in mobility or a larger female disadvantage in lower grades.</span></p><p><span>Comparing cross-sectional national samples of workers, Baxter and Wright found no evidence in the United States, and only limited evidence in Sweden and Australia, that women</span><span>`</span><span> s probability of being located in a higher versus a lower hierarchical level declined relative to men</span><span>`</span><span> s at higher levels. Taken together, these findings suggest that the glass ceiling may be a myth. Women</span><span>`</span><span> s scarcity in top organizational ranks may simply represent the </span><mark><span>cumulative</span></mark><span> effect of a constant-or even decreasing-disadvantage at successive hierarchical levels.</span></p><p>&nbsp;</p><p><span>ladder 梯子；（职位晋升的）阶梯，（发展的）阶段；&lt;英&gt;（织物）抽丝，脱线</span></p><p><span>proposition </span></p><ul><li><p><em><span>n.</span></em><span>主张，观点；（尤指商业或政治上的）提议，建议；（美国的）法律修正案；欲做的事，待处理的问题；（数学或逻辑）命题；（尤指被视作有冒犯性的）性交提议，求欢</span></p></li><li><p><em><span>v.</span></em><span>向（某人）提议</span></p></li></ul><p><span>to date 迄今，到现在为止</span></p><p><span>prospect</span></p><ul><li><p><em><span>n.</span></em><span>可能性，希望；预期，展望；（尤指事业的）成功机会，前景；有望成功的人，有前途的人；可能的顾客，潜在的主顾；&lt;正式&gt;（尤指从高处看到的）景象，景色；潜在矿藏或矿床</span></p></li><li><p><em><span>v.</span></em><span>勘探，勘察；寻找（商业机会）</span></p></li></ul><p><span>cumulative 积累的，渐增的；累计的，累积的</span></p><p>&nbsp;</p><p><span>最近的许多研究都在探讨这样一种说法，即女性在企业的组织晋升过程中，相对于男性会遇到越来越多的障碍。这一命题被我们称为 “劣势递增模型”，是流行的 “玻璃天花板 ”隐喻的核心要素。</span></p><p><span>尽管 “玻璃天花板 ”的观点一直被公众广泛接受，而且也有一些一致的研究结果，但迄今为止的大多数研究都未能支持 “劣势递增模型”。事实上，一些基于私营部门公司的研究发现，随着女性在公司等级制度中不断向上爬，她们的流动前景非但没有下降，反而有所改善。在公共部门，研究人员发现，要么在流动性方面没有性别差异，要么在较低的级别中女性的劣势更大。</span></p><p><span>通过比较美国、瑞典和澳大利亚工人的横断面国家样本，Baxter和Wright发现，没有证据表明女性位于较高与较低层次结构中的可能性相对于男性在高层次中有所下降。总的来说，这些发现表明，“玻璃天花板”可能是一个神话。女性在顶级组织排名中的稀缺可能仅仅代表了在连续的层次结构中一个恒定——甚至递减——劣势的累积效应。</span></p><p>&nbsp;</p><p><span>【文章结构分析】</span></p><p><span>女性在商业组织阶梯上升时相对男性遇到越来越大的障碍，这种“玻璃天花板”未收到最近研究的支持；紧接着， 在私营企业、公共部门、全国各地的工人样本的证据证明，“玻璃天花板”是个迷思，女性确实会遭遇职场劣势，但这个劣势是随着女性往上升而不变或者下降的。与流行的玻璃天花板观点(女性越往上升劣势越大)相反。</span></p><p>&nbsp;</p><p><span>The primary purpose of the passage is to</span></p><p><span>A compare two explanations for a recurring problem</span></p><p><span>B summarize evidence relevant to a hypothesis</span></p><p><span>C point out inconsistencies in a set of findings</span></p><p><span>D account for the persistence of a point of view</span></p><p><span>E reconsider the origins of an ongoing issue</span></p><p>&nbsp;</p><p><span>正确答案： B</span></p><p><strong><span>这里B的relevant evidence不一定是支持的证据，文章提出的反对证据也是符合的。 A错在不是two explanations C错在不是findings里面的inconsistencies，而是通过findings证明这个hypothesis的inconsistencies</span></strong></p><p>&nbsp;</p><p><span>Based on the passage, which of the following is true of the &quot;limited evidence&quot; from Sweden and Australia?</span></p><p><span>A It lends supports to the increasing-disadvantage model.</span></p><p><span>B It correlates with findings on women` s mobility from most other counties.</span></p><p><span>C It suggests important cultural similarities between these countries.</span></p><p><span>D It points to a phenomenon not widely recognized in these countries.</span></p><p><span>E It helps explain the persistence of the glass ceiling.</span></p><p>&nbsp;</p><p><span>【答案】A</span></p><p><span>【题型】事实信息题</span></p><p><span>【解析】回到原文，第2段第1句，Comparing cross-sectional ntional samples of workers, Baxter and Wright found no evidence in the United States probability of being located in a higher versus a lower hierarchical level declinedand only limited evidence in Sweden and Australia, that women&#39;s支持上文“玻璃天花板”的证据。relative to men&#39;s at higher levels.注意这里的 limit evidence 指的</span></p><p><span>选项 A， 支持the increasing-disadvantage model. A对.</span></p><p><span>选项 B，它与其他大多数地方应该是相反的。B 错,</span></p><p><span>谱.选项 C，本文未讨论国家之间的文化相似的问题。 完全无关。C</span></p><p><span>选项 D，“玻璃天花板”是得到广泛承认的。 D 错。</span></p><p><span>选项E，和“持久性”不沾边。 E错。</span></p><p><strong><span>就是美国没有证据证明“women</span><span>`</span><span> s probability of being located in a higher versus a lower hierarchical level declined relative to men</span><span>`</span><span> s at higher levels”（女性相比男性在高位的概率低），而那些limited（有限）的证据正在说明这个问题。</span></strong></p><p>&nbsp;</p><p><span>The author of the passage and those accepting the &quot;proposition&quot; would most likely agree with which of the following?</span></p><p><span>A Lower down on the organizational ladder, </span><u><span>women tend to experience fewer disadvantages than they do at higher levels.</span></u></p><p><span>B Women experience no more disadvantages in moving up the organizational ladder </span><u><span>than do men</span></u><span>.</span></p><p><span>C The degree of disadvantage experiences by women remains constant as women move up the organizational ladder. 不是两个人都同意的观点</span></p><p><span>D The obstacles to women` s advancement vary significantly from </span><u><span>country to country.</span></u></p><p><span>E Women face some disadvantage at each stage of the organizational ladder.</span></p><p>&nbsp;</p><p><span>【答案】E</span></p><p><span>【题型】推断题</span></p><p><span>【解析】 题目问文章作者与老观点的共同之处。老观点( increasing-disadvantage model )认为女性随职位升高面对更多因素。作者引用新研究反对老观点，在文章最后又清楚表明自己立场：Women&#39;s scarcity in top organizational ranks may simply represent the cumulative effect of a constant-or even decreasing-disadvantage at successive hierarchical levels。可见，虽然作者和老观点就不利因素是否随职位提高而增加有分歧，但都同意：妇女面对不利歧视因素。所以选E。</span></p></div></div>
+</body>
+<!-- <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script> -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--侧栏目录生成代码-->
+<script>
+    //标题序号计数器
+    var hCount = [0, 0, 0, 0, 0, 0];
+
+    //设置计数器
+    function setHCount(number) {
+        //当前计数器加一
+        hCount[number - 1]++;
+        for (var i = number, length = hCount.length; i < length; i++) {
+            //子目录计数器全部置零
+            hCount[i] = 0;
+        }
+    }
+
+    //重命名目录名称
+    function setHTagValue(item, number) {
+        //获取标题名
+        var text = $(item).get(0).innerHTML;
+        //初始化空字符串
+        var before = "";
+        //生成序号
+        for (var i = 0, length = hCount.length; i < number; i++) {
+            if (i < number - 1)
+                before += hCount[i] + ".";
+            else
+                before += hCount[i] + " ";
+        }
+        //在标题前面加上序号
+        $(item).get(0).innerHTML = before + text;
+    }
+
+    function renameHTag(item) {
+        var tag = $(item).get(0).localName;
+        if (tag === "h1") {
+            setHCount(1);
+            //console\.log("捕获到标签:%s", tag);
+            setHTagValue(item, 1);
+        }
+        if (tag === "h2") {
+            setHCount(2);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 2);
+        }
+        if (tag === "h3") {
+            setHCount(3);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 3);
+        }
+        if (tag === "h4") {
+            setHCount(4);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 4);
+        }
+        if (tag === "h5") {
+            setHCount(5);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 5);
+        }
+        if (tag === "h6") {
+            setHCount(6);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 6)
+        }
+    }
+
+    $(document).ready(function () {
+        $("h1,h2,h3,h4,h5,h6").each(function (i, item) {
+            //给<H>类标签编号
+            renameHTag(item);
+            //获取标签的名字,h1,还是h2
+            var tag = $(item).get(0).localName;
+            //为该标签设置id属性
+            $(item).attr("id", "wow" + i);
+            //添加一个页内超链接,并设置class选择器
+            //      $("#category").append('<a class="new'+tag+'" href="#wow'+i+'">'+$(this).text()+'</a></br>');
+            $("#category").append('<a class="new' + tag + '" href="#wow' + i + '">' + $(item).text() + '</a></br>');
+            //为每一个标题超链接的class属性设置左边距
+            $(".newh1").css("margin-left", 0);
+            $(".newh2").css("margin-left", 20);
+            $(".newh3").css("margin-left", 40);
+            $(".newh4").css("margin-left", 60);
+            $(".newh5").css("margin-left", 80);
+            $(".newh6").css("margin-left", 100);
+        });
+        //设置class选择器为.book-body的html内容
+        $(".book-body").html($(".book-body").nextAll())
+    });
+</script>
+<style type="text/css">
+    @media (max-width: 1600px) {
+        .book-body {
+            /* padding-left: 200px; */
+            padding-right: 0px;
+        }
+    }
+
+    @media (max-width: 1400px) {
+        .book-body {
+            /* padding-left: 200px; */
+            padding-right: 0px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .book-body {
+            /* padding-left: 300px; */
+            padding-left: 0px;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .book-body {
+            padding-left: 0px;
+        }
+    }
+
+    @media (min-width: 600px) {
+        #category {
+            /* 绝对定位 */
+            position: fixed;
+            /* left: 20px; */
+            /* 目录显示的位置 */
+            left: 0px;
+            top: 0;
+            /* 目录栏的高度,这里设置为60%主要是为了不挡住返回顶部和折叠按钮 */
+            height: 79%;
+            /* 开启垂直滚动条 */
+            overflow-y: scroll;
+            /* 开启水平滚动条 */
+            overflow-x: scroll;
+        }
+    }
+
+    @media (-webkit-max-device-pixel-ratio: 1) {
+        ::-webkit-scrollbar-track-piece {
+            background-color: #FFF
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #c2c2c2;
+            background-clip: padding-box;
+            min-height: 28px
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #A0A0A0
+        }
+    }
+</style>
+<script>
+    // id="category" οnclick="showOrCloseCategory()"
+    function showOrCloseCategory() {
+        var id = document.getElementById("category");
+        var book_body = document.getElementById("book_body");
+        //如果展开了
+        if (id.style.display == 'block') {
+            //console.log("开始展开");
+            id.style.display = 'none';
+            id.style.width = "0%";
+            book_body.style.width = "100%";
+            book_body.style.paddingleft = 0;
+        }
+        //如果被折叠了
+        else if (id.style.display == 'none') {
+            //console.log("开始折叠");
+            id.style.display = 'block';
+            book_body.style.width = "90%";
+            id.style.width = "20%"
+        }
+    }
+</script>
+<!--返回顶部-->
+<a href="javascript:scroll(0,0)" style="position:fixed;float:right;left:40px;top:80%">返回顶部</a>
+<button onclick="showOrCloseCategory()" style="position:fixed;float:right;left:40px;top:85%">折叠/展开</button>
+<!--文章主体部分-->
+<div class="book-body" id="book_body" style="width:90%;display:block"></div>
+<!--目录栏，设置占用宽度为20%可以根据实际情况设置-->
+<div class="book-summary" id="category" style="width:20%;display:block"></div>
+
+
+</html>

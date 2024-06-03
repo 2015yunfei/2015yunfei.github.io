@@ -1,0 +1,1039 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG2"] path[data-c], mjx-container[jax="SVG2"] use[data-c] {
+  stroke-width: 3;
+}
+
+g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+
+.MathJax g[data-mml-node="xypic"] path {
+  stroke-width: inherit;
+}
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+							stroke-width: 0;
+						}
+</style><title>关于GRE数学</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='快速导学'><span>快速导学</span></h1><p><span>GRE 数学主要考察学生以下三种能力：</span></p><ol start='' ><li><p><span>基本数学技能</span></p></li><li><p><span>对基本数学概念的理解</span></p></li><li><p><span>定量推理，建模以及利用定量法解决问题的能力</span></p></li></ol><p>&nbsp;</p><p><span>GRE 数学考核的知识点:</span></p><ol start='' ><li><p><span>算术(Arithmetic)</span></p></li><li><p><span>代数 (Algebra)</span></p></li><li><p><span>几何(Geometry)</span></p></li><li><p><span>数据分析(Data Analysis)</span></p></li></ol><p>&nbsp;</p><p><span>GRE 数学基本注意事项:</span></p><ol start='' ><li><p><span>所有使用的数字都是实数</span></p></li><li><p><span>除非特殊说明，所有图示都应认为是在同一平面内</span></p></li><li><p><span>几何图形，如线形、圆形、三角形及四边形等，并</span><strong><span>不一定按比例绘制</span></strong><span>。也就是说，长度和角度之类的数量与它们在图中显示的可能并不一致。但是，考生要知道，显示为直线的线条确实是直线，</span><strong><span>线上的点也按顺序显示</span></strong><span>，并且</span><strong><span>所有的几何对象都处于所显示的相对位置</span></strong><span>。对于那些</span><strong><span>与几何图形相关的问题，考生应该基于几何推理得到答案</span></strong><span>，而不是凭目测估计、比较数量或者通过度量来得出</span></p></li><li><p><span>坐标系，例如平面直角坐标系(xy-plane)和实数线(中国习惯称为数轴)(number line)，都是按比例绘制的。因此，考生可以通过目测或者度量来对这些图示进行阅读、估算或比较数量</span></p></li><li><p><span>图形数据显示，例如条形图、圆形图和线性图，都是按比例绘制的。因此，考生可以通过目测或度量来对这些图示进行阅读、估算或比较数量</span></p></li></ol><p>&nbsp;</p><p><span>推荐的训练网址：</span><a href='https://gre.kmf.com/practise/qr' target='_blank' class='url'>https://gre.kmf.com/practise/qr</a></p><p>&nbsp;</p><p><span>带有【Medium】标签的Section ，即对应实际考试中的第一个数学Section，包含12道题，难度系数1、2、3、4、5的题均有。推荐总做题时间控制在21分钟内。</span></p><p><span>带有【Hard】标签的Section ，即对应实际考试中的第二个数学自适应Hard Section，包含15道题，主要都是难度系数3、4、5的题。推荐总做题时间控制在26分钟内。</span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h1 id='术语整理'><span>术语整理</span></h1><h2 id='中英对照'><span>中英对照</span></h2><figure class='table-figure'><table><thead><tr><th><span>常用数学表达</span></th><th><span>语言表达</span></th></tr></thead><tbody><tr><td><span>A = B</span></td><td><span>A is B</span></td></tr><tr><td><span>A = B</span></td><td><span>A is equal to B</span></td></tr><tr><td><span>A = B</span></td><td><span>A is the same as B</span></td></tr><tr><td><span>A = B</span></td><td><span>the result is</span></td></tr><tr><td><span>A = B</span></td><td><span>A yields B</span></td></tr><tr><td><span>A = B</span></td><td><span>A gives B</span></td></tr><tr><td><span>A &gt; B</span></td><td><span>A is greater than B</span></td></tr><tr><td><span>A ≥ B</span></td><td><span>A is greater than or equal to B</span></td></tr><tr><td><span>A &lt; B</span></td><td><span>A is less than B</span></td></tr><tr><td><span>A ≤ B</span></td><td><span>A is less than or equal to B</span></td></tr><tr><td><span>A + B</span></td><td><span>the sum of A and B</span></td></tr><tr><td><span>A + B</span></td><td><span>the total of A and B</span></td></tr><tr><td><span>A + B</span></td><td><span>A added to B</span></td></tr><tr><td><span>A + B</span></td><td><span>A increased by B</span></td></tr><tr><td><span>A - B</span></td><td><span>A minus B</span></td></tr><tr><td><span>A - B</span></td><td><span>A less B</span></td></tr><tr><td><span>A - B</span></td><td><span>the difference of A and B</span></td></tr><tr><td><span>A - B</span></td><td><span>from A subtract B</span></td></tr><tr><td><span>A - B</span></td><td><span>A take away B</span></td></tr><tr><td><span>A - B</span></td><td><span>A decreased by B</span></td></tr><tr><td><span>A - B</span></td><td><span>A diminished by B</span></td></tr><tr><td><span>A - B</span></td><td><span>B is subtracted from A</span></td></tr><tr><td><span>A × B</span></td><td><span>A multiplied by B</span></td></tr><tr><td><span>A × B</span></td><td><span>the product of A and B</span></td></tr><tr><td><span>A÷B</span></td><td><span>A divided by B</span></td></tr><tr><td><span>A÷B</span></td><td><span>the quotient of A and B</span></td></tr><tr><td><span>Factors and Divisors: A×B=C</span></td><td><span>A and B are factors of C</span></td></tr><tr><td><span>Factors and Divisors: A×B=C</span></td><td><span>A and B are divisors of C</span></td></tr><tr><td><span>Factors and Divisors: A×B=C</span></td><td><span>C is divisible by A and by B</span></td></tr><tr><td><span>Factors and Divisors: A×B=C</span></td><td><span>C is a multiple of A and of B</span></td></tr><tr><td><span>A=n*B</span></td><td><span>A n times as many as B</span></td></tr><tr><td><span>A=n*B</span></td><td><span>n times A as many as B</span></td></tr><tr><td><span>A=n*B</span></td><td><span>n times as many A as B</span></td></tr><tr><td><span>A</span><sup><span>B</span></sup></td><td><span>A to the B</span></td></tr><tr><td><span>A</span><sup><span>B</span></sup></td><td><span>A to the power of B</span></td></tr><tr><td><span>定义</span></td><td><span>define</span></td></tr><tr><td><span>用A表示B</span></td><td><span>Let A denote B</span></td></tr><tr><td><span>用x表示y</span></td><td><span>y in terms of x</span></td></tr><tr><td><span>表达式</span></td><td><span>expression</span></td></tr><tr><td><span>假设</span></td><td><span>suppose</span></td></tr><tr><td><span>使得</span></td><td><span>such that</span></td></tr><tr><td><span>满足方程</span></td><td><span>satisfy the equation</span></td></tr><tr><td><span>最小值</span></td><td><span>least possible value</span></td></tr><tr><td><span>最大值</span></td><td><span>greatest possible value</span></td></tr><tr><td><span>不同的</span></td><td><span>distinct</span></td></tr><tr><td><span>连续的</span></td><td><span>consecutive/successive/in a row</span></td></tr><tr><td><span>实数</span></td><td><span>real number</span></td></tr><tr><td><span>有理数</span></td><td><span>rational number</span></td></tr><tr><td><span>无理数</span></td><td><span>irrational number</span></td></tr><tr><td><span>整数</span></td><td><span>integer</span></td></tr><tr><td><span>分数</span></td><td><span>fraction</span></td></tr><tr><td><span>有限小数</span></td><td><span>terminating decimal</span></td></tr><tr><td><span>无限循环小数</span></td><td><span>repeating decimal</span></td></tr><tr><td><span>无限不循环小数</span></td><td><span>non-repeating decimal</span></td></tr><tr><td><span>正数</span></td><td><span>positive number</span></td></tr><tr><td><span>负数</span></td><td><span>negative number</span></td></tr><tr><td><span>绝对值</span></td><td><span>absolute value</span></td></tr><tr><td><span>自然数</span></td><td><span>natural number</span></td></tr><tr><td><span>奇数</span></td><td><span>odd number/integer</span></td></tr><tr><td><span>偶数</span></td><td><span>even number/integer</span></td></tr><tr><td><span>质数</span></td><td><span>prime number</span></td></tr><tr><td><span>合数</span></td><td><span>composite number</span></td></tr><tr><td><span>因数</span></td><td><span>factor/divisor</span></td></tr><tr><td><span>公因数</span></td><td><span>common factor/divisor</span></td></tr><tr><td><span>最大公因数</span></td><td><span>greatest common divisor</span></td></tr><tr><td><span>质因数</span></td><td><span>prime factor</span></td></tr><tr><td><span>质因分解</span></td><td><span>prime factorization</span></td></tr><tr><td><span>倍数</span></td><td><span>multiple</span></td></tr><tr><td><span>公倍数</span></td><td><span>common multiple</span></td></tr><tr><td><span>最小公倍数</span></td><td><span>least common multiple</span></td></tr><tr><td><span>除数</span></td><td><span>divisor</span></td></tr><tr><td><span>商</span></td><td><span>quotient</span></td></tr><tr><td><span>余数</span></td><td><span>remainder</span></td></tr><tr><td><span>可被整除</span></td><td><span>divisible</span></td></tr><tr><td><span>分子</span></td><td><span>numerator</span></td></tr><tr><td><span>分母</span></td><td><span>denominator</span></td></tr><tr><td><span>公分母</span></td><td><span>common denominator</span></td></tr><tr><td><span>倒数</span></td><td><span>reciprocal</span></td></tr><tr><td><span>带分数</span></td><td><span>mixed number</span></td></tr><tr><td><span>比率</span></td><td><span>ratio</span></td></tr><tr><td><span>成正比</span></td><td><span>directly proportional to</span></td></tr><tr><td><span>成反比</span></td><td><span>inversely proportional to</span></td></tr><tr><td><span>指数</span></td><td><span>exponent</span></td></tr><tr><td><span>底</span></td><td><span>base</span></td></tr><tr><td><span>幂</span></td><td><span>power</span></td></tr><tr><td><span>平方</span></td><td><span>square</span></td></tr><tr><td><span>立方</span></td><td><span>cube</span></td></tr><tr><td><span>平方根</span></td><td><span>square root</span></td></tr><tr><td><span>立方根</span></td><td><span>cube root</span></td></tr><tr><td><span>四次方根</span></td><td><span>fourth root</span></td></tr><tr><td><span>阶乘</span></td><td><span>factorial</span></td></tr><tr><td><span>数位</span></td><td><span>digit</span></td></tr><tr><td><span>小数点</span></td><td><span>decimal point</span></td></tr><tr><td><span>十位</span></td><td><span>tens digit</span></td></tr><tr><td><span>个位</span></td><td><span>units/ones digit</span></td></tr><tr><td><span>十分位</span></td><td><span>tenth digit</span></td></tr><tr><td><span>两位数字</span></td><td><span>two digits</span></td></tr><tr><td><span>四舍五入到</span></td><td><span>rounded to the nearest…</span></td></tr><tr><td><span>区间</span></td><td><span>interval</span></td></tr><tr><td><span>开区间</span></td><td><span>exclusive</span></td></tr><tr><td><span>闭区间</span></td><td><span>inclusive</span></td></tr><tr><td><span>变量</span></td><td><span>variable</span></td></tr><tr><td><span>常数</span></td><td><span>constant</span></td></tr><tr><td><span>项</span></td><td><span>term</span></td></tr><tr><td><span>同类项系数</span></td><td><span>like/similar terms coefficient</span></td></tr><tr><td><span>方程</span></td><td><span>equation</span></td></tr><tr><td><span>解</span></td><td><span>solution</span></td></tr><tr><td><span>函数</span></td><td><span>function</span></td></tr><tr><td><span>线性函数</span></td><td><span>linear function</span></td></tr><tr><td><span>二次函数</span></td><td><span>quadratic function</span></td></tr><tr><td><span>定义域</span></td><td><span>domain</span></td></tr><tr><td><span>值域</span></td><td><span>range</span></td></tr><tr><td><span>直角坐标系/x-y平面</span></td><td><span>coordinate system/x-y plane</span></td></tr><tr><td><span>原点</span></td><td><span>origin</span></td></tr><tr><td><span>象限</span></td><td><span>quadrant</span></td></tr><tr><td><span>斜率</span></td><td><span>slope(rise over run)</span></td></tr><tr><td><span>截距</span></td><td><span>intercept</span></td></tr><tr><td><span>P点关于x轴的对称点</span></td><td><span>reflection of P about x-axis</span></td></tr><tr><td><span>（图像）拉伸</span></td><td><span>stretched</span></td></tr><tr><td><span>（图像）压缩</span></td><td><span>shrunk</span></td></tr><tr><td><span>本金</span></td><td><span>principal</span></td></tr><tr><td><span>利息</span></td><td><span>interest</span></td></tr><tr><td><span>利率</span></td><td><span>interest rate</span></td></tr><tr><td><span>单利</span></td><td><span>simple interest</span></td></tr><tr><td><span>复利</span></td><td><span>compound interest</span></td></tr><tr><td><span>成本</span></td><td><span>cost</span></td></tr><tr><td><span>利润</span></td><td><span>margin/profit</span></td></tr><tr><td><span>收益</span></td><td><span>revenue</span></td></tr><tr><td><span>零售价</span></td><td><span>retail price</span></td></tr><tr><td><span>标价</span></td><td><span>list price</span></td></tr><tr><td><span>购买价</span></td><td><span>purchasing price</span></td></tr><tr><td><span>销售价</span></td><td><span>sale price</span></td></tr><tr><td><span>打折</span></td><td><span>discount</span></td></tr><tr><td><span>涨价</span></td><td><span>markup</span></td></tr><tr><td><span>预付款/定金</span></td><td><span>down payment/deposit</span></td></tr><tr><td><span>折旧</span></td><td><span>depression</span></td></tr><tr><td><span>人均</span></td><td><span>per capita</span></td></tr><tr><td><span>平局</span></td><td><span>tie</span></td></tr><tr><td><span>点</span></td><td><span>point</span></td></tr><tr><td><span>（点/线）在…上</span></td><td><span>lie on</span></td></tr><tr><td><span>中点</span></td><td><span>mid-point</span></td></tr><tr><td><span>线</span></td><td><span>line</span></td></tr><tr><td><span>线段</span></td><td><span>segment</span></td></tr><tr><td><span>相交</span></td><td><span>cross/intersect</span></td></tr><tr><td><span>平行</span></td><td><span>parallel</span></td></tr><tr><td><span>垂直</span></td><td><span>perpendicular</span></td></tr><tr><td><span>面</span></td><td><span>plane</span></td></tr><tr><td><span>角度</span></td><td><span>degree</span></td></tr><tr><td><span>锐角</span></td><td><span>acute angle</span></td></tr><tr><td><span>直角</span></td><td><span>right angle</span></td></tr><tr><td><span>钝角</span></td><td><span>obtuse angle</span></td></tr><tr><td><span>角平分线</span></td><td><span>angle bisector</span></td></tr><tr><td><span>对顶角</span></td><td><span>opposite angle</span></td></tr><tr><td><span>多边形</span></td><td><span>polygon</span></td></tr><tr><td><span>顶点</span></td><td><span>vertex/vertices</span></td></tr><tr><td><span>边</span></td><td><span>side</span></td></tr><tr><td><span>正多边形</span></td><td><span>regular polygon</span></td></tr><tr><td><span>五边形</span></td><td><span>pentagon</span></td></tr><tr><td><span>六边形</span></td><td><span>hexagon</span></td></tr><tr><td><span>七边形</span></td><td><span>heptagon</span></td></tr><tr><td><span>八边形</span></td><td><span>octagon</span></td></tr><tr><td><span>九边形</span></td><td><span>enneagon/nonagon</span></td></tr><tr><td><span>十边形</span></td><td><span>decagon</span></td></tr><tr><td><span>三角形</span></td><td><span>triangle</span></td></tr><tr><td><span>等腰三角形</span></td><td><strong><span>isosceles triangle</span></strong></td></tr><tr><td><span>等边三角形</span></td><td><strong><span>equilateral triangle</span></strong></td></tr><tr><td><span>直角三角形</span></td><td><span>right triangle</span></td></tr><tr><td><span>直角边</span></td><td><span>leg</span></td></tr><tr><td><span>斜边</span></td><td><span>hypotenuse</span></td></tr><tr><td><span>勾股定理</span></td><td><span>Pythagorean Theorem</span></td></tr><tr><td><span>四边形</span></td><td><span>quadrilateral</span></td></tr><tr><td><span>平行四边形</span></td><td><span>parallelogram</span></td></tr><tr><td><span>菱形</span></td><td><span>rhombus</span></td></tr><tr><td><span>梯形</span></td><td><span>trapezoid</span></td></tr><tr><td><span>长方形</span></td><td><span>rectangle</span></td></tr><tr><td><span>正方形</span></td><td><span>square</span></td></tr><tr><td><span>对角线</span></td><td><span>diagonal</span></td></tr><tr><td><span>全等</span></td><td><span>congruent</span></td></tr><tr><td><span>相似</span></td><td><span>similar</span></td></tr><tr><td><span>面积</span></td><td><span>area</span></td></tr><tr><td><span>周长</span></td><td><span>perimeter</span></td></tr><tr><td><span>圆</span></td><td><span>circle</span></td></tr><tr><td><span>圆心</span></td><td><span>center</span></td></tr><tr><td><span>半径</span></td><td><span>radius</span></td></tr><tr><td><span>直径</span></td><td><span>diameter</span></td></tr><tr><td><span>弦</span></td><td><span>chord</span></td></tr><tr><td><span>弧</span></td><td><span>arc</span></td></tr><tr><td><span>劣弧</span></td><td><span>minor arc</span></td></tr><tr><td><span>优弧</span></td><td><span>major arc</span></td></tr><tr><td><span>圆周长</span></td><td><span>circumference</span></td></tr><tr><td><span>扇形</span></td><td><span>sector</span></td></tr><tr><td><span>同心圆</span></td><td><span>concentric circles</span></td></tr><tr><td><span>相切</span></td><td><span>tangent</span></td></tr><tr><td><span>内接</span></td><td><span>inscribe</span></td></tr><tr><td><span>外接</span></td><td><span>circumscribe</span></td></tr><tr><td><span>顺时针</span></td><td><span>clockwise</span></td></tr><tr><td><span>逆时针</span></td><td><span>counterclockwise</span></td></tr><tr><td><span>长方体</span></td><td><span>rectangular solid</span></td></tr><tr><td><span>立方体</span></td><td><span>cube</span></td></tr><tr><td><span>圆柱</span></td><td><span>circular cylinder</span></td></tr><tr><td><span>圆锥</span></td><td><span>cone</span></td></tr><tr><td><span>球</span></td><td><span>sphere</span></td></tr><tr><td><span>棱</span></td><td><span>edge</span></td></tr><tr><td><span>面</span></td><td><span>face</span></td></tr><tr><td><span>长</span></td><td><span>length</span></td></tr><tr><td><span>宽</span></td><td><span>width</span></td></tr><tr><td><span>高</span></td><td><span>height</span></td></tr><tr><td><span>表面积</span></td><td><span>surface area</span></td></tr><tr><td><span>体积</span></td><td><span>volume</span></td></tr><tr><td><span>统计</span></td><td><span>statistics</span></td></tr><tr><td><span>频率</span></td><td><span>frequency / count</span></td></tr><tr><td><span>相对频率</span></td><td><span>relative frequency</span></td></tr><tr><td><span>条形图</span></td><td><span>bar graph</span></td></tr><tr><td><span>分段的条形图</span></td><td><span>segmented bar graph</span></td></tr><tr><td><span>扇区</span></td><td><span>sector</span></td></tr><tr><td><span>直方图/柱状图</span></td><td><span>histogram</span></td></tr><tr><td><span>箱线图</span></td><td><span>boxplots</span></td></tr><tr><td><span>单变量的</span></td><td><span>univariate</span></td></tr><tr><td><span>双变量的</span></td><td><span>bivariate</span></td></tr><tr><td><span>趋势，走向</span></td><td><span>trend</span></td></tr><tr><td><span>集中趋势</span></td><td><span>central tendency</span></td></tr><tr><td><span>算术平均值</span></td><td><span>arithmetic mean/mean</span></td></tr><tr><td><span>中位数</span></td><td><span>median</span></td></tr><tr><td><span>众数</span></td><td><span>mode</span></td></tr><tr><td><span>最大值</span></td><td><span>maximum</span></td></tr><tr><td><span>最小值</span></td><td><span>minimum</span></td></tr><tr><td><span>极差</span></td><td><span>range</span></td></tr><tr><td><span>加权平均数</span></td><td><span>weighted mean</span></td></tr><tr><td><span>四分位数</span></td><td><span>quartile</span></td></tr><tr><td><span>百分位数</span></td><td><span>percentile</span></td></tr><tr><td><span>四分位差</span></td><td><span>interquartile range</span></td></tr><tr><td><span>异常值</span></td><td><span>outlier</span></td></tr><tr><td><span>离差</span></td><td><span>dispersion</span></td></tr><tr><td><span>标准差</span></td><td><span>standard deviation</span></td></tr><tr><td><span>样本标准差</span></td><td><span>sample standard deviation</span></td></tr><tr><td><span>集合</span></td><td><span>set</span></td></tr><tr><td><span>交集</span></td><td><span>intersection</span></td></tr><tr><td><span>并集</span></td><td><span>union</span></td></tr><tr><td><span>容斥原理</span></td><td><span>disjoint/ mutually exclusive inclusion-exclusion principle</span></td></tr><tr><td><span>组合</span></td><td><span>combination</span></td></tr><tr><td><span>排列</span></td><td><span>permutation</span></td></tr><tr><td><span>概率</span></td><td><span>probability/possibility</span></td></tr><tr><td><span>概率试验</span></td><td><span>probability experiment</span></td></tr><tr><td><span>随机试验</span></td><td><span>random experiment</span></td></tr><tr><td><span>样本空间</span></td><td><span>sample space</span></td></tr><tr><td><span>事件</span></td><td><span>event</span></td></tr><tr><td><span>等可能</span></td><td><span>equally likely</span></td></tr><tr><td><span>随机抽样</span></td><td><span>random selection</span></td></tr><tr><td><span>相互独立的</span></td><td><span>independent</span></td></tr><tr><td><span>随机变量</span></td><td><span>random variable</span></td></tr><tr><td><span>离散型随机变量</span></td><td><span>discrete random variable</span></td></tr><tr><td><span>连续随机变量</span></td><td><span>continuous random variable</span></td></tr><tr><td><span>期望</span></td><td><span>expected value/mean of random variable x</span></td></tr><tr><td><span>分布曲线</span></td><td><span>distribution curve</span></td></tr><tr><td><span>密度曲线</span></td><td><span>density curve</span></td></tr><tr><td><span>频率曲线</span></td><td><span>frequency curve</span></td></tr><tr><td><span>概率分布</span></td><td><span>probability distribution</span></td></tr><tr><td><span>近似正态分布</span></td><td><span>approximately normally distributed</span></td></tr><tr><td><span>标准正态分布</span></td><td><span>standard normal distribution</span></td></tr><tr><td><span>连续概率分布</span></td><td><span>continuous probability distribution</span></td></tr></tbody></table></figure><p>&nbsp;</p><h2 id='单利和复利'><span>单利和复利</span></h2><p><strong><span>单利</span></strong><span>是指利息仅计算在原始本金上的情形。在单利计算方式下，利息不会产生额外的利息。计算公式是：</span></p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n831" cid="n831" mdtype="math_block" data-math-tag-before="0" data-math-tag-after="0" data-math-labels="[]"><div class="md-rawblock-container md-math-container" tabindex="-1"><mjx-container class="MathJax" jax="SVG" display="true" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="21.507ex" height="2.149ex" role="img" focusable="false" viewBox="0 -750 9506 950" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.452ex;"><defs><path id="MJX-1-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-1-TEX-I-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mtext"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">利</text></g><g data-mml-node="mtext" transform="translate(825.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">息</text></g><g data-mml-node="mo" transform="translate(1929,0)"><use data-c="3D" xlink:href="#MJX-1-TEX-N-3D"></use></g><g data-mml-node="mtext" transform="translate(2984.7,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">本</text></g><g data-mml-node="mtext" transform="translate(3810.3,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">金</text></g><g data-mml-node="mi" transform="translate(4647.6,0)"><use data-c="D7" xlink:href="#MJX-1-TEX-I-D7"></use></g><g data-mml-node="mtext" transform="translate(5425.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">利</text></g><g data-mml-node="mtext" transform="translate(6251.2,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">率</text></g><g data-mml-node="mi" transform="translate(7076.8,0)"><use data-c="D7" xlink:href="#MJX-1-TEX-I-D7"></use></g><g data-mml-node="mtext" transform="translate(7854.8,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">时</text></g><g data-mml-node="mtext" transform="translate(8680.4,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">间</text></g></g></g></svg><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mtext>利</mtext><mtext>息</mtext><mo>=</mo><mtext>本</mtext><mtext>金</mtext><mi>×</mi><mtext>利</mtext><mtext>率</mtext><mi>×</mi><mtext>时</mtext><mtext>间</mtext></math></mjx-assistive-mml></mjx-container></div></div><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n832" cid="n832" mdtype="math_block" data-math-tag-before="0" data-math-tag-after="0" data-math-labels="[]"><div class="md-rawblock-container md-math-container" tabindex="-1"><mjx-container class="MathJax" jax="SVG" display="true" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="18.937ex" height="2.149ex" role="img" focusable="false" viewBox="0 -750 8370.2 950" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.452ex;"><defs><path id="MJX-2-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-2-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mtext"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">总</text></g><g data-mml-node="mtext" transform="translate(825.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">金</text></g><g data-mml-node="mtext" transform="translate(1662.9,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">额</text></g><g data-mml-node="mo" transform="translate(2777.9,0)"><use data-c="3D" xlink:href="#MJX-2-TEX-N-3D"></use></g><g data-mml-node="mtext" transform="translate(3833.7,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">本</text></g><g data-mml-node="mtext" transform="translate(4659.3,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">金</text></g><g data-mml-node="mo" transform="translate(5718.8,0)"><use data-c="2B" xlink:href="#MJX-2-TEX-N-2B"></use></g><g data-mml-node="mtext" transform="translate(6719,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">利</text></g><g data-mml-node="mtext" transform="translate(7544.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">息</text></g></g></g></svg><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mtext>总</mtext><mtext>金</mtext><mtext>额</mtext><mo>=</mo><mtext>本</mtext><mtext>金</mtext><mo>+</mo><mtext>利</mtext><mtext>息</mtext></math></mjx-assistive-mml></mjx-container></div></div><p><span>举例来说，如果您存入银行10000元，年利率是5%，存期是3年，那么三年的利息就是：</span></p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n834" cid="n834" mdtype="math_block" data-math-tag-before="0" data-math-tag-after="0" data-math-labels="[]"><div class="md-rawblock-container md-math-container" tabindex="-1"><mjx-container class="MathJax" jax="SVG" display="true" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="28.625ex" height="2.149ex" role="img" focusable="false" viewBox="0 -750 12652.3 950" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.452ex;"><defs><path id="MJX-3-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-3-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-3-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-3-TEX-I-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path><path id="MJX-3-TEX-N-2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path><path id="MJX-3-TEX-N-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path><path id="MJX-3-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mtext"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">利</text></g><g data-mml-node="mtext" transform="translate(825.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">息</text></g><g data-mml-node="mo" transform="translate(1929,0)"><use data-c="3D" xlink:href="#MJX-3-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(2984.7,0)"><use data-c="31" xlink:href="#MJX-3-TEX-N-31"></use><use data-c="30" xlink:href="#MJX-3-TEX-N-30" transform="translate(500,0)"></use><use data-c="30" xlink:href="#MJX-3-TEX-N-30" transform="translate(1000,0)"></use><use data-c="30" xlink:href="#MJX-3-TEX-N-30" transform="translate(1500,0)"></use><use data-c="30" xlink:href="#MJX-3-TEX-N-30" transform="translate(2000,0)"></use></g><g data-mml-node="mi" transform="translate(5484.7,0)"><use data-c="D7" xlink:href="#MJX-3-TEX-I-D7"></use></g><g data-mml-node="mn" transform="translate(6262.7,0)"><use data-c="30" xlink:href="#MJX-3-TEX-N-30"></use><use data-c="2E" xlink:href="#MJX-3-TEX-N-2E" transform="translate(500,0)"></use><use data-c="30" xlink:href="#MJX-3-TEX-N-30" transform="translate(778,0)"></use><use data-c="35" xlink:href="#MJX-3-TEX-N-35" transform="translate(1278,0)"></use></g><g data-mml-node="mi" transform="translate(8040.7,0)"><use data-c="D7" xlink:href="#MJX-3-TEX-I-D7"></use></g><g data-mml-node="mn" transform="translate(8818.7,0)"><use data-c="33" xlink:href="#MJX-3-TEX-N-33"></use></g><g data-mml-node="mo" transform="translate(9596.5,0)"><use data-c="3D" xlink:href="#MJX-3-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(10652.3,0)"><use data-c="31" xlink:href="#MJX-3-TEX-N-31"></use><use data-c="35" xlink:href="#MJX-3-TEX-N-35" transform="translate(500,0)"></use><use data-c="30" xlink:href="#MJX-3-TEX-N-30" transform="translate(1000,0)"></use><use data-c="30" xlink:href="#MJX-3-TEX-N-30" transform="translate(1500,0)"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mtext>利</mtext><mtext>息</mtext><mo>=</mo><mn>10000</mn><mi>×</mi><mn>0.05</mn><mi>×</mi><mn>3</mn><mo>=</mo><mn>1500</mn></math></mjx-assistive-mml></mjx-container></div></div><p><span>所以三年后，您将得到：</span></p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n836" cid="n836" mdtype="math_block" data-math-tag-before="0" data-math-tag-after="0" data-math-labels="[]"><div class="md-rawblock-container md-math-container" tabindex="-1"><mjx-container class="MathJax" jax="SVG" display="true" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="30.293ex" height="2.149ex" role="img" focusable="false" viewBox="0 -750 13389.7 950" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.452ex;"><defs><path id="MJX-4-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-4-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-4-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-4-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path id="MJX-4-TEX-N-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mtext"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">总</text></g><g data-mml-node="mtext" transform="translate(825.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">金</text></g><g data-mml-node="mtext" transform="translate(1662.9,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">额</text></g><g data-mml-node="mo" transform="translate(2777.9,0)"><use data-c="3D" xlink:href="#MJX-4-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(3833.7,0)"><use data-c="31" xlink:href="#MJX-4-TEX-N-31"></use><use data-c="30" xlink:href="#MJX-4-TEX-N-30" transform="translate(500,0)"></use><use data-c="30" xlink:href="#MJX-4-TEX-N-30" transform="translate(1000,0)"></use><use data-c="30" xlink:href="#MJX-4-TEX-N-30" transform="translate(1500,0)"></use><use data-c="30" xlink:href="#MJX-4-TEX-N-30" transform="translate(2000,0)"></use></g><g data-mml-node="mo" transform="translate(6555.9,0)"><use data-c="2B" xlink:href="#MJX-4-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(7556.2,0)"><use data-c="31" xlink:href="#MJX-4-TEX-N-31"></use><use data-c="35" xlink:href="#MJX-4-TEX-N-35" transform="translate(500,0)"></use><use data-c="30" xlink:href="#MJX-4-TEX-N-30" transform="translate(1000,0)"></use><use data-c="30" xlink:href="#MJX-4-TEX-N-30" transform="translate(1500,0)"></use></g><g data-mml-node="mo" transform="translate(9833.9,0)"><use data-c="3D" xlink:href="#MJX-4-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(10889.7,0)"><use data-c="31" xlink:href="#MJX-4-TEX-N-31"></use><use data-c="31" xlink:href="#MJX-4-TEX-N-31" transform="translate(500,0)"></use><use data-c="35" xlink:href="#MJX-4-TEX-N-35" transform="translate(1000,0)"></use><use data-c="30" xlink:href="#MJX-4-TEX-N-30" transform="translate(1500,0)"></use><use data-c="30" xlink:href="#MJX-4-TEX-N-30" transform="translate(2000,0)"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mtext>总</mtext><mtext>金</mtext><mtext>额</mtext><mo>=</mo><mn>10000</mn><mo>+</mo><mn>1500</mn><mo>=</mo><mn>11500</mn></math></mjx-assistive-mml></mjx-container></div></div><p><strong><span>复利</span></strong><span>是指利息不仅计算在原始本金上，还包括之前期间累积下来的利息。换句话说，利息会产生利息。复利的计算公式是：</span></p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n838" cid="n838" mdtype="math_block" data-math-tag-before="0" data-math-tag-after="0" data-math-labels="[]"><div class="md-rawblock-container md-math-container" tabindex="-1"><mjx-container class="MathJax" jax="SVG" display="true" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="26.418ex" height="2.7ex" role="img" focusable="false" viewBox="0 -943.3 11676.8 1193.3" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.566ex;"><defs><path id="MJX-5-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-5-TEX-I-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path><path id="MJX-5-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path id="MJX-5-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-5-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path id="MJX-5-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mtext"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">总</text></g><g data-mml-node="mtext" transform="translate(825.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">金</text></g><g data-mml-node="mtext" transform="translate(1662.9,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">额</text></g><g data-mml-node="mo" transform="translate(2777.9,0)"><use data-c="3D" xlink:href="#MJX-5-TEX-N-3D"></use></g><g data-mml-node="mtext" transform="translate(3833.7,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">本</text></g><g data-mml-node="mtext" transform="translate(4659.3,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">金</text></g><g data-mml-node="mi" transform="translate(5496.6,0)"><use data-c="D7" xlink:href="#MJX-5-TEX-I-D7"></use></g><g data-mml-node="mo" transform="translate(6274.6,0)"><use data-c="28" xlink:href="#MJX-5-TEX-N-28"></use></g><g data-mml-node="mn" transform="translate(6663.6,0)"><use data-c="31" xlink:href="#MJX-5-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(7385.8,0)"><use data-c="2B" xlink:href="#MJX-5-TEX-N-2B"></use></g><g data-mml-node="mtext" transform="translate(8386,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">利</text></g><g data-mml-node="mtext" transform="translate(9211.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">率</text></g><g data-mml-node="msup" transform="translate(10037.2,0)"><g data-mml-node="mo"><use data-c="29" xlink:href="#MJX-5-TEX-N-29"></use></g><g data-mml-node="TeXAtom" transform="translate(422,413) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mtext"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">时</text></g><g data-mml-node="mtext" transform="translate(825.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">间</text></g></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mtext>总</mtext><mtext>金</mtext><mtext>额</mtext><mo>=</mo><mtext>本</mtext><mtext>金</mtext><mi>×</mi><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mtext>利</mtext><mtext>率</mtext><msup><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mtext>时</mtext><mtext>间</mtext></mrow></msup></math></mjx-assistive-mml></mjx-container></div></div><p><span>使用同样的例子，如果银行将利息以复利形式计算，那么三年后的金额将是：</span></p><div contenteditable="false" spellcheck="false" class="mathjax-block md-end-block md-math-block md-rawblock" id="mathjax-n840" cid="n840" mdtype="math_block" data-math-tag-before="0" data-math-tag-after="0" data-math-labels="[]"><div class="md-rawblock-container md-math-container" tabindex="-1"><mjx-container class="MathJax" jax="SVG" display="true" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="26.757ex" height="2.564ex" role="img" focusable="false" viewBox="0 -883.2 11826.7 1133.2" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.566ex;"><defs><path id="MJX-6-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-6-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-6-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-6-TEX-I-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path><path id="MJX-6-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path id="MJX-6-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path id="MJX-6-TEX-N-2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path><path id="MJX-6-TEX-N-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path><path id="MJX-6-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path id="MJX-6-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mtext"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">总</text></g><g data-mml-node="mtext" transform="translate(825.6,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">金</text></g><g data-mml-node="mtext" transform="translate(1662.9,0)"><text data-variant="normal" transform="scale(1,-1)" font-size="825.5px" font-family="serif">额</text></g><g data-mml-node="mo" transform="translate(2777.9,0)"><use data-c="3D" xlink:href="#MJX-6-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(3833.7,0)"><use data-c="31" xlink:href="#MJX-6-TEX-N-31"></use><use data-c="30" xlink:href="#MJX-6-TEX-N-30" transform="translate(500,0)"></use><use data-c="30" xlink:href="#MJX-6-TEX-N-30" transform="translate(1000,0)"></use><use data-c="30" xlink:href="#MJX-6-TEX-N-30" transform="translate(1500,0)"></use><use data-c="30" xlink:href="#MJX-6-TEX-N-30" transform="translate(2000,0)"></use></g><g data-mml-node="mi" transform="translate(6333.7,0)"><use data-c="D7" xlink:href="#MJX-6-TEX-I-D7"></use></g><g data-mml-node="mo" transform="translate(7111.7,0)"><use data-c="28" xlink:href="#MJX-6-TEX-N-28"></use></g><g data-mml-node="mn" transform="translate(7500.7,0)"><use data-c="31" xlink:href="#MJX-6-TEX-N-31"></use></g><g data-mml-node="mo" transform="translate(8222.9,0)"><use data-c="2B" xlink:href="#MJX-6-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(9223.2,0)"><use data-c="30" xlink:href="#MJX-6-TEX-N-30"></use><use data-c="2E" xlink:href="#MJX-6-TEX-N-2E" transform="translate(500,0)"></use><use data-c="30" xlink:href="#MJX-6-TEX-N-30" transform="translate(778,0)"></use><use data-c="35" xlink:href="#MJX-6-TEX-N-35" transform="translate(1278,0)"></use></g><g data-mml-node="msup" transform="translate(11001.2,0)"><g data-mml-node="mo"><use data-c="29" xlink:href="#MJX-6-TEX-N-29"></use></g><g data-mml-node="mn" transform="translate(422,413) scale(0.707)"><use data-c="33" xlink:href="#MJX-6-TEX-N-33"></use></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mtext>总</mtext><mtext>金</mtext><mtext>额</mtext><mo>=</mo><mn>10000</mn><mi>×</mi><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mn>0.05</mn><msup><mo stretchy="false">)</mo><mn>3</mn></msup></math></mjx-assistive-mml></mjx-container></div></div><p><span>经过计算，得到的总金额将会比单利计算的结果要高。</span></p><p>&nbsp;</p><h1 id='问题整理'><span>问题整理</span></h1><h2 id='section-3-medium-答题情况小结'><span>Section 3 Medium 答题情况小结</span></h2><p><a href='https://gre.kmf.com/practice/result/171496256416077082?sid=7004' target='_blank' class='url'>https://gre.kmf.com/practice/result/171496256416077082?sid=7004</a></p><p>&nbsp;</p><p><img src="关于GRE数学/image-20240506104934934.png" referrerpolicy="no-referrer" alt="image-20240506104934934"></p><p>&nbsp;</p><p><span>【参考答案】选A</span></p><p><span>【参考解析】</span></p><p><span>当x与y无限接近重合与纵向直径时，x+y才会接近直径，(x+y)/2才会接近半径</span></p><p><span>但是其他情况下x+y一定小于直径（直径是圆里的最长弦），那么(x+y)/2持续小于半径</span></p><p><span>总之，QA一定大于QB</span></p><p>&nbsp;</p><blockquote><p><span>OG上说“Point, lines, angles that are shown distinct are indeed distinct”</span></p><p><span>这是否是一种可行的解释？</span></p></blockquote><p>&nbsp;</p><p>&nbsp;</p><p><img src="关于GRE数学/image-20240506105138948.png" alt="image-20240506105138948" style="zoom:67%;" /></p><p>&nbsp;</p><p><span>【参考解析】根据题目给出通项公式，列举得</span><em><span>a</span></em><span>2=8, </span><em><span>a</span></em><span>3=0, </span><em><span>a</span></em><span>4=2, </span><em><span>a</span></em><span>5=−6, </span><em><span>a</span></em><span>6=−4, </span><em><span>a</span></em><span>7=−12</span></p><p><span>对于数列问题，一定要明确第一项是什么。。。</span></p><p>&nbsp;</p><blockquote><p><span>一个规律，3*（-8+2）+a1=-12</span></p></blockquote><p>&nbsp;</p><h2 id='section-4-hard-答题情况小结'><span>Section 4 Hard 答题情况小结</span></h2><p><a href='https://gre.kmf.com/practice/result/171496402634197764?sid=7003' target='_blank' class='url'>https://gre.kmf.com/practice/result/171496402634197764?sid=7003</a></p><p><span>How many positive integers less than or equal to 603 are multiples of 2 or multiples of 3 or both?</span></p><p><span>To find the number of positive integers less than or equal to 603 that are multiples of 2 or multiples of 3, or both, we use the principle of inclusion-exclusion. </span></p><p><span>First, we count the multiples of 2 and the multiples of 3 separately. Then, we subtract the count of multiples of both 2 and 3 (which are multiples of 6) to avoid double counting.</span></p><ol start='' ><li><p><span>Count of multiples of 2: </span><span>(</span><span> </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="5.531ex" height="2.748ex" role="img" focusable="false" viewBox="0 -864.9 2444.7 1214.4" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.791ex;"><defs><path id="MJX-27-TEX-SO-230A" d="M202 -349V850H242V-309H449V-349H202Z"></path><path id="MJX-27-TEX-N-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path><path id="MJX-27-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-27-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path id="MJX-27-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJX-27-TEX-SO-230B" d="M229 -309V850H269V-349H22V-309H229Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mrow"><g data-mml-node="mo" transform="translate(0 -0.5)"><use data-c="230A" xlink:href="#MJX-27-TEX-SO-230A"></use></g><g data-mml-node="mfrac" transform="translate(472,0)"><g data-mml-node="mn" transform="translate(220,394) scale(0.707)"><use data-c="36" xlink:href="#MJX-27-TEX-N-36"></use><use data-c="30" xlink:href="#MJX-27-TEX-N-30" transform="translate(500,0)"></use><use data-c="33" xlink:href="#MJX-27-TEX-N-33" transform="translate(1000,0)"></use></g><g data-mml-node="mn" transform="translate(573.6,-345) scale(0.707)"><use data-c="32" xlink:href="#MJX-27-TEX-N-32"></use></g><rect width="1260.7" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(1972.7,0) translate(0 -0.5)"><use data-c="230B" xlink:href="#MJX-27-TEX-SO-230B"></use></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="INNER"><mo data-mjx-texclass="OPEN">⌊</mo><mfrac><mn>603</mn><mn>2</mn></mfrac><mo data-mjx-texclass="CLOSE">⌋</mo></mrow></math></mjx-assistive-mml></mjx-container><script type="math/tex">\left\lfloor \frac{603}{2} \right\rfloor</script><span> </span><span>)</span></p></li><li><p><span>Count of multiples of 3: </span><span>(</span><span> </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="5.531ex" height="2.773ex" role="img" focusable="false" viewBox="0 -864.9 2444.7 1225.5" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.816ex;"><defs><path id="MJX-28-TEX-SO-230A" d="M202 -349V850H242V-309H449V-349H202Z"></path><path id="MJX-28-TEX-N-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path><path id="MJX-28-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-28-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path id="MJX-28-TEX-SO-230B" d="M229 -309V850H269V-349H22V-309H229Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mrow"><g data-mml-node="mo" transform="translate(0 -0.5)"><use data-c="230A" xlink:href="#MJX-28-TEX-SO-230A"></use></g><g data-mml-node="mfrac" transform="translate(472,0)"><g data-mml-node="mn" transform="translate(220,394) scale(0.707)"><use data-c="36" xlink:href="#MJX-28-TEX-N-36"></use><use data-c="30" xlink:href="#MJX-28-TEX-N-30" transform="translate(500,0)"></use><use data-c="33" xlink:href="#MJX-28-TEX-N-33" transform="translate(1000,0)"></use></g><g data-mml-node="mn" transform="translate(573.6,-345) scale(0.707)"><use data-c="33" xlink:href="#MJX-28-TEX-N-33"></use></g><rect width="1260.7" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(1972.7,0) translate(0 -0.5)"><use data-c="230B" xlink:href="#MJX-28-TEX-SO-230B"></use></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="INNER"><mo data-mjx-texclass="OPEN">⌊</mo><mfrac><mn>603</mn><mn>3</mn></mfrac><mo data-mjx-texclass="CLOSE">⌋</mo></mrow></math></mjx-assistive-mml></mjx-container><script type="math/tex">\left\lfloor \frac{603}{3} \right\rfloor </script><span>)</span></p></li><li><p><span>Count of multiples of both 2 and 3 (multiples of 6): </span><span>(</span><span> </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="5.531ex" height="2.773ex" role="img" focusable="false" viewBox="0 -864.9 2444.7 1225.5" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.816ex;"><defs><path id="MJX-29-TEX-SO-230A" d="M202 -349V850H242V-309H449V-349H202Z"></path><path id="MJX-29-TEX-N-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path><path id="MJX-29-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-29-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path id="MJX-29-TEX-SO-230B" d="M229 -309V850H269V-349H22V-309H229Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mrow"><g data-mml-node="mo" transform="translate(0 -0.5)"><use data-c="230A" xlink:href="#MJX-29-TEX-SO-230A"></use></g><g data-mml-node="mfrac" transform="translate(472,0)"><g data-mml-node="mn" transform="translate(220,394) scale(0.707)"><use data-c="36" xlink:href="#MJX-29-TEX-N-36"></use><use data-c="30" xlink:href="#MJX-29-TEX-N-30" transform="translate(500,0)"></use><use data-c="33" xlink:href="#MJX-29-TEX-N-33" transform="translate(1000,0)"></use></g><g data-mml-node="mn" transform="translate(573.6,-345) scale(0.707)"><use data-c="36" xlink:href="#MJX-29-TEX-N-36"></use></g><rect width="1260.7" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(1972.7,0) translate(0 -0.5)"><use data-c="230B" xlink:href="#MJX-29-TEX-SO-230B"></use></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="INNER"><mo data-mjx-texclass="OPEN">⌊</mo><mfrac><mn>603</mn><mn>6</mn></mfrac><mo data-mjx-texclass="CLOSE">⌋</mo></mrow></math></mjx-assistive-mml></mjx-container><script type="math/tex">\left\lfloor \frac{603}{6} \right\rfloor</script><span> </span><span>)</span></p></li></ol><p><span>The total count is the sum of the first two counts minus the third count. Let&#39;s calculate this.</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51982px; left: 35.9881px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27.9948px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 19px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Calculating the number of multiples of 2, 3, and 6 up to 603</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 19px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">multiples_of_2</span> <span class="cm-operator">=</span> <span class="cm-number">603</span> <span class="cm-operator">//</span> <span class="cm-number">2</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 19px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">multiples_of_3</span> <span class="cm-operator">=</span> <span class="cm-number">603</span> <span class="cm-operator">//</span> <span class="cm-number">3</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 19px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">multiples_of_6</span> <span class="cm-operator">=</span> <span class="cm-number">603</span> <span class="cm-operator">//</span> <span class="cm-number">6</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 19px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 19px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># Applying the principle of inclusion-exclusion</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 19px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">total_multiples</span> <span class="cm-operator">=</span> <span class="cm-variable">multiples_of_2</span> <span class="cm-operator">+</span> <span class="cm-variable">multiples_of_3</span> <span class="cm-operator">-</span> <span class="cm-variable">multiples_of_6</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 19px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">total_multiples</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 184px;"></div><div class="CodeMirror-gutters" style="height: 184px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><p><span>The answer is 402.</span></p><p><span>The number of positive integers less than or equal to 603 that are multiples of 2 or multiples of 3, or both, is </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="4.602ex" height="2.79ex" role="img" focusable="false" viewBox="0 -944 2034 1233" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.654ex;"><defs><path id="MJX-30-TEX-N-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path><path id="MJX-30-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-30-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="menclose"><g transform="translate(267, 0)"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mstyle"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="34" xlink:href="#MJX-30-TEX-N-34"></use><use data-c="30" xlink:href="#MJX-30-TEX-N-30" transform="translate(500,0)"></use><use data-c="32" xlink:href="#MJX-30-TEX-N-32" transform="translate(1000,0)"></use></g></g></g></g></g><rect x="33.5" y="-255.5" width="1967" height="1166" fill="none" stroke-width="67"></rect></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><menclose notation="box"><mrow data-mjx-texclass="ORD"><mstyle displaystyle="true" scriptlevel="0"><mrow data-mjx-texclass="ORD"><mn>402</mn></mrow></mstyle></mrow></menclose></math></mjx-assistive-mml></mjx-container><script type="math/tex">\boxed{402}</script><span>.</span></p><p>&nbsp;</p><h2 id='section-5-medium-答题情况小结'><span>Section 5 Medium 答题情况小结</span></h2><p><a href='https://gre.kmf.com/practice/result/171497092138729691?sid=7002' target='_blank' class='url'>https://gre.kmf.com/practice/result/171497092138729691?sid=7002</a></p><p><img src="关于GRE数学/image-20240506145344590.png" referrerpolicy="no-referrer" alt="image-20240506145344590"></p><p><span>【参考答案】选B</span></p><p><span>【参考解析】</span></p><p><span>取任意三个端点连成三角形，分别在三条边上作中垂线，即可找到一个外心（外接圆圆心）。但是，由于两条线段相互bisect等分，所以四个方向找到的四个外心一定重合于交点，因此只能画出来一个外接圆，同时通过四个端点。</span></p><p><img src="关于GRE数学/image-20240506145404540.png" alt="image-20240506145404540" style="zoom:50%;" /></p><p>&nbsp;</p><p><img src="关于GRE数学/image-20240506133548596.png" referrerpolicy="no-referrer" alt="image-20240506133548596"></p><p><span>【参考答案】选B </span></p><p><strong><span>注意是频率直方图</span></strong></p><p><span>此外，也可以积累一个性质：直方图越凹，标准差越大；直方图越凸，标准差越小。 </span></p><p><span>数据越往中间靠拢，标准差越小，说明大多数的数据都分布得比较近。</span>
+<span>数据越往两边发散，标准差越大，说明大多数的数据之间都相差不少。</span></p><p>&nbsp;</p><p><img src="关于GRE数学/image-20240506133836907.png" alt="image-20240506133836907" style="zoom:50%;" /></p><p><span>Which student wrote the longest articles as measured by the average (arithmetic mean) number of words per article?</span></p><p><span>A A</span></p><p><span>B B</span></p><p><span>C C</span></p><p><span>D F</span></p><p><span>E G</span></p><p><span>【参考答案】选A</span></p><p><span>【参考解析】从表格中来看平均字数大于1 千的只有A和C，A平均字数为6.4÷5=1.28，B的平均数字为9.6÷8=1.2，因此A同学的平均字数最多。不要想当然，该算的地方一定要算清楚，不要自以为是，粗心大意。</span></p><p>&nbsp;</p><p><span>Mr. Thomas gave a chemistry test to 25 students and assigned each student a score. Of the 25 students, 12 students received scores that were greater than 80.</span></p><p><span>Which of the following statements individually provide(s) sufficient additional information to determine the median of the 25 scores?</span></p><p><span>Indicate all such statements.</span></p><p><span>A The average (arithmetic mean) of the 25 scores was 80</span></p><p><span>B One students received a score of 80</span></p><p><span>C Twelve students received scores that were less than or equal to 75</span></p><p><span>【参考答案】选B</span></p><p><span>【参考解析】A选项，均值对于中位数的判断没有作用；B选项，12个都是大于80的，那么80肯定就中位数了；C选项，12个小于等于75，仍然不知道第13个是多少，无法确定中位数。</span></p><p><span>B选项是个坑，我掉进去了。</span></p><p>&nbsp;</p><h2 id='section-6-hard-答题情况小结'><span>Section 6 Hard 答题情况小结</span></h2><p><a href='https://gre.kmf.com/practice/result/171497434676678314?sid=7001' target='_blank' class='url'>https://gre.kmf.com/practice/result/171497434676678314?sid=7001</a></p><p><span>If </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="13.743ex" height="2.452ex" role="img" focusable="false" viewBox="0 -833.9 6074.6 1083.9" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.566ex;"><defs><path id="MJX-31-TEX-I-1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path><path id="MJX-31-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-31-TEX-N-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path><path id="MJX-31-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path id="MJX-31-TEX-I-1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-31-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path id="MJX-31-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJX-31-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path id="MJX-31-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D447" xlink:href="#MJX-31-TEX-I-1D447"></use></g><g data-mml-node="mo" transform="translate(981.8,0)"><use data-c="3D" xlink:href="#MJX-31-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(2037.6,0)"><use data-c="34" xlink:href="#MJX-31-TEX-N-34"></use></g><g data-mml-node="mo" transform="translate(2537.6,0)"><use data-c="28" xlink:href="#MJX-31-TEX-N-28"></use></g><g data-mml-node="mi" transform="translate(2926.6,0)"><use data-c="1D45B" xlink:href="#MJX-31-TEX-I-1D45B"></use></g><g data-mml-node="msup" transform="translate(3526.6,0)"><g data-mml-node="mo"><use data-c="29" xlink:href="#MJX-31-TEX-N-29"></use></g><g data-mml-node="mn" transform="translate(422,363) scale(0.707)"><use data-c="32" xlink:href="#MJX-31-TEX-N-32"></use></g></g><g data-mml-node="mo" transform="translate(4574.3,0)"><use data-c="2B" xlink:href="#MJX-31-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(5574.6,0)"><use data-c="33" xlink:href="#MJX-31-TEX-N-33"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi><mo>=</mo><mn>4</mn><mo stretchy="false">(</mo><mi>n</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mn>3</mn></math></mjx-assistive-mml></mjx-container><script type="math/tex">T=4(n)^2+3</script><span> and n is an integer, which of the following could be the units digit of T?</span></p><p><span>Indicate all such digits.</span></p><p><span>A 1</span></p><p><span>B 3</span></p><p><span>C 5</span></p><p><span>D 7</span></p><p><span>E 9</span></p><p><span>【参考答案】选BDE</span></p><p><span>【参考解析】</span></p><p><span> 方法一：2n为偶数，个位可能是0、2、4、6、8，那么</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="5.237ex" height="2.452ex" role="img" focusable="false" viewBox="0 -833.9 2314.6 1083.9" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.566ex;"><defs><path id="MJX-34-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path id="MJX-34-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJX-34-TEX-I-1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-34-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><use data-c="28" xlink:href="#MJX-34-TEX-N-28"></use></g><g data-mml-node="mn" transform="translate(389,0)"><use data-c="32" xlink:href="#MJX-34-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(889,0)"><use data-c="1D45B" xlink:href="#MJX-34-TEX-I-1D45B"></use></g><g data-mml-node="msup" transform="translate(1489,0)"><g data-mml-node="mo"><use data-c="29" xlink:href="#MJX-34-TEX-N-29"></use></g><g data-mml-node="mn" transform="translate(422,363) scale(0.707)"><use data-c="32" xlink:href="#MJX-34-TEX-N-32"></use></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mn>2</mn><mi>n</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container><script type="math/tex">(2n)^2</script><span>的个位可能是4、6、0，故</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="9.133ex" height="2.452ex" role="img" focusable="false" viewBox="0 -833.9 4037 1083.9" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.566ex;"><defs><path id="MJX-33-TEX-N-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path><path id="MJX-33-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path id="MJX-33-TEX-I-1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-33-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path id="MJX-33-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJX-33-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path id="MJX-33-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><use data-c="34" xlink:href="#MJX-33-TEX-N-34"></use></g><g data-mml-node="mo" transform="translate(500,0)"><use data-c="28" xlink:href="#MJX-33-TEX-N-28"></use></g><g data-mml-node="mi" transform="translate(889,0)"><use data-c="1D45B" xlink:href="#MJX-33-TEX-I-1D45B"></use></g><g data-mml-node="msup" transform="translate(1489,0)"><g data-mml-node="mo"><use data-c="29" xlink:href="#MJX-33-TEX-N-29"></use></g><g data-mml-node="mn" transform="translate(422,363) scale(0.707)"><use data-c="32" xlink:href="#MJX-33-TEX-N-32"></use></g></g><g data-mml-node="mo" transform="translate(2536.8,0)"><use data-c="2B" xlink:href="#MJX-33-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(3537,0)"><use data-c="33" xlink:href="#MJX-33-TEX-N-33"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>4</mn><mo stretchy="false">(</mo><mi>n</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mn>3</mn></math></mjx-assistive-mml></mjx-container><script type="math/tex">4(n)^2+3</script><span>的个位是7、9、3</span></p><p><span>方法二：考查个位数找规律。n为正整数，那么n的平方的个位可以是1、4、5、6、9、0，于是</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="5.237ex" height="2.452ex" role="img" focusable="false" viewBox="0 -833.9 2314.6 1083.9" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.566ex;"><defs><path id="MJX-34-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path id="MJX-34-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJX-34-TEX-I-1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-34-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><use data-c="28" xlink:href="#MJX-34-TEX-N-28"></use></g><g data-mml-node="mn" transform="translate(389,0)"><use data-c="32" xlink:href="#MJX-34-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(889,0)"><use data-c="1D45B" xlink:href="#MJX-34-TEX-I-1D45B"></use></g><g data-mml-node="msup" transform="translate(1489,0)"><g data-mml-node="mo"><use data-c="29" xlink:href="#MJX-34-TEX-N-29"></use></g><g data-mml-node="mn" transform="translate(422,363) scale(0.707)"><use data-c="32" xlink:href="#MJX-34-TEX-N-32"></use></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mn>2</mn><mi>n</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container><script type="math/tex">(2n)^2</script><span>的个位是4、6、0，</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="9.133ex" height="2.452ex" role="img" focusable="false" viewBox="0 -833.9 4037 1083.9" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.566ex;"><defs><path id="MJX-35-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path id="MJX-35-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJX-35-TEX-I-1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-35-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path id="MJX-35-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path id="MJX-35-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><use data-c="28" xlink:href="#MJX-35-TEX-N-28"></use></g><g data-mml-node="mn" transform="translate(389,0)"><use data-c="32" xlink:href="#MJX-35-TEX-N-32"></use></g><g data-mml-node="mi" transform="translate(889,0)"><use data-c="1D45B" xlink:href="#MJX-35-TEX-I-1D45B"></use></g><g data-mml-node="msup" transform="translate(1489,0)"><g data-mml-node="mo"><use data-c="29" xlink:href="#MJX-35-TEX-N-29"></use></g><g data-mml-node="mn" transform="translate(422,363) scale(0.707)"><use data-c="32" xlink:href="#MJX-35-TEX-N-32"></use></g></g><g data-mml-node="mo" transform="translate(2536.8,0)"><use data-c="2B" xlink:href="#MJX-35-TEX-N-2B"></use></g><g data-mml-node="mn" transform="translate(3537,0)"><use data-c="33" xlink:href="#MJX-35-TEX-N-33"></use></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mn>2</mn><mi>n</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>+</mo><mn>3</mn></math></mjx-assistive-mml></mjx-container><script type="math/tex">(2n)^2+3</script><span>的个位是7、9、3。</span></p><p>&nbsp;</p><h2 id='section-7-medium-答题情况小结'><span>Section 7 Medium 答题情况小结</span></h2><p><img src="关于GRE数学/4363b7c9fb473ae7f7f02fc177dea870.png" referrerpolicy="no-referrer" alt="img"></p><p><span>The top surface of a certain 1-inch-thick oak board is 8 inches wide and has an area of 960 square inches. What is the price of this board? (1 foot=12 inches)</span></p><p><span>A $26.40</span></p><p><span>B $29.00</span></p><p><span>C $32.00</span></p><p><span>D $34.80</span></p><p><span>E $40.00</span></p><p>&nbsp;</p><p><span>正确答案： C</span></p><p><span>1foot（12inch）长，8inch宽的oak board，单价3.2，面积960，长度120inch，那么就是10个单位，价格3.2*10=32。</span></p><p><strong><span>要把这个东西想象成木板，而不是长方体，一英尺厚度可以忽略不计，an area of 960 square inches 指的是木板的覆盖面积</span></strong></p><p>&nbsp;</p><h2 id='section-9-medium-答题情况小结'><span>Section 9 Medium 答题情况小结</span></h2><p><img src="关于GRE数学/image-20240507230813199.png" referrerpolicy="no-referrer" alt="image-20240507230813199"></p><p><span>方法一：直接画图分析</span></p><p><img src="关于GRE数学/image-20240507231041729.png" referrerpolicy="no-referrer" alt="image-20240507231041729"></p><p><span>选 B。</span></p><p><span>方法二：代数式比大小</span></p><p><span>第一步：相减，不容易化解，无法跟0比大小</span></p><p><span>第二步：QA、QB均大于0，可以QA/QB，对比商与1的关系</span></p><p><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="3.038ex" height="2.398ex" role="img" focusable="false" viewBox="0 -746 1343 1060" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.71ex;"><defs><path id="MJX-36-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path id="MJX-36-TEX-N-221A" d="M95 178Q89 178 81 186T72 200T103 230T169 280T207 309Q209 311 212 311H213Q219 311 227 294T281 177Q300 134 312 108L397 -77Q398 -77 501 136T707 565T814 786Q820 800 834 800Q841 800 846 794T853 782V776L620 293L385 -193Q381 -200 366 -200Q357 -200 354 -197Q352 -195 256 15L160 225L144 214Q129 202 113 190T95 178Z"></path><path id="MJX-36-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mroot"><g><g data-mml-node="mi" transform="translate(853,0)"><use data-c="1D466" xlink:href="#MJX-36-TEX-I-1D466"></use></g></g><g data-mml-node="mn" transform="translate(261.8,247) scale(0.5)"><use data-c="33" xlink:href="#MJX-36-TEX-N-33"></use></g><g data-mml-node="mo" transform="translate(0,-114)"><use data-c="221A" xlink:href="#MJX-36-TEX-N-221A"></use></g><rect width="490" height="60" x="853" y="626"></rect></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mroot><mi>y</mi><mn>3</mn></mroot></math></mjx-assistive-mml></mjx-container><script type="math/tex">\sqrt[3]{y}</script><span> &gt; 0, </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="3.395ex" height="2.62ex" role="img" focusable="false" viewBox="0 -797.5 1500.7 1158.1" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.816ex;"><defs><path id="MJX-37-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-37-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-37-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mfrac"><g data-mml-node="mi" transform="translate(577.1,485) scale(0.707)"><use data-c="1D466" xlink:href="#MJX-37-TEX-I-1D466"></use></g><g data-mml-node="mn" transform="translate(220,-345) scale(0.707)"><use data-c="31" xlink:href="#MJX-37-TEX-N-31"></use><use data-c="30" xlink:href="#MJX-37-TEX-N-30" transform="translate(500,0)"></use><use data-c="30" xlink:href="#MJX-37-TEX-N-30" transform="translate(1000,0)"></use></g><rect width="1260.7" height="60" x="120" y="220"></rect></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>y</mi><mn>100</mn></mfrac></math></mjx-assistive-mml></mjx-container><script type="math/tex">\frac{y}{100}</script><span> &gt; 0, 比较QA、QB大小，可用</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="3.475ex" height="3.316ex" role="img" focusable="false" viewBox="0 -983.5 1536 1465.6" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -1.091ex;"><defs><path id="MJX-46-TEX-I-1D444" d="M399 -80Q399 -47 400 -30T402 -11V-7L387 -11Q341 -22 303 -22Q208 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435Q740 255 592 107Q529 47 461 16L444 8V3Q444 2 449 -24T470 -66T516 -82Q551 -82 583 -60T625 -3Q631 11 638 11Q647 11 649 2Q649 -6 639 -34T611 -100T557 -165T481 -194Q399 -194 399 -87V-80ZM636 468Q636 523 621 564T580 625T530 655T477 665Q429 665 379 640Q277 591 215 464T153 216Q153 110 207 59Q231 38 236 38V46Q236 86 269 120T347 155Q372 155 390 144T417 114T429 82T435 55L448 64Q512 108 557 185T619 334T636 468ZM314 18Q362 18 404 39L403 49Q399 104 366 115Q354 117 347 117Q344 117 341 117T337 118Q317 118 296 98T274 52Q274 18 314 18Z"></path><path id="MJX-46-TEX-I-1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path><path id="MJX-46-TEX-I-1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mfrac"><g data-mml-node="mrow" transform="translate(223.2,477.2) scale(0.707)"><g data-mml-node="mi"><use data-c="1D444" xlink:href="#MJX-46-TEX-I-1D444"></use></g><g data-mml-node="mi" transform="translate(791,0)"><use data-c="1D434" xlink:href="#MJX-46-TEX-I-1D434"></use></g></g><g data-mml-node="mrow" transform="translate(220,-345) scale(0.707)"><g data-mml-node="mi"><use data-c="1D444" xlink:href="#MJX-46-TEX-I-1D444"></use></g><g data-mml-node="mi" transform="translate(791,0)"><use data-c="1D435" xlink:href="#MJX-46-TEX-I-1D435"></use></g></g><rect width="1296" height="60" x="120" y="220"></rect></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mi>Q</mi><mi>A</mi></mrow><mrow><mi>Q</mi><mi>B</mi></mrow></mfrac></math></mjx-assistive-mml></mjx-container><script type="math/tex">\frac{QA}{QB}</script><span> 判断商与1的大小。</span></p><p><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="21.475ex" height="4.163ex" role="img" focusable="false" viewBox="0 -983.5 9491.9 1840.1" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -1.938ex;"><defs><path id="MJX-39-TEX-I-1D444" d="M399 -80Q399 -47 400 -30T402 -11V-7L387 -11Q341 -22 303 -22Q208 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435Q740 255 592 107Q529 47 461 16L444 8V3Q444 2 449 -24T470 -66T516 -82Q551 -82 583 -60T625 -3Q631 11 638 11Q647 11 649 2Q649 -6 639 -34T611 -100T557 -165T481 -194Q399 -194 399 -87V-80ZM636 468Q636 523 621 564T580 625T530 655T477 665Q429 665 379 640Q277 591 215 464T153 216Q153 110 207 59Q231 38 236 38V46Q236 86 269 120T347 155Q372 155 390 144T417 114T429 82T435 55L448 64Q512 108 557 185T619 334T636 468ZM314 18Q362 18 404 39L403 49Q399 104 366 115Q354 117 347 117Q344 117 341 117T337 118Q317 118 296 98T274 52Q274 18 314 18Z"></path><path id="MJX-39-TEX-I-1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path><path id="MJX-39-TEX-I-1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path><path id="MJX-39-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-39-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path id="MJX-39-TEX-N-221A" d="M95 178Q89 178 81 186T72 200T103 230T169 280T207 309Q209 311 212 311H213Q219 311 227 294T281 177Q300 134 312 108L397 -77Q398 -77 501 136T707 565T814 786Q820 800 834 800Q841 800 846 794T853 782V776L620 293L385 -193Q381 -200 366 -200Q357 -200 354 -197Q352 -195 256 15L160 225L144 214Q129 202 113 190T95 178Z"></path><path id="MJX-39-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-39-TEX-N-2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path><path id="MJX-39-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-39-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-39-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mfrac"><g data-mml-node="mrow" transform="translate(223.2,477.2) scale(0.707)"><g data-mml-node="mi"><use data-c="1D444" xlink:href="#MJX-39-TEX-I-1D444"></use></g><g data-mml-node="mi" transform="translate(791,0)"><use data-c="1D434" xlink:href="#MJX-39-TEX-I-1D434"></use></g></g><g data-mml-node="mrow" transform="translate(220,-345) scale(0.707)"><g data-mml-node="mi"><use data-c="1D444" xlink:href="#MJX-39-TEX-I-1D444"></use></g><g data-mml-node="mi" transform="translate(791,0)"><use data-c="1D435" xlink:href="#MJX-39-TEX-I-1D435"></use></g></g><rect width="1296" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(1813.8,0)"><use data-c="3D" xlink:href="#MJX-39-TEX-N-3D"></use></g><g data-mml-node="mroot" transform="translate(2869.6,0)"><g><g data-mml-node="mi" transform="translate(853,0)"><use data-c="1D466" xlink:href="#MJX-39-TEX-I-1D466"></use></g></g><g data-mml-node="mn" transform="translate(261.8,247) scale(0.5)"><use data-c="33" xlink:href="#MJX-39-TEX-N-33"></use></g><g data-mml-node="mo" transform="translate(0,-114)"><use data-c="221A" xlink:href="#MJX-39-TEX-N-221A"></use></g><rect width="490" height="60" x="853" y="626"></rect></g><g data-mml-node="mo" transform="translate(4434.8,0)"><use data-c="2217" xlink:href="#MJX-39-TEX-N-2217"></use></g><g data-mml-node="mfrac" transform="translate(5157,0)"><g data-mml-node="mn" transform="translate(220,394) scale(0.707)"><use data-c="31" xlink:href="#MJX-39-TEX-N-31"></use><use data-c="30" xlink:href="#MJX-39-TEX-N-30" transform="translate(500,0)"></use><use data-c="30" xlink:href="#MJX-39-TEX-N-30" transform="translate(1000,0)"></use></g><g data-mml-node="mi" transform="translate(577.1,-345) scale(0.707)"><use data-c="1D466" xlink:href="#MJX-39-TEX-I-1D466"></use></g><rect width="1260.7" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(6935.5,0)"><use data-c="3D" xlink:href="#MJX-39-TEX-N-3D"></use></g><g data-mml-node="mfrac" transform="translate(7991.2,0)"><g data-mml-node="mn" transform="translate(220,394) scale(0.707)"><use data-c="31" xlink:href="#MJX-39-TEX-N-31"></use><use data-c="30" xlink:href="#MJX-39-TEX-N-30" transform="translate(500,0)"></use><use data-c="30" xlink:href="#MJX-39-TEX-N-30" transform="translate(1000,0)"></use></g><g data-mml-node="msup" transform="translate(312.7,-711.6) scale(0.707)"><g data-mml-node="mi"><use data-c="1D466" xlink:href="#MJX-39-TEX-I-1D466"></use></g><g data-mml-node="TeXAtom" transform="translate(523,483.1) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mfrac"><g data-mml-node="mn" transform="translate(220,394)"><use data-c="32" xlink:href="#MJX-39-TEX-N-32"></use></g><g data-mml-node="mn" transform="translate(220,-505)"><use data-c="33" xlink:href="#MJX-39-TEX-N-33"></use></g><rect width="700" height="60" x="120" y="220"></rect></g></g></g><rect width="1260.7" height="60" x="120" y="220"></rect></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mi>Q</mi><mi>A</mi></mrow><mrow><mi>Q</mi><mi>B</mi></mrow></mfrac><mo>=</mo><mroot><mi>y</mi><mn>3</mn></mroot><mo>∗</mo><mfrac><mn>100</mn><mi>y</mi></mfrac><mo>=</mo><mfrac><mn>100</mn><msup><mi>y</mi><mrow data-mjx-texclass="ORD"><mfrac><mn>2</mn><mn>3</mn></mfrac></mrow></msup></mfrac></math></mjx-assistive-mml></mjx-container><script type="math/tex">\frac{QA}{QB}= \sqrt[3]{y}  * \frac{100}{y}  = \frac{100}{y^{\frac{2}{3}}}</script></p><p><span>因为y &gt; 1001 &gt; 1000=</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="3.25ex" height="2.003ex" role="img" focusable="false" viewBox="0 -863.3 1436.6 885.3" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.05ex;"><defs><path id="MJX-40-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-40-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-40-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mn"><use data-c="31" xlink:href="#MJX-40-TEX-N-31"></use><use data-c="30" xlink:href="#MJX-40-TEX-N-30" transform="translate(500,0)"></use></g><g data-mml-node="TeXAtom" transform="translate(1033,393.1) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="33" xlink:href="#MJX-40-TEX-N-33"></use></g></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mn>10</mn><mrow data-mjx-texclass="ORD"><mn>3</mn></mrow></msup></math></mjx-assistive-mml></mjx-container><script type="math/tex">10^{3}</script><span>, 所以</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="2.096ex" height="2.351ex" role="img" focusable="false" viewBox="0 -833.9 926.6 1038.9" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.464ex;"><defs><path id="MJX-41-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-41-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><use data-c="1D466" xlink:href="#MJX-41-TEX-I-1D466"></use></g><g data-mml-node="TeXAtom" transform="translate(523,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="32" xlink:href="#MJX-41-TEX-N-32"></use></g></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>y</mi><mrow data-mjx-texclass="ORD"><mn>2</mn></mrow></msup></math></mjx-assistive-mml></mjx-container><script type="math/tex">y^{2}</script><span> &gt; </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="3.25ex" height="2.005ex" role="img" focusable="false" viewBox="0 -864 1436.6 886" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.05ex;"><defs><path id="MJX-42-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-42-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-42-TEX-N-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mn"><use data-c="31" xlink:href="#MJX-42-TEX-N-31"></use><use data-c="30" xlink:href="#MJX-42-TEX-N-30" transform="translate(500,0)"></use></g><g data-mml-node="TeXAtom" transform="translate(1033,393.1) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="36" xlink:href="#MJX-42-TEX-N-36"></use></g></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mn>10</mn><mrow data-mjx-texclass="ORD"><mn>6</mn></mrow></msup></math></mjx-assistive-mml></mjx-container><script type="math/tex">10^{6}</script><span> ，所以</span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="2.566ex" height="2.674ex" role="img" focusable="false" viewBox="0 -977.1 1134.1 1182.1" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.464ex;"><defs><path id="MJX-43-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-43-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJX-43-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><use data-c="1D466" xlink:href="#MJX-43-TEX-I-1D466"></use></g><g data-mml-node="TeXAtom" transform="translate(523,365.5) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mfrac"><g data-mml-node="mn" transform="translate(220,394) scale(0.707)"><use data-c="32" xlink:href="#MJX-43-TEX-N-32"></use></g><g data-mml-node="mn" transform="translate(220,-345) scale(0.707)"><use data-c="33" xlink:href="#MJX-43-TEX-N-33"></use></g><rect width="553.6" height="60" x="120" y="220"></rect></g></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>y</mi><mrow data-mjx-texclass="ORD"><mfrac><mn>2</mn><mn>3</mn></mfrac></mrow></msup></math></mjx-assistive-mml></mjx-container><script type="math/tex">y^{\frac{2}{3}}</script><span> &gt; </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="3.25ex" height="2.005ex" role="img" focusable="false" viewBox="0 -864 1436.6 886" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.05ex;"><defs><path id="MJX-44-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-44-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-44-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mn"><use data-c="31" xlink:href="#MJX-44-TEX-N-31"></use><use data-c="30" xlink:href="#MJX-44-TEX-N-30" transform="translate(500,0)"></use></g><g data-mml-node="TeXAtom" transform="translate(1033,393.1) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="32" xlink:href="#MJX-44-TEX-N-32"></use></g></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mn>10</mn><mrow data-mjx-texclass="ORD"><mn>2</mn></mrow></msup></math></mjx-assistive-mml></mjx-container><script type="math/tex">10^{2}</script></p><p><span>那么， </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="3.395ex" height="3.895ex" role="img" focusable="false" viewBox="0 -864.9 1500.7 1721.5" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -1.938ex;"><defs><path id="MJX-45-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-45-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-45-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-45-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJX-45-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mfrac"><g data-mml-node="mn" transform="translate(220,394) scale(0.707)"><use data-c="31" xlink:href="#MJX-45-TEX-N-31"></use><use data-c="30" xlink:href="#MJX-45-TEX-N-30" transform="translate(500,0)"></use><use data-c="30" xlink:href="#MJX-45-TEX-N-30" transform="translate(1000,0)"></use></g><g data-mml-node="msup" transform="translate(312.7,-711.6) scale(0.707)"><g data-mml-node="mi"><use data-c="1D466" xlink:href="#MJX-45-TEX-I-1D466"></use></g><g data-mml-node="TeXAtom" transform="translate(523,483.1) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mfrac"><g data-mml-node="mn" transform="translate(220,394)"><use data-c="32" xlink:href="#MJX-45-TEX-N-32"></use></g><g data-mml-node="mn" transform="translate(220,-505)"><use data-c="33" xlink:href="#MJX-45-TEX-N-33"></use></g><rect width="700" height="60" x="120" y="220"></rect></g></g></g><rect width="1260.7" height="60" x="120" y="220"></rect></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mn>100</mn><msup><mi>y</mi><mrow data-mjx-texclass="ORD"><mfrac><mn>2</mn><mn>3</mn></mfrac></mrow></msup></mfrac></math></mjx-assistive-mml></mjx-container><script type="math/tex">\frac{100}{y^{\frac{2}{3}}}</script><span>当中，分子100，分母&gt;100</span></p><p><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="3.475ex" height="3.316ex" role="img" focusable="false" viewBox="0 -983.5 1536 1465.6" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -1.091ex;"><defs><path id="MJX-46-TEX-I-1D444" d="M399 -80Q399 -47 400 -30T402 -11V-7L387 -11Q341 -22 303 -22Q208 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435Q740 255 592 107Q529 47 461 16L444 8V3Q444 2 449 -24T470 -66T516 -82Q551 -82 583 -60T625 -3Q631 11 638 11Q647 11 649 2Q649 -6 639 -34T611 -100T557 -165T481 -194Q399 -194 399 -87V-80ZM636 468Q636 523 621 564T580 625T530 655T477 665Q429 665 379 640Q277 591 215 464T153 216Q153 110 207 59Q231 38 236 38V46Q236 86 269 120T347 155Q372 155 390 144T417 114T429 82T435 55L448 64Q512 108 557 185T619 334T636 468ZM314 18Q362 18 404 39L403 49Q399 104 366 115Q354 117 347 117Q344 117 341 117T337 118Q317 118 296 98T274 52Q274 18 314 18Z"></path><path id="MJX-46-TEX-I-1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path><path id="MJX-46-TEX-I-1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mfrac"><g data-mml-node="mrow" transform="translate(223.2,477.2) scale(0.707)"><g data-mml-node="mi"><use data-c="1D444" xlink:href="#MJX-46-TEX-I-1D444"></use></g><g data-mml-node="mi" transform="translate(791,0)"><use data-c="1D434" xlink:href="#MJX-46-TEX-I-1D434"></use></g></g><g data-mml-node="mrow" transform="translate(220,-345) scale(0.707)"><g data-mml-node="mi"><use data-c="1D444" xlink:href="#MJX-46-TEX-I-1D444"></use></g><g data-mml-node="mi" transform="translate(791,0)"><use data-c="1D435" xlink:href="#MJX-46-TEX-I-1D435"></use></g></g><rect width="1296" height="60" x="120" y="220"></rect></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mi>Q</mi><mi>A</mi></mrow><mrow><mi>Q</mi><mi>B</mi></mrow></mfrac></math></mjx-assistive-mml></mjx-container><script type="math/tex">\frac{QA}{QB}</script><span>  &lt; 1, QA &lt; QB , 选B。</span></p><p>&nbsp;</p><p><img src="关于GRE数学/bf3727fc4c94ba59e335fd61749d01c2.png" referrerpolicy="no-referrer" alt="img"></p><p><span>The table above shows the number of points scored by a team in each of 48 games. What is the 3rd quartile of the distribution of the data?</span></p><p>&nbsp;</p><p><span>方法一：48个数据，中位数3，前后各24个数据，后24个数的中位数4，因此第三四分位数为4；</span></p><p><span>方法二：48个数据，48 *（3/4）=36，所以第三四分位数是第36个数（即4）和第37个数（也是4）的平均数，也就是4。</span></p><p>&nbsp;</p><h2 id='section-11-medium-答题情况小结'><span>Section 11 Medium 答题情况小结</span></h2><p><img src="关于GRE数学/e098c3b6360655ddfe496930ad6b10fe.png" referrerpolicy="no-referrer" alt="img"></p><p><span>A group of 10 couples plans to rent bayside summer houses on Island X from Realtor M for a certain week. The total rental cost for the houses will be evenly distributed among the 10 couples, and each couple will have their own bedroom. If Realtor M has at least three bayside summer houses of each type available that week, what is the least possible rental cost per couple?</span></p><p><span>A $400</span></p><p><span>B $300</span></p><p><span>C $240</span></p><p><span>D $220</span></p><p><span>E $190</span></p><p>&nbsp;</p><p><span>有 10 对夫妇计划在某一周内向房地产经纪人 M 租 X 岛的海湾避暑别墅。房子的总租金将平均分配给这 10 对夫妇，每对夫妇都有自己的卧室。如果 M 房东在该周至少有三套各类型的海湾避暑别墅，那么每对夫妇的最低租金是多少？</span></p><p><span>租三个四卧室是2400</span></p><p><span>租两个四卧室加上一个两室是2200</span></p><p><span>通过凑数的方法判断2200应该是最低的了，2200/10=220，所以正确答案是：D</span></p><p>&nbsp;</p><h2 id='section-12-hard-答题情况小结'><span>Section 12 Hard 答题情况小结</span></h2><p><img src="关于GRE数学/image-20240509131749007.png" referrerpolicy="no-referrer" alt="image-20240509131749007"></p><p><span> </span><strong><span>regular polygons 的意思是 正多边形 </span></strong></p><p><span>【参考答案】选C</span></p><p><span>【参考解析】P是正多边形有n个相等的内角，Q是正多边形有n+1个内角。合并起来，一共有n+n+1=2n+1个内角，求这2n+1个内角的度数从小到大排列的中位数度数是多少。</span></p><p><span>总共2n+1项，中位数是从小到大排列第n+1项，n多边形的内角，小于n+1多边形的内角，所以从小到大排列第n+1项，应该是n+1多边形的内角</span></p><p><span>QA=从小到大排列第n+1个内角度数=n+1边形的每个内角=(n+1-2)180/(n+1)=QB</span></p><p>&nbsp;</p><p><span>As a result of a chemical reaction between compounds A and B. 1/4 of each compound was transformed into an equal amount of the other compound, while the remaining 3/4 of each compound was not transformed. If the amount of B was initially 4 times the amount of A. what was the ratio of the amount of A to the amount of B after the reaction?</span></p><p><span>A 1 to 3</span></p><p><span>B 3 to 4</span></p><p><span>C 4 to 7</span></p><p><span>D 7 to 13</span></p><p><span>E 7 to 16</span></p><p>&nbsp;</p><p><span>【参考答案】选D</span></p><p><span>【参考解析】设反应前A为x, 反应前B为4x，反应过程中四分之一的A转换成了B，说明A减少了1/4 x, B增加了1/4 x；而同时， 1/4的B转换成了A，说明B减少了1/4· 4x = x, 则A增加了x; 那么反应后A为：x – 1/4 x + x = 7/4x, 反应后B为：4x + 1/4 x – x = 13/4x， A : B = 7/4x: 13/4x = 7 : 13。</span></p><p>&nbsp;</p><p><span>&quot;the other&quot; 和 &quot;another&quot; 是英语中常用的代词，它们有以下的区别：</span></p><ol start='' ><li><p><span>&quot;The other&quot; 指的是两个特定选项中的第二个，暗示只有两个选项或两个中的另一个。例如，如果你有一个苹果和一个橙子，你可以说 &quot;I&#39;ll take the other one&quot; 来表示你想要橙子。</span></p></li><li><p><span>&quot;Another&quot; 指的是除了已经提到的选项之外的任何一个，暗示有三个或更多的选项。例如，如果你有一篮子水果，你已经拿了一个苹果，然后你可以说 &quot;Can I have another one?&quot; 来表示你想再拿一个水果，而这个水果不特指是哪一个。</span>
+<span>总结来说，当你只有两个选项时，用 &quot;the other&quot;；当有三个或更多的选项时，用 &quot;another&quot;。</span></p></li></ol><p>&nbsp;</p><h1 id='关于gre数学机经'><span>关于GRE数学机经</span></h1><p><span>机经，就是最新GRE真题，是通过考生回忆整理而来的。 只有通过做机经题，才能够真实了解近期GRE考情，感受当前考试实际难度，针对性查漏补缺，甚至未来自己参加考试时，遇到同考点题、或者机经原题。</span></p><p>&nbsp;</p><h2 id='2024年4月最新命中gre数学机经题十）-答题情况小结'><span>2024年4月最新命中GRE数学机经题（十） 答题情况小结</span></h2><p><a href='https://gre.kmf.com/practice/result/171500356620984086?sid=7317' target='_blank' class='url'>https://gre.kmf.com/practice/result/171500356620984086?sid=7317</a></p><p><span>A bus traveled </span><em><span>m</span></em><span> miles in </span><em><span>h</span></em><span> hours at an average speed of </span><em><span>r</span></em><span> miles per hour. If the number of hours traveled by the bus had been 20 percent greater and the average speed had been 20 percent less, then the distance traveled by the bus would have been what percent less?</span></p><p><strong><span>_</span></strong><span>%</span></p><p><span>【参考答案】填4</span></p><p><span>【参考解析】m=hr, 1.2h*0.8r=0.98hr=0.96m, (m-0.96m)/m=4%</span></p><p><strong><span>仔细审题非常重要，我填了个96。。。</span></strong></p><p><strong><span>主要也是自己当时在第一个题卡住了一小会，突然想到了解题思路，算出来也没仔细看问题，直接就填进去了，导致了错误。</span></strong></p><p>&nbsp;</p><p><img src="关于GRE数学/da1860b68443b7cb51a1b55e659915c4.png" referrerpolicy="no-referrer" alt="img"></p><p><span>The table above summarizes customer satisfaction ratings for two banks, where each rating is an integer from 1 to 10. Which of the following statements must be true?</span></p><p><span>Indicate all such statements.</span></p><p><span>A For Bank I, if a rating is within 0.5 standard deviation of the mean rating, then the rating is 7.</span></p><p><span>B For Bank II, if a rating is within 0.4 standard deviation of the mean rating, then the rating is 6</span></p><p><span>C The sum of all the ratings for Bank I is less than the sum of all the ratings for Bank II.</span></p><p><span>【参考答案】选B</span></p><p><span>【参考解析】</span></p><p><span>A选项，7.4-1.6</span><span>*</span><span>0.5</span><span>~</span><span>7.4+1.6*0.5，也即6.6~8.2，可以取7或8，错误</span></p><p><span>B选项，5.9-1.8</span><span>*</span><span>0.4</span><span>~</span><span>5.9+1.8</span><span>*</span><span>0.4，也即5.18</span><span>~</span><span>6.62，只可以取6，正确</span></p><p><span>C选项，155</span><span>*</span><span>7.4=1147, 160</span><span>*</span><span>5.9=944，1147&gt;944，错误</span></p><p><strong><span>一开始没看懂题目在问什么。</span></strong></p><p><strong><span>0.5 standard deviation 的意思是 standard deviation 一半，也就是0.5倍的standard deviation</span></strong></p></div></div>
+</body>
+<!-- <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script> -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--侧栏目录生成代码-->
+<script>
+    //标题序号计数器
+    var hCount = [0, 0, 0, 0, 0, 0];
+
+    //设置计数器
+    function setHCount(number) {
+        //当前计数器加一
+        hCount[number - 1]++;
+        for (var i = number, length = hCount.length; i < length; i++) {
+            //子目录计数器全部置零
+            hCount[i] = 0;
+        }
+    }
+
+    //重命名目录名称
+    function setHTagValue(item, number) {
+        //获取标题名
+        var text = $(item).get(0).innerHTML;
+        //初始化空字符串
+        var before = "";
+        //生成序号
+        for (var i = 0, length = hCount.length; i < number; i++) {
+            if (i < number - 1)
+                before += hCount[i] + ".";
+            else
+                before += hCount[i] + " ";
+        }
+        //在标题前面加上序号
+        $(item).get(0).innerHTML = before + text;
+    }
+
+    function renameHTag(item) {
+        var tag = $(item).get(0).localName;
+        if (tag === "h1") {
+            setHCount(1);
+            //console\.log("捕获到标签:%s", tag);
+            setHTagValue(item, 1);
+        }
+        if (tag === "h2") {
+            setHCount(2);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 2);
+        }
+        if (tag === "h3") {
+            setHCount(3);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 3);
+        }
+        if (tag === "h4") {
+            setHCount(4);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 4);
+        }
+        if (tag === "h5") {
+            setHCount(5);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 5);
+        }
+        if (tag === "h6") {
+            setHCount(6);
+            //console.log("捕获到标签:%s", tag);
+            setHTagValue(item, 6)
+        }
+    }
+
+    $(document).ready(function () {
+        $("h1,h2,h3,h4,h5,h6").each(function (i, item) {
+            //给<H>类标签编号
+            renameHTag(item);
+            //获取标签的名字,h1,还是h2
+            var tag = $(item).get(0).localName;
+            //为该标签设置id属性
+            $(item).attr("id", "wow" + i);
+            //添加一个页内超链接,并设置class选择器
+            //      $("#category").append('<a class="new'+tag+'" href="#wow'+i+'">'+$(this).text()+'</a></br>');
+            $("#category").append('<a class="new' + tag + '" href="#wow' + i + '">' + $(item).text() + '</a></br>');
+            //为每一个标题超链接的class属性设置左边距
+            $(".newh1").css("margin-left", 0);
+            $(".newh2").css("margin-left", 20);
+            $(".newh3").css("margin-left", 40);
+            $(".newh4").css("margin-left", 60);
+            $(".newh5").css("margin-left", 80);
+            $(".newh6").css("margin-left", 100);
+        });
+        //设置class选择器为.book-body的html内容
+        $(".book-body").html($(".book-body").nextAll())
+    });
+</script>
+<style type="text/css">
+    @media (max-width: 1600px) {
+        .book-body {
+            /* padding-left: 200px; */
+            padding-right: 0px;
+        }
+    }
+
+    @media (max-width: 1400px) {
+        .book-body {
+            /* padding-left: 200px; */
+            padding-right: 0px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .book-body {
+            /* padding-left: 300px; */
+            padding-left: 0px;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .book-body {
+            padding-left: 0px;
+        }
+    }
+
+    @media (min-width: 600px) {
+        #category {
+            /* 绝对定位 */
+            position: fixed;
+            /* left: 20px; */
+            /* 目录显示的位置 */
+            left: 0px;
+            top: 0;
+            /* 目录栏的高度,这里设置为60%主要是为了不挡住返回顶部和折叠按钮 */
+            height: 79%;
+            /* 开启垂直滚动条 */
+            overflow-y: scroll;
+            /* 开启水平滚动条 */
+            overflow-x: scroll;
+        }
+    }
+
+    @media (-webkit-max-device-pixel-ratio: 1) {
+        ::-webkit-scrollbar-track-piece {
+            background-color: #FFF
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #c2c2c2;
+            background-clip: padding-box;
+            min-height: 28px
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #A0A0A0
+        }
+    }
+</style>
+<script>
+    // id="category" οnclick="showOrCloseCategory()"
+    function showOrCloseCategory() {
+        var id = document.getElementById("category");
+        var book_body = document.getElementById("book_body");
+        //如果展开了
+        if (id.style.display == 'block') {
+            //console.log("开始展开");
+            id.style.display = 'none';
+            id.style.width = "0%";
+            book_body.style.width = "100%";
+            book_body.style.paddingleft = 0;
+        }
+        //如果被折叠了
+        else if (id.style.display == 'none') {
+            //console.log("开始折叠");
+            id.style.display = 'block';
+            book_body.style.width = "90%";
+            id.style.width = "20%"
+        }
+    }
+</script>
+<!--返回顶部-->
+<a href="javascript:scroll(0,0)" style="position:fixed;float:right;left:40px;top:80%">返回顶部</a>
+<button onclick="showOrCloseCategory()" style="position:fixed;float:right;left:40px;top:85%">折叠/展开</button>
+<!--文章主体部分-->
+<div class="book-body" id="book_body" style="width:90%;display:block"></div>
+<!--目录栏，设置占用宽度为20%可以根据实际情况设置-->
+<div class="book-summary" id="category" style="width:20%;display:block"></div>
+
+
+</html>
